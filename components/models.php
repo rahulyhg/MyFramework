@@ -67,19 +67,23 @@ class models{
 
 
     public static function insert(array $arr){
-        self::saveRequest($arr);
-        self::$sql = self::into();
-        self::$sql .= self::columnForInsert();
-        self::$sql .= self::valuesForInsert();
-        self::save();
+        if(!empty($arr)) {
+            self::saveRequest($arr);
+            self::$sql = self::into();
+            self::$sql .= self::columnForInsert();
+            self::$sql .= self::valuesForInsert();
+            self::save();
+        }
     }
 
 
     public static function update(array $arr): models{
-        self::saveRequest($arr);
-        self::$sql = self::updateSql();
-        self::$sql .= self::set();
-        return new self();
+        if(!empty($arr)) {
+            self::saveRequest($arr);
+            self::$sql = self::updateSql();
+            self::$sql .= self::set();
+            return new self();
+        }
     }
 
 

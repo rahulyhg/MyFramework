@@ -4,14 +4,9 @@
 class indexController extends Controller {
 
     public function index(){
-        if(isset($_POST['people'])){
-      test::insert($_POST);
-        }
-        echo test::$sql;
+          $this->view('AllPublic.index',['hello'=>'hello world']);
+
     }
 }
-?>
-<form action="" method="post">
-    <textarea name="people"></textarea>
-    <input type="submit">
-</form>
+
+

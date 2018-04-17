@@ -8,6 +8,7 @@ trait globalFunction{
             extract($variable, EXTR_PREFIX_SAME, "wddx");
         }
         require_once "views/$url.php";
+        return $this;
     }
 
     public static function isUser($login){
