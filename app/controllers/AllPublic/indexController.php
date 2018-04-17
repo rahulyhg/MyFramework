@@ -4,6 +4,7 @@
 class indexController extends Controller {
 
     public function index(){
-       dump(people::allPeople());
+
+      echo models::drop('lol');
     }
 }

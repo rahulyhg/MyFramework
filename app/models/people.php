@@ -3,8 +3,8 @@
 
 class people extends models
 {
-    public static function allPeople(){
-     return self::select(['people'])->show();
-    }
 
+    public static function allPeople($request){
+        self::update($request)->get();
+    }
 }

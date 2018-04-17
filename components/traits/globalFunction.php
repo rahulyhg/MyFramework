@@ -24,4 +24,9 @@ trait globalFunction{
         move_uploaded_file($_FILES[$name]['tmp_name'],$upload_path . $filename);
     }
 
+    public static function nameClass(){
+        $name = get_called_class();
+        return $name == 'models' ? self::$name_table : $name;
+    }
+
 }
