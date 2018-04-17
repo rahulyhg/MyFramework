@@ -6,7 +6,7 @@ class listMiddleware{
 
     function __construct(){
         $this->list = [
-
+            'postMiddleware'
         ];
     }
 

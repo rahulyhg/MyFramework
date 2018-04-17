@@ -22,7 +22,7 @@ trait dbWhere
     //Operation function orWhere
 
     private static function isStringOnWhere($column,$where,$sign){
-        self::$sql .= " WHERE {$column} {$sign} '{$where}';";
+        self::$sql .= " WHERE {$column} {$sign} '{$where}'";
     }
 
     private static function isArrayOnWhere($column){

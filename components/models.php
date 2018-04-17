@@ -10,18 +10,38 @@ class models{
 
     private static $column_id = 'id';
 
+    private static $request;
+
+
+    public function get():array {
+        $row = db()->query(self::$sql);
+        return $row->fetchall(PDO::FETCH_ASSOC);
+    }
+    public static function save(){
+        $row = db()->prepare(self::$sql);
+        $row->execute(array_values(self::$request));
+    }
+
 
     public static function all(){
         self::$sql = "SELECT * FROM " . self::nameClass();
         return self::get();
     }
 
+    public function first(): array {
+        $arr = self::get();
+        foreach ($arr as $key){
+            return $key;
+        }
+    }
+
+
     public static function select($select = ['*']): models{
         if(is_array($select)) {
             $select = implode(',', $select);
      }
         self::$sql = "SELECT " . $select . " FROM " . self::nameClass();
-        return new models();
+            return new self();
     }
 
 
@@ -31,7 +51,7 @@ class models{
            self::select();
         }
         is_string($column) ? self::isStringOnWhere($column,$where,$sign) : self::isArrayOnWhere($column);
-        return new models();
+        return new self();
     }
 
     public function orWhere($column,$where='',$sign = '=') : models{
@@ -41,39 +61,32 @@ class models{
 
     public static function find($where) : models{
        self::where(self::$column_id,$where);
-       return new models();
+        return new self();
     }
 
 
-    public function get():array {
-        $row = db()->query(htmlspecialchars(self::$sql));
-        return $row->fetchall(PDO::FETCH_ASSOC);
-    }
-
-    public function first(): array {
-       $arr = self::get();
-       foreach ($arr as $key){
-           return $key;
-       }
-    }
 
     public static function insert(array $arr){
+        self::saveRequest($arr);
         self::$sql = self::into();
-        self::$sql .= self::columnForInsert($arr);
-        self::$sql .= self::valuesForInsert($arr);
-        return new models();
+        self::$sql .= self::columnForInsert();
+        self::$sql .= self::valuesForInsert();
+        self::save();
     }
 
+
     public static function update(array $arr): models{
+        self::saveRequest($arr);
         self::$sql = self::updateSql();
-        self::$sql .= self::set($arr);
-        return new models();
+        self::$sql .= self::set();
+        return new self();
     }
+
 
 
     public static function delete(){
         self::$sql = "DELETE FROM " . self::nameClass();
-        return new models();
+        return new self();
     }
 
     public static function drop($name){
@@ -81,8 +94,15 @@ class models{
         self::get();
     }
 
+
+
     public static function table(string $name){
         self::$name_table = $name;
-        return new models();
+        return new self();
+    }
+
+
+    private static function saveRequest(array $arr){
+        self::$request = $arr;
     }
 }

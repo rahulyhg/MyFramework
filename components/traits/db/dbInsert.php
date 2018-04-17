@@ -7,18 +7,19 @@ trait dbInsert
         return "INSERT INTO ". self::nameClass();
     }
 
-    private static function columnForInsert(array $arr): string{
-        foreach($arr as $key => $values){
+    private static function columnForInsert(): string{
+        foreach(self::$request as $key => $values){
             $column[] = "`{$key}`";
         }
         return "(".implode(',',$column).") ";
     }
 
-    private static function valuesForInsert(array $arr): string
-        {
-        foreach ($arr as $key => $value) {
-            $values[] = "'{$value}'";
-        }
-        return "VALUES(" . implode(',', $values) . ")";
+    private static function valuesForInsert(): string{
+        $count = count(self::$request);
+        $result ='';
+        for($i=0;$i<$count;$i++) {
+            $result .= '?,';
+            }
+        return "VALUES(" .preg_replace('/(,)$/','',$result). ")";
     }
 }

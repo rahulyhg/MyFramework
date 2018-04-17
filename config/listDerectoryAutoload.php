@@ -16,6 +16,7 @@ class listDerectoryAutoload
         'app/middleware',
         'app/models',
         'tests/',
+        'components/middleware',
     ];
     }
 
