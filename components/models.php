@@ -11,6 +11,10 @@ class models{
     private static $column_id = 'id';
 
 
+    public static function all(){
+        self::$sql = "SELECT * FROM " . self::nameClass();
+        return self::get();
+    }
 
     public static function select($select = ['*']): models{
         if(is_array($select)) {
@@ -42,10 +46,16 @@ class models{
 
 
     public function get():array {
-        $row = db()->query(self::$sql);
+        $row = db()->query(htmlspecialchars(self::$sql));
         return $row->fetchall(PDO::FETCH_ASSOC);
     }
 
+    public function first(): array {
+       $arr = self::get();
+       foreach ($arr as $key){
+           return $key;
+       }
+    }
 
     public static function insert(array $arr){
         self::$sql = self::into();
@@ -75,6 +85,4 @@ class models{
         self::$name_table = $name;
         return new models();
     }
-
-
 }
