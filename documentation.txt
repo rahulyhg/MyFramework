@@ -1,0 +1,31 @@
+
+\БД
+
+showAll($select = ['*'],$sample = 'DESC', $column = 'id') - показати всі записи з таблиці
+
+find($id, $column = 'id') - показати однин запис
+
+suchWhere($column,$where,$select = ['*'],$sample = 'DESC',$columnOrder = 'id' ) - WHERE $column = $where ORDER BY $columnOrder = $sample
+
+saveAll($post) - масове заповнення таблиці, треба щоб імя інпуту співпадало з назвою колонки і витримувалась послідовність інпутів і колонок
+
+updateAll($post,$where) - масове змінення таблиці по стовпцю id
+
+delete($column,$where)
+
+dropTable($name)
+
+
+
+/Auth
+
+isUser($login) -- чи авторизований юзер
+
+exitUser() - вихід для цього потрібна <form method='post'><input name=exit> ..
+
+
+
+
+
+
+view($url,array $variable = null) - підключити  views по адресі "папка.назваФайла" (без .php)  , з масивом перемінних
