@@ -4,11 +4,11 @@
 trait dbUpdate
 {
 
-    private static function updateSql(){
+    private static function updateSql(): string{
         return "UPDATE ". self::nameClass();
     }
 
-    private static function set(){
+    private static function set(): string{
         foreach (self::$request as $key => $value){
             $result[]= "{$key} = ?";
         }

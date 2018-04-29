@@ -13,7 +13,7 @@ class models{
     private static $request;
 
 
-    public function get():array {
+    public function get(): array {
         $row = db()->query(self::$sql);
         return $row->fetchall(PDO::FETCH_ASSOC);
     }
@@ -23,7 +23,7 @@ class models{
     }
 
 
-    public static function all(){
+    public static function all(): array {
         self::$sql = "SELECT * FROM " . self::nameClass();
         return self::get();
     }
@@ -88,7 +88,7 @@ class models{
 
 
 
-    public static function delete(){
+    public static function delete(): models{
         self::$sql = "DELETE FROM " . self::nameClass();
         return new self();
     }
@@ -100,7 +100,7 @@ class models{
 
 
 
-    public static function table(string $name){
+    public static function table(string $name): models{
         self::$name_table = $name;
         return new self();
     }

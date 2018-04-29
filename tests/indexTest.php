@@ -2,14 +2,13 @@
 
 use PHPUnit\Framework\TestCase;
 require_once 'app/controllers/Controller.php';
-require_once 'app/controllers/Auth/authController.php';
 
 class indexTest extends TestCase{
 
     public function testHomeNotRegister(){
-        $object = new authController();
-        $result =$object->getLogin();
-        $result->assertUrlIs('/login');
+        $object = new Controller();
+        $object->view('AllPublic.index',['hello'=>'hello 3world','kok'=>'rt']);
+        $this->assertFileIsReadable('views/AllPublic/index.php');
     }
 
 }
