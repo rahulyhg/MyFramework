@@ -1,52 +1,55 @@
 <?php
+class Route
+{
 
+    public static $arr = [];
 
-class Route{
-
-    private $routes;
-    private $url;
-    function __construct(){
-        $this->routes = require_once 'routes/web.php';
-        $this->url = trim($_SERVER['REQUEST_URI'],'/');
-    }
-
-    public function run()    {
-        $getUrl = $this->url;
-        foreach ($this->routes as $key => $value) {
-            if (preg_match("~$key~", $getUrl)) {
-                $inner = preg_replace("~$key~", $value, $getUrl);
-
-                $masuv = explode('/', $inner);
-                $controller = array_shift($masuv);
-                $action = array_shift($masuv);
-
-                $path = self::nameAction($controller,'.');
-                $controller = self::nameController($controller,'.');
-
-                self::fileTrue($controller, $path);
-
-                $object = new $controller;
-                $result = call_user_func_array(array($object, $action), $masuv);
-
-                if ($result != null) {
-                    break;
-                }
-            }
+    public static function group(array $seting,callable $controller){
+        $controller();
+        if(array_key_exists('path',$seting)){
+            self::addPathGroup($seting['path']);
+        }
+        elseif(array_key_exists('cntrl',$seting)){
+            self::addControllerGroup($seting['cntrl']);
+        }
+        elseif(array_key_exists('dr',$seting)){
+            self::addDirectoryGroup($seting['dr']);
         }
     }
 
-    private function fileTrue($controller,$path){
-            return file_exists("app/controllers/$path/$controller.php") ? require_once "app/controllers/$path/$controller.php" : 'Controller not found ' ;
+    public static function rt(string $path, string $controller){
+        self::$arr[$path] = $controller;
     }
 
-    private static function nameController($masuv,$symbol){
-        $arr = explode($symbol, $masuv);
-        return $arr[1];
+    public static function returnRoute(): array {
+        self::replaceSymbol();
+        dump(self::$arr);
+        return self::$arr;
     }
 
-    private static function nameAction($masuv, $symbol){
-        $arr = explode($symbol, $masuv);
-        return array_shift($arr);
+    private static function addPathGroup(string $path){
+        foreach (self::$arr as $key=>$value){
+            unset(self::$arr[$key]);
+            self::$arr[$path . '/' .$key] = $value;
+        }
     }
 
+    private static function addDirectoryGroup(string $directory){
+        foreach (self::$arr as $key=>$value){
+            self::$arr[$key] = $directory .'.'. $value;
+        }
+    }
+
+    private static function replaceSymbol(){
+        foreach (self::$arr as $key => $value){
+            self::$arr[$key] = str_replace('@','/',$value);
+        }
+    }
+
+    private static function addControllerGroup(string $name){
+        foreach (self::$arr as $key=>$value){
+            self::$arr[$key] = $name .'Controller@'. $value;
+        }
+    }
 }
+

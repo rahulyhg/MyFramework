@@ -7,8 +7,8 @@ class indexTest extends TestCase{
 
     public function testHomeNotRegister(){
         $object = new Controller();
-        $object->view('AllPublic.index',['hello'=>'hello 3world','kok'=>'rt']);
-        $this->assertFileIsReadable('views/AllPublic/index.php');
+        $object->view('category.index',['hello'=>'hello 3world','kok'=>'rt']);
+        $this->assertFileIsReadable('views/category/index.php');
     }
 
 }

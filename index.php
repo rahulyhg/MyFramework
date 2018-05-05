@@ -19,6 +19,6 @@ $Middleware->requireMiddleware();
 
 
 //Піжключаєм ядро для знаходження роутів
-$Route = new Route();
+$Route = new core();
 $Route->run();
 

@@ -4,7 +4,7 @@ class listDerectoryAutoload
 {
     private $list;
 
-    function __construct(){
+    public function __construct(){
     $this->list = [
 
         'components',
@@ -20,7 +20,7 @@ class listDerectoryAutoload
     ];
     }
 
-    public  function listtDirectory()
+    public  function listDirectory() : array
     {
         return $this->list;
     }

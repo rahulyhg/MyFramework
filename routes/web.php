@@ -1,7 +1,12 @@
 <?php
 
-return array(
-    'login' => 'Auth.authController/getLogin',
-    'register' => 'Auth.registerController/register',
-    '' => 'AllPublic.indexController/index',
-);
+Route::group(['path'=>'kek'],function() {
+    Route::rt('f', 'category.indexController@index');
+});
+Route::group(['path'=>'lol'],function() {
+    Route::rt('f', 'category.indexController@index');
+});
+
+Route::group(['path'=>'fuk'],function() {
+    Route::rt('f', 'category.indexController@index');
+});

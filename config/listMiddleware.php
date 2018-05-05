@@ -4,13 +4,13 @@ class listMiddleware{
 
     private $list;
 
-    function __construct(){
+    public function __construct(){
         $this->list = [
             'postMiddleware'
         ];
     }
 
-    public function returnList(){
+    public function returnList(): array {
         return $this->list;
     }
 
