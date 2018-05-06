@@ -33,8 +33,8 @@ class Route
     }
 
     public static function returnRoute(): array {
-        self::replaceSymbol();
         self::$arrGroup =  array_merge(self::$arrGroup,self::$rt);
+        self::replaceSymbol();
         return self::$arrGroup;
     }
 
@@ -52,8 +52,8 @@ class Route
     }
 
     private static function replaceSymbol(){
-        foreach (self::$arr as $key => $value){
-            self::$arr[$key] = str_replace('@','/',$value);
+        foreach (self::$arrGroup as $key => $value){
+            self::$arrGroup[$key] = str_replace('@','/',$value);
         }
     }
 
