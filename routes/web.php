@@ -1,12 +1,20 @@
 <?php
 
-Route::group(['path'=>'kek'],function() {
-    Route::rt('f', 'category.indexController@index');
-});
-Route::group(['path'=>'lol'],function() {
-    Route::rt('f', 'category.indexController@index');
+
+
+    Route::group(['path' => 'LOL'], function () {
+        Route::rt('index', 'category.indexController@index');
+        Route::rt('iqwdndex', 'category.indexController@index');
+    });
+
+Route::group(['path' => 'LOLw'], function () {
+    Route::rt('indedsax', 'category.indexController@index');
+    Route::rt('inded2sax', 'category.indexController@index');
+    Route::rt('iqwdn1dex', 'category.indexController@index');
+    Route::rt('iqwdndex', 'category.indexController@index');
 });
 
-Route::group(['path'=>'fuk'],function() {
-    Route::rt('f', 'category.indexController@index');
-});
+
+
+
+
