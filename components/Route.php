@@ -2,9 +2,9 @@
 class Route
 {
 
-    public static $arr = [];
+    private static $arr = [];
 
-    public static $arrGroup =[];
+    private static $arrGroup =[];
 
     private static $rt = [];
 
