@@ -7,17 +7,15 @@ class core{
     private $url;
 
     function __construct(){
-        require_once 'routes\web.php';
         $this->routes = Route::returnRoute();
         dump($this->routes);
         $this->url = trim($_SERVER['REQUEST_URI'],'/');
     }
 
     public function run()    {
-        $getUrl = $this->url;
         foreach ($this->routes as $key => $value) {
-            if (preg_match("~$key~", $getUrl)) {
-                $inner = preg_replace("~$key~", $value, $getUrl);
+            if (preg_match("~$key~",$this->url)) {
+                $inner = preg_replace("~$key~", $value,$this->url);
 
                 $masuv = explode('/', $inner);
                 $controller = array_shift($masuv);

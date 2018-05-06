@@ -12,15 +12,16 @@ class Route
 
         $controller();
 
-        if(array_key_exists('path',$seting)){
+        if (array_key_exists('path', $seting)) {
             self::addPathGroup($seting['path']);
         }
-        if(array_key_exists('cntrl',$seting)){
+        if (array_key_exists('cntrl', $seting)) {
             self::addControllerGroup($seting['cntrl']);
         }
-        if(array_key_exists('dr',$seting)){
+        if (array_key_exists('dr', $seting)) {
             self::addDirectoryGroup($seting['dr']);
         }
+
         self::saveArrGroup();
     }
 
@@ -32,10 +33,14 @@ class Route
         }
     }
 
+    public static function name($info,callable $funct){
+        $funct();
+    }
+
     public static function returnRoute(): array {
-        self::$arrGroup =  array_merge(self::$arrGroup,self::$rt);
+        require_once 'routes\web.php';
         self::replaceSymbol();
-        return self::$arrGroup;
+        return  self::$arrGroup ;
     }
 
     private static function addPathGroup(string $path){
@@ -52,7 +57,8 @@ class Route
     }
 
     private static function replaceSymbol(){
-        foreach (self::$arrGroup as $key => $value){
+
+        foreach (array_merge(self::$arrGroup,self::$rt) as $key => $value){
             self::$arrGroup[$key] = str_replace('@','/',$value);
         }
     }
