@@ -9,6 +9,7 @@ class core{
     function __construct(){
         require_once 'routes\web.php';
         $this->routes = Route::returnRoute();
+        dump($this->routes);
         $this->url = trim($_SERVER['REQUEST_URI'],'/');
     }
 

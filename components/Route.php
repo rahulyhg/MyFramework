@@ -6,6 +6,8 @@ class Route
 
     public static $arrGroup =[];
 
+    private static $rt = [];
+
     public static function group(array $seting,callable $controller){
 
         $controller();
@@ -24,11 +26,15 @@ class Route
 
     public static function rt(string $path, string $controller){
         self::$arr[$path] = $controller;
+        if(!in_array('group',debug_backtrace()[2])){
+            self::$rt[$path] = $controller;
+            unset(self::$arr[$path]);
+        }
     }
 
     public static function returnRoute(): array {
         self::replaceSymbol();
-        dump(self::$arrGroup);
+        self::$arrGroup =  array_merge(self::$arrGroup,self::$rt);
         return self::$arrGroup;
     }
 
@@ -58,9 +64,7 @@ class Route
     }
 
     private static function saveArrGroup(){
-        foreach (self::$arr as $key=>$value){
-            self::$arrGroup[$key] = $value;
-        }
+        self::$arrGroup = array_merge(self::$arrGroup,self::$arr);
         self::$arr = [];
     }
 }
