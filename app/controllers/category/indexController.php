@@ -7,9 +7,6 @@ class indexController extends Controller {
          return view('category.index',['hello'=>'hello world','kok'=>'rt']);
     }
 
-    public function kek(){
-        echo 'kek';
-    }
 }
 
 

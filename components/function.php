@@ -1,6 +1,6 @@
 <?php
 
-    function db(){
+    function db(): object{
         return database::getConnection();
     }
 
