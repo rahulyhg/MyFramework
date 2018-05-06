@@ -15,10 +15,10 @@ class Route
         if(array_key_exists('path',$seting)){
             self::addPathGroup($seting['path']);
         }
-        elseif(array_key_exists('cntrl',$seting)){
+        if(array_key_exists('cntrl',$seting)){
             self::addControllerGroup($seting['cntrl']);
         }
-        elseif(array_key_exists('dr',$seting)){
+        if(array_key_exists('dr',$seting)){
             self::addDirectoryGroup($seting['dr']);
         }
         self::saveArrGroup();
