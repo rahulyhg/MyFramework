@@ -17,6 +17,7 @@ class models{
         $row = db()->query(self::$sql);
         return $row->fetchall(PDO::FETCH_ASSOC);
     }
+
     public static function save(){
         $row = db()->prepare(self::$sql);
         $row->execute(array_values(self::$request));
