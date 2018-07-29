@@ -1,28 +1,18 @@
 <?php
-
-class listDerectoryAutoload
-{
-    private $list;
-
-    public function __construct(){
-    $this->list = [
-
+return array(
         'components',
         'config',
-        'components/traits/db',
-        'components/traits',
+        'components/db/traits',
         'components/db',
         'app/controllers',
         'app/middleware',
         'app/models',
         'tests/',
         'components/middleware',
-    ];
-    }
-
-    public  function listDirectory() : array
-    {
-        return $this->list;
-    }
-
-}
+        'components/Pages',
+        'components/core',
+        'components/Admin',
+        'components/Admin/controllers',
+        'components/Admin/middleware',
+        'components/Admin/models'
+);

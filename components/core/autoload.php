@@ -3,10 +3,12 @@ require_once 'config/listDerectoryAutoload.php';
 
 class autoload{
 
-    public  function autoload(){
+    public static function autoload_class(){
+
      spl_autoload_register(function ($class_name) {
-         $path = new listDerectoryAutoload;
-         $path = $path->listDirectory();
+
+         $path = require 'config/listDerectoryAutoload.php';
+
          foreach ($path as $key) {
              $url = "$key/" . $class_name . '.php';
              if(is_file($url)){
@@ -15,5 +17,4 @@ class autoload{
               }
          });
     }
-
 }

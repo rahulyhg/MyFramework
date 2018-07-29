@@ -1,7 +1,8 @@
 <?php
 
-class Controller{
+class Controller
+{
 
-use globalFunction;
+    use globalFunction;
 
 }

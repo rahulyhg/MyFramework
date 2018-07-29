@@ -1,24 +1,18 @@
 <?php
-//define('ROOT',$_SERVER['SERVER_NAME']);
+
 session_start();
 
-// Підключаємо фунції
-require_once 'components/function.php';
+// Підключаємо функції
+require_once 'components/core/function.php';
 
 //Підключаємо клас автозагрузки
-require_once 'components/autoload.php';
+require_once 'components/core/autoload.php';
 
 //Робим автозагрузку класів
-$Autoload = new autoload();
-$Autoload->autoload();
-
-
-// Запускаємо посередники
-$Middleware = new listMiddleware();
-$Middleware->requireMiddleware();
+autoload::autoload_class();
 
 
 //Піжключаєм ядро для знаходження роутів
-$Route = new core();
-$Route->run();
+$route = new core();
+$route->run();
 

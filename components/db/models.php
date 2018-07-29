@@ -1,8 +1,8 @@
 <?php
+
 class models{
 
    use globalFunction, dbWhere, dbInsert, dbUpdate;
-
 
     public static $sql;
 
@@ -13,7 +13,7 @@ class models{
     private static $request;
 
 
-    public function get(): array {
+    public static function get(): array {
         $row = db()->query(self::$sql);
         return $row->fetchall(PDO::FETCH_ASSOC);
     }
@@ -78,7 +78,7 @@ class models{
     }
 
 
-    public static function update(array $arr): models{
+    public static function update(array $arr){
         if(!empty($arr)) {
             self::saveRequest($arr);
             self::$sql = self::updateSql();
@@ -94,7 +94,8 @@ class models{
         return new self();
     }
 
-    public static function drop($name){
+    public static function drop($name)
+    {
         self::$sql = "DROP TABLE " . $name;
         self::get();
     }
