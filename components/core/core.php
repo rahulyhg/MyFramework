@@ -26,11 +26,16 @@ class core
 
     public function __construct()
     {
-        $this->routes = Route::returnRoute();
+        try {
+            $this->routes = Route::returnArrayRoutes();
+        } Catch (Error $e) {
+            die("Routs are not created");
+        }
 
         $this->url = trim($_SERVER['REQUEST_URI'], '/');
     }
 
+//Написате дестракт і знищити все крім обєкта
 
     private function array_exits_patern(): bool
     {
@@ -45,6 +50,7 @@ class core
 
     public function run(): void
     {
+        dd($this->routes);
         $this->array_exits_patern() ? $this->facadeGetRout() : page_404::getInstance()->run();
     }
 
@@ -121,7 +127,7 @@ class core
     private function requireClass(): void
     {
         if(!$this->findClass('app/controllers/') && !$this->findClass('components/Admin/controllers/')){
-            die('Controller not foud!');
+            die('Controller not found!');
         }
 
     }
