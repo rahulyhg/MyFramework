@@ -3,6 +3,8 @@
 
 class page_404 extends Controller
 {
+    use globalFunction;
+
     private static $instance;
 
     private function __construct()

@@ -7,7 +7,6 @@ class Route
 
     private static $debug_data;
 
-
     public static function rt(string $path, string $controller): void
     {
         self::$debug_data = debug_backtrace();
@@ -19,10 +18,21 @@ class Route
         }
     }
 
+
     public static function group(array $data,callable $function): void
     {
         $function();
     }
+
+    public static function returnArrayRoutes(): array
+    {
+        self::includePageWithRoutes();
+
+        return self::$arrRoutes;
+    }
+
+
+
 
     private static function whereChallengeFunctions(): array
     {
@@ -39,8 +49,9 @@ class Route
     private static function facadeChangeRouteIntoGroup(array $data,string $url,string $controller){
 
       foreach ($data as $key=>$arr){
+
           if(isset($arr['url'])){
-              $url = $arr['url'] . '/' . $url;
+              $url = trim($arr['url'],'/') . '/' . $url;
           }
 
           if(isset($arr['prefix'])){
@@ -53,14 +64,6 @@ class Route
       }
 
         self::rt($url,$controller);
-    }
-
-
-    public static function returnArrayRoutes(): array
-    {
-        self::includePageWithRoutes();
-
-        return self::$arrRoutes;
     }
 
     private static function includePageWithRoutes(){

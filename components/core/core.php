@@ -29,7 +29,7 @@ class core
         try {
             $this->routes = Route::returnArrayRoutes();
         } Catch (Error $e) {
-            die("Routs are not created");
+            error_page::showPageError("Routs are not created",$e);
         }
 
         $this->url = trim($_SERVER['REQUEST_URI'], '/');
@@ -50,12 +50,12 @@ class core
 
     public function run(): void
     {
-        dd($this->routes);
         $this->array_exits_patern() ? $this->facadeGetRout() : page_404::getInstance()->run();
     }
 
     private function facadeGetRout(): void
     {
+
         $this->getNameAction();
 
         $this->getArgumentActionName();

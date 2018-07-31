@@ -1,20 +1,31 @@
 <?php
 require_once 'config/listDerectoryAutoload.php';
 
+
 class autoload{
 
-    public static function autoload_class(){
+    private static $path;
 
-     spl_autoload_register(function ($class_name) {
+    public static function autoload_class()
+    {
+        self::listDerictoryAutoload();
 
-         $path = require 'config/listDerectoryAutoload.php';
+        spl_autoload_register(function ($class_name) {
 
-         foreach ($path as $key) {
-             $url = "$key/" . $class_name . '.php';
-             if(is_file($url)){
-                 require_once $url;
-                    }
-              }
-         });
+            foreach (self::$path as $key) {
+                $url = "$key/" . $class_name . '.php';
+                if (is_file($url)) {
+                    require_once $url;
+                }
+            }
+        });
+    }
+
+    private static function listDerictoryAutoload(): void
+    {
+        if(empty(self::$path)){
+            $object = new listDerectoryAutoload();
+            self::$path = $object->getListDirectory();
+        }
     }
 }
