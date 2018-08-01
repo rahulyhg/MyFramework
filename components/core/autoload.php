@@ -1,5 +1,5 @@
 <?php
-require_once 'config/listDerectoryAutoload.php';
+require_once 'components/core/derectoryAutoload.php';
 
 
 class autoload
@@ -25,7 +25,7 @@ class autoload
     private static function listDerictoryAutoload(): void
     {
         if (empty(self::$path)) {
-            $object = new listDerectoryAutoload();
+            $object = new derectoryAutoload();
             self::$path = $object->getListDirectory();
         }
     }
