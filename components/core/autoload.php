@@ -2,7 +2,8 @@
 require_once 'config/listDerectoryAutoload.php';
 
 
-class autoload{
+class autoload
+{
 
     private static $path;
 
@@ -23,7 +24,7 @@ class autoload{
 
     private static function listDerictoryAutoload(): void
     {
-        if(empty(self::$path)){
+        if (empty(self::$path)) {
             $object = new listDerectoryAutoload();
             self::$path = $object->getListDirectory();
         }
