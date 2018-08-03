@@ -7,7 +7,7 @@ class error_page
 
     public static function showPageError(string $message,$e = '')
     {
-       self::view('error_page',['message'=> $message,'e' => $e]);
+      self::view('error_page',['message'=> $message,'e' => $e]);
        die;
     }
 

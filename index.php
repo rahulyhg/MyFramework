@@ -2,6 +2,9 @@
 
 session_start();
 
+//composer autloader
+require_once 'vendor/autoload.php';
+
 // Підключаємо функції
 require_once 'components/core/function.php';
 

@@ -8,7 +8,7 @@ class database{
 
         if(empty(self::$pdo_object)){
 
-            $params = require_once '/config/db_params.php';
+            $params = require_once 'config/db_params.php';
 
             $dsn = "mysql:host={$params['host']};dbname={$params['dbname']}";
 

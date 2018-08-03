@@ -3,21 +3,12 @@
 
 class indexController extends Controller {
 
-    public function index($kek){
-        echo 'index';
+    public function index(){
+
+       echo  $this->twig()->render('page.html', array('text' => 'Hello world!'));
+
     }
 
-    public function kek(){
-        echo 'kek';
-    }
-
-    public function views($i){
-        echo $i;
-    }
-
-    public function lol(){
-        echo 'lol';
-    }
 }
 
 

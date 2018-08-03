@@ -10,6 +10,5 @@ class postMiddleware implements middlewareInterface
                 $_POST[$key] = preg_replace("/(\r\n)/", "<br/>", $value);
             }
         }
-        echo 'Midleware <br>';
     }
 }

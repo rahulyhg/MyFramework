@@ -7,7 +7,7 @@ class autoload
 
     private static $path;
 
-    public static function autoload_class()
+    public static function autoload_class(): void
     {
         self::listDerictoryAutoload();
 
