@@ -1,6 +1,10 @@
 <?php
 
-class Middleware
+namespace Components\middleware;
+
+use Components\core\treits\globalFunction;
+
+class handlerMiddleware
 {
     use globalFunction;
 

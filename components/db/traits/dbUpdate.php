@@ -1,14 +1,19 @@
 <?php
 
+namespace Components\db\traits;
 
 trait dbUpdate
 {
 
-    private static function updateSql(): string{
+    private static function updateSql(): string
+    {
         return "UPDATE ". self::nameClass();
     }
 
-    private static function set(): string{
+    private static function set(): string
+    {
+        $result = [];
+
         foreach (self::$request as $key => $value){
             $result[]= "{$key} = ?";
         }

@@ -1,114 +1,147 @@
 <?php
 
+namespace Components\db;
+
+use Components\core\treits\globalFunction;
+use Components\db\traits\{dbUpdate,dbInsert,dbWhere};
+use Components\db\database;
+
 class models{
 
-   use globalFunction, dbWhere, dbInsert, dbUpdate;
+    use globalFunction, dbWhere, dbInsert, dbUpdate;
 
-    public static $sql;
+    private static $sql;
 
-    private static $name_table;
+    public static $name_table;
 
-    private static $column_id = 'id';
+    public static $column_id = 'id';
 
     private static $request;
 
+    private static $connect;
 
-    public static function get(): array {
-        $row = db()->query(self::$sql);
-        return $row->fetchall(PDO::FETCH_ASSOC);
+    public static function get(): array
+    {
+        $row = self::db()->query(self::$sql);
+        self::$sql = '';
+        return $row->fetchall(\PDO::FETCH_ASSOC);
     }
 
-    public static function save(){
-        $row = db()->prepare(self::$sql);
+    public static function save(): void
+    {
+        $row = self::db()->prepare(self::$sql);
+        self::$sql = '';
         $row->execute(array_values(self::$request));
     }
 
-
-    public static function all(): array {
+    public static function all(): array
+    {
         self::$sql = "SELECT * FROM " . self::nameClass();
         return self::get();
     }
 
-    public function first(): array {
+
+    public function first(): array
+    {
         $arr = self::get();
-        foreach ($arr as $key){
+        foreach ($arr as $key) {
             return $key;
         }
     }
 
 
-    public static function select($select = ['*']): models{
-        if(is_array($select)) {
-            $select = implode(',', $select);
-     }
-        self::$sql = "SELECT " . $select . " FROM " . self::nameClass();
-            return new self();
-    }
-
-
-
-    public static function where($column,$where='',$sign = '=') : models{
-       if(empty(self::$sql)) {
-           self::select();
+    public static function select($select = '*'): models
+    {
+        if($select !== '*'){
+            is_array($select) ? $select = self::ecranSelectColumn($select) : $select = "`{$select}`";
         }
-        is_string($column) ? self::isStringOnWhere($column,$where,$sign) : self::isArrayOnWhere($column);
+        self::$sql = "SELECT " . $select . " FROM " . self::nameClass();
+
         return new self();
     }
 
-    public function orWhere($column,$where='',$sign = '=') : models{
-        is_string($column) ? self::isStringOnOrWhere($column,$where,$sign) : self::isArrayOnOrWhere($column);
+    public static function where($column, $where = '', $sign = '='): models
+    {
+        if (empty(self::$sql)) {
+            self::select();
+        }
+
+        is_string($column) ? self::isStringOnWhere($column, $where, $sign) : self::isArrayOnWhere($column);
+
+        return new self();
+    }
+
+    public function orWhere($column, $where = '', $sign = '='): models
+    {
+        is_string($column) ? self::isStringOnOrWhere($column, $where, $sign) : self::isArrayOnOrWhere($column);
+
         return $this;
     }
 
-    public static function find($where) : models{
-       self::where(self::$column_id,$where);
+    public static function find(string $where): models
+    {
+        self::where(self::$column_id, $where);
+
         return new self();
     }
 
-
-
-    public static function insert(array $arr){
-        if(!empty($arr)) {
-            self::saveRequest($arr);
-            self::$sql = self::into();
-            self::$sql .= self::columnForInsert();
-            self::$sql .= self::valuesForInsert();
-            self::save();
-        }
+    public static function insert(array $arr): void
+    {
+        self::$request = $arr;
+        self::$sql = self::into();
+        self::$sql .= self::columnForInsert();
+        self::$sql .= self::valuesForInsert();
+        self::save();
     }
 
-
-    public static function update(array $arr){
-        if(!empty($arr)) {
-            self::saveRequest($arr);
-            self::$sql = self::updateSql();
-            self::$sql .= self::set();
-            return new self();
-        }
+    public static function update(array $arr): models
+    {
+        self::$request = $arr;
+        self::$sql = self::updateSql();
+        self::$sql .= self::set();
+        return new self();
     }
 
-
-
-    public static function delete(): models{
+    public static function delete(): models
+    {
         self::$sql = "DELETE FROM " . self::nameClass();
         return new self();
     }
 
-    public static function drop($name)
+    public static function drop(string $name): void
     {
-        self::$sql = "DROP TABLE " . $name;
+        self::$sql = "DROP TABLE `" . $name."`";
         self::get();
     }
 
-
-
-    public static function table(string $name): models{
+    public static function table(string $name): models
+    {
         self::$name_table = $name;
         return new self();
     }
 
+    private static function nameClass(): string
+    {
+       $name = en(explode('\\',get_called_class()));
+       return $name == 'models' ? '`'.self::$name_table.'`' : '`'.$name.'`';
+    }
 
-    private static function saveRequest(array $arr){
-        self::$request = $arr;
+    private static function ecranSelectColumn(array $select): string
+    {
+        $arr = [];
+
+        foreach ($select as $key){
+            array_push($arr,"`{$key}`");
+        }
+
+        return implode(',',$arr);
+    }
+
+    private static function db():\PDO
+    {
+        if(empty(self::$connect)){
+            self::$connect = database::getConnection();
+        }
+        return  self::$connect;
     }
 }

@@ -1,5 +1,9 @@
 <?php
 
+namespace Components\core\treits;
+
+use Components\Pages\error_page;
+
 trait globalFunction{
 
 
@@ -18,10 +22,6 @@ trait globalFunction{
         move_uploaded_file($_FILES[$name]['tmp_name'],$upload_path . $filename);
     }
 
-    public static function nameClass(){
-        $name = get_called_class();
-        return $name == 'models' ? self::$name_table : $name;
-    }
 
     protected static function view(string $url, array $variable = null)
     {
@@ -33,7 +33,7 @@ trait globalFunction{
         }
         try {
             require_once self::listDirectoryViews($url);
-        } Catch (Error $e) {
+        } Catch (\Error $e) {
             error_page::showPageError('Not such page views: '.$url,$e);
         }
     }

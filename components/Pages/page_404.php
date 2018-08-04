@@ -1,5 +1,9 @@
 <?php
 
+namespace Components\Pages;
+
+use Components\Controller;
+use Components\core\treits\globalFunction;
 
 class page_404 extends Controller
 {
@@ -7,9 +11,6 @@ class page_404 extends Controller
 
     private static $instance;
 
-    private function __construct()
-    {
-    }
 
     public static function getInstance(): page_404{
 

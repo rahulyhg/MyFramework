@@ -1,8 +1,6 @@
 <?php
 
-    function db(){
-        return database::getConnection();
-    }
+
 
     function dump($array){
         echo "<pre>";
@@ -17,7 +15,8 @@
         die;
     }
 
-    function en(array $arr){
+    function en(array $arr): string
+    {
         return $arr[count($arr)-1];
     }
 

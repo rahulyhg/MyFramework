@@ -1,5 +1,5 @@
 <?php
 return[
-    'postMiddleware' => 'global',
+    'app\middleware\postMiddleware' => 'global',
 ];
 

@@ -1,5 +1,13 @@
 <?php
 
+namespace Components\core;
+
+use Components\Controller;
+use Components\core\Route;
+use Components\Pages\{error_page,page_404};
+use Components\middleware\handlerMiddleware;
+
+
 class core
 {
     private $routes;
@@ -26,16 +34,18 @@ class core
 
     public function __construct()
     {
+        new Controller();
+
         try {
             $this->routes = Route::returnArrayRoutes();
-        } Catch (Error $e) {
-            error_page::showPageError("Routs are not created",$e);
+        } Catch (\Error $e) {
+            error_page::showPageError("Routs are not created", $e);
         }
 
         $this->url = trim($_SERVER['REQUEST_URI'], '/');
     }
 
-//Написате дестракт і знищити все крім обєкта
+
 
     private function array_exits_patern(): bool
     {
@@ -47,6 +57,7 @@ class core
         }
         return false;
     }
+
 
     public function run(): void
     {
@@ -73,7 +84,7 @@ class core
 
     private function middleware():void
     {
-        $middleware = new Middleware($this->key);
+        $middleware = new handlerMiddleware($this->key);
         $middleware->run();
     }
 
@@ -127,9 +138,10 @@ class core
     private function requireClass(): void
     {
         if(!$this->findClass('app/controllers/') && !$this->findClass('components/Admin/controllers/')){
-            die('Controller not found!');
-        }
 
+            error_page::showPageError("Controller not find",'app/controllers/'.$this->path . '<br>' . 'components/Admin/controllers/'.$this->path);
+
+        }
     }
 
     private function findClass($path): bool
@@ -137,13 +149,23 @@ class core
 
         if (file_exists($path . $this->path."/".$this->controller.".php")) {
 
-            require_once  $path . $this->path."/".$this->controller.".php";
+            $controller = $this->generateNamespace($path) .$this->controller;
 
-            $this->object = new $this->controller;
+            $this->object = new $controller();
 
             return true;
         }
 
         return false;
+    }
+
+    private function generateNamespace($path){
+
+        $namespace ='\\'.str_replace('/','\\',$path);
+
+        if(!empty($this->path)){
+            $namespace .= str_replace('/','\\',$this->path) . '\\';
+        }
+        return $namespace;
     }
 }
