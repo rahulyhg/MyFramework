@@ -6,7 +6,7 @@ use Components\Controller;
 use Components\core\Route;
 use Components\Pages\{error_page,page_404};
 use Components\middleware\handlerMiddleware;
-
+use Components\core\migrations;
 
 class core
 {
@@ -35,6 +35,8 @@ class core
     public function __construct()
     {
         new Controller();
+
+        migrations::getMigration();
 
         try {
             $this->routes = Route::returnArrayRoutes();

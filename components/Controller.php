@@ -25,8 +25,6 @@ class Controller
         }
     }
 
-
-
     protected function twig(): Twig_Environment
     {
         if (empty(self::$twig)) {
@@ -52,12 +50,6 @@ class Controller
         self::$twig->addGlobal('func', new functions_twig_shablons());
     }
 
-    protected static function table(string $table): models
-    {
-        $object = new models();
-        $object::$name_table = $table;
-        return $object;
-    }
 
 
 }

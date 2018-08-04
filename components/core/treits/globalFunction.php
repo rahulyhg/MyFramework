@@ -2,51 +2,36 @@
 
 namespace Components\core\treits;
 
+use Components\core\sessions;
 use Components\Pages\error_page;
-
-trait globalFunction{
-
+use Components\db\models;
 
 
-    public static function isUser($login){
-        $_SESSION['user'] = $login;
-        header('Location: /');
-    }
+trait globalFunction
+{
 
-    public static function exitUser(){
-        $_SESSION = array();
-    }
-
-    public static function saveImg($upload_path='public/images/',$name = 'img'){
+    public static function saveImg($upload_path = 'public/images/', $name = 'img')
+    {
         $filename = $_FILES[$name]['name'];
-        move_uploaded_file($_FILES[$name]['tmp_name'],$upload_path . $filename);
+        move_uploaded_file($_FILES[$name]['tmp_name'], $upload_path . $filename);
     }
 
-
-    protected static function view(string $url, array $variable = null)
+    protected static function table(string $table): models
     {
-
-        $url = str_replace('.', '/', $url);
-
-        if ($variable !== null) {
-            extract($variable, EXTR_PREFIX_SAME, "wddx");
-        }
-        try {
-            require_once self::listDirectoryViews($url);
-        } Catch (\Error $e) {
-            error_page::showPageError('Not such page views: '.$url,$e);
-        }
+        $object = new models();
+        $object::$name_table = $table;
+        return $object;
     }
 
-    private  static function listDirectoryViews(string $url): string
+    public static function sql(string $sql): models
     {
-        $list = require_once 'config/list_directory_views.php';
-
-        foreach ($list as $key){
-            if(file_exists($key . '/' . $url. '.php')){
-                return $key . '/' . $url .'.php';
-            }
-        }
+        return models::sql($sql);
     }
+
+    public static function session(...$arr)
+    {
+        return sessions::session(...$arr);
+    }
+
 
 }

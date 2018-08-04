@@ -5,6 +5,7 @@ namespace Components\db;
 use Components\core\treits\globalFunction;
 use Components\db\traits\{dbUpdate,dbInsert,dbWhere};
 use Components\db\database;
+use Components\Pages\error_page;
 
 class models{
 
@@ -20,18 +21,109 @@ class models{
 
     private static $connect;
 
+    private static $joinTable;
+
     public static function get(): array
     {
-        $row = self::db()->query(self::$sql);
+        $sql = self::$sql;
+
+        $row = self::db()->query($sql);
+        //echo $sql;
         self::$sql = '';
-        return $row->fetchall(\PDO::FETCH_ASSOC);
+
+        try {
+            return $row->fetchall(\PDO::FETCH_ASSOC);
+        } Catch (\Error $e) {
+            error_page::showPageError('Sql not correct',$sql."<br><br><br>".$e);
+        }
+    }
+
+    public function limit(int $number): models
+    {
+        self::$sql .=" LIMIT {$number}";
+        return new self();
+    }
+
+    public function order(string $data = 'DESC',string $column = 'id'): models
+    {
+        self::$sql .=" ORDER BY `{$column}` {$data}";
+        return new self();
+    }
+
+    public function on(string $firstColumn, string $secondColumn,$data = ' ON '):models
+    {
+        $join_table = self::$joinTable;
+
+        $nameClass = self::nameClass();
+
+        self::$sql .= " {$data}  {$nameClass}.`{$firstColumn}` = `{$join_table}`.`{$secondColumn}`";
+
+        return new self();
+    }
+
+    public function moreOn(string $firstColumn, string $secondColumn): models
+    {
+        return $this->on($firstColumn,$secondColumn,', ');
+    }
+
+
+    public function leftJoin(string $table): models
+    {
+        return $this->join($table,' LEFT');
+    }
+
+    public function rightJoin(string $table): models
+    {
+       return $this->join($table,' RIGHT');
+    }
+
+
+    public function join(string $table,$method = ''): models
+    {
+        self::$joinTable = $table;
+        self::$sql .= $method .' JOIN '. "`{$table}`";
+        return new self();
+    }
+
+    public static function sql(string $sql): models
+    {
+        self::$sql = $sql;
+        return new self();
+    }
+
+    public function param(array $arr)
+    {
+        $sql = self::$sql;
+
+        self::$sql = '';
+
+        try {
+            $row = self::db()->prepare($sql);
+        } Catch (\PDOException $e) {
+            error_page::showPageError('Method pdo:prepare.50str SQL ERROR:  ', $sql);
+        }
+
+        try {
+            $row->execute($arr);
+            return $row->fetchall(\PDO::FETCH_ASSOC);
+        } Catch (\Error $e) {
+            error_page::showPageError('Sql not correct', $sql . "<br><br><br>" . $e);
+        }
     }
 
     public static function save(): void
     {
-        $row = self::db()->prepare(self::$sql);
+
+        try {
+            $row = self::db()->prepare(self::$sql);
+        }Catch(\PDOException $e){
+            error_page::showPageError('Method pdo:prepare not found in models 83str',self::$sql."<br><br><br>".$e);
+        }
+
         self::$sql = '';
-        $row->execute(array_values(self::$request));
+
+       $row->execute(array_values(self::$request));
+
     }
 
     public static function all(): array
