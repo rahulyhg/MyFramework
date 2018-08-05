@@ -36,7 +36,7 @@ class core
     {
         new Controller();
 
-        migrations::getMigration();
+       // migrations::getMigration();
 
         try {
             $this->routes = Route::returnArrayRoutes();

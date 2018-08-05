@@ -61,6 +61,12 @@ class models{
         return new self();
     }
 
+    public function group(string $column): models
+    {
+        self::$sql .= " GROUP BY `{$column}` ";
+        return new self();
+    }
+
     public function moreOn(string $firstColumn, string $secondColumn): models
     {
         return $this->on($firstColumn,$secondColumn,', ');
@@ -122,7 +128,7 @@ class models{
 
         self::$sql = '';
 
-       $row->execute(array_values(self::$request));
+        $row->execute(array_values(self::$request));
 
     }
 
@@ -136,9 +142,7 @@ class models{
     public function first(): array
     {
         $arr = self::get();
-        foreach ($arr as $key) {
-            return $key;
-        }
+        return $arr[0];
     }
 
 
@@ -177,13 +181,14 @@ class models{
         return new self();
     }
 
-    public static function insert(array $arr): void
+    public static function insert(array $arr): string
     {
         self::$request = $arr;
         self::$sql = self::into();
         self::$sql .= self::columnForInsert();
         self::$sql .= self::valuesForInsert();
         self::save();
+        return self::db()->lastInsertId();
     }
 
     public static function update(array $arr): models

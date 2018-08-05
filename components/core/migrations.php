@@ -14,8 +14,7 @@ class migrations
 
     public static function getMigration(){
 
-
-        if(self::session('setting','migration','version') !== self::$version || self::session('setting','migration','version')){
+        if(self::session('setting','migration','version') !== self::$version || !self::session('setting','migration','versiown')){
 
             self::tableMigration();
 
@@ -23,10 +22,17 @@ class migrations
 
                 self::startMigration();
 
+                self::logBdMigration();
+
             }
             self::session()->add('setting',['migration' => ['version' => self::$version]]);
         }
 
+    }
+
+    private function logBdMigration():void
+    {
+        self::table('migration')->insert(['version' => 1]);
     }
 
     private static function selectVersion():float
@@ -38,7 +44,7 @@ class migrations
 
     private static function tableMigration():void
     {
-        self::sql("CREATE TABLE IF NOT EXISTS `framework`.`migration` ( `id` INT NOT NULL AUTO_INCREMENT ,
+        self::sql("CREATE TABLE IF NOT EXISTS `migration` ( `id` INT NOT NULL AUTO_INCREMENT ,
                         `created` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ,
                         `version` FLOAT(11) NOT NULL , PRIMARY KEY (`id`)) 
                         ENGINE = InnoDB;")->get();
