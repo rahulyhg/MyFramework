@@ -27,24 +27,4 @@ trait globalFunction
         return models::sql($sql);
     }
 
-    //знайти значення в багатовимірному масиві, з строки масива значень
-    public static function searchKey($arr, $ses = [])
-    {
-        $key = array_shift($arr);
-
-        if (empty($ses)) {
-            if (array_key_exists($key, $_SESSION)) {
-                return self::searchKey($arr, $_SESSION[$key]);
-            }
-            return false;
-        } elseif (is_array($ses)) {
-            if (array_key_exists($key, $ses)) {
-                return self::searchKey($arr, $ses[$key]);
-            }
-            return false;
-        }
-
-        return $ses;
-    }
-
 }

@@ -8,30 +8,70 @@ class super_array
 {
     use globalFunction;
 
+    public static $name_array = [];
 
-    private  $super_array;
 
-
-    public function __construct(array $array)
+    public static function createMethodForArrays(array $arr,string  $arguments)
     {
-        $this->super_array = $array;
+        super_array::$name_array = $arr;
+        return super_array::getArray($arguments);
+    }
+
+    public function add(string $key, $value): void
+    {
+        switch (self::$name_array) {
+            case $_SESSION:
+                $_SESSION[$key] = $value;
+                break;
+            case $_GET:
+                $_GET[$key] = $value;
+                break;
+            case $_REQUEST:
+                $_REQUEST[$key] = $value;
+                break;
+            case $_FILES:
+                $_FILES[$key] = $value;
+                break;
+            case $GLOBALS:
+                $GLOBALS[$key] = $value;
+                break;
+            case $_POST:
+                $_POST[$key] = $value;
+                break;
+            case $_SERVER:
+                $_SERVER[$key] = $value;
+                break;
+        }
     }
 
 
-
-    public  function getArray(...$arr)
+    public function all(): array
     {
-        return !empty($arr) ? self::searchKey(array_values($arr)) : $this;
+        return self::$name_array;
     }
 
-    public function add($key,$value): void
+    //знайти значення в багатовимірному масиві, з строки key1.key2 значень
+    private static function searchKey($arr, $ses = [])
     {
-        $this->super_array[$key] = $value;
+        $key = array_shift($arr);
+
+        if (empty($ses)) {
+
+            return array_key_exists($key, self::$name_array) ? self::searchKey($arr, self::$name_array[$key]) : false;
+
+        } elseif (is_array($ses) && array_key_exists($key, $ses)) {
+
+            return self::searchKey($arr, $ses[$key]);
+
+        }
+
+        return $ses;
     }
 
-    public function all():array
+
+    private static function getArray(string $arr = '')
     {
-        return $this->super_array;
+        return $arr !== '' ? self::searchKey(array_values(explode('.',$arr))) : new self();
     }
 
 }

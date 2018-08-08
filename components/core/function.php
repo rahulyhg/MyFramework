@@ -24,14 +24,32 @@ function en(array $arr): string
 }
 
 
-function session(...$arr): super_array
+function session(string $arr = '')
 {
-    $object = new super_array($_SESSION);
-    return $object->getArray(...$arr);
+    return super_array::createMethodForArrays($_SESSION,$arr);
 }
 
-function get(...$arr): super_array
+function get(string $arr = '')
 {
-    $object = new super_array($_GET);
-    return $object->getArray(...$arr);
+    return super_array::createMethodForArrays($_GET,$arr);
+}
+
+function server(string $arr = '')
+{
+    return super_array::createMethodForArrays($_SERVER,$arr);
+}
+
+function post(string $arr = '')
+{
+    return super_array::createMethodForArrays($_POST,$arr);
+}
+
+function globals(string $arr = '')
+{
+    return super_array::createMethodForArrays($GLOBALS,$arr);
+}
+
+function files(string $arr = '')
+{
+    return super_array::createMethodForArrays($_FILES,$arr);
 }
