@@ -2,8 +2,7 @@
 
 namespace Components\core\treits;
 
-use Components\core\sessions;
-use Components\Pages\error_page;
+
 use Components\db\models;
 
 
@@ -28,10 +27,24 @@ trait globalFunction
         return models::sql($sql);
     }
 
-    public static function session(...$arr)
+    //знайти значення в багатовимірному масиві, з строки масива значень
+    public static function searchKey($arr, $ses = [])
     {
-        return sessions::session(...$arr);
-    }
+        $key = array_shift($arr);
 
+        if (empty($ses)) {
+            if (array_key_exists($key, $_SESSION)) {
+                return self::searchKey($arr, $_SESSION[$key]);
+            }
+            return false;
+        } elseif (is_array($ses)) {
+            if (array_key_exists($key, $ses)) {
+                return self::searchKey($arr, $ses[$key]);
+            }
+            return false;
+        }
+
+        return $ses;
+    }
 
 }

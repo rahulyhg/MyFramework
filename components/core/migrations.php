@@ -14,7 +14,7 @@ class migrations
 
     public static function getMigration(){
 
-        if(self::session('setting','migration','version') !== self::$version || !self::session('setting','migration','versiown')){
+        if(session('setting','migration','version') !== self::$version || !session('setting','migration','versiown')){
 
             self::tableMigration();
 
@@ -25,12 +25,13 @@ class migrations
                 self::logBdMigration();
 
             }
-            self::session()->add('setting',['migration' => ['version' => self::$version]]);
+
+            session()->add('setting',['migration' => ['version' => self::$version]]);
         }
 
     }
 
-    private function logBdMigration():void
+    private static function logBdMigration():void
     {
         self::table('migration')->insert(['version' => 1]);
     }

@@ -4,7 +4,6 @@ namespace Components\db;
 
 use Components\core\treits\globalFunction;
 use Components\db\traits\{dbUpdate,dbInsert,dbWhere};
-use Components\db\database;
 use Components\Pages\error_page;
 
 class models{
@@ -38,11 +37,24 @@ class models{
         }
     }
 
-    public function limit(int $number): models
+    public static function limit(int $number): models
     {
         self::$sql .=" LIMIT {$number}";
         return new self();
     }
+
+
+    public function pagination(int $count_in_one_page): models
+    {
+        self::limit($count_in_one_page);
+        self::offset(self::calc_offset_for_pagination($count_in_one_page));
+    }
+
+    private static function calc_offset_for_pagination(int $count): int
+    {
+        return get('page') && get('name') > 1 ? (get('page') - 1) * $count : 0;
+    }
+
 
     public function order(string $data = 'DESC',string $column = 'id'): models
     {
@@ -72,15 +84,19 @@ class models{
         return $this->on($firstColumn,$secondColumn,', ');
     }
 
+    public static function offset(int $count): models
+    {
+        self::$sql .= " OFFSET {$count} ";
+    }
 
     public function leftJoin(string $table): models
     {
-        return $this->join($table,' LEFT');
+        return $this->join($table,' LEFT ');
     }
 
     public function rightJoin(string $table): models
     {
-       return $this->join($table,' RIGHT');
+       return $this->join($table,' RIGHT ');
     }
 
 
@@ -88,12 +104,6 @@ class models{
     {
         self::$joinTable = $table;
         self::$sql .= $method .' JOIN '. "`{$table}`";
-        return new self();
-    }
-
-    public static function sql(string $sql): models
-    {
-        self::$sql = $sql;
         return new self();
     }
 
@@ -211,11 +221,6 @@ class models{
         self::get();
     }
 
-    public static function table(string $name): models
-    {
-        self::$name_table = $name;
-        return new self();
-    }
 
     private static function nameClass(): string
     {

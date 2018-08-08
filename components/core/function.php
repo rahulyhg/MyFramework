@@ -1,5 +1,7 @@
 <?php
 
+use Components\core\super_array;
+
 
 function dump($array)
 {
@@ -21,3 +23,15 @@ function en(array $arr): string
     return $arr[count($arr) - 1];
 }
 
+
+function session(...$arr): super_array
+{
+    $object = new super_array($_SESSION);
+    return $object->getArray(...$arr);
+}
+
+function get(...$arr): super_array
+{
+    $object = new super_array($_GET);
+    return $object->getArray(...$arr);
+}

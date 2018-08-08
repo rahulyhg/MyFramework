@@ -9,5 +9,6 @@ return array(
     'app\\' => array($baseDir . '/app'),
     'Twig\\' => array($vendorDir . '/twig/twig/src'),
     'Symfony\\Polyfill\\Ctype\\' => array($vendorDir . '/symfony/polyfill-ctype'),
+    'Predis\\' => array($vendorDir . '/predis/predis/src'),
     'Components\\' => array($baseDir . '/components'),
 );
