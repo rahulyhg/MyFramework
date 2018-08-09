@@ -11,8 +11,9 @@ class indexController extends Controller {
     public function index(){
         dump(session()->all());
 
+        session()->add('key',['lol'=>['kek'=>1]]);
 
-        dump(session('lol'));
+        dump(session('key.lol4.kek'));
 
     }
 

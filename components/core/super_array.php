@@ -51,27 +51,25 @@ class super_array
     }
 
     //знайти значення в багатовимірному масиві, з строки key1.key2 значень
-    private static function searchKey($arr, $ses = [])
+    private static function searchKey(array $arr, $ses = [])
     {
-        $key = array_shift($arr);
-
-        if (empty($ses)) {
-
-            return array_key_exists($key, self::$name_array) ? self::searchKey($arr, self::$name_array[$key]) : false;
-
-        } elseif (is_array($ses) && array_key_exists($key, $ses)) {
-
-            return self::searchKey($arr, $ses[$key]);
-
+        if (!empty($arr) && empty($ses) && isset(self::$name_array[$arr[0]])) {
+            $key = array_shift($arr);
+            return self::searchKey($arr, self::$name_array[$key]);
         }
 
-        return $ses;
+        if (!empty($arr) && isset($ses[$arr[0]])) {
+            $key = array_shift($arr);
+            return self::searchKey($arr, $ses[$key]);
+        }
+
+        return empty($arr) ? $ses : false;
     }
 
 
     private static function getArray(string $arr = '')
     {
-        return $arr !== '' ? self::searchKey(array_values(explode('.',$arr))) : new self();
+        return $arr !== '' ? self::searchKey(explode('.',$arr)) : new self();
     }
 
 }

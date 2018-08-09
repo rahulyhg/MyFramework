@@ -22,3 +22,4 @@ $route->run();
 //WHERE `id_lang` = 2 GROUP BY `lid`
 
 
+//nl2br
