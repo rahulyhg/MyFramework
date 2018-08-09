@@ -13,7 +13,7 @@ class indexController extends Controller {
 
         session()->add('key',['lol'=>['kek'=>1]]);
 
-        dump(session('key.lol4.kek'));
+        dump(session('key.lol'));
 
     }
 
