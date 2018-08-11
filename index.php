@@ -2,6 +2,9 @@
 
 session_start();
 
+//error_reporting(0);
+
+
 //composer autoloader
 require_once 'vendor/autoload.php';
 
@@ -10,15 +13,18 @@ require_once 'components/core/function.php';
 
 //Піжключаєм ядро для знаходження роутів
 
-$route = new  Components\core\core();
-
-try {
+//try {
+    $route = new  Components\core\core();
     $route->run();
-}Catch(TypeError $e){
-    echo 'TYPE ERROR!!';
-    echo $e->getMessage();
-    die;
-}
+//}Catch(Throwable $e){
+//    \Components\Pages\error_page::addToLog($e->getMessage(),$e);
+//}
+
+
+
+
+
+
 
 ////Вивести товари з категорії
 //SELECT `t`.*,`n`.`name` as `category`,`n`.`id_cat` FROM `langs_bridge` `b` LEFT JOIN `tovars` `t` On `t`.`lid` = `b`.`id` LEFT JOIN `tovar_categories` `cat_t` ON `cat_t`.`lid_tovar` = `t`.`lid`

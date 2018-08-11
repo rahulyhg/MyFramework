@@ -1,3 +1,4 @@
 twig_cache/
 !twig_cache/.gitkeep
 .idea
+log/*.txt

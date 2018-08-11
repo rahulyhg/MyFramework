@@ -35,7 +35,6 @@ class Route
 
 
 
-
     private static function whereChallengeFunctions(): array
     {
         $result = [];

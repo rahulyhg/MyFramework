@@ -26,7 +26,7 @@ class super_array
             try {
                 eval(self::createStringCodeToEvalDelete($keys));
             } Catch (\ParseError $e) {
-                error_page::showPageError("Delete in eval method is failed", $e->getMessage());
+                error_page::showPageError("Delete in eval method is failed", $e->getMessage(). ' ' . $e->getFile() . $e->getLine());
             }
 
         } else {

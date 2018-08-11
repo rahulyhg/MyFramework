@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f20e48be-af7f-4530-ac1c-0c55d46b2de4" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/log/.gitkeep" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/indexController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/indexController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Pages/error_page.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/Pages/error_page.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/core/Route.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/core/Route.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/core/super_array.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/core/super_array.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/db/models.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/db/models.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
@@ -20,23 +23,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="super_array.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/components/core/super_array.php">
+      <file leaf-file-name="indexController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/indexController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" column="3" lean-forward="true" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="3" />
-              <folding>
-                <element signature="e#35#77#0#PHP" expanded="true" />
-              </folding>
+            <state relative-caret-position="150">
+              <caret line="11" column="6" lean-forward="true" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="indexController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/indexController.php">
+      <file leaf-file-name="error_page.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/components/Pages/error_page.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="13" column="35" selection-start-line="13" selection-start-column="35" selection-end-line="13" selection-end-column="35" />
+            <state relative-caret-position="450">
+              <caret line="31" column="5" lean-forward="true" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -44,8 +44,8 @@
       <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="26" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="26" />
+            <state relative-caret-position="405">
+              <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
             </state>
           </provider>
         </entry>
@@ -61,7 +61,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>$object</find>
       <find>object</find>
       <find>getNameAction</find>
       <find>rt</find>
@@ -89,8 +88,9 @@
       <find>sessions</find>
       <find>limi</find>
       <find>$arr</find>
-      <find>createMethodForArrays</find>
       <find>$e</find>
+      <find>$e-&gt;getMessage()</find>
+      <find>createMethodForArrays</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/vendor/twig/twig</dir>
@@ -103,7 +103,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/components/Admin/admin_route.php" />
         <option value="$PROJECT_DIR$/components/Admin/controllers/adminIndexController.php" />
         <option value="$PROJECT_DIR$/config/list_route_file.php" />
         <option value="$PROJECT_DIR$/components/Pages/Error.php" />
@@ -118,7 +117,6 @@
         <option value="$PROJECT_DIR$/components/Admin/views/page.html" />
         <option value="$PROJECT_DIR$/components/Pages/views/error_page.php" />
         <option value="$PROJECT_DIR$/components/functions_twig_shablons.php" />
-        <option value="$PROJECT_DIR$/components/Pages/error_page.php" />
         <option value="$PROJECT_DIR$/components/Pages/page_404.php" />
         <option value="$PROJECT_DIR$/components/middleware/Middleware.php" />
         <option value="$PROJECT_DIR$/components/middleware/middlewareInterface.php" />
@@ -128,7 +126,6 @@
         <option value="$PROJECT_DIR$/routes/kek.php" />
         <option value="$PROJECT_DIR$/components/Pages/views/page_error.html" />
         <option value="$PROJECT_DIR$/config/listMiddleware.php" />
-        <option value="$PROJECT_DIR$/components/core/Route.php" />
         <option value="$PROJECT_DIR$/components/db/database.php" />
         <option value="$PROJECT_DIR$/app/models/test.php" />
         <option value="$PROJECT_DIR$/components/db/traits/dbWhere.php" />
@@ -141,7 +138,6 @@
         <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/composer.json" />
-        <option value="$PROJECT_DIR$/components/core/core.php" />
         <option value="$PROJECT_DIR$/components/core/get_arr.php" />
         <option value="$PROJECT_DIR$/components/Controller.php" />
         <option value="$PROJECT_DIR$/components/core/GET.php" />
@@ -151,9 +147,13 @@
         <option value="$PROJECT_DIR$/components/core/sessions.php" />
         <option value="$PROJECT_DIR$/components/core/treits/globalFunction.php" />
         <option value="$PROJECT_DIR$/components/core/function.php" />
-        <option value="$PROJECT_DIR$/index.php" />
-        <option value="$PROJECT_DIR$/app/controllers/indexController.php" />
         <option value="$PROJECT_DIR$/components/core/super_array.php" />
+        <option value="$PROJECT_DIR$/components/core/core.php" />
+        <option value="$PROJECT_DIR$/components/core/Route.php" />
+        <option value="$PROJECT_DIR$/app/controllers/indexController.php" />
+        <option value="$PROJECT_DIR$/.htaccess" />
+        <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/components/Pages/error_page.php" />
       </list>
     </option>
   </component>
@@ -198,6 +198,28 @@
               <item name="framework" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="framework" type="b2602c69:ProjectViewProjectNode" />
+              <item name="framework" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="framework" type="b2602c69:ProjectViewProjectNode" />
+              <item name="framework" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="framework" type="b2602c69:ProjectViewProjectNode" />
+              <item name="framework" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="framework" type="b2602c69:ProjectViewProjectNode" />
+              <item name="framework" type="462c0819:PsiDirectoryNode" />
+              <item name="log" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -216,19 +238,19 @@
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/views" />
-      <recent name="$PROJECT_DIR$/components/Admin/views" />
-      <recent name="$PROJECT_DIR$/components/Admin/models" />
-      <recent name="$PROJECT_DIR$/components/Admin/public" />
-      <recent name="$PROJECT_DIR$/components/Admin/controllers" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/controllers" />
       <recent name="$PROJECT_DIR$/app/controllers/kek" />
       <recent name="$PROJECT_DIR$/views" />
       <recent name="$PROJECT_DIR$/components/Admin/views" />
       <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/log" />
+      <recent name="$PROJECT_DIR$/views" />
+      <recent name="$PROJECT_DIR$/components/Admin/views" />
+      <recent name="$PROJECT_DIR$/components/Admin/models" />
+      <recent name="$PROJECT_DIR$/components/Admin/public" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -301,12 +323,12 @@
       <workItem from="1533821976219" duration="1184000" />
       <workItem from="1533839861121" duration="1350000" />
       <workItem from="1533881999779" duration="1064000" />
-      <workItem from="1533970974321" duration="4746000" />
+      <workItem from="1533970974321" duration="8636000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="137059000" />
+    <option name="totallyTimeSpent" value="140949000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-1" width="1920" height="1046" extended-state="6" />
@@ -346,19 +368,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/css/.gitkeep">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="5" lean-forward="true" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/twig/twig/lib/Twig/Autoloader.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/twig/twig/lib/Twig/Extension.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="367">
@@ -374,20 +383,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1103">
           <caret line="1" column="5" lean-forward="true" selection-start-line="1" selection-start-column="5" selection-end-line="1" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/Pages/page_404.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="9" lean-forward="true" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/Pages/error_page.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="1" lean-forward="true" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -479,13 +474,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/components/core/Route.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="42" column="50" lean-forward="true" selection-start-line="42" selection-start-column="50" selection-end-line="42" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/page.html">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -545,13 +533,6 @@
     <entry file="file://$PROJECT_DIR$/config/db_params.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/components/core/core.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="96" column="5" selection-start-line="96" selection-start-column="5" selection-end-line="96" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/components/Controller.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="479">
@@ -602,27 +583,72 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
+    <entry file="file://$PROJECT_DIR$/components/Pages/page_404.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="26" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="26" />
+        <state relative-caret-position="300">
+          <caret line="21" column="9" lean-forward="true" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/indexController.php">
+    <entry file="file://$PROJECT_DIR$/log/.gitkeep">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/core/Route.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="13" column="35" selection-start-line="13" selection-start-column="35" selection-end-line="13" selection-end-column="35" />
+        <state relative-caret-position="435">
+          <caret line="29" column="5" lean-forward="true" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/core/core.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="434">
+          <caret line="43" column="67" selection-start-line="43" selection-start-column="67" selection-end-line="43" selection-end-column="67" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/components/core/super_array.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="3" lean-forward="true" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="3" />
+        <state relative-caret-position="465">
+          <caret line="31" column="16" lean-forward="true" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="16" />
           <folding>
             <element signature="e#35#77#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.htaccess">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="23" selection-start-column="23" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/log/18-08-11.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/indexController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="11" column="6" lean-forward="true" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/Pages/error_page.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="31" column="5" lean-forward="true" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
         </state>
       </provider>
     </entry>
