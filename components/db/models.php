@@ -6,7 +6,7 @@ use Components\core\treits\globalFunction;
 use Components\db\traits\{
     dbUpdate, dbInsert, dbWhere, select
 };
-use components\extension\pagination;
+use Components\extension\pagination;
 use Components\Pages\error_page;
 
 
@@ -15,17 +15,31 @@ class models
 
     use globalFunction, dbWhere, dbInsert, dbUpdate, select;
 
+
+
     public static $sql;
+
+
 
     public static $name_table;
 
+
+
     public static $column_id = 'id';
+
+
 
     private static $request;
 
+
+
     private static $connect;
 
+
+
     private static $joinTable;
+
+
 
     public static function get(): array
     {
@@ -41,60 +55,80 @@ class models
         }
     }
 
-    public static function limit(int $number): models
+
+
+    public function limit(int $number): models
     {
         self::$sql .= " LIMIT {$number}";
-        return new self();
+        return $this;
     }
+
+
+
 
 
     public function pagination(int $count_in_one_page): models
     {
-        self::limit($count_in_one_page);
-        self::offset(pagination::calc_offset_for_pagination($count_in_one_page));
+        $this->limit($count_in_one_page);
+        $this->offset(pagination::calc_offset_for_pagination($count_in_one_page));
+        return $this;
     }
+
+
+
+
 
     public function sum(string $column): models
     {
         self::$sql = str_replace('SELECT', "SELECT SUM(`{$column}`), ", self::$sql);
-        return new self();
+        return $this;
     }
 
     public function avg(string $column): models
     {
         self::$sql = str_replace('SELECT', "SELECT AVG(`{$column}`), ", self::$sql);
-        return new self();
+        return $this;
     }
 
     public function count(): models
     {
         self::$sql = str_replace('SELECT', "SELECT COUNT(*), ", self::$sql);
-        return new self();
+        return $this;
     }
+
 
 
     public function order(string $data = 'DESC', string $column = 'id'): models
     {
         self::$sql .= " ORDER BY `{$column}` {$data}";
-        return new self();
+        return $this;
     }
 
 
     public function group(string $column): models
     {
         self::$sql .= " GROUP BY `{$column}` ";
-        return new self();
+        return $this;
     }
+
+
+
 
     public function moreOn(string $firstColumn, string $secondColumn, string $nametable = ''): models
     {
         return $this->on($firstColumn, $secondColumn, $nametable, ', ');
     }
 
-    public static function offset(int $count): models
+
+
+    public function offset(int $count): models
     {
         self::$sql .= " OFFSET {$count} ";
+        return $this;
     }
+
+
+
 
     public function leftJoin(string $table = ''): models
     {
@@ -118,8 +152,10 @@ class models
 
         self::$sql .= $sql;
 
-        return new self();
+        return $this;
     }
+
+
 
 
     public function on(string $firstColumn, string $secondColumn, $nameTable = '', $data = ' ON '): models
@@ -136,8 +172,10 @@ class models
         }
 
 
-        return new self();
+        return $this;
     }
+
+
 
 
     public function param(array $arr)
@@ -160,6 +198,9 @@ class models
         }
     }
 
+
+
+
     public static function save(): void
     {
 
@@ -175,6 +216,8 @@ class models
 
     }
 
+
+
     public static function all(): array
     {
         self::$sql = "SELECT * FROM " . self::nameClass();
@@ -182,11 +225,15 @@ class models
     }
 
 
-    public function first(): array
+
+
+    public static function first(): array
     {
-        $arr = self::get();
+        $arr = self::select()->limit(1)->get();
         return $arr[0];
     }
+
+
 
 
     public static function select($select = '*'): models
@@ -209,23 +256,28 @@ class models
         }
 
         self::$sql .= "(SELECT {$select} ";
-        return new self();
+        return $this;
     }
 
-
-    public static function from(string $table): models
-    {
-        self::$sql .= " FROM `{$table}` ";
-        return new self();
-    }
-
-    public static function endSub(string $as): models
+    public  function endSub(string $as): models
     {
         self::$sql .= " ) `{$as}` ";
-        return new self();
+        return $this;
     }
 
-    public static function as(string $column, string $as): models
+
+
+
+    public  function from(string $table): models
+    {
+        self::$sql .= " FROM `{$table}` ";
+        return $this;
+    }
+
+
+
+
+    public function as(string $column, string $as): models
     {
         $column = self::editColumnNameToEcranSymbol($column);
 
@@ -235,8 +287,10 @@ class models
             error_page::showPageError("Column {$column} Not find! to as");
         }
 
-        return new self();
+        return $this;
     }
+
+
 
 
     public static function where($column, $where = '', $sign = '='): models
@@ -265,6 +319,9 @@ class models
     }
 
 
+
+
+
     public function in($column,...$arr): models
     {
 
@@ -278,12 +335,15 @@ class models
 
 
 
-    public static function find(string $where): models
+    public  function find(string $where): models
     {
         self::where(self::$column_id, $where);
 
-        return new self();
+        return $this;
     }
+
+
+
 
     public static function insert(array $arr): string
     {
@@ -303,6 +363,8 @@ class models
         return new self();
     }
 
+
+
     public static function delete(): models
     {
         self::$sql = "DELETE FROM " . self::nameClass();
@@ -311,15 +373,17 @@ class models
 
     public static function drop(string $name): void
     {
-        self::$sql = "DROP TABLE `" . $name."`";
+        self::$sql = "DROP TABLE `{$name}`";
         self::get();
     }
+
+
 
 
     private static function nameClass(): string
     {
         $name = en(explode('\\',get_called_class()));
-        return $name == 'models' ? '`'.self::$name_table.'`' : '`'.$name.'`';
+        return $name == 'models' ? '`'.self::$name_table.'`' : "`{$name}`";
     }
 
     private static function db(): \PDO

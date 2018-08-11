@@ -37,13 +37,17 @@ trait dbWhere
         $arr = [];
 
         foreach ($column as $key => $value) {
+
             if(is_array($value)){
+
                 foreach ($value as $col => $val){
                     $arr[] = "`{$key}`.`{$col}` = '{$val}'";
                 }
+
             }else{
                 $arr[] = "`{$key}` = '{$value}'";
             }
+
         }
 
         return " {$action} " .implode(' AND ', $arr);

@@ -3,7 +3,7 @@ use Components\core\Route;
 
 
 
-    Route::rt('/', 'indexController@index');
+    Route::rt('kek', 'indexController@index');
 
 
 

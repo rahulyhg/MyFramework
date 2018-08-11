@@ -43,8 +43,13 @@ class core
         } Catch (\Error $e) {
             error_page::showPageError("Routs are not created", $e);
         }
+        $this->getUrl();
+    }
 
-        $this->url = trim($_SERVER['REQUEST_URI'], '/');
+    private function getUrl(): void
+    {
+        $url = trim($_SERVER['REQUEST_URI'], '/');
+        $this->url = parse_url($url,PHP_URL_PATH);
     }
 
 
