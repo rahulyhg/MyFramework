@@ -3,14 +3,19 @@
 namespace Components\db;
 
 use Components\core\treits\globalFunction;
-use Components\db\traits\{dbUpdate,dbInsert,dbWhere};
+use Components\db\traits\{
+    dbUpdate, dbInsert, dbWhere, select
+};
+use components\extension\pagination;
 use Components\Pages\error_page;
 
-class models{
 
-    use globalFunction, dbWhere, dbInsert, dbUpdate;
+class models
+{
 
-    private static $sql;
+    use globalFunction, dbWhere, dbInsert, dbUpdate, select;
+
+    public static $sql;
 
     public static $name_table;
 
@@ -24,22 +29,21 @@ class models{
 
     public static function get(): array
     {
-        $sql = self::$sql;
+        echo $sql = self::$sql;
 
         $row = self::db()->query($sql);
-        //echo $sql;
         self::$sql = '';
 
         try {
             return $row->fetchall(\PDO::FETCH_ASSOC);
         } Catch (\Error $e) {
-            error_page::showPageError('Sql not correct',$sql."<br><br><br>".$e->getMessage(). ' ' . $e->getFile() . $e->getLine());
+            error_page::showPageError('Sql not correct', $sql . "<br><br><br>" . $e->getMessage() . ' ' . $e->getFile() . $e->getLine());
         }
     }
 
     public static function limit(int $number): models
     {
-        self::$sql .=" LIMIT {$number}";
+        self::$sql .= " LIMIT {$number}";
         return new self();
     }
 
@@ -47,31 +51,34 @@ class models{
     public function pagination(int $count_in_one_page): models
     {
         self::limit($count_in_one_page);
-        self::offset(self::calc_offset_for_pagination($count_in_one_page));
+        self::offset(pagination::calc_offset_for_pagination($count_in_one_page));
     }
 
-    private static function calc_offset_for_pagination(int $count): int
+    public function sum(string $column): models
     {
-        return get('page') && get('name') > 1 ? (get('page') - 1) * $count : 0;
-    }
-
-
-    public function order(string $data = 'DESC',string $column = 'id'): models
-    {
-        self::$sql .=" ORDER BY `{$column}` {$data}";
+        self::$sql = str_replace('SELECT', "SELECT SUM(`{$column}`), ", self::$sql);
         return new self();
     }
 
-    public function on(string $firstColumn, string $secondColumn,$data = ' ON '):models
+    public function avg(string $column): models
     {
-        $join_table = self::$joinTable;
-
-        $nameClass = self::nameClass();
-
-        self::$sql .= " {$data}  {$nameClass}.`{$firstColumn}` = `{$join_table}`.`{$secondColumn}`";
-
+        self::$sql = str_replace('SELECT', "SELECT AVG(`{$column}`), ", self::$sql);
         return new self();
     }
+
+    public function count(): models
+    {
+        self::$sql = str_replace('SELECT', "SELECT COUNT(*), ", self::$sql);
+        return new self();
+    }
+
+
+    public function order(string $data = 'DESC', string $column = 'id'): models
+    {
+        self::$sql .= " ORDER BY `{$column}` {$data}";
+        return new self();
+    }
+
 
     public function group(string $column): models
     {
@@ -79,9 +86,9 @@ class models{
         return new self();
     }
 
-    public function moreOn(string $firstColumn, string $secondColumn): models
+    public function moreOn(string $firstColumn, string $secondColumn, string $nametable = ''): models
     {
-        return $this->on($firstColumn,$secondColumn,', ');
+        return $this->on($firstColumn, $secondColumn, $nametable, ', ');
     }
 
     public static function offset(int $count): models
@@ -89,23 +96,49 @@ class models{
         self::$sql .= " OFFSET {$count} ";
     }
 
-    public function leftJoin(string $table): models
+    public function leftJoin(string $table = ''): models
     {
-        return $this->join($table,' LEFT ');
+        return $this->join($table, ' LEFT ');
     }
 
-    public function rightJoin(string $table): models
+    public function rightJoin(string $table = ''): models
     {
-       return $this->join($table,' RIGHT ');
+        return $this->join($table, ' RIGHT ');
     }
 
 
-    public function join(string $table,$method = ''): models
+    public function join(string $table = '', $method = ''): models
     {
-        self::$joinTable = $table;
-        self::$sql .= $method .' JOIN '. "`{$table}`";
+        $sql = " {$method} JOIN ";
+
+        if ($table !== '') {
+            self::$joinTable = $table;
+            $sql = $method . ' JOIN ' . "`{$table}`";
+        }
+
+        self::$sql .= $sql;
+
         return new self();
     }
+
+
+    public function on(string $firstColumn, string $secondColumn, $nameTable = '', $data = ' ON '): models
+    {
+        $join_table = self::$joinTable;
+
+        if (is_string($nameTable)) {
+            $nameTable = $nameTable == '' ? self::nameClass() : "`$nameTable`";
+            self::$sql .= " {$data}  {$nameTable}.`{$firstColumn}` = `{$join_table}`.`{$secondColumn}`";
+        }
+
+        if (is_array($nameTable)) {
+            self::$sql .= " {$data}  `{$nameTable[0]}`.`{$firstColumn}` = `{$nameTable[1]}`.`{$secondColumn}`";
+        }
+
+
+        return new self();
+    }
+
 
     public function param(array $arr)
     {
@@ -123,7 +156,7 @@ class models{
             $row->execute($arr);
             return $row->fetchall(\PDO::FETCH_ASSOC);
         } Catch (\Error $e) {
-            error_page::showPageError('Sql not correct', $sql . "<br><br><br>" . $e->getMessage(). ' ' . $e->getFile() . $e->getLine());
+            error_page::showPageError('Sql not correct', $sql . "<br><br><br>" . $e->getMessage() . ' ' . $e->getFile() . $e->getLine());
         }
     }
 
@@ -132,8 +165,8 @@ class models{
 
         try {
             $row = self::db()->prepare(self::$sql);
-        }Catch(\PDOException $e){
-            error_page::showPageError('Method pdo:prepare not found in models 83str',self::$sql."<br><br><br>".$e->getMessage(). ' ' . $e->getFile() . $e->getLine());
+        } Catch (\PDOException $e) {
+            error_page::showPageError('Method pdo:prepare not found in models 83str', self::$sql . "<br><br><br>" . $e->getMessage() . ' ' . $e->getFile() . $e->getLine());
         }
 
         self::$sql = '';
@@ -158,13 +191,53 @@ class models{
 
     public static function select($select = '*'): models
     {
-        if($select !== '*'){
-            is_array($select) ? $select = self::ecranSelectColumn($select) : $select = "`{$select}`";
+        if ($select !== '*') {
+            $select = is_array($select) ? self::ecranSelectColumn($select) : "`{$select}`";
         }
+
         self::$sql = "SELECT " . $select . " FROM " . self::nameClass();
 
         return new self();
     }
+
+
+    public function selectSub($select = '*'): models
+    {
+
+        if ($select !== '*') {
+            $select = is_array($select) ? self::ecranSelectColumn($select) : "`{$select}`";
+        }
+
+        self::$sql .= "(SELECT {$select} ";
+        return new self();
+    }
+
+
+    public static function from(string $table): models
+    {
+        self::$sql .= " FROM `{$table}` ";
+        return new self();
+    }
+
+    public static function endSub(string $as): models
+    {
+        self::$sql .= " ) `{$as}` ";
+        return new self();
+    }
+
+    public static function as(string $column, string $as): models
+    {
+        $column = self::editColumnNameToEcranSymbol($column);
+
+        if (preg_match("~$column~", self::$sql)) {
+            self::$sql = str_replace($column, $column . " as `{$as}` ", self::$sql);
+        } else {
+            error_page::showPageError("Column {$column} Not find! to as");
+        }
+
+        return new self();
+    }
+
 
     public static function where($column, $where = '', $sign = '='): models
     {
@@ -172,17 +245,38 @@ class models{
             self::select();
         }
 
-        is_string($column) ? self::isStringOnWhere($column, $where, $sign) : self::isArrayOnWhere($column);
+        self::$sql .= is_string($column) ? self::isStringAndWhere($column, $where, $sign) : self::isArrayAndWhere($column);
 
         return new self();
     }
 
     public function orWhere($column, $where = '', $sign = '='): models
     {
-        is_string($column) ? self::isStringOnOrWhere($column, $where, $sign) : self::isArrayOnOrWhere($column);
+        self::$sql .= is_string($column) ? self::isStringOnOrWhere($column, $where, $sign) : self::isArrayOnOrWhere($column);
 
         return $this;
     }
+
+    public function andWhere($column, $where = '', $sign = '='): models
+    {
+        self::$sql .= is_string($column) ? " AND `{$column}` {$sign} `{$where}`" : self::isArrayAndWhere($column, 'AND');
+
+        return $this;
+    }
+
+
+    public function in($column,...$arr): models
+    {
+
+        $search = "'".implode("','", $arr)."'";
+
+        self::$sql .= " WHERE `{$column}` IN({$search}) ";
+
+        return $this;
+    }
+
+
+
 
     public static function find(string $where): models
     {
@@ -224,26 +318,17 @@ class models{
 
     private static function nameClass(): string
     {
-       $name = en(explode('\\',get_called_class()));
-       return $name == 'models' ? '`'.self::$name_table.'`' : '`'.$name.'`';
+        $name = en(explode('\\',get_called_class()));
+        return $name == 'models' ? '`'.self::$name_table.'`' : '`'.$name.'`';
     }
 
-    private static function ecranSelectColumn(array $select): string
-    {
-        $arr = [];
-
-        foreach ($select as $key){
-            array_push($arr,"`{$key}`");
-        }
-
-        return implode(',',$arr);
-    }
-
-    private static function db():\PDO
+    private static function db(): \PDO
     {
         if(empty(self::$connect)){
             self::$connect = database::getConnection();
         }
         return  self::$connect;
     }
+
+
 }

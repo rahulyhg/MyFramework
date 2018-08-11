@@ -7,12 +7,12 @@ trait dbWhere
 
     //Operation function where
 
-    private static function isStringOnOrWhere($column, $where, $sign): void
+    private static function isStringOnOrWhere($column, $where, $sign): string
     {
-        self::$sql .= " OR `{$column}` {$sign} '{$where}';";
+        return " OR `{$column}` {$sign} '{$where}';";
     }
 
-    private static function isArrayOnOrWhere($column): void
+    private static function isArrayOnOrWhere($column): string
     {
         $arr = [];
 
@@ -21,25 +21,34 @@ trait dbWhere
         }
         $result = implode(' OR ', $arr);
 
-        self::$sql .= " OR {$result}";
+       return " OR {$result}";
     }
 
 
     //Operation function orWhere
 
-    private static function isStringOnWhere($column, $where, $sign): void
+    private static function isStringAndWhere($column, $where, $sign): string
     {
-        self::$sql .= " WHERE `{$column}` {$sign} '{$where}'";
+        return " WHERE `{$column}` {$sign} '{$where}'";
     }
 
-    private static function isArrayOnWhere($column): void
+    private static function isArrayAndWhere($column,string $action = 'WHERE'): string
     {
         $arr = [];
 
         foreach ($column as $key => $value) {
-            $arr[] = "`{$key}` = '{$value}'";
+            if(is_array($value)){
+                foreach ($value as $col => $val){
+                    $arr[] = "`{$key}`.`{$col}` = '{$val}'";
+                }
+            }else{
+                $arr[] = "`{$key}` = '{$value}'";
+            }
         }
-        $result = implode(' AND ', $arr);
-        self::$sql .= " WHERE {$result}";
+
+        return " {$action} " .implode(' AND ', $arr);
+
     }
+
+
 }

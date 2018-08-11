@@ -4,7 +4,7 @@ namespace Components\core\treits;
 
 
 use Components\db\models;
-
+use Components\db\database;
 
 trait globalFunction
 {
@@ -26,5 +26,7 @@ trait globalFunction
     {
         return models::sql($sql);
     }
+
+
 
 }
