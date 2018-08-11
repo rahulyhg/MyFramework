@@ -9,11 +9,10 @@ use Components\Controller;
 class indexController extends Controller {
 
     public function index(){
+        //session()->add('key',['lol'=>'kek','lolh'=>[23.32]]);
+
+        session()->delete('key.lolh');
         dump(session()->all());
-
-        session()->add('key',['lol'=>['kek'=>1]]);
-
-        dump(session('key.lol'));
 
     }
 

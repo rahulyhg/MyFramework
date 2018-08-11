@@ -3,6 +3,7 @@
 namespace Components\core;
 
 use Components\core\treits\globalFunction;
+use Components\Pages\error_page;
 
 class super_array
 {
@@ -17,6 +18,24 @@ class super_array
         return super_array::getArray($arguments);
     }
 
+
+    public function delete(string $keys): void
+    {
+        if (self::searchValueInArray(explode('.', $keys))) {
+
+            try {
+                eval(self::createStringCodeToEvalDelete($keys));
+            } Catch (\ParseError $e) {
+                error_page::showPageError("Delete in eval method is failed", $e->getMessage());
+            }
+
+        } else {
+            dump(self::$name_array);
+            error_page::showPageError("NOT FIND {$keys} TO ARRAY");
+        }
+    }
+
+
     public function add(string $key, $value): void
     {
         switch (self::$name_array) {
@@ -26,29 +45,84 @@ class super_array
             case $_GET:
                 $_GET[$key] = $value;
                 break;
-            case $_REQUEST:
-                $_REQUEST[$key] = $value;
-                break;
             case $_FILES:
                 $_FILES[$key] = $value;
-                break;
-            case $GLOBALS:
-                $GLOBALS[$key] = $value;
                 break;
             case $_POST:
                 $_POST[$key] = $value;
                 break;
-            case $_SERVER:
-                $_SERVER[$key] = $value;
-                break;
+            default:
+                error_page::showPageError("Not found super_array",'Not found name');
         }
     }
 
+    public function destroy(): void
+    {
+        switch (self::$name_array) {
+
+            case $_SESSION:
+                $_SESSION = [];
+                break;
+            case $_GET:
+                $_GET = [];
+                break;
+            case $_FILES:
+                $_FILES = [];
+                break;
+            case $_POST:
+                $_POST = [];
+                break;
+            default:
+                error_page::showPageError("Not found super_array to destroy",'Found: session,get,files,post');
+        }
+    }
 
     public function all(): array
     {
         return self::$name_array;
     }
+
+    private static function createStringCodeToEvalDelete(string $keys): string
+    {
+        $result  = self::getToStringNameSuperArray();
+
+        $result .= self::getToStringKeysArray($keys);
+
+        return "unset($result);";
+    }
+
+
+    private static function getToStringNameSuperArray()
+    {
+        switch (self::$name_array) {
+            case $_SESSION:
+                return '$_SESSION';
+            case $_GET:
+                return '$_GET';
+            case $_FILES:
+                return  '$_FILES';
+            case $_POST:
+                return '$_POST';
+            default:
+                error_page::showPageError("Not found super_array",'Not found name to delete: post/get/files/session');
+        }
+    }
+
+
+    private static function getToStringKeysArray(string $keys): string
+    {
+        $result = '';
+
+        $keys = explode('.', $keys);
+
+        foreach ($keys as $key) {
+            $result .= "['$key']";
+        }
+
+        return $result;
+    }
+
+
 
     //знайти значення в багатовимірному масиві, з строки key1.key2 значень
     private static function searchValueInArray(array $keys, $array_with_keys = [])
