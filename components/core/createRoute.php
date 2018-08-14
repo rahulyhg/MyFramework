@@ -2,37 +2,33 @@
 
 namespace Components\core;
 
-class Route
+abstract class createRoute
 {
 
-    private static $arrRoutes;
+    protected static $arrRoutes;
 
-    private static $debug_data;
+    protected static $debug_data;
 
-    public static function rt(string $path, string $controller): void
+    protected static $typeRoute;
+
+    protected static function createRoute(string $path, string $controller): void
     {
         self::$debug_data = debug_backtrace();
 
-        if(self::$debug_data[2]['function'] == 'group'){
+        if(self::$debug_data[3]['function'] == 'group'){
             self::facadeChangeRouteIntoGroup(self::whereChallengeFunctions(),$path,$controller);
         }else{
-            self::$arrRoutes[$path] = str_replace('@', '/', $controller);
+            self::$arrRoutes[$path] = str_replace('@', '/', self::addTypeRouteToController($controller));
         }
     }
 
-
-    public static function group(array $data,callable $function): void
+    private static function addTypeRouteToController(string $controller): string
     {
-        $function();
+        if(!preg_match("~".self::$typeRoute."~",$controller)){
+            return  $controller . '|' . self::$typeRoute;
+        }
+        return $controller;
     }
-
-    public static function returnArrayRoutes(): array
-    {
-        self::includePageWithRoutes();
-
-        return self::$arrRoutes;
-    }
-
 
 
     private static function whereChallengeFunctions(): array
@@ -64,10 +60,10 @@ class Route
           }
       }
 
-        self::rt($url,$controller);
+        self::createRoute($url,self::addTypeRouteToController($controller));
     }
 
-    private static function includePageWithRoutes(){
+    protected static function includePageWithRoutes(){
 
         $list_file_route = require_once 'config/list_route_file.php';
 
@@ -77,4 +73,14 @@ class Route
             }
         }
     }
+
+    abstract public static function get(string $path, string $controller): createRoute;
+
+    abstract public static function post(string $path, string $controller): createRoute;
+
+    abstract public static function any(string $path, string $controller): createRoute;
+
+    abstract public static function returnArrayRoutes(): array;
+
+
 }

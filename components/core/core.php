@@ -3,10 +3,11 @@
 namespace Components\core;
 
 use Components\Controller;
-use Components\core\Route;
+use Components\core\route;
 use Components\Pages\{error_page,page_404};
 use Components\middleware\handlerMiddleware;
-use Components\core\migrations;
+use Components\core\Request;
+
 
 class core
 {
@@ -30,6 +31,10 @@ class core
     // Ключ до потрібного роутера в масиві роутерів
     private $key;
 
+
+    private $typeRoute;
+
+    //аргументи до метода
     private $arguments = [];
 
     public function __construct()
@@ -39,12 +44,26 @@ class core
        // migrations::getMigration();
 
         try {
-            $this->routes = Route::returnArrayRoutes();
+            $this->routes = route::returnArrayRoutes();
         } Catch (\Error $e) {
             error_page::showPageError("Routs are not created", $e);
         }
         $this->getUrl();
+
     }
+
+    private function getTypeRoute(): void
+    {
+        if(!preg_match('/\|get|\|post|\|any/',$this->routes[$this->key],$type)) {
+
+            error_page::showPageError('Type route not find','Type will be get/post');
+
+        }
+            $this->typeRoute = str_replace('|', '', $type[0]);
+
+            $this->routes[$this->key] = preg_replace('/\|get|\|post|\|any/', '', $this->routes[$this->key]);
+    }
+
 
     private function getUrl(): void
     {
@@ -73,6 +92,7 @@ class core
 
     private function facadeGetRout(): void
     {
+        $this->getTypeRoute();
 
         $this->getNameAction();
 
@@ -86,7 +106,29 @@ class core
 
         $this->middleware();
 
-        call_user_func_array(array($this->object, $this->action), $this->arguments);
+        $this->createObjectController();
+    }
+
+    private function createObjectController()
+    {
+        switch ($this->typeRoute) {
+            case 'post' || 'any':
+                $this->createPostControllerObject();
+                break;
+            case 'get':
+                call_user_func_array(array($this->object, $this->action), $this->arguments);
+                break;
+            default:
+                error_page::showPageError('This type route not found? get|post');
+        }
+
+    }
+
+
+    private function createPostControllerObject()
+    {
+            $this->arguments[] = new Request;
+            return call_user_func_array(array($this->object, $this->action), $this->arguments);
     }
 
     private function middleware():void
@@ -112,7 +154,6 @@ class core
     private function getArguments(): void
     {
         if (!empty($this->argumentsName)) {
-
             $arrArguments = explode('/', str_replace('$', '', $this->argumentsName));
 
             $arrUrl = explode('/', $this->url);

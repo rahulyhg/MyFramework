@@ -14,8 +14,8 @@ class super_array
 
     public static function createMethodForArrays(array $arr,string  $arguments)
     {
-        super_array::$name_array = $arr;
-        return super_array::getArray($arguments);
+        self::$name_array = $arr;
+        return self::getArray($arguments);
     }
 
 
@@ -49,7 +49,7 @@ class super_array
                 $_FILES[$key] = $value;
                 break;
             case $_POST:
-                $_POST[$key] = $value;
+                self::$name_array[$key] = $value;
                 break;
             default:
                 error_page::showPageError("Not found super_array",'Not found name');
@@ -70,7 +70,7 @@ class super_array
                 $_FILES = [];
                 break;
             case $_POST:
-                $_POST = [];
+                self::$name_array = [];
                 break;
             default:
                 error_page::showPageError("Not found super_array to destroy",'Found: session,get,files,post');
@@ -102,7 +102,7 @@ class super_array
             case $_FILES:
                 return  '$_FILES';
             case $_POST:
-                return '$_POST';
+                return 'self::$name_array';
             default:
                 error_page::showPageError("Not found super_array",'Not found name to delete: post/get/files/session');
         }
