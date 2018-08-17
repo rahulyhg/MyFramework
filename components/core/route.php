@@ -8,12 +8,7 @@ namespace Components\core;
 class Route extends  createRoute
 {
 
-    public static function post(string $path, string $controller): createRoute
-    {
-        self::$typeRoute = 'post';
-        self::createRoute($path,$controller);
-        return new self();
-    }
+
 
 
     public static function group(array $data,callable $function): void
@@ -28,14 +23,28 @@ class Route extends  createRoute
         return self::$arrRoutes;
     }
 
-    public static function get(string $path, string $controller): createRoute
+    public function name(string $name): void
+    {
+        $kek = array_keys(self::$arrRoutes);
+        self::$arrRoutes[end($kek)]['name'] .= empty( self::$arrRoutes[end($kek)]['name']) ? $name : '.' . $name;
+    }
+
+
+    public static function get(string $path, string $controller): Route
     {
         self::$typeRoute = 'get';
         self::createRoute($path,$controller);
         return new self();
     }
 
-    public static function any(string $path, string $controller): createRoute
+    public static function post(string $path, string $controller): Route
+    {
+        self::$typeRoute = 'post';
+        self::createRoute($path,$controller);
+        return new self();
+    }
+
+    public static function any(string $path, string $controller): Route
     {
         self::$typeRoute = 'any';
         self::createRoute($path,$controller);

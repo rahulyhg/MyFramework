@@ -8,34 +8,25 @@ use Components\Pages\{error_page,page_404};
 use Components\middleware\handlerMiddleware;
 use Components\core\Request;
 
-
+use ReflectionMethod;
 class core
 {
     private $routes;
 
     private $url;
 
-    private $action;
-
-    private $controller;
-
     //Обєкт класа контроллера
-    private $object;
-
-    //шлях до контроллера
-    private $path;
-
-    // індекси масиву аргументів для функції контроллера
-    private $argumentsName;
+    private $class;
 
     // Ключ до потрібного роутера в масиві роутерів
     private $key;
 
+    private $route;
 
-    private $typeRoute;
-
-    //аргументи до метода
+    //аргументи до метода контроллера
     private $arguments = [];
+
+
 
     public function __construct()
     {
@@ -44,26 +35,16 @@ class core
        // migrations::getMigration();
 
         try {
+
             $this->routes = route::returnArrayRoutes();
+
         } Catch (\Error $e) {
+
             error_page::showPageError("Routs are not created", $e);
         }
+
         $this->getUrl();
-
     }
-
-    private function getTypeRoute(): void
-    {
-        if(!preg_match('/\|get|\|post|\|any/',$this->routes[$this->key],$type)) {
-
-            error_page::showPageError('Type route not find','Type will be get/post');
-
-        }
-            $this->typeRoute = str_replace('|', '', $type[0]);
-
-            $this->routes[$this->key] = preg_replace('/\|get|\|post|\|any/', '', $this->routes[$this->key]);
-    }
-
 
     private function getUrl(): void
     {
@@ -71,6 +52,12 @@ class core
         $this->url = parse_url($url,PHP_URL_PATH);
     }
 
+
+
+    public function run(): void
+    {
+        $this->array_exits_patern() ? $this->facadeGetRout() : page_404::getInstance()->run();
+    }
 
 
     private function array_exits_patern(): bool
@@ -85,121 +72,114 @@ class core
     }
 
 
-    public function run(): void
-    {
-        $this->array_exits_patern() ? $this->facadeGetRout() : page_404::getInstance()->run();
-    }
 
     private function facadeGetRout(): void
     {
-        $this->getTypeRoute();
+        $this->changeRouteRequestMethod();
 
-        $this->getNameAction();
-
-        $this->getArgumentActionName();
+        $this->writeCheckedRoute();
 
         $this->getArguments();
-
-        $this->getController();
 
         $this->requireClass();
 
         $this->middleware();
 
+        $this->settingsRequestType();
+
         $this->createObjectController();
     }
 
-    private function createObjectController()
+
+    private function changeRouteRequestMethod(): void
     {
-        switch ($this->typeRoute) {
-            case 'post' || 'any':
-                $this->createPostControllerObject();
-                break;
-            case 'get':
-                call_user_func_array(array($this->object, $this->action), $this->arguments);
-                break;
-            default:
-                error_page::showPageError('This type route not found? get|post');
+        if (!preg_match('/\|get|\|post|\|any/', $this->key, $type)) {
+
+            error_page::showPageError('Type route not find', 'Type will be get/post');
+
         }
 
+        $this->key = preg_replace('/\|get|\|post|\|any/','|'.mb_strtolower($_SERVER['REQUEST_METHOD']),$this->key);
     }
 
-
-    private function createPostControllerObject()
+    private function writeCheckedRoute(): void
     {
-            $this->arguments[] = new Request;
-            return call_user_func_array(array($this->object, $this->action), $this->arguments);
+        $this->route = $this->routes[$this->key] ??  error_page::showPageError($this->key ." not find route",'str 116 core.php, code #1');;
     }
-
-    private function middleware():void
-    {
-        $middleware = new handlerMiddleware($this->key);
-        $middleware->run();
-    }
-
-    private function getNameAction(): void
-    {
-        $actionAndArguments = explode('/', trim(stristr($this->routes[$this->key], '/'), '/'));
-        $this->action = array_shift($actionAndArguments);
-    }
-
-
-    private function getArgumentActionName(): void
-    {
-        $actionAndArguments = trim(stristr($this->routes[$this->key], '/'), '/');
-        $this->argumentsName = trim(str_replace($this->action, '', $actionAndArguments), '/');
-    }
-
 
     private function getArguments(): void
     {
-        if (!empty($this->argumentsName)) {
-            $arrArguments = explode('/', str_replace('$', '', $this->argumentsName));
+        if(count($this->route['vars']) > 0)
+        {
+            $url = explode('/', $this->url);
 
-            $arrUrl = explode('/', $this->url);
+            foreach ($this->route['vars'] as $key=>$place) {
 
-            foreach ($arrArguments as $key) {
-                array_push($this->arguments, $arrUrl[$key - 1]);
+                $this->arguments[] = $url[str_replace('$','',$place) - 1] ?? '';
+
             }
+
         }
     }
-
-
-    private function getController(): void
-    {
-
-        $patern = '/' . $this->action;
-
-        if (!empty($this->argumentsName)) {
-            $patern .= '/' . $this->argumentsName;
-        }
-
-        $puthAndController = explode('.', str_replace($patern, '', $this->routes[$this->key]));
-
-        $this->controller = array_pop($puthAndController);
-
-        $this->path = implode('.', $puthAndController);
-    }
-
-
 
     private function requireClass(): void
     {
         if(!$this->findClass('app/controllers/') && !$this->findClass('components/Admin/controllers/')){
 
-            error_page::showPageError("Controller not find",'app/controllers/'.$this->path . '<br>' . 'components/Admin/controllers/'.$this->path);
+            error_page::showPageError("Controller not find",'app/controllers/'.$this->route['path'] . '<br>' . 'components/Admin/controllers/'.$this->route['path']);
 
         }
     }
 
+    private function middleware(): void
+    {
+        $middleware = new handlerMiddleware($this->key);
+
+        $middleware->run();
+    }
+
+
+    private function settingsRequestType(): void
+    {
+        switch ($_SERVER['REQUEST_METHOD']) {
+
+            case 'POST':
+                $this->postRequest();
+                break;
+            case 'GET':
+                $this->GETrequest();
+                break;
+            default:
+                error_page::showPageError('This type route not found, route will be get|post','code #00003');
+        }
+
+    }
+
+    private function createObjectController()
+    {
+        try {
+            call_user_func_array(array($this->class, $this->route['action']), $this->arguments);
+        }Catch(\Error $e){
+            error_page::showPageError('Not found arguments',$e->getMessage(). " LINE:  ". $e->getLine() .' -- code #54545');
+        }
+    }
+
+
+    private function postRequest(): void
+    {
+        $this->arguments[] = new Request;
+    }
+
+    private function GETrequest(): void
+    {
+     // муйбутні дії коли гет запит
+    }
+
     private function findClass($path): bool
     {
+        if (file_exists($path . $this->route['path']."/". $this->route['controller'].".php")) {
 
-        if (file_exists($path . $this->path."/".$this->controller.".php")) {
-
-            $controller = $this->generateNamespace($path) .$this->controller;
-
-            $this->object = new $controller();
+            $this->class = $this->generateNamespace($path) . $this->route['controller'];
 
             return true;
         }
@@ -211,9 +191,10 @@ class core
 
         $namespace ='\\'.str_replace('/','\\',$path);
 
-        if(!empty($this->path)){
-            $namespace .= str_replace('/','\\',$this->path) . '\\';
+        if(!empty($this->route['path'])){
+            $namespace .= str_replace('/','\\',$this->route['path']) . '\\';
         }
+
         return $namespace;
     }
 }

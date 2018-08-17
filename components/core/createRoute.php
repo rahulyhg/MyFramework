@@ -11,6 +11,8 @@ abstract class createRoute
 
     protected static $typeRoute;
 
+    protected static $name;
+
     protected static function createRoute(string $path, string $controller): void
     {
         self::$debug_data = debug_backtrace();
@@ -18,16 +20,29 @@ abstract class createRoute
         if(self::$debug_data[3]['function'] == 'group'){
             self::facadeChangeRouteIntoGroup(self::whereChallengeFunctions(),$path,$controller);
         }else{
-            self::$arrRoutes[$path] = str_replace('@', '/', self::addTypeRouteToController($controller));
+            self::createArrayInformationAboutRoute($path,$controller);
+
         }
     }
 
-    private static function addTypeRouteToController(string $controller): string
+    private static function createArrayInformationAboutRoute(string $path, string $controller): void
     {
-        if(!preg_match("~".self::$typeRoute."~",$controller)){
-            return  $controller . '|' . self::$typeRoute;
-        }
-        return $controller;
+        $classController = explode('@', $controller);
+
+        $controller = explode('.',$classController[0]);
+
+        $actionAndArguments = explode('/', $classController[1]);
+
+        self::$arrRoutes[$path . '|' . self::$typeRoute] =
+            [
+                'controller'    => array_pop($controller),
+                'action'        => array_shift($actionAndArguments),
+                'path'          => implode('/',$controller),
+                'vars'          => $actionAndArguments,
+                'name'          => self::$name
+            ];
+
+        self::$name = '';
     }
 
 
@@ -43,7 +58,8 @@ abstract class createRoute
         return $result;
     }
 
-    private static function facadeChangeRouteIntoGroup(array $data,string $url,string $controller){
+    private static function facadeChangeRouteIntoGroup(array $data,string $url,string $controller): void
+    {
 
       foreach ($data as $key=>$arr){
 
@@ -51,17 +67,19 @@ abstract class createRoute
               $url = trim($arr['url'],'/') . '/' . $url;
           }
 
-          if(isset($arr['prefix'])){
-              $controller = $arr['prefix'] . $controller;
-          }
-
           if(isset($arr['path'])){
               $controller = $arr['path'] .'.'. $controller;
           }
+
+          if (isset($arr['as'])) {
+              self::$name = empty(self::$name) ?  $arr['as'] : $arr['as'] . '.' . self::$name;
+          }
       }
 
-        self::createRoute($url,self::addTypeRouteToController($controller));
+        self::createRoute($url,$controller);
     }
+
+
 
     protected static function includePageWithRoutes(){
 
@@ -74,11 +92,11 @@ abstract class createRoute
         }
     }
 
-    abstract public static function get(string $path, string $controller): createRoute;
+    abstract public static function get(string $path, string $controller): Route;
 
-    abstract public static function post(string $path, string $controller): createRoute;
+    abstract public static function post(string $path, string $controller): Route;
 
-    abstract public static function any(string $path, string $controller): createRoute;
+    abstract public static function any(string $path, string $controller): Route;
 
     abstract public static function returnArrayRoutes(): array;
 

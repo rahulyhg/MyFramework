@@ -14,7 +14,7 @@ class migrations
 
     public static function getMigration(){
 
-        if(session('setting','migration','version') !== self::$version || !session('setting','migration','versiown')){
+        if(session('setting.migration.version') !== self::$version || !session('setting.migration.version')){
 
             self::tableMigration();
 
