@@ -9,8 +9,6 @@ class Route extends  createRoute
 {
 
 
-
-
     public static function group(array $data,callable $function): void
     {
         $function();

@@ -79,13 +79,13 @@ class core
 
         $this->writeCheckedRoute();
 
-        $this->getArguments();
-
         $this->requireClass();
 
         $this->middleware();
 
         $this->settingsRequestType();
+
+        $this->getArguments();
 
         $this->createObjectController();
     }
@@ -109,15 +109,15 @@ class core
 
     private function getArguments(): void
     {
-        if(count($this->route['vars']) > 0)
-        {
-            $url = explode('/', $this->url);
+        $reflection = new \ReflectionMethod($this->class, $this->route['action']);
 
-            foreach ($this->route['vars'] as $key=>$place) {
+        $param = $reflection->getParameters();
 
-                $this->arguments[] = $url[str_replace('$','',$place) - 1] ?? '';
+        foreach ($param as $key => $value) {
 
-            }
+            $namespace = $value->getType()->getName();
+
+            $this->arguments[] = new $namespace();
 
         }
     }
@@ -167,7 +167,7 @@ class core
 
     private function postRequest(): void
     {
-        $this->arguments[] = new Request;
+       // $this->arguments[] = new Request;
     }
 
     private function GETrequest(): void

@@ -31,14 +31,13 @@ abstract class createRoute
 
         $controller = explode('.',$classController[0]);
 
-        $actionAndArguments = explode('/', $classController[1]);
+        $action = explode('/', $classController[1]);
 
         self::$arrRoutes[$path . '|' . self::$typeRoute] =
             [
                 'controller'    => array_pop($controller),
-                'action'        => array_shift($actionAndArguments),
+                'action'        => array_shift($action),
                 'path'          => implode('/',$controller),
-                'vars'          => $actionAndArguments,
                 'name'          => self::$name
             ];
 
