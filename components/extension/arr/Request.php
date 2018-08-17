@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Components\core;
+namespace Components\extension\arr;
 
 
 class Request extends super_array

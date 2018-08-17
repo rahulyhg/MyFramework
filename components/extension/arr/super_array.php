@@ -1,6 +1,6 @@
 <?php
 
-namespace Components\core;
+namespace Components\extension\arr;
 
 use Components\core\treits\globalFunction;
 use Components\Pages\error_page;
@@ -26,12 +26,12 @@ class super_array
             try {
                 eval(self::createStringCodeToEvalDelete($keys));
             } Catch (\ParseError $e) {
-                error_page::showPageError("Delete in eval method is failed", $e->getMessage(). ' ' . $e->getFile() . $e->getLine());
+                error_page::showPageError("Delete in eval method is failed", $e->getMessage(). ' ' . $e->getFile() . $e->getLine(),'code: #12tkb6');
             }
 
         } else {
             dump(self::$name_array);
-            error_page::showPageError("NOT FIND {$keys} TO ARRAY");
+            error_page::showPageError("NOT FIND {$keys} TO ARRAY",'code: #kmnc325');
         }
     }
 
@@ -52,7 +52,7 @@ class super_array
                 self::$name_array[$key] = $value;
                 break;
             default:
-                error_page::showPageError("Not found super_array",'Not found name');
+                error_page::showPageError("Not found super_array",'Not found name code: #te678');
         }
     }
 
@@ -73,7 +73,7 @@ class super_array
                 self::$name_array = [];
                 break;
             default:
-                error_page::showPageError("Not found super_array to destroy",'Found: session,get,files,post');
+                error_page::showPageError("Not found super_array to destroy",'Found: session,get,files,post code: #3468001');
         }
     }
 
@@ -104,7 +104,7 @@ class super_array
             case $_POST:
                 return 'self::$name_array';
             default:
-                error_page::showPageError("Not found super_array",'Not found name to delete: post/get/files/session');
+                error_page::showPageError("Not found super_array",'Not found name to delete: post/get/files/session code: #235446035');
         }
     }
 

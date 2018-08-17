@@ -24,7 +24,7 @@ class database{
                 return self::$pdo_object;
 
             }catch (\PDOException $c){
-                error_page::showPageError('Database not found.Not valid db_params',$c);
+                error_page::showPageError('Database not found.Not valid db_params code: #2354235',$c);
             }
         }
 

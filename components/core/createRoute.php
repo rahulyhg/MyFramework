@@ -13,6 +13,8 @@ abstract class createRoute
 
     protected static $name;
 
+    private static $middleware = [];
+
     protected static function createRoute(string $path, string $controller): void
     {
         self::$debug_data = debug_backtrace();
@@ -21,7 +23,7 @@ abstract class createRoute
             self::facadeChangeRouteIntoGroup(self::whereChallengeFunctions(),$path,$controller);
         }else{
             self::createArrayInformationAboutRoute($path,$controller);
-
+            self::$middleware = [];
         }
     }
 
@@ -38,7 +40,8 @@ abstract class createRoute
                 'controller'    => array_pop($controller),
                 'action'        => array_shift($action),
                 'path'          => implode('/',$controller),
-                'name'          => self::$name
+                'name'          => self::$name,
+                'middleware'    => self::$middleware
             ];
 
         self::$name = '';
@@ -73,6 +76,11 @@ abstract class createRoute
           if (isset($arr['as'])) {
               self::$name = empty(self::$name) ?  $arr['as'] : $arr['as'] . '.' . self::$name;
           }
+
+          if (isset($arr['middleware'])) {
+              self::$middleware[] =  $arr['middleware'];
+          }
+
       }
 
         self::createRoute($url,$controller);

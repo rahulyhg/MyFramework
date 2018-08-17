@@ -20,14 +20,22 @@ class handlerMiddleware
 
     public function run(): void
     {
+        if (isset($this->list[$this->key])) {
+            $this->createMiddlewareObject($this->list[$this->key]);
+        }
+
         foreach ($this->list as $key => $value) {
-            if ($this->key == $value || $value == 'global') {
-                $object = new $key;
-                if (method_exists($object, 'run')) {
-                    $object->run();
-                }
+            if ($value == 'global') {
+                $this->createMiddlewareObject($key);
             }
         }
+
+    }
+
+    private function createMiddlewareObject(string $name): void
+    {
+        $middl = new $name();
+        $middl->run();
     }
 
 }

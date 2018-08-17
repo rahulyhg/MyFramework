@@ -51,7 +51,7 @@ class models
         try {
             return $row->fetchall(\PDO::FETCH_ASSOC);
         } Catch (\Error $e) {
-            error_page::showPageError('Sql not correct', $sql . "<br><br><br>" . $e->getMessage() . ' ' . $e->getFile() . $e->getLine());
+            error_page::showPageError('code: #bcx3r6r Sql not correct', $sql . "<br><br><br>" . $e->getMessage() . ' ' . $e->getFile() . $e->getLine());
         }
     }
 
@@ -187,14 +187,14 @@ class models
         try {
             $row = self::db()->prepare($sql);
         } Catch (\PDOException $e) {
-            error_page::showPageError('Method pdo:prepare.50str SQL ERROR:  ', $sql);
+            error_page::showPageError('code: #111e11 Method pdo:prepare.50str SQL ERROR:  ', $sql);
         }
 
         try {
             $row->execute($arr);
             return $row->fetchall(\PDO::FETCH_ASSOC);
         } Catch (\Error $e) {
-            error_page::showPageError('Sql not correct', $sql . "<br><br><br>" . $e->getMessage() . ' ' . $e->getFile() . $e->getLine());
+            error_page::showPageError('Sql not correct', $sql . "<br><br><br>" . $e->getMessage() . ' ' . $e->getFile() . $e->getLine(),'code: #23qwqw54235');
         }
     }
 
@@ -207,7 +207,7 @@ class models
         try {
             $row = self::db()->prepare(self::$sql);
         } Catch (\PDOException $e) {
-            error_page::showPageError('Method pdo:prepare not found in models 83str', self::$sql . "<br><br><br>" . $e->getMessage() . ' ' . $e->getFile() . $e->getLine());
+            error_page::showPageError('Method pdo:prepare not found in models 83str', self::$sql . "<br><br><br>" . $e->getMessage() . ' ' . $e->getFile() . $e->getLine(),'code: #124rengcv');
         }
 
         self::$sql = '';
@@ -284,7 +284,7 @@ class models
         if (preg_match("~$column~", self::$sql)) {
             self::$sql = str_replace($column, $column . " as `{$as}` ", self::$sql);
         } else {
-            error_page::showPageError("Column {$column} Not find! to as");
+            error_page::showPageError("Column {$column} Not find! to as",'code: #wet346');
         }
 
         return $this;

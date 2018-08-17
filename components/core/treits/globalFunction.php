@@ -27,6 +27,10 @@ trait globalFunction
         return models::sql($sql);
     }
 
-
+    public static function  route(string $name): string
+    {
+        $arr =  \Components\core\core::$names;
+        return $arr[$name] ?? \Components\Pages\error_page::showPageError(" not find name route {$name}",', code #361');
+    }
 
 }

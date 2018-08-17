@@ -1,6 +1,6 @@
 <?php
 
-use Components\core\super_array;
+use  Components\extension\arr\super_array;
 
 
 function dump($array)
@@ -17,6 +17,7 @@ function dd($var)
     echo "</pre>";
     die;
 }
+
 
 function en(array $arr): string
 {
