@@ -9,6 +9,6 @@ class postMiddleware implements middlewareInterface
 
     public function run()
     {
-        echo 1;
+
     }
 }

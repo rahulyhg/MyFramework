@@ -7,19 +7,16 @@ use Components\Controller;
 use Components\extension\arr\Request;
 use Components\db\models;
 use Components\extension\arr\super_array;
+use Components\extension\arr\Get;
 
 
 class indexController extends Controller {
 
-    public function index()
+    public function index(Get $get)
     {
-
+        echo $get->full();
     }
 
-    public function post(super_array $liol, Request $lol)
-    {
-
-    }
 
 }
 

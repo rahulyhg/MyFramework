@@ -25,32 +25,32 @@ function en(array $arr): string
 }
 
 
-function session(string $arr = '')
+function session(string $keys = '')
 {
-    return super_array::createMethodForArrays($_SESSION,$arr);
+    return super_array::createArr($keys, $_SESSION);
 }
 
-function get(string $arr = '')
+function get(string $keys = '')
 {
-    return super_array::createMethodForArrays($_GET,$arr);
+    return super_array::createArr($keys, $_GET);
 }
 
-function server(string $arr = '')
+function server(string $keys = '')
 {
-    return super_array::createMethodForArrays($_SERVER,$arr);
+    return super_array::createArr($keys, $_SERVER);
 }
 
-function post(string $arr = '')
+function post(string $keys = '')
 {
-    return super_array::createMethodForArrays($_POST,$arr);
+    return super_array::createArr($keys, $_POST);
 }
 
-function globals(string $arr = '')
+function globals(string $keys = '')
 {
-    return super_array::createMethodForArrays($GLOBALS,$arr);
+    return super_array::createArr($keys, $GLOBALS);
 }
 
-function files(string $arr = '')
+function files(string $keys = '')
 {
-    return super_array::createMethodForArrays($_FILES,$arr);
+    return super_array::createArr($keys, $_FILES);
 }

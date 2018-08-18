@@ -7,124 +7,55 @@ use Components\Pages\error_page;
 
 class super_array
 {
-    use globalFunction;
 
-    public static $name_array = [];
-
-
-    public static function createMethodForArrays(array $arr,string  $arguments)
-    {
-        self::$name_array = $arr;
-        return self::getArray($arguments);
-    }
+    public static $name_array;
 
 
-    public function delete(string $keys): void
-    {
-        if (self::searchValueInArray(explode('.', $keys))) {
 
-            try {
-                eval(self::createStringCodeToEvalDelete($keys));
-            } Catch (\ParseError $e) {
-                error_page::showPageError("Delete in eval method is failed", $e->getMessage(). ' ' . $e->getFile() . $e->getLine(),'code: #12tkb6');
-            }
-
-        } else {
-            dump(self::$name_array);
-            error_page::showPageError("NOT FIND {$keys} TO ARRAY",'code: #kmnc325');
-        }
-    }
-
-
-    public function add(string $key, $value): void
-    {
-        switch (self::$name_array) {
-            case $_SESSION:
-                $_SESSION[$key] = $value;
-                break;
-            case $_GET:
-                $_GET[$key] = $value;
-                break;
-            case $_FILES:
-                $_FILES[$key] = $value;
-                break;
-            case $_POST:
-                self::$name_array[$key] = $value;
-                break;
-            default:
-                error_page::showPageError("Not found super_array",'Not found name code: #te678');
-        }
-    }
-
-    public function destroy(): void
-    {
-        switch (self::$name_array) {
-
-            case $_SESSION:
-                $_SESSION = [];
-                break;
-            case $_GET:
-                $_GET = [];
-                break;
-            case $_FILES:
-                $_FILES = [];
-                break;
-            case $_POST:
-                self::$name_array = [];
-                break;
-            default:
-                error_page::showPageError("Not found super_array to destroy",'Found: session,get,files,post code: #3468001');
-        }
-    }
-
-    public function all(): array
+    public static function all(): array
     {
         return self::$name_array;
     }
 
-    private static function createStringCodeToEvalDelete(string $keys): string
+    public function delete($keys): void
     {
-        $result  = self::getToStringNameSuperArray();
-
-        $result .= self::getToStringKeysArray($keys);
-
-        return "unset($result);";
+        $keys = explode('.',$keys);
+        self::searchValueInArray($keys) ? self::searchAndDeleteKey($keys) : error_page::showPageError('This Key not find in array','code #364jhre');
     }
 
 
-    private static function getToStringNameSuperArray()
+    public static function createArr($keys = '',array &$arr)
     {
-        switch (self::$name_array) {
-            case $_SESSION:
-                return '$_SESSION';
-            case $_GET:
-                return '$_GET';
-            case $_FILES:
-                return  '$_FILES';
-            case $_POST:
-                return 'self::$name_array';
-            default:
-                error_page::showPageError("Not found super_array",'Not found name to delete: post/get/files/session code: #235446035');
+        self::$name_array =& $arr;
+
+        return   $keys == '' ? new self() : self::searchValueInArray(explode('.',$keys));
+    }
+
+
+
+    private  function searchAndDeleteKey(array $keys, &$childArr = [])
+    {
+        if (!empty($keys) && empty($childArr) && isset(self::$name_array[$keys[0]])) {
+            $key = array_shift($keys);
+            if(count($keys) == 0){
+                unset(self::$name_array[$key]);
+                return ;
+            }
+            return self::searchAndDeleteKey($keys, self::$name_array[$key]);
+        }
+
+        if (count($keys) == 1) {
+            $key = array_shift($keys);
+            unset($childArr[$key]);
+        }
+
+        if (!empty($keys) && isset($childArr[$keys[0]])) {
+            $key = array_shift($keys);
+            return self::searchAndDeleteKey($keys, $childArr[$key]);
         }
     }
 
 
-    private static function getToStringKeysArray(string $keys): string
-    {
-        $result = '';
-
-        $keys = explode('.', $keys);
-
-        foreach ($keys as $key) {
-            $result .= "['$key']";
-        }
-
-        return $result;
-    }
-
-
-
-    //знайти значення в багатовимірному масиві, з строки key1.key2 значень
     private static function searchValueInArray(array $keys, $array_with_keys = [])
     {
         if (!empty($keys) && empty($array_with_keys) && isset(self::$name_array[$keys[0]])) {
@@ -140,10 +71,5 @@ class super_array
         return empty($keys) ? $array_with_keys : false;
     }
 
-
-    private static function getArray(string $arr = '')
-    {
-        return $arr !== '' ? self::searchValueInArray(explode('.',$arr)) : new self();
-    }
 
 }
