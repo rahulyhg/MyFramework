@@ -395,5 +395,11 @@ class models
         return  self::$connect;
     }
 
+    public static function __callStatic($name, $arguments)
+    {
+        self::$name_table = $name;
+        return new self();
+    }
+
 
 }

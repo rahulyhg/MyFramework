@@ -33,13 +33,14 @@ class twig
 
                 ['cache' => 'twig_cache/', 'auto_reload' => true, 'strict_variables' => true]
             );
+
+
+
     }
 
     private function addGlobalsToTwig(): void
     {
-        self::$twig->addGlobal('func', new functions_twig_shablons());
-        self::$twig->addGlobal('pagin', new pagination());
-
+        self::$twig->addExtension(new twig_Extension_func());
     }
 
 

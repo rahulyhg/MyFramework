@@ -11,8 +11,15 @@ require_once 'vendor/autoload.php';
 // Підключаємо функції
 require_once 'components/core/function.php';
 
-//Піжключаєм ядро для знаходження роутів
 
+//Опред мову, робимо переадресацію
+$lang = new \Components\core\siteLang();
+$lang->lang();
+
+
+
+
+//Піжключаєм ядро для знаходження роутів
 //try {
     $route = new  Components\core\core();
     $route->run();

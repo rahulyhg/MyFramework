@@ -3,6 +3,7 @@
 namespace Components\core;
 
 use Components\Controller;
+use Components\db\models;
 use Components\Pages\{error_page,page_404};
 use Components\middleware\handlerMiddleware;
 
@@ -10,7 +11,7 @@ class core
 {
     private $routes;
 
-    private $url;
+    public static $url;
 
     //Обєкт класа контроллера
     private $class;
@@ -44,12 +45,13 @@ class core
         $this->getUrl();
 
         $this->getArrNames();
+
     }
 
     private function getUrl(): void
     {
         $url = trim($_SERVER['REQUEST_URI'], '/');
-        $this->url = parse_url($url,PHP_URL_PATH);
+        self::$url = parse_url($url,PHP_URL_PATH);
     }
 
 
@@ -63,7 +65,7 @@ class core
     private function array_exits_patern(): bool
     {
         foreach ($this->routes as $key => $value) {
-            if ((empty($this->url) && array_key_exists('/',$this->routes)) || preg_match('~(' . $key . ')$~i', $this->url)) {
+            if ((empty(self::$url) && array_key_exists('/',$this->routes)) || preg_match('~(' . $key . ')$~i',self::$url)) {
                 $this->key = $key;
                 return true;
             }
@@ -172,7 +174,6 @@ class core
             error_page::showPageError('Not found arguments',$e->getMessage(). " LINE:  ". $e->getLine() .' -- code #54545');
         }
     }
-
 
 
     private function findClass(string $path): bool
