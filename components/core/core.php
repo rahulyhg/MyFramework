@@ -75,7 +75,7 @@ class core
     {
         foreach($this->routes as $key=>$value){
             if(!empty($value['name'])){
-                self::$names[$value['name']] = $_SERVER['REQUEST_SCHEME'] .'://'. $_SERVER['SERVER_NAME'] .'/'. preg_replace('/\|get|\|post|\|any/','',$key);
+                self::$names[$value['name']] = $_SERVER['REQUEST_SCHEME'] .'://'. $_SERVER['SERVER_NAME'] .'/'. preg_replace('/\|get|\|post/','',$key);
             }
         }
     }
@@ -100,13 +100,14 @@ class core
 
     private function changeRouteRequestMethod(): void
     {
-        if (!preg_match('/\|get|\|post|\|any/', $this->key, $type)) {
+        if (!preg_match('/\|get|\|post/', $this->key, $type)) {
 
             error_page::showPageError('Type route not find code: #157854', 'Type will be get/post');
 
         }
 
-        $this->key = preg_replace('/\|get|\|post|\|any/','|'.mb_strtolower($_SERVER['REQUEST_METHOD']),$this->key);
+        $this->key = preg_replace('/\|get|\|post/','|'.mb_strtolower($_SERVER['REQUEST_METHOD']),$this->key);
+
     }
 
     private function writeCheckedRoute(): void

@@ -42,12 +42,7 @@ class Route extends  createRoute
         return new self();
     }
 
-    public static function any(string $path, string $controller): Route
-    {
-        self::$typeRoute = 'any';
-        self::createRoute($path,$controller);
-        return new self();
-    }
+
 
 
 

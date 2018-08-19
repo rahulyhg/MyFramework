@@ -67,9 +67,10 @@ class models
 
 
 
-    public function pagination(int $count_in_one_page): models
+    public function pagination(int $count_in_one_page,int $countRows): models
     {
         $this->limit($count_in_one_page);
+        pagination::$count_page = ceil($countRows/$count_in_one_page);
         $this->offset(pagination::calc_offset_for_pagination($count_in_one_page));
         return $this;
     }

@@ -103,8 +103,6 @@ abstract class createRoute
 
     abstract public static function post(string $path, string $controller): Route;
 
-    abstract public static function any(string $path, string $controller): Route;
-
     abstract public static function returnArrayRoutes(): array;
 
 

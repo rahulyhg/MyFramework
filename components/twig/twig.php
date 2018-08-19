@@ -3,6 +3,7 @@
 namespace Components\twig;
 
 
+use Components\extension\pagination;
 use Twig_Environment;
 use Twig_Loader_Filesystem;
 
@@ -37,6 +38,8 @@ class twig
     private function addGlobalsToTwig(): void
     {
         self::$twig->addGlobal('func', new functions_twig_shablons());
+        self::$twig->addGlobal('pagin', new pagination());
+
     }
 
 

@@ -1,4 +1,8 @@
 
-<form action="{{func.route('kek.lol')}}" method="post">
-    <input type="submit">
-</form>
+{% for key in arr %}
+<div style="height:60px;border: 1px solid lawngreen; margin:20px;width:100px;">
+    <p>{{key.id}}</p>
+</div>
+{% endfor %}
+
+{{pagin.showPagination()|raw  }}
