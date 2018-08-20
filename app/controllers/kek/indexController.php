@@ -16,7 +16,7 @@ class indexController extends Controller {
     public function index(Get $get)
     {
       $arr = lol::selectAll();
-      echo self::$twig->render('index.html',['arr'=> $arr]);
+      echo self::$twig->render('index.html.twig',['arr'=> $arr]);
     }
 
 

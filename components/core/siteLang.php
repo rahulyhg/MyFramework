@@ -25,8 +25,6 @@ class siteLang
     {
         $this->createLangSession();
 
-        $this->localizationInUrl();
-
         $this->refererIntoLocalization();
 
     }
@@ -55,13 +53,6 @@ class siteLang
 
             }
         }
-    }
-
-
-    private function localizationInUrl(): void
-    {
-
-
     }
 
 }
