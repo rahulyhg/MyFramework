@@ -12,6 +12,12 @@ require_once 'vendor/autoload.php';
 require_once 'components/core/function.php';
 
 
+
+
+//Загальні налаштування сайту
+\Components\extension\siteSettings::creatSettings();
+
+
 //Опред мову, робимо переадресацію
 $lang = new \Components\core\siteLang();
 $lang->lang();

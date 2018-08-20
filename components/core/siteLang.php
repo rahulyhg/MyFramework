@@ -4,6 +4,7 @@
 namespace Components\core;
 use Components\db\models;
 use Components\core\core;
+use Components\extension\siteSettings;
 
 class siteLang
 {
@@ -17,20 +18,26 @@ class siteLang
     {
         $url = trim($_SERVER['REQUEST_URI'], '/');
         self::$url = parse_url($url,PHP_URL_PATH);
-        $_SESSION['settings'] = $_SESSION['settings']  ?? models::siteSettings()->all()[0];
     }
 
 
     public function lang(): void
     {
         $this->createLangSession();
-//зробити дефолт який некмає субдомена
-        if (!preg_match("/en|uk|ru/", self::$url)) {
 
-            header('Location: /' . $_SESSION['lang']['domen'] . '/' . self::$url);
-        }
+        $this->localizationInUrl();
+
+        $this->refererIntoLocalization();
 
     }
+
+    private function refererIntoLocalization(): void
+    {
+        if (!preg_match("/" . implode('|', $this->langsInSite) . "/", self::$url) && siteSettings::$settings['lang_default'] !== $_SESSION['lang']['domen']) {
+            header('Location: /' . $_SESSION['lang']['domen'] . '/' . self::$url);
+        }
+    }
+
 
     private function createLangSession(): void
     {
@@ -39,12 +46,22 @@ class siteLang
         $userLang = explode(',', $_SERVER['HTTP_ACCEPT_LANGUAGE'])[0];
 
         foreach ($imposibleLang as $key => $value) {
+
             $this->langsInSite[] = $value['domen'];
-            if (preg_match("/{$value['domen']}/i", $userLang) && !isset($_SESSION['lang'])) {
+
+            if(preg_match("/".$value['domen']."/i",self::$url,$langWithUrl) || (preg_match("/{$value['domen']}/i", $userLang) && !isset($_SESSION['lang']))){
+
                 $_SESSION['lang'] = ['domen' => $value['domen'], 'id' => $value['id']];
+
             }
         }
     }
 
+
+    private function localizationInUrl(): void
+    {
+
+
+    }
 
 }

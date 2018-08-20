@@ -14,13 +14,11 @@ class database{
 
             $params = require_once 'config/db_params.php';
 
-            $dsn = "mysql:host={$params['host']};dbname={$params['dbname']}";
-
             try {
-                $db = new \PDO($dsn, $params['user'], $params['password']);
+                self::$pdo_object = new \PDO("mysql:host={$params['host']};dbname={$params['dbname']}", $params['user'], $params['password']);
 
-                $db->exec("set names utf8");
-                self::$pdo_object = $db;
+                self::$pdo_object->exec("set names utf8");
+
                 return self::$pdo_object;
 
             }catch (\PDOException $c){
