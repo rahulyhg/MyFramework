@@ -50,8 +50,13 @@ class core
 
     private function getUrl(): void
     {
-        $url = trim($_SERVER['REQUEST_URI'], '/');
-        self::$url = parse_url(preg_replace("~".implode('|',siteLang::$langsInSite)."~",'',$url),PHP_URL_PATH);
+        $url = preg_replace("~".implode('|',siteLang::$langsInSite)."~",'',$_SERVER['REQUEST_URI']);
+
+        if($url !== '/'){
+            $url = trim($url,'/');
+        }
+
+        self::$url = parse_url($url,PHP_URL_PATH);
     }
 
 
