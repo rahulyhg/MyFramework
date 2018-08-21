@@ -2,17 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f20e48be-af7f-4530-ac1c-0c55d46b2de4" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Pages/page_404.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/Pages/page_404.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/core/siteLang.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/core/siteLang.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/extension/multiLang.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/extension/multiLang.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/extension/siteSettings.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/extension/siteSettings.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/twig/functions_twig_shablons.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/twig/twig.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/twig/twig.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/twig/twig_Extension_func.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/twig/twig_extension_func.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/core/treits/globalFunction.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/core/treits/globalFunction.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/extension/arr/Get.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/extension/arr/Get.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/twig/twig_extension_func.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/twig/twig_extension_func.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/views/index.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -40,35 +32,7 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="web.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/web.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="19" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="core.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/components/core/core.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="344">
-              <caret line="74" lean-forward="true" selection-start-line="74" selection-end-line="74" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="siteLang.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/components/core/siteLang.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="555">
-              <caret line="55" column="70" selection-start-line="55" selection-start-column="70" selection-end-line="55" selection-end-column="70" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -79,8 +43,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>getArgumentActionName</find>
-      <find>$this-&gt;argumentsName</find>
       <find>$this-&gt;arguments</find>
       <find>getArguments</find>
       <find>getTypeRoute</find>
@@ -109,6 +71,8 @@
       <find>this</find>
       <find>self::$url</find>
       <find>siteSettings</find>
+      <find>list_directory_views.php</find>
+      <find>#34t3y34bo</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/vendor/twig/twig</dir>
@@ -121,7 +85,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/.htaccess" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/app/models/test.php" />
         <option value="$PROJECT_DIR$/components/core/pagination.php" />
@@ -138,14 +101,12 @@
         <option value="$PROJECT_DIR$/components/extension/array/Request.php" />
         <option value="$PROJECT_DIR$/components/Controller.php" />
         <option value="$PROJECT_DIR$/components/extension/arr/Request.php" />
-        <option value="$PROJECT_DIR$/components/core/treits/globalFunction.php" />
         <option value="$PROJECT_DIR$/app/middleware/kek.php" />
         <option value="$PROJECT_DIR$/config/listMiddleware.php" />
         <option value="$PROJECT_DIR$/components/middleware/handlerMiddleware.php" />
         <option value="$PROJECT_DIR$/config/name_middleware.php" />
         <option value="$PROJECT_DIR$/app/middleware/postMiddleware.php" />
         <option value="$PROJECT_DIR$/components/extension/arr/super_array.php" />
-        <option value="$PROJECT_DIR$/components/extension/arr/Get.php" />
         <option value="$PROJECT_DIR$/components/core/function.php" />
         <option value="$PROJECT_DIR$/components/core/route.php" />
         <option value="$PROJECT_DIR$/components/core/createRoute.php" />
@@ -164,14 +125,17 @@
         <option value="$PROJECT_DIR$/components/twig/twig.php" />
         <option value="$PROJECT_DIR$/app/controllers/kek/indexController.php" />
         <option value="$PROJECT_DIR$/index.php" />
-        <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/components/extension/siteSettings.php" />
         <option value="$PROJECT_DIR$/components/extension/multiLang.php" />
-        <option value="$PROJECT_DIR$/views/index.html.twig" />
         <option value="$PROJECT_DIR$/components/Pages/error_page.php" />
         <option value="$PROJECT_DIR$/components/Pages/page_404.php" />
         <option value="$PROJECT_DIR$/components/core/siteLang.php" />
         <option value="$PROJECT_DIR$/components/core/core.php" />
+        <option value="$PROJECT_DIR$/routes/web.php" />
+        <option value="$PROJECT_DIR$/components/twig/twig_extension_func.php" />
+        <option value="$PROJECT_DIR$/views/index.html.twig" />
+        <option value="$PROJECT_DIR$/components/extension/arr/Get.php" />
+        <option value="$PROJECT_DIR$/components/core/treits/globalFunction.php" />
       </list>
     </option>
   </component>
@@ -218,34 +182,13 @@
             <path>
               <item name="Root" type="cbb8eebc:String" user="Root" />
               <item name="framework" type="cbb8eebc:String" user="framework" />
-              <item name="app" type="cbb8eebc:String" user="app" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="framework" type="cbb8eebc:String" user="framework" />
               <item name="components" type="cbb8eebc:String" user="components" />
             </path>
             <path>
               <item name="Root" type="cbb8eebc:String" user="Root" />
               <item name="framework" type="cbb8eebc:String" user="framework" />
               <item name="components" type="cbb8eebc:String" user="components" />
-              <item name="core" type="cbb8eebc:String" user="core" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="framework" type="cbb8eebc:String" user="framework" />
-              <item name="components" type="cbb8eebc:String" user="components" />
-              <item name="Pages" type="cbb8eebc:String" user="Pages" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="framework" type="cbb8eebc:String" user="framework" />
-              <item name="routes" type="cbb8eebc:String" user="routes" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="framework" type="cbb8eebc:String" user="framework" />
-              <item name="views" type="cbb8eebc:String" user="views" />
+              <item name="twig" type="cbb8eebc:String" user="twig" />
             </path>
           </expand>
           <select />
@@ -424,23 +367,22 @@
       <workItem from="1534777012785" duration="2636000" />
       <workItem from="1534785186458" duration="118000" />
       <workItem from="1534830665873" duration="1263000" />
-      <workItem from="1534856749223" duration="3361000" />
+      <workItem from="1534856749223" duration="5526000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="234735000" />
+    <option name="totallyTimeSpent" value="236900000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-1" width="1920" height="1046" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50053364" side_tool="true" weight="0.3939064" />
       <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4994664" weight="0.2742111" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4994664" visible="true" weight="0.2742111" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23692636" />
       <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="4" weight="0.32977587" />
@@ -469,20 +411,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/components/extension/log.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="26" column="20" lean-forward="true" selection-start-line="26" selection-start-column="20" selection-end-line="26" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/extension/telegarm.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/Reflection/Reflection.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-19544">
@@ -497,34 +425,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/components/core/treits/globalFunction.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/middleware/kek.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="8" column="21" lean-forward="true" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/list_route_file.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/listMiddleware.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="21" selection-start-line="1" selection-start-column="21" selection-end-line="1" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/name_middleware.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="2" lean-forward="true" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="2" />
         </state>
       </provider>
     </entry>
@@ -664,13 +568,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/db_params.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="20" selection-start-line="3" selection-start-column="15" selection-end-line="3" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/components/db/database.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="465">
@@ -694,13 +591,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/components/twig/twig.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/kek/indexController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -715,13 +605,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/components/twig/twig_extension_func.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="10" lean-forward="true" selection-start-line="17" selection-start-column="10" selection-end-line="17" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/constants/ru/const.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -733,13 +616,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="15" column="5" lean-forward="true" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/extension/arr/Get.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
         </state>
       </provider>
     </entry>
@@ -764,38 +640,103 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/index.html.twig">
+    <entry file="file://$PROJECT_DIR$/components/core/core.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="22" lean-forward="true" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/extension/multiLang.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+        <state relative-caret-position="314">
+          <caret line="42" column="9" lean-forward="true" selection-start-line="42" selection-start-column="9" selection-end-line="42" selection-end-column="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/components/core/siteLang.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="55" column="70" selection-start-line="55" selection-start-column="70" selection-end-line="55" selection-end-column="70" />
+        <state relative-caret-position="180">
+          <caret line="14" column="24" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="30" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/web.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="19" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
+        <state relative-caret-position="60">
+          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/components/core/core.php">
+    <entry file="file://$PROJECT_DIR$/views/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="344">
-          <caret line="74" lean-forward="true" selection-start-line="74" selection-end-line="74" />
+        <state relative-caret-position="120">
+          <caret line="8" column="19" selection-start-line="8" selection-start-column="15" selection-end-line="8" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/extension/multiLang.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="32" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/core/treits/globalFunction.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="36" column="60" selection-start-line="36" selection-start-column="60" selection-end-line="36" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/extension/arr/Get.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="15" column="5" lean-forward="true" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/twig/twig.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="27" column="51" selection-start-line="27" selection-start-column="51" selection-end-line="27" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/list_directory_views.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/list_route_file.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/listMiddleware.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="21" selection-start-line="1" selection-start-column="21" selection-end-line="1" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/name_middleware.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="2" lean-forward="true" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/db_params.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/log/18-08-21.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="36" column="49" lean-forward="true" selection-start-line="36" selection-start-column="49" selection-end-line="36" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/twig/twig_extension_func.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="1" lean-forward="true" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
+          <folding>
+            <element signature="e#36#62#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

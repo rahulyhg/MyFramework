@@ -5,6 +5,7 @@ namespace Components\core\treits;
 
 use Components\db\models;
 use Components\db\database;
+use Components\extension\arr\Get;
 
 trait globalFunction
 {
@@ -33,4 +34,9 @@ trait globalFunction
         return $arr[$name] ?? \Components\Pages\error_page::showPageError(" not find name route {$name}",', code #361');
     }
 
+    public static function assets(string $url,$admin = false): string
+    {
+        $url = trim($url,'/');
+        return $admin ?  Get::domen().'components/Admin/public/'.$url : Get::domen().'public/'.$url;
+    }
 }

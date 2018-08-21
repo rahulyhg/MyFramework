@@ -3,6 +3,8 @@
 
 namespace Components\twig;
 
+use Components\Controller;
+use Components\core\treits\globalFunction;
 use Components\extension\{multiLang,pagination};
 
 
@@ -13,18 +15,11 @@ class twig_extension_func extends \Twig_Extension {
     {
         return array(
             new \Twig_SimpleFunction('showPagination', [new pagination(), 'showPagination']),
-            new \Twig_SimpleFunction('prefs', [new multiLang, 'prefs']),
+            new \Twig_SimpleFunction('prefs', [multiLang::class, 'prefs']),
+            new \Twig_SimpleFunction('assets',[globalFunction::class,'assets'])
 
         );
     }
 
-    public function prefs($cnst)
-    {
-        return multiLang::prefs($cnst);
-    }
 
-    public function getName()
-    {
-        return 'menu';
-    }
 }
