@@ -51,7 +51,7 @@ class core
     private function getUrl(): void
     {
         $url = trim($_SERVER['REQUEST_URI'], '/');
-        self::$url = parse_url($url,PHP_URL_PATH);
+        self::$url = parse_url(preg_replace("~".implode('|',siteLang::$langsInSite)."~",'',$url),PHP_URL_PATH);
     }
 
 
@@ -65,7 +65,7 @@ class core
     private function array_exits_patern(): bool
     {
         foreach ($this->routes as $key => $value) {
-            if ((empty(self::$url) && array_key_exists('/',$this->routes)) || preg_match('~(' . $key . ')$~i',self::$url)) {
+            if ((empty(self::$url) && array_key_exists('/',$this->routes)) || preg_match('~^(' . $key . ')$~i',self::$url)) {
                 $this->key = $key;
                 return true;
             }

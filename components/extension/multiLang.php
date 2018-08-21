@@ -1,13 +1,9 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: egor
- * Date: 19.08.18
- * Time: 18:54
- */
 
 namespace components\extension;
 
+
+use Components\Pages\error_page;
 
 class multiLang
 {
@@ -18,11 +14,10 @@ class multiLang
         if(empty(self::$const)){
             self::addToConst();
         }
-
-        self::$const[$cnst];
+        return self::$const[$cnst] ?? error_page::showPageError('Not found const '.$cnst,'code #34t3y34bo');
     }
 
-    public function addToConst(): void
+    public  static function addToConst(): void
     {
         self::$const = require_once 'app/constants/'.session('lang.domen').'/const.php';
     }

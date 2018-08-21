@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: egor
- * Date: 20.08.18
- * Time: 18:01
- */
+
 
 namespace Components\extension;
 

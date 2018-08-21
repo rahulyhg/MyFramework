@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: egor
- * Date: 19.08.18
- * Time: 18:21
- */
+
 
 namespace Components\twig;
 
@@ -12,7 +7,7 @@ use Components\extension\{multiLang,pagination};
 
 
 
-class twig_Extension_func extends \Twig_Extension {
+class twig_extension_func extends \Twig_Extension {
 
     public function getFunctions()
     {
@@ -25,7 +20,7 @@ class twig_Extension_func extends \Twig_Extension {
 
     public function prefs($cnst)
     {
-        return $cnst;
+        return multiLang::prefs($cnst);
     }
 
     public function getName()

@@ -40,7 +40,7 @@ class twig
 
     private function addGlobalsToTwig(): void
     {
-        self::$twig->addExtension(new twig_Extension_func());
+        self::$twig->addExtension(new twig_extension_func());
     }
 
 

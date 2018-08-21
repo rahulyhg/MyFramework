@@ -12,7 +12,8 @@ class page_404 extends Controller
     private static $instance;
 
 
-    public static function getInstance(): page_404{
+    public static function getInstance(): page_404
+    {
 
         if(empty(self::$instance)){
 
