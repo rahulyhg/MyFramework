@@ -3,3 +3,4 @@ twig_cache/
 .idea
 log/*.txt
 markup
+public/images

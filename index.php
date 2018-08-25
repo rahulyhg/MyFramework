@@ -21,7 +21,6 @@ require_once 'components/core/function.php';
 //Опред мову, робимо переадресацію
 $lang =  \Components\core\siteLang::lang();
 
-dump($_SESSION);
 
 
 //Піжключаєм ядро для знаходження роутів

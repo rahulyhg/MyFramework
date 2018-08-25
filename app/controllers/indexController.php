@@ -1,6 +1,6 @@
 <?php
 
-namespace app\controllers\kek;
+namespace app\controllers;
 
 use app\models\test;
 use Components\Controller;
@@ -13,10 +13,9 @@ use Components\extension\pagination;
 
 class indexController extends Controller {
 
-    public function index(Get $get)
+    public function showMainPage()
     {
-      $arr = lol::selectAll();
-      echo self::$twig->render('index.html.twig',['arr'=> $arr]);
+      echo self::$twig->render('pages/main/main.html.twig',['arr'=> '']);
     }
 
 

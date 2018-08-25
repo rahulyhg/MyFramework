@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html class="ie8"> <![endif]-->
+<!--[if IE 9]> <html class="ie9"> <![endif]-->
+<!--[if !IE]><!--> <html> <!--<![endif]-->
+<head>
+
+    {% block head %}
+    <meta charset="utf-8">
+    <title>{% block title %}{% endblock %}</title>
+    <meta name="description" content="{% block description %}{% endblock %}">
+    <!--[if IE]> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href='//fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic%7CPT+Gudea:400,700,400italic%7CPT+Oswald:400,700,300' rel='stylesheet' id="googlefont">
+
+    <link rel="stylesheet" href="{{ assets("css/bootstrap.min.css") }}">
+    <link rel="stylesheet" href="{{ assets("css/font-awesome.min.css") }}">
+    <link rel="stylesheet" href="{{ assets("css/prettyPhoto.css") }}">
+    <link rel="stylesheet" href="{{ assets("css/revslider.css") }}">
+    <link rel="stylesheet" href="{{ assets("css/owl.carousel.css") }}">
+    <link rel="stylesheet" href="{{ assets("css/style.css") }}">
+    <link rel="stylesheet" href="{{ assets("css/responsive.css") }}">
+
+    <!-- Favicon and Apple Icons -->
+    <link rel="icon" type="image/png" href="{{ assets("images/icons/icon.png") }}">
+    <link rel="apple-touch-icon" sizes="57x57" href="{{ assets("images/icons/apple-icon-57x57.png") }}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{{ assets("images/icons/apple-icon-72x72.png") }}">
+
+    <!--- jQuery -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="public/js/jquery-1.11.1.min.js"><\/script>')</script>
+
+    <!--[if lt IE 9]>
+    <script src="{{ assets("js/html5shiv.js") }}"></script>
+    <script src="{{ assets("js/respond.min.js") }}"></script>
+    <![endif]-->
+
+    <style id="custom-style"></style>
+
+    {% endblock %}
+
+</head>
+<body>
+<div id="wrapper">
+    <header id="header">
+{% include "/layouts/header_menu.html.twig" %}
+
+        <div id="inner-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-5 col-sm-5 col-xs-12 logo-container">
+                        <h1 class="logo clearfix">
+                            <span>Responsive eCommerce Template</span>
+                            <a href="index.html" title="Venedor eCommerce Template"><img src="{{ assets("images/logo.png") }}" alt="Venedor Commerce Template" width="238" height="76"></a>
+                        </h1>
+                    </div><!-- End .col-md-5 -->
+                    <div class="col-md-7 col-sm-7 col-xs-12 header-inner-right">
+
+                        <div class="header-box contact-infos pull-right">
+                            <ul>
+                                <li><span class="header-box-icon header-box-icon-skype"></span>venedor_support</li>
+                                <li><span class="header-box-icon header-box-icon-email"></span><a href="mailto:venedor@gmail.com">venedor@gmail.com</a></li>
+                            </ul>
+                        </div><!-- End .contact-infos -->
+
+                        <div class="header-box contact-phones pull-right clearfix">
+                            <span class="header-box-icon header-box-icon-earphones"></span>
+                            <ul class="pull-left">
+                                <li>+(404) 158 14 25 78</li>
+                                <li>+(404) 851 21 48 15</li>
+                            </ul>
+                        </div><!-- End .contact-phones -->
+
+                    </div><!-- End .col-md-7 -->
+                </div><!-- End .row -->
+            </div><!-- End .container -->
+
+            <div id="main-nav-container">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 clearfix">
+
+                          {% include "/layouts/menu.html.twig" %}
+
+                          {% include "/layouts/mini_cart.html.twig" %}
+
+                        </div><!-- End .col-md-12 -->
+                    </div><!-- End .row -->
+                </div><!-- End .container -->
+
+            </div><!-- End #nav -->
+        </div><!-- End #inner-header -->
+    </header><!-- End #header -->
+
+    {% block content %}
+    {% endblock %}
+
+    <footer id="footer">
+        <div id="twitterfeed-container">
+            <div class="container">
+                <div class="row">
+
+                    <div class="twitterfeed col-md-12">
+                        <div class="twitter-icon"><i class="fa fa-twitter"></i></div><!-- End .twitter-icon -->
+                        <div class="row">
+                            <div class="col-md-10 col-sm-10 col-xs-10 col-md-offset-1 col-sm-offset-1 col-xs-offset-1">
+                                <div class="twitter_feed flexslider"></div>
+                            </div>
+                        </div>
+
+                    </div><!-- End .twiitterfeed .col-md-12 -->
+
+                </div><!-- End .row -->
+            </div><!-- End .container -->
+        </div><!-- End #twitterfeed-container -->
+        <div id="inner-footer">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-sm-4 col-xs-12 widget">
+                        <h3>MY ACCOUNT</h3>
+                        <ul class="links">
+                            <li><a href="#">My account</a></li>
+                            <li><a href="#">Personal information</a></li>
+                            <li><a href="#">Addresses</a></li>
+                            <li><a href="#">Discount</a></li>
+                            <li><a href="#">Order History</a></li>
+                            <li><a href="#">Your Vouchers</a></li>
+                        </ul>
+                    </div><!-- End .widget -->
+
+                    <div class="col-md-3 col-sm-4 col-xs-12 widget">
+                        <h3>INFORMATION</h3>
+                        <ul class="links">
+                            <li><a href="#">New products</a></li>
+                            <li><a href="#">Top sellers</a></li>
+                            <li><a href="#">Specials</a></li>
+                            <li><a href="#">Manufacturers</a></li>
+                            <li><a href="#">Suppliers</a></li>
+                            <li><a href="#">Our stores</a></li>
+                        </ul>
+                    </div><!-- End .widget -->
+
+                    <div class="col-md-3 col-sm-4 col-xs-12 widget">
+                        <h3>MY ACCOUNT</h3>
+
+                        <ul class="contact-list">
+                            <li><strong>Venedor Ltd</strong></li>
+                            <li>United Kingdom</li>
+                            <li>Greater London</li>
+                            <li>London 02587</li>
+                            <li>Oxford Street 48/188</li>
+                            <li>Working Days: Mon. - Sun.</li>
+                            <li>Working Hours: 9.00AM - 8.00PM</li>
+                        </ul>
+                    </div><!-- End .widget -->
+
+                    <div class="clearfix visible-sm"></div>
+
+                </div><!-- End .row -->
+            </div><!-- End .container -->
+
+        </div><!-- End #inner-footer -->
+
+        <div id="footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-7 col-sm-7 col-xs-12 footer-social-links-container">
+                        <ul class="social-links clearfix">
+                            <li><a href="#" class="social-icon icon-facebook"></a></li>
+                            <li><a href="#" class="social-icon icon-twitter"></a></li>
+                            <li><a href="#" class="social-icon icon-rss"></a></li>
+                            <li><a href="#" class="social-icon icon-delicious"></a></li>
+                            <li><a href="#" class="social-icon icon-linkedin"></a></li>
+                            <li><a href="#" class="social-icon icon-flickr"></a></li>
+                            <li><a href="#" class="social-icon icon-skype"></a></li>
+                            <li><a href="#" class="social-icon icon-email"></a></li>
+                        </ul>
+                    </div><!-- End .col-md-7 -->
+
+                    <div class="col-md-5 col-sm-5 col-xs-12 footer-text-container">
+                        <p>&copy; Powered by Egor&trade;. All Rights Reserved.</p>
+                    </div><!-- End .col-md-5 -->
+                </div><!-- End .row -->
+            </div><!-- End .container -->
+        </div><!-- End #footer-bottom -->
+
+    </footer><!-- End #footer -->
+</div><!-- End #wrapper -->
+
+<a href="#" id="scroll-top" title="Scroll to Top"><i class="fa fa-angle-up"></i></a><!-- End #scroll-top -->
+
+<!-- END -->
+<script src="{{ assets("js/bootstrap.min.js") }}"></script>
+<script src="{{ assets("js/smoothscroll.js") }}"></script>
+<script src="{{ assets("js/jquery.debouncedresize.js") }}"></script>
+<script src="{{ assets("js/retina.min.js") }}"></script>
+<script src="{{ assets("js/jquery.placeholder.js") }}"></script>
+<script src="{{ assets("js/jquery.hoverIntent.min.js") }}"></script>
+<script src="{{ assets("js/twitter/jquery.tweet.min.js") }}"></script>
+<script src="{{ assets("js/jquery.flexslider-min.js") }}"></script>
+<script src="{{ assets("js/owl.carousel.min.js") }}"></script>
+<script src="{{ assets("js/jflickrfeed.min.js") }}"></script>
+<script src="{{ assets("js/jquery.prettyPhoto.js") }}"></script>
+<script src="{{ assets("js/jquery.themepunch.tools.min.js") }}"></script>
+<script src="{{ assets("js/jquery.themepunch.revolution.min.js") }}"></script>
+<script src="{{ assets("js/main.js") }}"></script>
+
+{% block js %}
+{% endblock %}
+
+</body>
+</html>
