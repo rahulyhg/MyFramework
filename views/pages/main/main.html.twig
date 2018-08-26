@@ -17,11 +17,27 @@
                                 <p class="title-desc">Save your money and time with our store. Here's the best part of our impressive assortment.</p>
                             </header>
                             <ul id="products-tabs-list" class="tab-style-1 clearfix">
+
+                                {% if list_tovars_categ.all is defined and list_tovars_categ.all  != '' %}
                                 <li class="active"><a href="#all" data-toggle="tab">All</a></li>
+                                {% endif %}
+
+                                {% if tovar_latest is defined and list_tovars_categ.latest  != '' %}
                                 <li><a href="#latest" data-toggle="tab">Latest</a></li>
+                                {% endif %}
+
+                                {% if list_tovars_categ.featured is defined and list_tovars_categ.featured  != '' %}
                                 <li><a href="#featured" data-toggle="tab">Featured</a></li>
+                                {% endif %}
+
+                                {% if list_tovars_categ.bestsellers is defined and list_tovars_categ.bestsellers  != '' %}
                                 <li><a href="#bestsellers" data-toggle="tab">Bestsellers</a></li>
+                                {% endif %}
+
+                                {% if list_tovars_categ.special is defined and list_tovars_categ.special  != '' %}
                                 <li><a href="#special" data-toggle="tab">Special</a></li>
+                                {% endif %}
+
                             </ul>
 
                         {%  include "/pages/main/part/our_products.html.twig" %}

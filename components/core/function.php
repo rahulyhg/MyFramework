@@ -24,6 +24,10 @@ function en(array $arr): string
     return $arr[count($arr) - 1];
 }
 
+function lang()
+{
+    return $_SESSION['lang']['id'];
+}
 
 function session(string $keys = '')
 {

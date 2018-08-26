@@ -47,11 +47,4 @@ trait globalFunction
         echo "</pre>";
     }
 
-    public static function dd($arr)
-    {
-        echo "<pre>";
-        print_r($arr);
-        echo "</pre>";
-        die;
-    }
 }

@@ -21,6 +21,8 @@ class twig_extension_func extends \Twig_Extension
             new \Twig_SimpleFunction('showPagination', [new pagination(), 'showPagination']),
             new \Twig_SimpleFunction('prefs', [multiLang::class, 'prefs']),
             new \Twig_SimpleFunction('assets', [globalFunction::class, 'assets']),
+            new \Twig_SimpleFunction('dump', [globalFunction::class, 'dump']),
+            new \Twig_SimpleFunction('search_str', [twig_funct::class,'search_str']),
 
         );
         return $funct + require_once 'config/twig_function.php';
@@ -41,6 +43,8 @@ class twig_extension_func extends \Twig_Extension
             'site_name'  => Get::site()
         ];
     }
+
+
 
 
 }

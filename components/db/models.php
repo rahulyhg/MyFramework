@@ -323,12 +323,12 @@ class models
 
 
 
-    public function in($column,...$arr): models
+    public function in($column,$sql = ' where' ,$arr): models
     {
 
         $search = "'".implode("','", $arr)."'";
 
-        self::$sql .= " WHERE `{$column}` IN({$search}) ";
+        self::$sql .= " {$sql} `{$column}` IN({$search}) ";
 
         return $this;
     }
