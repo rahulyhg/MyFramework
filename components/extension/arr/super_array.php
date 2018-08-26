@@ -31,6 +31,11 @@ class super_array
         return   $keys == '' ? new self() : self::searchValueInArray(explode('.',$keys));
     }
 
+    public function add(string $key,$value): void
+    {
+        self::$name_array[$key] = $value;
+    }
+
 
 
     private  function searchAndDeleteKey(array $keys, &$childArr = [])

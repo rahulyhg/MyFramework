@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'ch_kek' => 'Hello world',
+    'pg_welcome' => 'Welcome to',
 ];

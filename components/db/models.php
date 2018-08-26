@@ -43,7 +43,7 @@ class models
 
     public static function get(): array
     {
-        $sql = self::$sql;
+       echo $sql = self::$sql;
 
         $row = self::db()->query($sql);
         self::$sql = '';

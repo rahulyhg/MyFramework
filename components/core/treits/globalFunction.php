@@ -39,4 +39,19 @@ trait globalFunction
         $url = trim($url,'/');
         return $admin ?  Get::domen().'components/Admin/public/'.$url : Get::domen().'public/'.$url;
     }
+
+    public static function dump($arr)
+    {
+        echo "<pre>";
+        print_r($arr);
+        echo "</pre>";
+    }
+
+    public static function dd($arr)
+    {
+        echo "<pre>";
+        print_r($arr);
+        echo "</pre>";
+        die;
+    }
 }

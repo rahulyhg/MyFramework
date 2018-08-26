@@ -15,29 +15,31 @@
                     <div class="header-top-dropdowns pull-right">
                         <div class="btn-group dropdown-money">
                             <button type="button" class="btn btn-custom dropdown-toggle" data-toggle="dropdown">
-                                <span class="hide-for-xs">US Dollar</span><span class="hide-for-lg">$</span>
+                                <span class="hide-for-xs">{{ currency }}</span><span class="hide-for-lg">$</span>
                             </button>
                             <ul class="dropdown-menu pull-right" role="menu">
-                                <li><a href="#"><span class="hide-for-xs">Euro</span><span class="hide-for-lg">&euro;</span></a></li>
-                                <li><a href="#"><span class="hide-for-xs">Pound</span><span class="hide-for-lg">&pound;</span></a></li>
+
+                               {% for currenc in arr_currency %}
+                                <li><a href="/change_currency/{{ currenc.id }}"><span class="hide-for-xs">{{ currenc.symbol }}</span></a></li>
+                                {% endfor %}
+
                             </ul>
                         </div><!-- End .btn-group -->
                         <div class="btn-group dropdown-language">
                             <button type="button" class="btn btn-custom dropdown-toggle" data-toggle="dropdown">
-                                <span class="flag-container"><img src="{{ assets("images/england-flag.png") }}" alt="flag of england"></span>
-                                <span class="hide-for-xs">English</span>
+
+                                <span class="hide-for-xs">{{ session.lang.domen }}</span>
                             </button>
                             <ul class="dropdown-menu pull-right" role="menu">
-                                <li><a href="#"><span class="flag-container"><img src="{{ assets("images/italy-flag.png") }}" alt="flag of england"></span><span class="hide-for-xs">Italian</span></a></li>
-                                <li><a href="#"><span class="flag-container"><img src="{{ assets("images/spain-flag.png") }}" alt="flag of italy"></span><span class="hide-for-xs">Spanish</span></a></li>
-                                <li><a href="#"><span class="flag-container"><img src="{{ assets("images/france-flag.png") }}" alt="flag of france"></span><span class="hide-for-xs">French</span></a></li>
-                                <li><a href="#"><span class="sm-separator"><img src="{{ assets("images/germany-flag.png") }}" alt="flag of germany"></span><span class="hide-for-xs">German</span></a></li>
+                                {% for langs in arr_lang %}
+                                <li><a href="/{{ langs.domen }}/"><span class="flag-container"><img style="width: 25px;height:auto;" src="{{ assets(langs.img) }}" alt="flag of {{ langs.domen }}"></span><span class="hide-for-xs">{{ langs.domen }}</span></a></li>
+                                {% endfor %}
                             </ul>
                         </div><!-- End .btn-group -->
                     </div><!-- End .header-top-dropdowns -->
 
                     <div class="header-text-container pull-right">
-                        <p class="header-text">Welcome to Venedor!</p>
+                        <p class="header-text">{{ prefs('pg_welcome','Welcome to') }} {{ site_name }}!</p>
                         <p class="header-link"><a href="#">login</a>&nbsp;or&nbsp;<a href="#">create an account</a></p>
                     </div><!-- End .pull-right -->
                 </div><!-- End .header-top-right -->

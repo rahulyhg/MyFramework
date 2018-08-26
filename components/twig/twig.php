@@ -3,6 +3,7 @@
 namespace Components\twig;
 
 
+
 use Components\extension\pagination;
 use Twig_Environment;
 use Twig_Loader_Filesystem;
@@ -31,7 +32,7 @@ class twig
 
                 new Twig_Loader_Filesystem($list_dir_views),
 
-                ['cache' => 'twig_cache/', 'auto_reload' => true, 'strict_variables' => true]
+                ['cache' => false, 'auto_reload' => true, 'strict_variables' => true]
             );
 
 
@@ -42,7 +43,6 @@ class twig
     {
         self::$twig->addExtension(new twig_extension_func());
     }
-
 
 
 }

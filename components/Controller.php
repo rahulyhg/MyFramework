@@ -13,8 +13,6 @@ class Controller
     use globalFunction;
 
 
-    protected static $redis;
-
     protected static $twig;
 
 
@@ -26,17 +24,5 @@ class Controller
         }
 
     }
-
-
-
-    public function redisConnect(): \Predis\Client
-    {
-        if (empty(self::$redis)) {
-           // echo `redis-server`;
-            self::$redis = new \Predis\Client(['scheme' => 'tcp', 'host' => '127.0.0.1', 'port' => 6379]);
-        }
-        return self::$redis;
-    }
-
 
 }

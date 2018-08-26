@@ -9,7 +9,7 @@ class multiLang
 {
     private static $const = [];
 
-    public static function prefs($cnst)
+    public static function prefs($cnst,$description = '')
     {
         if(empty(self::$const)){
             self::addToConst();
