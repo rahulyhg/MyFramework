@@ -1,7 +1,7 @@
 
 Бд:
 
-Назва таблиці від назви моделі. Або self::table('name table'')
+Назва таблиці від назви моделі. Або self::table('name table'') або model::NameTable()
 
 self::select()->get(); //SELECT * FROM ..
 self::select(string or array)
@@ -27,6 +27,14 @@ self::select()->join(name table)->on(parent table column, join column )->moreOn(
 self::select()->group('kek')->get();
 
 
+ROUTE
+
+Route::get
+Route::post()->name()
+Route::group(['middleware' => '','as' => ,'path' => 'url'])
+
+
+
 session
 
 self::session()->all()  //return $_SESSION;
@@ -34,6 +42,8 @@ self::session()->all()  //return $_SESSION;
 self::session('lol','kek','io')  // return $_SESSION['lol']['kek']['io'];
 
 self::session()->add(key,value) 
+
+
 
 
 other function
