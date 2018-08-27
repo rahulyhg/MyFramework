@@ -19,7 +19,7 @@ require_once 'components/core/function.php';
 
 
 //Опред мову, робимо переадресацію
-$lang =  \Components\core\siteLang::lang();
+ \Components\core\siteLang::lang();
 
 
 

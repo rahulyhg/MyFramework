@@ -4,15 +4,27 @@ namespace app\models;
 
 use Components\db\models;
 
+/**
+ * Class currency
+ * @package app\models
+ */
+
 class currency extends models
 {
 
+    /**
+     * @return array
+     */
 
     public static function getCurrency(): array
     {
-        return self::select(['symbol','id'])->get();
+        return self::select(['symbol','id'])->where('visible',1)->get();
     }
 
+
+    /**
+     * @return array
+     */
 
     public static function getGlobabalsVaribleInTwig(): array
     {
@@ -21,6 +33,10 @@ class currency extends models
             'currency' => self::getCurrencyDefault()
         ];
     }
+
+    /**
+     * @return string
+     */
 
     private static function getCurrencyDefault(): string
     {
@@ -31,6 +47,10 @@ class currency extends models
         return session('currency');
     }
 
+
+    /**
+     * @param int $id_currency
+     */
 
     public static function changeCurrency(int $id_currency): void
     {

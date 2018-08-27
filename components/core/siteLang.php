@@ -7,21 +7,34 @@ use Components\db\models;
 use Components\core\core;
 use Components\extension\siteSettings;
 
+
+/**
+ * Class siteLang
+ * @package Components\core
+ */
+
+
 class siteLang
 {
 
     private static $url;
 
+
+    /**
+     * @var array
+     */
+
     public static $langsInSite = [];
 
+
     private static $langUrl;
+
 
 
     private function __construct()
     {
 
     }
-
 
     public static function lang(): void
     {

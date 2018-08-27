@@ -10,21 +10,29 @@ use Components\extension\pagination;
 use Components\Pages\error_page;
 
 
+
 class models
 {
 
     use globalFunction, dbWhere, dbInsert, dbUpdate, select;
 
 
+    /**
+     * @var string $sql
+     */
 
     public static $sql;
 
 
-
+    /**
+     * @var $name_table
+     */
     public static $name_table;
 
 
-
+    /**
+     * @var string
+     */
     public static $column_id = 'id';
 
 
@@ -40,6 +48,9 @@ class models
     private static $joinTable;
 
 
+    /**
+     * @return array
+     */
 
     public static function get(): array
     {
@@ -56,15 +67,11 @@ class models
     }
 
 
-
     public function limit(int $number): models
     {
         self::$sql .= " LIMIT {$number}";
         return $this;
     }
-
-
-
 
 
     public function pagination(int $count_in_one_page,int $countRows): models
@@ -77,13 +84,13 @@ class models
 
 
 
-
-
     public function sum(string $column): models
     {
         self::$sql = str_replace('SELECT', "SELECT SUM(`{$column}`), ", self::$sql);
         return $this;
     }
+
+
 
     public function avg(string $column): models
     {
@@ -91,12 +98,12 @@ class models
         return $this;
     }
 
+
     public function count(): models
     {
         self::$sql = str_replace('SELECT', "SELECT COUNT(*), ", self::$sql);
         return $this;
     }
-
 
 
     public function order(string $data = 'DESC', string $column = 'id'): models
@@ -292,7 +299,12 @@ class models
     }
 
 
-
+    /**
+     * @param $column
+     * @param string $where
+     * @param string $sign
+     * @return models
+     */
 
     public static function where($column, $where = '', $sign = '='): models
     {
@@ -379,13 +391,19 @@ class models
     }
 
 
-
+    /**
+     * @return string
+     */
 
     private static function nameClass(): string
     {
         $name = en(explode('\\',get_called_class()));
         return $name == 'models' ? '`'.self::$name_table.'`' : "`{$name}`";
     }
+
+    /**
+     * @return \PDO
+     */
 
     private static function db(): \PDO
     {
@@ -394,6 +412,12 @@ class models
         }
         return  self::$connect;
     }
+
+    /**
+     * @param string $name
+     * @param $arguments
+     * @return models
+     */
 
     public static function __callStatic($name, $arguments)
     {

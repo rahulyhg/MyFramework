@@ -8,11 +8,25 @@ use Components\extension\pagination;
 use Twig_Environment;
 use Twig_Loader_Filesystem;
 
+/**
+ * Class twig
+ * @package Components\twig
+ */
 
 class twig
 {
 
+    /**
+     * @var Twig_Environment $twig
+     */
+
+
     public static $twig;
+
+
+    /**
+     * @return Twig_Environment
+     */
 
 
     public function runTwig(): Twig_Environment
@@ -34,10 +48,8 @@ class twig
 
                 ['cache' => false, 'auto_reload' => true, 'strict_variables' => true]
             );
-
-
-
     }
+
 
     private function addGlobalsToTwig(): void
     {

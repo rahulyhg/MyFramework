@@ -2,15 +2,23 @@
 
 use  Components\extension\arr\super_array;
 
+/**
+ * @param string $array
+ */
 
-function dump($array)
+function dump($array=  '')
 {
     echo "<pre>";
     print_r($array);
     echo "</pre>";
 }
 
-function dd($var)
+
+/**
+ * @param string $var
+ */
+
+function dd($var = '')
 {
     echo "<pre>";
     print_r($var);
@@ -18,16 +26,23 @@ function dd($var)
     die;
 }
 
-
+/**
+ * @param array $arr
+ * @return string
+ */
 function en(array $arr): string
 {
     return $arr[count($arr) - 1];
 }
 
+
+
 function lang()
 {
     return $_SESSION['lang']['id'];
 }
+
+
 
 function session(string $keys = '')
 {

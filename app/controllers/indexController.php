@@ -5,13 +5,14 @@ namespace app\controllers;
 use app\models\main;
 use app\models\tovars;
 use Components\Controller;
-use Components\extension\arr\Request;
+use Components\db\database;
 use Components\db\models;
-use Components\extension\arr\super_array;
-use Components\extension\arr\Get;
-use Components\extension\pagination;
+
 
 class indexController extends Controller {
+
+
+
 
     public function showMainPage()
     {

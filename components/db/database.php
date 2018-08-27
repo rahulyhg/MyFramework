@@ -4,12 +4,21 @@ namespace Components\db;
 
 use Components\Pages\error_page;
 
+/**
+ * Class database
+ * @package Components\db
+ */
+
 class database{
 
     private static $pdo_object;
 
-    public static function getConnection(): \PDO{
+    /**
+     * @return \PDO
+     */
 
+    public static function getConnection(): \PDO
+    {
         if(empty(self::$pdo_object)){
 
             $params = require_once 'config/db_params.php';
