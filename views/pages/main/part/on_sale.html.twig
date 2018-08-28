@@ -13,7 +13,9 @@
         </div><!-- End .carousel-next -->
     </div><!-- End .carousel-controls -->
     <div class="hot-items-slider owl-carousel">
-        <div class="item item-hover">
+
+        {% for tovar in on_sale %}
+            <div class="item item-hover">
             <div class="item-image-wrapper">
                 <figure class="item-image-container">
                     <a href="../../../index.php">
@@ -47,140 +49,8 @@
                 </div><!-- End .item-action -->
             </div><!-- End .item-meta-container -->
         </div><!-- End .item -->
+        {% endfor %}
 
-        <div class="item item-hover">
-            <div class="item-image-wrapper">
-                <figure class="item-image-container">
-                    <a href="../../../index.php">
-                        <img src="{{ assets("images/products/item3.jpg") }}" alt="item1" class="item-image">
-                        <img src="{{ assets("images/products/item3-hover.jpg") }}" alt="item1  Hover" class="item-image-hover">
-                    </a>
-                </figure>
-                <div class="item-price-container">
-                    <span class="item-price">$100</span>
-                </div><!-- End .item-price-container -->
-                <span class="new-rect">New</span>
-            </div><!-- End .item-image-wrapper -->
-            <div class="item-meta-container">
-                <div class="ratings-container">
-                    <div class="ratings">
-                        <div class="ratings-result" data-result="99"></div>
-                    </div><!-- End .ratings -->
-                    <span class="ratings-amount">
-                                                    4 Reviews
-                                                </span>
-                </div><!-- End .rating-container -->
-                <h3 class="item-name"><a href="../../../index.php">Phasellus consequat</a></h3>
-                <div class="item-action">
-                    <a href="#" class="item-add-btn">
-                        <span class="icon-cart-text">Add to Cart</span>
-                    </a>
-                    <div class="item-action-inner">
-                        <a href="#" class="icon-button icon-like">Favourite</a>
-                        <a href="#" class="icon-button icon-compare">Checkout</a>
-                    </div><!-- End .item-action-inner -->
-                </div><!-- End .item-action -->
-            </div><!-- End .item-meta-container -->
-        </div><!-- End .item -->
-
-        <div class="item item-hover">
-            <div class="item-image-wrapper">
-                <figure class="item-image-container">
-                    <a href="../../../index.php">
-                        <img src="{{ assets("images/products/item8.jpg") }}" alt="item1" class="item-image">
-                        <img src="{{ assets("images/products/item8-hover.jpg") }}" alt="item1  Hover" class="item-image-hover">
-                    </a>
-                </figure>
-                <div class="item-price-container">
-                    <span class="old-price">$100</span>
-                    <span class="item-price">$80</span>
-                </div><!-- End .item-price-container -->
-                <span class="discount-rect">-20%</span>
-            </div><!-- End .item-image-wrapper -->
-            <div class="item-meta-container">
-                <div class="ratings-container">
-                    <div class="ratings">
-                        <div class="ratings-result" data-result="75"></div>
-                    </div><!-- End .ratings -->
-                    <span class="ratings-amount">
-                                                    2 Reviews
-                                                </span>
-                </div><!-- End .rating-container -->
-                <h3 class="item-name"><a href="../../../index.php">Phasellus consequat</a></h3>
-                <div class="item-action">
-                    <a href="#" class="item-add-btn">
-                        <span class="icon-cart-text">Add to Cart</span>
-                    </a>
-                    <div class="item-action-inner">
-                        <a href="#" class="icon-button icon-like">Favourite</a>
-                        <a href="#" class="icon-button icon-compare">Checkout</a>
-                    </div><!-- End .item-action-inner -->
-                </div><!-- End .item-action -->
-            </div><!-- End .item-meta-container -->
-        </div><!-- End .item -->
-
-        <div class="item item-hover">
-            <div class="item-image-wrapper">
-                <figure class="item-image-container">
-                    <a href="../../../index.php">
-                        <img src="{{ assets("images/products/item5.jpg") }}" alt="item1" class="item-image">
-                        <img src="{{ assets("images/products/item5-hover.jpg") }}" alt="item1  Hover" class="item-image-hover">
-                    </a>
-                </figure>
-                <div class="item-price-container">
-                    <span class="item-price">$99</span>
-                </div><!-- End .item-price-container -->
-                <span class="new-rect">New</span>
-            </div><!-- End .item-image-wrapper -->
-            <div class="item-meta-container">
-                <div class="ratings-container">
-                    <div class="ratings">
-                        <div class="ratings-result" data-result="40"></div>
-                    </div><!-- End .ratings -->
-                    <span class="ratings-amount">
-                                                    3 Reviews
-                                                </span>
-                </div><!-- End .rating-container -->
-                <h3 class="item-name"><a href="../../../index.php">Phasellus consequat</a></h3>
-                <div class="item-action">
-                    <a href="#" class="item-add-btn">
-                        <span class="icon-cart-text">Add to Cart</span>
-                    </a>
-                    <div class="item-action-inner">
-                        <a href="#" class="icon-button icon-like">Favourite</a>
-                        <a href="#" class="icon-button icon-compare">Checkout</a>
-                    </div><!-- End .item-action-inner -->
-                </div><!-- End .item-action -->
-            </div><!-- End .item-meta-container -->
-        </div><!-- End .item -->
-
-        <div class="item item-hover">
-            <div class="item-image-wrapper">
-                <figure class="item-image-container">
-                    <a href="../../../index.php">
-                        <img src="{{ assets("images/products/item7.jpg") }}" alt="item1" class="item-image">
-                        <img src="{{ assets("images/products/item7-hover.jpg") }}" alt="item1  Hover" class="item-image-hover">
-                    </a>
-                </figure>
-                <div class="item-price-container">
-                    <span class="item-price">$280</span>
-                </div><!-- End .item-price-container -->
-            </div><!-- End .item-image-wrapper -->
-            <div class="item-meta-container">
-                <div class="ratings-container">
-                </div><!-- End .rating-container -->
-                <h3 class="item-name"><a href="../../../index.php">Phasellus consequat</a></h3>
-                <div class="item-action">
-                    <a href="#" class="item-add-btn">
-                        <span class="icon-cart-text">Add to Cart</span>
-                    </a>
-                    <div class="item-action-inner">
-                        <a href="#" class="icon-button icon-like">Favourite</a>
-                        <a href="#" class="icon-button icon-compare">Checkout</a>
-                    </div><!-- End .item-action-inner -->
-                </div><!-- End .item-action -->
-            </div><!-- End .item-meta-container -->
-        </div><!-- End .item -->
     </div><!--hot-items-slider -->
 
     <div class="lg-margin"></div><!-- Space -->

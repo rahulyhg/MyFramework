@@ -92,4 +92,38 @@ trait globalFunction
         echo "</pre>";
     }
 
+
+    /**
+     * @param array $arr
+     * @param string $column
+     * @return array
+     */
+
+    public static function json(array $arr, string $column)
+    {
+        foreach ($arr as $key => $value) {
+            $arr[$key][$column] = json_decode($arr[$key][$column], true);
+        }
+        return $arr;
+    }
+
+    /**
+     * @param array $arr
+     * @param string $column
+     * @param array $result
+     * @return array
+     */
+
+    public static function changeKeyArr(array $arr,string $column,array $result = [])
+    {
+        foreach ($arr as $key => $value) {
+
+            $result[$value['id']] = $value;
+
+            $result[$value['id']][$column] = json_decode($result[$value['id']][$column], true);
+
+        }
+        return $result;
+    }
+
 }
