@@ -1,6 +1,6 @@
 <?php
 
-namespace app\controllers;
+namespace app\controllers\site;
 
 use app\models\main;
 use app\models\tovars;
@@ -20,7 +20,7 @@ class indexController extends Controller {
 
     public function showMainPage()
     {
-        echo self::$twig->render('pages/main/main.html.twig', [
+        echo self::$twig->render('site/pages/main/main.html.twig', [
             'tovars'            => tovars::getAllTovarsWithMailSettings(main::tovarOurProductsIdWithMainSettings()),
             'list_tovars_categ' => main::getAllMainSettings()['products']['data'],
             'tovar_latest'      => tovars::getLastTenTovars(),

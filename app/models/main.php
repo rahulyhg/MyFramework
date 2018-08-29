@@ -3,6 +3,8 @@
 namespace app\models;
 
 use Components\db\models;
+use Components\extension\arr\Request;
+
 
 /**
  * Class main
@@ -48,6 +50,25 @@ class main extends models
 
         }
         return self::$main_settings;
+    }
+
+    public static function saveRequest(array $request)
+    {
+        self::update(['data' => json_encode(['id' => $request['on_sale']])])->where('id','on_sale')->save();
+
+        $request['products']['all'] = self::createAllProducts($request['products']);
+
+        self::update(['data' => json_encode($request['products'])])->where('id','products')->save();
+
+    }
+
+
+    private static function createAllProducts(array $arr,array $result = [])
+    {
+        foreach ($arr as $key => $value){
+            $result[] = $value;
+        }
+        return implode(',',$result);
     }
 
 }

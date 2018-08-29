@@ -150,7 +150,7 @@
     </div><!-- End .tab-pane -->
     {% endif %}
 
-    {% if list_tovars_categ.best is defined %}
+    {% if list_tovars_categ.bestsellers is defined %}
     <div class="tab-pane" id="bestsellers">
         {% for tovar in tovars %}
         {% if search_str(tovar.lid,list_tovars_categ.bestsellers) %}

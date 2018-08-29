@@ -1,6 +1,7 @@
 <?php
 
 return[
-    'routes/web.php',
-    'components/Admin/routes/web.php'
+    'routes/site.php',
+    'routes/admin.php',
+
 ];

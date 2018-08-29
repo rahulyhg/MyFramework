@@ -156,7 +156,7 @@ class core
 
         if (!empty($this->route['middleware'])) {
 
-            $names = require_once 'config/name_middleware.php';
+            $names = require 'config/name_middleware.php';
 
             foreach ($this->route['middleware'] as $key => $name) {
 

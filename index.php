@@ -27,6 +27,7 @@ require_once 'components/core/function.php';
 //try {
     $route = new  Components\core\core();
     $route->run();
+
 //}Catch(Throwable $e){
 //    \Components\Pages\error_page::addToLog($e->getMessage(),$e);
 //}

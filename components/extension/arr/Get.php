@@ -3,6 +3,11 @@
 
 namespace Components\extension\arr;
 
+/**
+ * Class Get
+ * @package Components\extension\arr
+ */
+
 
 class Get extends super_array
 {

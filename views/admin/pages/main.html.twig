@@ -1,0 +1,55 @@
+{% extends'admin/index.html.twig' %}
+
+{% block content %}
+  <h1>Our tovars:</h1>
+    <form action="" method="post">
+        <table>
+            <tr>
+                <td>
+                    All product:
+                </td>
+                <td>
+                    <input type="text" name="products[all_prod]" value="{{ tovar.all_prod }}">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Featured:
+                </td>
+                <td>
+                    <input type="text" name="products[featured]" value="{{ tovar.featured }}">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Best seller:
+                </td>
+                <td>
+                    <input type="text" name="products[bestsellers]" value="{{ tovar.bestsellers }}">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Special:
+                </td>
+                <td>
+                    <input type="text" name="products[special]" value="{{ tovar.special }}">
+                </td>
+            </tr>
+        </table>
+            <h1>On sale</h1>
+        <table>
+        <tr>
+                <td>
+                    On sale:
+                </td>
+                <td>
+                    <input type="text" name="on_sale" value="{{ on_sale.id }}">
+                </td>
+            </tr>
+        </table>
+        <input type="submit" value="Змінити">
+    </form>
+
+
+{% endblock %}

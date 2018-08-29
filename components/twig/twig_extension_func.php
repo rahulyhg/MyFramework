@@ -23,6 +23,7 @@ class twig_extension_func extends \Twig_Extension
             new \Twig_SimpleFunction('assets', [globalFunction::class, 'assets']),
             new \Twig_SimpleFunction('dump', [globalFunction::class, 'dump']),
             new \Twig_SimpleFunction('search_str', [twig_funct::class,'search_str']),
+            new \Twig_SimpleFunction('route', [globalFunction::class,'route']),
 
         );
         return $funct + require_once 'config/twig_function.php';

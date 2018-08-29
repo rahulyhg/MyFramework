@@ -1,8 +1,8 @@
-{% extends "/pages/index.html.twig" %}
+{% extends "site/pages/index.html.twig" %}
 {% block content %}
     <section id="content">
 
-        {%  include "/pages/main/part/slider.html.twig" %}
+        {%  include "site/pages/main/part/slider.html.twig" %}
 
         <div class="md-margin2x"></div><!-- Space -->
         <div class="container">
@@ -40,13 +40,13 @@
 
                             </ul>
 
-                        {%  include "/pages/main/part/our_products.html.twig" %}
+                        {%  include "site/pages/main/part/our_products.html.twig" %}
 
                             <div class="sm-margin"></div><!-- Space -->
-                            {%  include "/pages/main/part/about_site.html.twig" %}
+                            {%  include "site/pages/main/part/about_site.html.twig" %}
 
                             <div class="xlg-margin"></div><!-- Space -->
-                            {%  include "/pages/main/part/on_sale.html.twig" %}
+                            {%  include "site/pages/main/part/on_sale.html.twig" %}
                         </div><!-- End .col-md-9 -->
 
                         <div class="col-md-3 col-sm-4 col-xs-12 sidebar">
@@ -102,12 +102,12 @@
                                 <div class="latest-posts-slider flexslider sidebarslider">
                                     <ul class="latest-posts-list clearfix">
                                         <li>
-                                            <a href="single.html">
+                                            <a href="../../../../index.php">
                                                 <figure class="latest-posts-media-container">
                                                     <img class="img-responsive" src="{{ assets("images/blog/post1-small.jpg") }}" alt="lats post">
                                                 </figure>
                                             </a>
-                                            <h4><a href="single.html">35% Discount on second purchase!</a></h4>
+                                            <h4><a href="../../../../index.php">35% Discount on second purchase!</a></h4>
                                             <p>Sed blandit nulla nec nunc ullamcorper tristique. Mauris adipiscing cursus ante ultricies dictum sed lobortis.</p>
                                             <div class="latest-posts-meta-container clearfix">
                                                 <div class="pull-left">
@@ -120,12 +120,12 @@
                                         </li>
 
                                         <li>
-                                            <a href="single.html">
+                                            <a href="../../../../index.php">
                                                 <figure class="latest-posts-media-container">
                                                     <img class="img-responsive" src="{{ assets("images/blog/post2-small.jpg") }}" alt="lats post">
                                                 </figure>
                                             </a>
-                                            <h4><a href="single.html">Free shipping for regular customers.</a></h4>
+                                            <h4><a href="../../../../index.php">Free shipping for regular customers.</a></h4>
                                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque fuga officia in molestiae easint..</p>
                                             <div class="latest-posts-meta-container clearfix">
                                                 <div class="pull-left">
@@ -138,7 +138,7 @@
                                         </li>
 
                                         <li>
-                                            <a href="single.html">
+                                            <a href="../../../../index.php">
                                                 <figure class="latest-posts-media-container">
                                                     <img class="img-responsive" src="{{ assets("images/blog/post3-small.jpg") }}" alt="lats post">
                                                 </figure>
@@ -172,7 +172,7 @@
                         </div><!-- End .col-md-3 -->
                     </div><!-- End .row -->
 
-                    {%  include "/pages/main/part/manufacturers.html.twig" %}
+                    {%  include "site/pages/main/part/manufacturers.html.twig" %}
 
                 </div><!-- End .col-md-12 -->
             </div><!-- End .row -->

@@ -5,6 +5,12 @@ namespace Components\extension\arr;
 use Components\core\treits\globalFunction;
 use Components\Pages\error_page;
 
+/**
+ * Class super_array
+ * @package Components\extension\arr
+ */
+
+
 class super_array
 {
 

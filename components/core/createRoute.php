@@ -66,7 +66,7 @@ abstract class createRoute
       foreach ($data as $key=>$arr){
 
           if(isset($arr['url'])){
-              $url = trim($arr['url'],'/') . '/' . $url;
+              $url = trim($arr['url'],'/') . $url;
           }
 
           if(isset($arr['path'])){
@@ -94,7 +94,7 @@ abstract class createRoute
 
         foreach ($list_file_route as $key){
             if(file_exists($key)){
-                require_once $key;
+                include $key;
             }
         }
     }
