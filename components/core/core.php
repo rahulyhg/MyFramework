@@ -45,6 +45,7 @@ class core
         $this->getUrl();
 
         $this->getArrNames();
+       // dd($this->routes);
 
     }
 

@@ -10,4 +10,9 @@ trait twig_funct
     {
         return preg_match("~{$patern}~",$str);
     }
+
+    public static function isset($var): bool
+    {
+        return isset($var);
+    }
 }

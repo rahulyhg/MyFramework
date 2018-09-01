@@ -4,6 +4,7 @@ namespace app\models;
 
 use Components\db\models;
 use Components\extension\arr\Request;
+use Components\extension\graphics;
 
 
 /**
@@ -37,19 +38,20 @@ class main extends models
         return  explode(',',self::getAllMainSettings()['on_sale']['data']['id']);
     }
 
+
     /**
-     * @return array
+     * @param string $key
+     * @return array|mixed
      */
 
-
-    public static function getAllMainSettings()
+    public static function getAllMainSettings(string $key = '')
     {
         if (empty($main_settings)) {
 
             self::$main_settings = self::changeKeyArr(self::all(),'data');
 
         }
-        return self::$main_settings;
+        return $key == '' ? self::$main_settings : self::$main_settings[$key]['data'];
     }
 
     public static function saveRequest(array $request)
@@ -69,6 +71,14 @@ class main extends models
             $result[] = $value;
         }
         return implode(',',$result);
+    }
+
+
+    public static function saveAboutSite($request)
+    {
+        $request['img'] = !empty($_FILES['img']['name']) ? graphics::img()->maxSizeImg(400, 300)->save() : $request['old_img'];
+
+        self::update(['data' => json_encode($request)])->where('id','about_site')->save();
     }
 
 }

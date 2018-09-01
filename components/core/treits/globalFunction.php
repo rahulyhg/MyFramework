@@ -9,21 +9,6 @@ use Components\extension\arr\Get;
 
 trait globalFunction
 {
-    /**
-     * @param string $upload_path
-     * @param string $name
-     */
-
-
-
-
-    public static function saveImg($upload_path = 'public/images/', $name = 'img')
-    {
-        $filename = $_FILES[$name]['name'];
-        move_uploaded_file($_FILES[$name]['tmp_name'], $upload_path . $filename);
-    }
-
-
 
     /**
      * @param string $table
@@ -50,6 +35,19 @@ trait globalFunction
         return models::sql($sql);
     }
 
+
+    /**
+     * @param string $file
+     * @return string
+     * @return string
+     */
+
+
+    public  static function extens(string $file): string
+    {
+        $info = new \SplFileInfo($file);
+        return $info->getExtension();
+    }
 
 
     /**
@@ -125,5 +123,20 @@ trait globalFunction
         }
         return $result;
     }
+
+
+    /**
+     * @param string $name
+     * @param string $path
+     * @return bool
+     */
+
+    public function saveFile(string $name,string $path)
+    {
+        move_uploaded_file($_FILES[$name]['tmp_name'], $path . $_FILES[$name]['name']);
+
+        return file_exists($path.$_FILES[$name]['name']) ? $path.$_FILES[$name]['name'] : false;
+    }
+
 
 }

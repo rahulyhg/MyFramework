@@ -6,7 +6,7 @@ namespace app\controllers\admin;
 use Components\Controller;
 
 
-class indexController extends Controller
+class adminIndexController extends Controller
 {
     public function show()
     {

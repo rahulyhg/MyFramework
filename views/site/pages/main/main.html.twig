@@ -53,16 +53,18 @@
                             <div class="widget subscribe">
                                 <h3>BE THE FIRST TO KNOW</h3>
                                 <p> Get all the latest information on Events, Sales and Offers. Sign up for the Venedor store newsletter today.</p>
-                                <form action="#" id="subscribe-form">
+
+                                <form action="" method="post">
                                     <div class="form-group">
-                                        <input type="email" class="form-control" id="subscribe-email" placeholder="Enter your email address">
+                                        <input type="email" required name="email" class="form-control" id="subscribe-email" placeholder="Enter your email address">
                                     </div>
                                     <input type="submit" value="SUBMIT" class="btn btn-custom">
                                 </form>
+
+
                             </div>
                             <div class="widget testimonials">
                                 <h3>Testimonials</h3>
-
                                 <div class="testimonials-slider flexslider sidebarslider">
                                     <ul class="testimonials-list clearfix">
                                         <li>
@@ -162,9 +164,11 @@
                             <div class="widget banner-slider-container">
                                 <div class="banner-slider flexslider">
                                     <ul class="banner-slider-list clearfix">
-                                        <li><a href="#"><img src="{{ assets("images/banner1.jpg") }}" alt="Banner 1"></a></li>
-                                        <li><a href="#"><img src="{{ assets("images/banner2.jpg") }}" alt="Banner 2"></a></li>
-                                        <li><a href="#"><img src="{{ assets("images/banner3.jpg") }}" alt="Banner 3"></a></li>
+                                        {% for slider in slider_bottom %}
+                                            {% if isset(slider.img) and isset(slider.href) %}
+                                            <li><a href="{{ slider.href }}"><img src="{{ assets("images/") }}/{{ slider.img }}" alt="{% if slider.alt is defined %}{{ slider.alt }}{% endif %}"></a></li>
+                                            {% endif %}
+                                        {% endfor %}
                                     </ul>
                                 </div>
                             </div><!-- End .widget -->

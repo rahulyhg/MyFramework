@@ -66,7 +66,7 @@ abstract class createRoute
       foreach ($data as $key=>$arr){
 
           if(isset($arr['url'])){
-              $url = trim($arr['url'],'/') . $url;
+              $url = $arr['url'] . $url;
           }
 
           if(isset($arr['path'])){

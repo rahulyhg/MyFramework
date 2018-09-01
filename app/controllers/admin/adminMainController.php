@@ -9,7 +9,7 @@ use app\models\main;
 use Components\extension\arr\Request;
 use Components\extension\location;
 
-class mainController extends Controller
+class adminMainController extends Controller
 {
     /**
      * @throws \Twig_Error_Loader
@@ -21,7 +21,7 @@ class mainController extends Controller
     {
         $main_tovar = main::getAllMainSettings();
 
-        echo self::$twig->render('admin/pages/main.html.twig',[
+        echo self::$twig->render('admin/pages/main/main.html.twig',[
             'tovar'     => $main_tovar['products']['data'],
             'on_sale'   => $main_tovar['on_sale']['data']
         ]);
@@ -32,6 +32,27 @@ class mainController extends Controller
        main::saveRequest($request->all());
 
        location::back();
+    }
+
+    /**
+     * @throws \Twig_Error_Loader
+     * @throws \Twig_Error_Runtime
+     * @throws \Twig_Error_Syntax
+     */
+
+    public function aboutSite()
+    {
+        $aboutSite = main::getAllMainSettings('about_site');
+
+        echo self::$twig->render('admin/pages/main/aboutSite.html.twig',[
+            'aboutSite'     => $aboutSite,
+        ]);
+    }
+
+    public function saveAboutSite(Request $request)
+    {
+      main::saveAboutSite($request->all());
+      location::back();
     }
 
 }

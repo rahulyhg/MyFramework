@@ -1,0 +1,28 @@
+{% extends'admin/index.html.twig' %}
+
+{% block css %}
+    <link rel="stylesheet" href="{{ assets("css/admin/aboutSite.css") }}">
+{% endblock %}
+
+{% block content %}
+    <form action="" method="post" enctype="multipart/form-data">
+        <div class="content">
+            <div class="description">
+                <header>
+                    <h1><input type="text" name="title" value="{% if aboutSite['title'] is defined %}{{ aboutSite.title }}{% endif %}"></h1>
+                </header>
+                <p><textarea name="description">{% if aboutSite['description'] is defined %}{{ aboutSite.description }}{% endif %}</textarea></p>
+            </div>
+            <div class="img">
+                <img src="{{ assets("images/") }}/{% if aboutSite['img'] is defined %}{{ aboutSite.img }}{% endif %}" alt="Showcase Venedor" class="img-responsive">
+                <input type="file" name="img">
+            </div>
+        </div>
+        <div class="rowSubmit">
+            <label>link<input type="text" name="link" value="{% if aboutSite['link'] is defined %}{{ aboutSite.link }}{% endif %}"></label>
+            <label>Label<input type="text" name="label" value="{% if aboutSite['label'] is defined %}{{ aboutSite.label }}{% endif %}"></label>
+            <input type="hidden" name="old_img" id="img" value="{% if aboutSite['img'] is defined %}{{ aboutSite.img }}{% endif %}"><br>
+            <input type="submit" value="Змінити">
+        </div>
+    </form>
+{% endblock %}

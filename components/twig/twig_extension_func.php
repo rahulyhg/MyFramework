@@ -17,22 +17,22 @@ class twig_extension_func extends \Twig_Extension
 
     public function getFunctions()
     {
-        $funct = array(
+        $funct = [
             new \Twig_SimpleFunction('showPagination', [new pagination(), 'showPagination']),
             new \Twig_SimpleFunction('prefs', [multiLang::class, 'prefs']),
             new \Twig_SimpleFunction('assets', [globalFunction::class, 'assets']),
             new \Twig_SimpleFunction('dump', [globalFunction::class, 'dump']),
             new \Twig_SimpleFunction('search_str', [twig_funct::class,'search_str']),
             new \Twig_SimpleFunction('route', [globalFunction::class,'route']),
+            new \Twig_SimpleFunction('isset',[twig_funct::class,'isset']),
+        ];
 
-        );
-        return $funct + require_once 'config/twig_function.php';
-
+        return $funct + require 'config/twig_function.php';
     }
 
     public function getGlobals()
     {
-        $project_variable = require_once 'config/twig_extension.php';
+        $project_variable = require 'config/twig_extension.php';
         $arr = currency::getGlobabalsVaribleInTwig() + lang::getGlobalsVaribleLang() + self::otherVaribles();
         return is_array($project_variable) ? $arr + $project_variable : $arr;
     }
