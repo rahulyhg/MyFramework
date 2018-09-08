@@ -23,6 +23,7 @@ class indexController extends Controller {
 
     public function showMainPage()
     {
+       // dd(main::getAllMainSettings('slider_top'));
         echo self::$twig->render('site/pages/main/main.html.twig', [
             'tovars'            => tovars::getAllTovarsWithMailSettings(main::tovarOurProductsIdWithMainSettings()),
             'on_sale'           => tovars::getAllTovarsWithMailSettings(main::tovarOnSaleIdWithMainSettings()),
@@ -30,6 +31,7 @@ class indexController extends Controller {
             'manufactures'      => main::getAllMainSettings('manufactures'),
             'slider_bottom'     => main::getAllMainSettings('slider_bottom'),
             'aboutSite'         => main::getAllMainSettings('about_site'),
+            'slider_top'        => main::getAllMainSettings('slider_top'),
             'tovar_latest'      => tovars::getLastTenTovars(),
         ]);
     }

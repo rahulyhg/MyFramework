@@ -165,8 +165,8 @@
                                 <div class="banner-slider flexslider">
                                     <ul class="banner-slider-list clearfix">
                                         {% for slider in slider_bottom %}
-                                            {% if isset(slider.img) and isset(slider.href) %}
-                                            <li><a href="{{ slider.href }}"><img src="{{ assets("images/") }}/{{ slider.img }}" alt="{% if slider.alt is defined %}{{ slider.alt }}{% endif %}"></a></li>
+                                            {% if slider['img'] is defined %}
+                                            <li><a href="{% if slider['href'] is defined %}{{ slider.href }}{% endif %}"><img src="{{ assets("images/") }}/{{ slider.img }}" alt="{% if slider['alt'] is defined %}{{ slider.alt }}{% endif %}"></a></li>
                                             {% endif %}
                                         {% endfor %}
                                     </ul>

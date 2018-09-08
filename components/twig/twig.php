@@ -40,7 +40,7 @@ class twig
 
     private function createTwigObject(): void
     {
-            $list_dir_views = require_once 'config/list_directory_views.php';
+            $list_dir_views = require 'config/list_directory_views.php';
 
             self::$twig = new Twig_Environment(
 

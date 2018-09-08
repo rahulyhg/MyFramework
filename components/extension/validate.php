@@ -16,14 +16,20 @@ class validate
     {
         if (session('message.alert')) {
             $alert = session('message.alert');
-            session()->delete('message.alert');
+            session()->delete('message');
             return $alert;
         }
     }
 
-    public static function setAlert(string $message,string $type = '')
+    public static function setAlert(string $message,string $type)
     {
-        session()->add('message',['alert' => $message]);
+        session()->add('message',['alert' => $message,'type' => $type]);
     }
 
+    public static function type()
+    {
+        if (session('message.alert')) {
+            return session('message.type');
+        }
+    }
 }

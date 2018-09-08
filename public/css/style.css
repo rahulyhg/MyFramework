@@ -8103,3 +8103,6 @@ html[xmlns] .slides {display: block;}
 .no-content-comment h3 span {
 	opacity:0;
 }
+.indexSldier{
+	z-index: 9999;
+}

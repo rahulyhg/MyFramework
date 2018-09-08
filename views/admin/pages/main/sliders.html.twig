@@ -1,0 +1,94 @@
+{% extends'admin/index.html.twig' %}
+
+
+{% block content %}
+
+    <select name="slider" id="slider_show">
+        <option value="bottom_slider">Slider bottom</option>
+        <option value="top_slider">Slider top</option>
+    </select>
+    <div>
+        <p>{{ alert.type() }}</p>
+        <p>{{ alert.getAlert() }}</p>
+    </div>
+    <div id="bottom_slider">
+        <h1>Додати до слайдера елемент</h1>
+        <form action="" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="slider" value="slider_bottom">
+
+            <table>
+                <tr>
+                    <td>Img</td>
+                    <td><input type="file" name="img"></td>
+                </tr>
+                <tr>
+                    <td>Link</td>
+                    <td><input type="text" name="href"></td>
+                </tr>
+                <tr>
+                    <td>Alt</td>
+                    <td><input type="text" name="alt"></td>
+                </tr>
+            </table>
+            <input type="submit">
+        </form>
+
+        <table>
+            {% for key,slider in slider_bottom %}
+                <tr>
+                    <td>
+                        <img src="{{ assets('images') }}/{{ slider.img }}">
+                    </td>
+                    <td>
+                        <p>{{ slider.href }}</p>
+                    </td>
+                    <td>
+                        <a href="/admin/main/sliders-delete/{{ key }}">delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <div id="top_slider" style="display: none">
+        <form action="" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="slider" value="slider_top">
+            <input type="hidden" name="page_slider" value="one">
+<h1>Сторінка слайдера 1</h1>
+<table>
+    <tr>
+        <td>Зголовок</td>
+        <td><input type="text" name="title"></td>
+    </tr>
+    <tr>
+        <td>Опис</td>
+        <td><textarea name="text"></textarea></td>
+    </tr>
+
+    <tr>
+        <td>Акція</td>
+        <td><input type="number" name="action"></td>
+    </tr>
+
+    <tr>
+        <td>Силка</td>
+        <td><input type="text" name="link"></td>
+    </tr>
+    <tr>
+        <td>Label</td>
+        <td><input type="text" name="label"></td>
+    </tr>
+    <tr>
+        <td>Картинка</td>
+        <td><input type="file" name="img"></td>
+    </tr>
+</table>
+<input type="hidden" name="old_img" value="">
+            <input type="submit">
+        </form>
+    </div>
+
+{% endblock %}
+{% block js %}
+    <script src="{{ assets('js/admin/sliderAdmin.js') }}"></script>
+{% endblock %}

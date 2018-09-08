@@ -3,19 +3,26 @@
 
 namespace Components\extension\arr;
 
+
 /**
  * Class Get
  * @package Components\extension\arr
  */
-
-
 class Get extends super_array
 {
 
+    /**
+     * Get constructor.
+     */
     public function __construct()
     {
         self::$name_array = $_GET;
     }
+
+
+    /**
+     * @return string
+     */
 
     public static function last(): string
     {
@@ -27,6 +34,10 @@ class Get extends super_array
     {
         return $_SERVER['REQUEST_SCHEME'] .'://'. $_SERVER['SERVER_NAME']. $_SERVER['REQUEST_URI'] ;
     }
+
+    /**
+     * @return string
+     */
 
     public static function domen(): string
     {

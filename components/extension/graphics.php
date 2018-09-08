@@ -1,6 +1,8 @@
 <?php
 
 namespace Components\extension;
+
+
 use Components\core\treits\globalFunction;
 
 /**
@@ -56,10 +58,19 @@ class graphics
     }
 
 
+    /**
+     * @return string
+     */
+
     public function getName(): string
     {
         return $_FILES[self::$name]['name'];
     }
+
+
+    /**
+     * @return string
+     */
 
     public function getPath(): string
     {

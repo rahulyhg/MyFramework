@@ -1,6 +1,6 @@
 <?php
 
-namespace app\controllers\admin;
+namespace app\controllers\admin\main;
 
 
 use Components\Controller;

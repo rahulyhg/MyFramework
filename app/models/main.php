@@ -81,4 +81,51 @@ class main extends models
         self::update(['data' => json_encode($request)])->where('id','about_site')->save();
     }
 
+    public static function saveSlider($request)
+    {
+        $settings = self::getAllMainSettings($request['slider']);
+
+        if(empty($_FILES['img']['name'])){
+            return ['message' => 'Додайте фото', 'type' => 'error'];
+        }
+
+        $request['img'] =  graphics::img()->maxSizeImg(400, 600)->save();
+
+        $settings[] = $request;
+
+        self::update(['data' => json_encode($settings)])->where('id',$request['slider'])->save();
+
+        return ['message' => 'succes', 'type' => 'success'];
+    }
+
+
+    public static function deleteSliderElement(string $id): void
+    {
+        $settings = self::getAllMainSettings('slider_bottom');
+
+        if(isset($settings[$id])){
+            unset($settings[$id]);
+        }
+
+        self::update(['data' => json_encode($settings)])->where('id','slider_bottom')->save();
+    }
+
+
+    public static function updateTopSlider($request)
+    {
+        $settings = self::getAllMainSettings($request['slider']);
+
+        if(empty($_FILES['img']['name'])){
+            return ['message' => 'Додайте фото', 'type' => 'error'];
+        }
+
+        $request['img'] = !empty($_FILES['img']['name']) ?   graphics::img()->maxSizeImg(900, 650)->save() : $request['old_img'];
+
+        $settings[$request['page_slider']] = $request;
+
+        self::update(['data' => json_encode($settings)])->where('id',$request['slider'])->save();
+
+        return ['message' => 'succes', 'type' => 'success'];
+    }
+
 }

@@ -2,5 +2,4 @@
 
 return[
     'views',
-    'components/Pages/views'
 ];

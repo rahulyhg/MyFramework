@@ -25,8 +25,8 @@ require_once 'components/core/function.php';
 
 //Піжключаєм ядро для знаходження роутів
 //try {
-    $route = new  Components\core\core();
-    $route->run();
+    $core = new  Components\core\core();
+    $core->run();
 
 //}Catch(Throwable $e){
 //    \Components\Pages\error_page::addToLog($e->getMessage(),$e);

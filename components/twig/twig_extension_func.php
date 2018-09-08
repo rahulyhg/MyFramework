@@ -8,7 +8,7 @@ use app\models\lang;
 use Components\Controller;
 use Components\core\treits\globalFunction;
 use Components\extension\{
-    arr\Get, multiLang, pagination
+    arr\Get, multiLang, pagination, validate
 };
 
 
@@ -40,8 +40,9 @@ class twig_extension_func extends \Twig_Extension
     private static function otherVaribles()
     {
         return [
-            'session' => $_SESSION,
-            'site_name'  => Get::site()
+            'session'       => $_SESSION,
+            'site_name'     => Get::site(),
+            'alert'         => new validate()
         ];
     }
 
