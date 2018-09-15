@@ -18,6 +18,7 @@ Route::group(['path' => 'admin','as' => 'admin','url' => 'admin'],function (){
         Route::post('/sliders', 'adminSLiderController@saveSettignsSlider')->name('sliderPost');
         Route::get('/sliders-delete/[0-9]+', 'adminSLiderController@deleteSettignsSlider')->name('deleteSlider');
 
+
     });
 
 

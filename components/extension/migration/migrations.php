@@ -1,6 +1,6 @@
 <?php
 
-namespace Components\core;
+namespace Components\extension\migration;
 
 use Components\core\treits\globalFunction;
 

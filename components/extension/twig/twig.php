@@ -1,10 +1,7 @@
 <?php
 
-namespace Components\twig;
+namespace Components\extension\twig;
 
-
-
-use Components\extension\pagination;
 use Twig_Environment;
 use Twig_Loader_Filesystem;
 

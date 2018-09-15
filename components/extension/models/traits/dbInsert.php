@@ -1,6 +1,6 @@
 <?php
 
-namespace Components\db\traits;
+namespace Components\extension\models\traits;
 
 trait dbInsert
 {

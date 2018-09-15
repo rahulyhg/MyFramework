@@ -85,6 +85,6 @@ other function
     
     dd()
     
-    en(array)   // last index array
+    arr_end(array)   // last index array
     
     self::twig() 

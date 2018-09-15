@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Components\twig;
+namespace Components\extension\twig;
 
 
 trait twig_funct

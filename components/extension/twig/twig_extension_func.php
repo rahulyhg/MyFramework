@@ -1,15 +1,15 @@
 <?php
 
 
-namespace Components\twig;
+namespace Components\extension\twig;
 
 use app\models\currency;
 use app\models\lang;
-use Components\Controller;
 use Components\core\treits\globalFunction;
-use Components\extension\{
-    arr\Get, multiLang, pagination, validate
-};
+use Components\extension\validate\validate;
+use Components\extension\arr\Get;
+use Components\extension\lang\multiLang;
+use Components\extension\html\pagination;
 
 
 class twig_extension_func extends \Twig_Extension

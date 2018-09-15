@@ -2,7 +2,7 @@
 
 namespace app\models;
 
-use Components\db\models;
+use Components\extension\models\models;
 
 
 

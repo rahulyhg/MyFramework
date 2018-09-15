@@ -1,6 +1,6 @@
 <?php
 
-namespace Components\extension;
+namespace Components\extension\graphics;
 
 
 use Components\core\treits\globalFunction;

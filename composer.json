@@ -4,6 +4,11 @@
     "predis/predis": "^1.1"
   },
   "autoload": {
+    "files": [
+      "components/extension/functions/array_function.php",
+      "components/extension/functions/other.php"
+
+    ],
     "psr-4": {
       "Components\\": "components/",
       "app\\": "app/"

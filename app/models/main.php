@@ -2,14 +2,15 @@
 
 namespace app\models;
 
-use Components\db\models;
-use Components\extension\arr\Request;
-use Components\extension\graphics;
+use Components\extension\models\models;
+use Components\extension\graphics\graphics;
 
 
 /**
  * Class main
  * @package app\models
+ * @method static models update(array $arr)
+ * @method static models where($column, $where = '', $sign = '=')
  */
 
 class main extends models
@@ -51,6 +52,7 @@ class main extends models
             self::$main_settings = self::changeKeyArr(self::all(),'data');
 
         }
+
         return $key == '' ? self::$main_settings : self::$main_settings[$key]['data'];
     }
 

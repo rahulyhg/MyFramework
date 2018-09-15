@@ -4,10 +4,10 @@ namespace app\controllers\admin\main;
 
 
 use Components\Controller;
-use app\models\tovars;
+
 use app\models\main;
 use Components\extension\arr\Request;
-use Components\extension\location;
+use Components\extension\helpers\location;
 
 class adminMainController extends Controller
 {

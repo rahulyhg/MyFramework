@@ -8,18 +8,15 @@ session_start();
 //composer autoloader
 require_once 'vendor/autoload.php';
 
-// Підключаємо функції
-require_once 'components/core/function.php';
-
 
 
 
 //Загальні налаштування сайту
-\Components\extension\siteSettings::creatSettings();
+\Components\siteSettings::creatSettings();
 
 
 //Опред мову, робимо переадресацію
- \Components\core\siteLang::lang();
+ \Components\extension\localization\siteLang::lang();
 
 
 

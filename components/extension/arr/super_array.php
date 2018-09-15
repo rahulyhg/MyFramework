@@ -2,8 +2,8 @@
 
 namespace Components\extension\arr;
 
-use Components\core\treits\globalFunction;
-use Components\Pages\error_page;
+
+use Components\extension\infoPages\error_page;
 
 /**
  * Class super_array
@@ -50,7 +50,7 @@ class super_array
             $key = array_shift($keys);
             if(count($keys) == 0){
                 unset(self::$name_array[$key]);
-                return ;
+                return;
             }
             return self::searchAndDeleteKey($keys, self::$name_array[$key]);
         }

@@ -3,8 +3,9 @@
 namespace Components\core\treits;
 
 
-use Components\db\models;
-use Components\db\database;
+use Components\core\core;
+use Components\extension\infoPages\error_page;
+use Components\extension\models\models;
 use Components\extension\arr\Get;
 
 trait globalFunction
@@ -59,8 +60,8 @@ trait globalFunction
 
     public static function  route(string $name): string
     {
-        $arr =  \Components\core\core::$names;
-        return $arr[$name] ?? \Components\Pages\error_page::showPageError(" not find name route {$name}",', code #361');
+        $arr =  core::$names;
+        return $arr[$name] ?? error_page::showPageError(" not find name route {$name}",', code #361');
     }
 
 
@@ -121,6 +122,7 @@ trait globalFunction
             $result[$value['id']][$column] = json_decode($result[$value['id']][$column], true);
 
         }
+
         return $result;
     }
 

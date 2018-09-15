@@ -1,6 +1,6 @@
 <?php
 
-namespace Components\middleware;
+namespace Components\extension\middleware;
 
 use Components\core\treits\globalFunction;
 
@@ -14,7 +14,7 @@ class handlerMiddleware
 
     public function __construct($key)
     {
-        $this->list = require_once 'config/listMiddleware.php';
+        $this->list = require 'config/listMiddleware.php';
         $this->key = $key;
     }
 

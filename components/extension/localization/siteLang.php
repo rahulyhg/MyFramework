@@ -1,11 +1,11 @@
 <?php
 
-namespace Components\core;
+namespace Components\extension\localization;
 
 
-use Components\db\models;
-use Components\core\core;
-use Components\extension\siteSettings;
+
+use Components\extension\models\models;
+use Components\siteSettings;
 
 
 /**
@@ -64,6 +64,7 @@ class siteLang
 
     private static function createLangSession(): void
     {
+
         $imposibleLang = models::lang()->where('visible', 1)->get();
 
         $userLang = explode(',', $_SERVER['HTTP_ACCEPT_LANGUAGE'])[0];

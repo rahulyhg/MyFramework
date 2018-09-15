@@ -1,9 +1,9 @@
 <?php
 
 
-namespace Components\extension;
+namespace Components;
 
-use Components\db\models;
+use Components\extension\models\models;
 
 class siteSettings
 {
@@ -12,7 +12,8 @@ class siteSettings
 
     public static function creatSettings()
     {
-        self::$settings = models::siteSettings()->all()[0];
+      self::$settings = models::siteSettings()->all();
+
     }
 
 }

@@ -1,11 +1,9 @@
 <?php
 
-namespace Components\Pages;
+namespace Components\extension\infoPages;
 
-use Components\Controller;
+use Components\extension\log\log;
 use Components\core\treits\globalFunction;
-use Components\extension\log;
-use Components\twig\twig;
 
 class error_page
 {

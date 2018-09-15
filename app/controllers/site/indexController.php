@@ -6,9 +6,8 @@ use app\models\mailing;
 use app\models\main;
 use app\models\tovars;
 use Components\Controller;
-use Components\db\models;
 use Components\extension\arr\Request;
-use Components\extension\location;
+use Components\extension\helpers\location;
 
 
 class indexController extends Controller {
@@ -23,6 +22,7 @@ class indexController extends Controller {
 
     public function showMainPage()
     {
+
        // dd(main::getAllMainSettings('slider_top'));
         echo self::$twig->render('site/pages/main/main.html.twig', [
             'tovars'            => tovars::getAllTovarsWithMailSettings(main::tovarOurProductsIdWithMainSettings()),

@@ -1,6 +1,6 @@
 <?php
 
-namespace Components\Pages;
+namespace Components\extension\infoPages;
 
 use Components\Controller;
 use Components\core\treits\globalFunction;

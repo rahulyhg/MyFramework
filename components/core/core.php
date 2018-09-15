@@ -3,9 +3,10 @@
 namespace Components\core;
 
 use Components\Controller;
-use Components\db\models;
-use Components\Pages\{error_page,page_404};
-use Components\middleware\handlerMiddleware;
+use Components\extension\infoPages\{error_page,page_404};
+use Components\extension\middleware\handlerMiddleware;
+use Components\extension\localization\siteLang;
+
 
 class core
 {
@@ -28,24 +29,16 @@ class core
     public static $names;
 
 
-
     public function __construct()
     {
         new Controller();
 
-        try {
-
-            $this->routes = route::returnArrayRoutes();
-
-        } Catch (\Error $e) {
-
-            error_page::showPageError("Routs are not created code: #6432", $e);
-        }
+        $this->routes = Route::returnArrayRoutes();
 
         $this->getUrl();
 
         $this->getArrNames();
-       // dd($this->routes);
+        // dd($this->routes);
 
     }
 
@@ -144,7 +137,7 @@ class core
     {
         if(!$this->findClass('app/controllers/') && !$this->findClass('components/Admin/controllers/')){
 
-            error_page::showPageError("Controller not find",'app/controllers/'.$this->route['path'] . '<br>' . 'components/Admin/controllers/'.$this->route['path'],'code: #nghfire23');
+            error_page::showPageError("code: #nghfire23 Controller not find",'app/controllers/'.$this->route['path'] . '<br>' . 'components/Admin/controllers/'.$this->route['path']);
 
         }
     }
@@ -167,7 +160,6 @@ class core
 
                     $middleware->run();
                 }
-
             }
         }
 
@@ -176,11 +168,7 @@ class core
 
     private function createObjectController(): void
     {
-        try {
-            call_user_func_array(array($this->class, $this->route['action']), $this->arguments);
-        }Catch(\Error $e){
-            error_page::showPageError('Not found arguments',$e->getMessage(). " LINE:  ". $e->getLine() .' -- code #54545');
-        }
+        call_user_func_array(array($this->class, $this->route['action']), $this->arguments);
     }
 
 

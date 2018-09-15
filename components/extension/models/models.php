@@ -1,13 +1,20 @@
 <?php
 
-namespace Components\db;
+namespace Components\extension\models;
 
 use Components\core\treits\globalFunction;
-use Components\db\traits\{
+use Components\extension\db\database;
+use  Components\extension\models\traits\{
     dbUpdate, dbInsert, dbWhere, select
 };
-use Components\extension\pagination;
-use Components\Pages\error_page;
+use Components\extension\html\pagination;
+use Components\extension\infoPages\error_page;
+
+/**
+ * Class models
+ * @package Components\db
+ * @method static models method($arument)
+ */
 
 class models
 {
@@ -52,13 +59,13 @@ class models
      * @return array
      */
 
-    public static function get(): array
+    public static function get()
     {
         $sql = self::$sql;
         $row = self::db()->query($sql);
         self::$sql = '';
+        self::$name_table = '';
         try {
-
             return $row->fetchall(\PDO::FETCH_ASSOC);
         } Catch (\Error $e) {
             error_page::showPageError('code: #bcx3r6r Sql not correct', $sql . "<br><br><br>" . $e->getMessage() . ' ' . $e->getFile() . $e->getLine());
@@ -151,6 +158,7 @@ class models
             $sql = $method . ' JOIN ' . "`{$table}`";
         }
         self::$sql .= $sql;
+
         return $this;
     }
 
@@ -205,26 +213,28 @@ class models
     public static function all(): array
     {
         self::$sql = "SELECT * FROM " . self::nameClass();
+
         return self::get();
     }
 
 
 
-    public static function first(): array
+    private function first(): array
     {
-        $arr = self::select()->limit(1)->get();
+        $arr = $this->select()->limit(1)->get();
         return $arr[0];
     }
 
 
 
-    public static function select($select = '*'): models
+    private function select($select = '*'): models
     {
         if ($select !== '*') {
             $select = is_array($select) ? self::ecranSelectColumn($select) : "`{$select}`";
         }
         self::$sql = "SELECT " . $select . " FROM " . self::nameClass();
-        return new self();
+
+        return $this;
     }
 
 
@@ -275,13 +285,15 @@ class models
      * @return models
      */
 
-    public static function where($column, $where = '', $sign = '='): models
+    private function where($column, $where = '', $sign = '='): models
     {
         if (empty(self::$sql)) {
-            self::select();
+            $this->select();
         }
+
         self::$sql .= is_string($column) ? self::isStringAndWhere($column, $where, $sign) : self::isArrayAndWhere($column);
-        return new self();
+
+        return $this;
     }
 
 
@@ -331,12 +343,12 @@ class models
 
 
 
-    public static function update(array $arr): models
+    private function update(array $arr): models
     {
         self::$request = $arr;
         self::$sql = self::updateSql();
-        self::$sql .= self::set();
-        return new self();
+        self::$sql .= $this->set();
+        return $this;
     }
 
 
@@ -363,8 +375,15 @@ class models
 
     private static function nameClass(): string
     {
-        $name = en(explode('\\', get_called_class()));
-        return $name == 'models' ? '`' . self::$name_table . '`' : "`{$name}`";
+        if (strrchr(self::$name_table, '\\')) {
+            self::$name_table = arr_end(explode('\\', self::$name_table));
+        }
+
+        if(empty(self::$name_table)){
+            self::$name_table =     arr_end(explode('\\', get_called_class()));
+        }
+
+        return "`" . self::$name_table . "`";
     }
 
     /**
@@ -379,15 +398,27 @@ class models
         return self::$connect;
     }
 
-    /**
-     * @param string $name
-     * @param $arguments
-     * @return models
-     */
 
-    public static function __callStatic($name, $arguments)
+    public static function __callStatic($name, $arguments): models
     {
-        self::$name_table = $name;
-        return new self();
+        $object = new self();
+
+        if(method_exists(__CLASS__,$name)){
+            self::$name_table = get_called_class();
+            call_user_func_array([$object, $name], $arguments);
+        }else{
+            self::$name_table = $name;
+        }
+
+        return $object;
     }
+
+    public function __call($name, $arguments): models
+    {
+        if(method_exists(__CLASS__,$name)){
+            call_user_func_array([$this, $name], $arguments);
+        }
+        return $this;
+    }
+
 }

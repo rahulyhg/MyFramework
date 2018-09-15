@@ -4,7 +4,7 @@ namespace Components;
 
 
 use Components\core\treits\globalFunction;
-use Components\twig\twig;
+use Components\extension\twig\twig;
 
 /**
  * Class Controller
