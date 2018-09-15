@@ -1,6 +1,6 @@
 <?php
 
-namespace Components\core;
+namespace Components\core\routes;
 
 abstract class createRoute
 {

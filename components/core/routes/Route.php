@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Components\core;
+namespace Components\core\routes;
 
 
 /**

@@ -1,7 +1,7 @@
 <?php
 
 
-use Components\core\Route;
+use Components\core\routes\Route;
 
 Route::group(['path' => 'site','as' => 'site'],function (){
 

@@ -1,6 +1,6 @@
 <?php
 
-use Components\core\Route;
+use Components\core\routes\Route;
 
 Route::group(['path' => 'admin','as' => 'admin','url' => 'admin'],function (){
 

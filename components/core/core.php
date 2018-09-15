@@ -6,7 +6,7 @@ use Components\Controller;
 use Components\extension\infoPages\{error_page,page_404};
 use Components\extension\middleware\handlerMiddleware;
 use Components\extension\localization\siteLang;
-
+use Components\core\routes\Route;
 
 class core
 {
