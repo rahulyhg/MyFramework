@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ assets("css/admin/style.css") }}">
+
+    {% block css %} {% endblock %}
+
+<ul>
+    <li><a href="{{ route('admin.index') }}">Головна</a></li>
+    <li><a href="{{ route('admin.main.main') }}">Main</a></li>
+        <ul>
+            <li><a href="{{ route('admin.main.aboutSite') }}">Ablout site</a></li>
+            <li><a href="{{ route('admin.main.slider') }}">Sliders</a></li>
+        </ul>
+    <li><a></a></li>
+</ul>
+</head>
+<body>
+{% block content %} {% endblock %}
+<script src="{{ assets('js/jquery.min3.1.js') }}"></script>
+<script src="{{ assets('js/jquery.cookie.js') }}"></script>
+{% block js %}{% endblock %}
+</body>
+</html>
