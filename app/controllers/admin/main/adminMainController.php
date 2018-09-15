@@ -7,7 +7,7 @@ use Components\Controller;
 
 use app\models\main;
 use Components\extension\arr\Request;
-use Components\extension\helpers\location;
+use Components\extension\http\location;
 
 class adminMainController extends Controller
 {

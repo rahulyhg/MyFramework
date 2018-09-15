@@ -144,23 +144,12 @@ class core
     {
         $middleware = new handlerMiddleware($this->key);
 
-        $middleware->run();
+        $middleware->runGlobal();
 
-        if (!empty($this->route['middleware'])) {
+        if (!empty($this->route['middleware']) && is_array($this->route['middleware'])) {
 
-            $names = require 'config/name_middleware.php';
-
-            foreach ($this->route['middleware'] as $key => $name) {
-
-                if(isset($names[$name])){
-
-                    $middleware = new  $names[$name];
-
-                    $middleware->run();
-                }
-            }
+            $middleware->runGroupMiddleware($this->route['middleware']);
         }
-
     }
 
 

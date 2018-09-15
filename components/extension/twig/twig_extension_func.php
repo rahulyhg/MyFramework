@@ -27,12 +27,12 @@ class twig_extension_func extends \Twig_Extension
             new \Twig_SimpleFunction('isset',[twig_funct::class,'isset']),
         ];
 
-        return $funct + require 'config/twig_function.php';
+        return $funct + config('twig_function');
     }
 
     public function getGlobals()
     {
-        $project_variable = require 'config/twig_extension.php';
+        $project_variable = config('twig_extension');
         $arr = currency::getGlobabalsVaribleInTwig() + lang::getGlobalsVaribleLang() + self::otherVaribles();
         return is_array($project_variable) ? $arr + $project_variable : $arr;
     }

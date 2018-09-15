@@ -27,3 +27,12 @@ if (!function_exists('dd')) {
 
 
 
+if(!function_exists('config')){
+    function config(string $name): array
+    {
+        if(file_exists("config/".$name.'.php')){
+            return require "config/".$name.".php";
+        }
+        \Components\extension\infoPages\error_page::showPageError("Not find config file: config/{$name}.php");
+    }
+}

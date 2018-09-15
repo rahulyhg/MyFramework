@@ -7,7 +7,7 @@ use app\models\main;
 use app\models\tovars;
 use Components\Controller;
 use Components\extension\arr\Request;
-use Components\extension\helpers\location;
+use Components\extension\http\location;
 
 
 class indexController extends Controller {

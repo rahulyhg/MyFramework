@@ -4,3 +4,4 @@ twig_cache/
 log/*.txt
 markup
 public/images
+config/db_params.php

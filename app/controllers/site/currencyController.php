@@ -6,7 +6,7 @@ namespace app\controllers\site;
 use app\models\currency;
 use Components\Controller;
 use Components\extension\arr\Get;
-use Components\extension\helpers\location;
+use Components\extension\http\location;
 
 class currencyController extends Controller
 {

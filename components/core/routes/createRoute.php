@@ -95,11 +95,11 @@ abstract class createRoute
 
     protected static function includePageWithRoutes(){
 
-        $list_file_route = require 'config/list_route_file.php';
+        $list_file_route = config('list_route_file');
 
         foreach ($list_file_route as $key){
             if(file_exists($key)){
-                include $key;
+                require $key;
             }
         }
     }

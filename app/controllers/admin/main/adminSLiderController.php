@@ -4,12 +4,11 @@ namespace app\controllers\admin\main;
 
 
 use Components\Controller;
-use app\models\tovars;
 use app\models\main;
-use Components\extension\arr\Get;
-use Components\extension\arr\Request;
-use Components\extension\location;
-use Components\extension\validate;
+use Components\extension\arr\{Get,Request};
+use Components\extension\http\location;
+use Components\extension\validate\validate;
+
 
 
 class adminSLiderController extends Controller
