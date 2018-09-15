@@ -54,6 +54,15 @@ class core
     }
 
 
+    private  function getArrNames()
+    {
+        foreach($this->routes as $key=>$value){
+            if(!empty($value['name'])){
+                self::$names[$value['name']] = $_SERVER['REQUEST_SCHEME'] .'://'. $_SERVER['SERVER_NAME'] .'/'. preg_replace('/\|get|\|post/','',$key);
+            }
+        }
+    }
+
 
     public function run(): void
     {
@@ -72,16 +81,10 @@ class core
         return false;
     }
 
-    private  function getArrNames()
-    {
-        foreach($this->routes as $key=>$value){
-            if(!empty($value['name'])){
-                self::$names[$value['name']] = $_SERVER['REQUEST_SCHEME'] .'://'. $_SERVER['SERVER_NAME'] .'/'. preg_replace('/\|get|\|post/','',$key);
-            }
-        }
-    }
 
-
+    /**
+     * @throws \ReflectionException
+     */
 
     private function facadeGetRout(): void
     {
@@ -93,7 +96,7 @@ class core
 
         $this->middleware();
 
-        $this->getArguments();
+        $this->getArguments($this->getParamWithReflection());
 
         $this->createObjectController();
     }
@@ -116,20 +119,6 @@ class core
         $this->route = $this->routes[$this->key] ??  error_page::showPageError($this->key ." not find route",'str 116 core.php, code #12345');
     }
 
-    private function getArguments(): void
-    {
-        $reflection = new \ReflectionMethod($this->class, $this->route['action']);
-
-        $param = $reflection->getParameters();
-
-        foreach ($param as $key => $value) {
-
-            $namespace = $value->getType()->getName();
-
-            $this->arguments[] = new $namespace();
-
-        }
-    }
 
     private function requireClass(): void
     {
@@ -139,6 +128,33 @@ class core
 
         }
     }
+
+    /**
+     * @param array $param
+     */
+
+    private function getArguments(array $param): void
+    {
+        foreach ($param as $key => $value) {
+
+            $namespace = $value->getType()->getName();
+
+            $this->arguments[] = new $namespace();
+        }
+    }
+
+
+    /**
+     * @return array
+     * @throws \ReflectionException
+     */
+
+    private function getParamWithReflection(): array
+    {
+        $reflection = new \ReflectionMethod($this->class, $this->route['action']);
+        return $reflection->getParameters();
+    }
+
 
     private function middleware(): void
     {
