@@ -2,6 +2,11 @@
 
 namespace Components\core\routes;
 
+/**
+ * Class createRoute
+ * @package Components\core\routes
+ */
+
 abstract class createRoute
 {
 
