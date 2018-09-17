@@ -34,7 +34,7 @@ class super_array
     {
         self::$name_array =& $arr;
 
-        return   $keys == '' ? new self() : self::searchValueInArray(explode('.',$keys));
+        return $keys == '' ? new self() : self::searchValueInArray(explode('.', $keys));
     }
 
     public function add(string $key,$value): void

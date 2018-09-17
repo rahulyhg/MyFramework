@@ -8,6 +8,12 @@ use Components\extension\middleware\handlerMiddleware;
 use Components\extension\localization\siteLang;
 use Components\core\routes\Route;
 
+
+/**
+ * Class core
+ * @package Components\core
+ */
+
 class core
 {
     private $routes;
@@ -63,6 +69,9 @@ class core
         }
     }
 
+    /**
+     * @throws \ReflectionException
+     */
 
     public function run(): void
     {

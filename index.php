@@ -9,25 +9,22 @@ session_start();
 require_once 'vendor/autoload.php';
 
 
+/**
+ * Загальні налаштування сайту
+*/
 
-
-//Загальні налаштування сайту
 \Components\siteSettings::creatSettings();
 
 
-//Опред мову, робимо переадресацію
- \Components\extension\localization\siteLang::lang();
+/**
+ * Опред мову, робимо переадресацію
+*/
+
+\Components\extension\localization\siteLang::lang();
 
 
-
-//Піжключаєм ядро для знаходження роутів
-//try {
-    $core = new  Components\core\core();
-    $core->run();
-
-//}Catch(Throwable $e){
-//    \Components\Pages\error_page::addToLog($e->getMessage(),$e);
-//}
+$core = new  Components\core\core();
+$core->run();
 
 
 

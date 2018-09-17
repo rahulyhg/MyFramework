@@ -12,25 +12,37 @@ abstract class createRoute
 
     protected static $arrRoutes;
 
+
     protected static $debug_data;
+
 
     protected static $typeRoute;
 
+
     protected static $name;
 
+
     private static $middleware = [];
+
 
     protected static function createRoute(string $path, string $controller): void
     {
         self::$debug_data = debug_backtrace();
 
         if(self::$debug_data[3]['function'] == 'group'){
+
             self::facadeChangeRouteIntoGroup(self::whereChallengeFunctions(),$path,$controller);
+
         }else{
+
             self::createArrayInformationAboutRoute($path,$controller);
+
             self::$middleware = [];
+
+            self::$name = '';
         }
     }
+
 
     private static function createArrayInformationAboutRoute(string $path, string $controller): void
     {
@@ -48,15 +60,11 @@ abstract class createRoute
                 'name'          => self::$name,
                 'middleware'    => self::$middleware
             ];
-
-        self::$name = '';
     }
 
 
-    private static function whereChallengeFunctions(): array
+    private static function whereChallengeFunctions($result = []): array
     {
-        $result = [];
-
         foreach (self::$debug_data as $key=>$arr){
             if(isset($arr['function']) && $arr['function'] == 'group'){
                 $result[] = $arr['args'][0];
@@ -64,6 +72,7 @@ abstract class createRoute
         }
         return $result;
     }
+
 
     private static function facadeChangeRouteIntoGroup(array $data,string $url,string $controller): void
     {

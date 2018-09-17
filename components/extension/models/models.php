@@ -392,10 +392,7 @@ class models
 
     private static function db(): \PDO
     {
-        if (empty(self::$connect)) {
-            self::$connect = database::getConnection();
-        }
-        return self::$connect;
+        return empty(self::$connect) ?  self::$connect = database::getConnection() : self::$connect;
     }
 
 

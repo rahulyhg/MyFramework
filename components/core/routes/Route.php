@@ -40,7 +40,7 @@ class Route extends  createRoute
     public function name(string $name): void
     {
         $kek = array_keys(self::$arrRoutes);
-        self::$arrRoutes[end($kek)]['name'] .= empty( self::$arrRoutes[end($kek)]['name']) ? $name : '.' . $name;
+        self::$arrRoutes[end($kek)]['name'] .= empty(self::$arrRoutes[end($kek)]['name']) ? $name : '.' . $name;
     }
 
 
