@@ -308,7 +308,7 @@ class models
 
     public function andWhere($column, $where = '', $sign = '='): models
     {
-        self::$sql .= is_string($column) ? " AND `{$column}` {$sign} `{$where}`" : self::isArrayAndWhere($column, 'AND');
+        self::$sql .= is_string($column) ? " AND `{$column}` {$sign} '{$where}'" : self::isArrayAndWhere($column, 'AND');
         return $this;
     }
 

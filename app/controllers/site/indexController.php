@@ -22,8 +22,6 @@ class indexController extends Controller {
 
     public function showMainPage()
     {
-
-       // dd(main::getAllMainSettings('slider_top'));
         echo self::$twig->render('site/pages/main/main.html.twig', [
             'tovars'            => tovars::getAllTovarsWithMailSettings(main::tovarOurProductsIdWithMainSettings()),
             'on_sale'           => tovars::getAllTovarsWithMailSettings(main::tovarOnSaleIdWithMainSettings()),

@@ -21,4 +21,9 @@ class tovars extends models
         return self::where('id_lang',lang())->order()->limit(6)->get();
     }
 
+    public static function getTovars($id)
+    {
+         return self::select()->in('lid', 'WHERE',$id)->andWhere('id_lang',lang())->get();
+    }
+
 }

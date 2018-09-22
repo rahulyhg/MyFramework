@@ -43,5 +43,4 @@ class adminSLiderController extends Controller
         main::deleteSliderElement($get->last());
         location::back();
     }
-
 }

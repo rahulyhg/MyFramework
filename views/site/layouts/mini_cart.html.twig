@@ -3,49 +3,35 @@
         <div class="btn-group dropdown-cart">
             <button type="button" class="btn btn-custom dropdown-toggle" data-toggle="dropdown">
                 <span class="cart-menu-icon"></span>
-                0 item(s) <span class="drop-price">- $0.00</span>
+                {{ cart.count() }} item(s) <span class="drop-price"> <span>- $</span>{{ cart.total() }}</span>
             </button>
 
             <div class="dropdown-menu dropdown-cart-menu pull-right clearfix" role="menu">
                 <p class="dropdown-cart-description">Recently added item(s).</p>
                 <ul class="dropdown-cart-product-list">
+                    {% for tovar in cart.tovars %}
                     <li class="item clearfix">
                         <a href="#" title="Delete item" class="delete-item"><i class="fa fa-times"></i></a>
                         <a href="#" title="Edit item" class="edit-item"><i class="fa fa-pencil"></i></a>
                         <figure>
-                            <a href="../../../index.php"><img src="{{ assets("images/products/thumbnails/item12.jpg") }}" alt="phone 4"></a>
+                            <a href="../../../index.php"><img src="{{ assets("images/") }}/{{ tovar.img}}" alt="phone 4"></a>
                         </figure>
                         <div class="dropdown-cart-details">
                             <p class="item-name">
-                                <a href="../../../index.php">Cam Optia AF Webcam </a>
+                                <a href="../../../index.php">{{ tovar.name }}</a>
                             </p>
                             <p>
                                 1x
-                                <span class="item-price">$499</span>
+                                <span class="item-price">{{ tovar.price }}</span>
                             </p>
                         </div><!-- End .dropdown-cart-details -->
                     </li>
-                    <li class="item clearfix">
-                        <a href="#" title="Delete item" class="delete-item"><i class="fa fa-times"></i></a>
-                        <a href="#" title="Edit item" class="edit-item"><i class="fa fa-pencil"></i></a>
-                        <figure>
-                            <a href="../../../index.php"><img src="{{ assets("images/products/thumbnails/item13.jpg") }}" alt="phone 2"></a>
-                        </figure>
-                        <div class="dropdown-cart-details">
-                            <p class="item-name">
-                                <a href="../../../index.php">Iphone Case Cover Original</a>
-                            </p>
-                            <p>
-                                1x
-                                <span class="item-price">$499<span class="sub-price">.99</span></span>
-                            </p>
-                        </div><!-- End .dropdown-cart-details -->
-                    </li>
+                    {% endfor %}
                 </ul>
 
                 <ul class="dropdown-cart-total">
-                    <li><span class="dropdown-cart-total-title">Shipping:</span>$7</li>
-                    <li><span class="dropdown-cart-total-title">Total:</span>$1005<span class="sub-price">.99</span></li>
+                    {#<li><span class="dropdown-cart-total-title">Shipping:</span>$7</li>#}
+                    <li><span class="dropdown-cart-total-title">Total:</span>{{ cart.total() }}<span class="sub-price">.99</span></li>
                 </ul><!-- .dropdown-cart-total -->
                 <div class="dropdown-cart-action">
                     <p><a href="../../../index.php" class="btn btn-custom-2 btn-block">Cart</a></p>

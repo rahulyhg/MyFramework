@@ -42,7 +42,8 @@ class twig_extension_func extends \Twig_Extension
         return [
             'session'       => $_SESSION,
             'site_name'     => Get::site(),
-            'alert'         => new validate()
+            'alert'         => new validate(),
+            'cart'          => new \app\controllers\site\service\basketController()
         ];
     }
 

@@ -19,6 +19,7 @@ Route::group(['path' => 'admin','as' => 'admin','url' => 'admin'],function (){
         Route::get('/sliders-delete/[0-9]+', 'adminSLiderController@deleteSettignsSlider')->name('deleteSlider');
 
 
+
     });
 
 

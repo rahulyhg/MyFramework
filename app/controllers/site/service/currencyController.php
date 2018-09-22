@@ -1,7 +1,7 @@
 <?php
 
 
-namespace app\controllers\site;
+namespace app\controllers\site\service;
 
 use app\models\currency;
 use Components\Controller;

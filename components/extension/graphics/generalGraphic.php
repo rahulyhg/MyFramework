@@ -11,7 +11,7 @@ abstract class generalGraphic
      * @var string $ext jpg|jpeg|png|gif|bmp
      */
 
-    protected static $ext;
+    protected static $info_file;
 
 
     /**
@@ -22,10 +22,10 @@ abstract class generalGraphic
 
     private static function extens(string $file): string
     {
-        if (empty(self::$ext)) {
-            self::$ext = new \SplFileInfo($file);
+        if (empty(self::$info_file)) {
+            self::$info_file = new \SplFileInfo($file);
         }
-        return self::$ext->getExtension();
+        return self::$info_file->getExtension();
     }
 
     /**

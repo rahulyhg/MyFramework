@@ -19,12 +19,12 @@
             <div class="item-image-wrapper">
                 <figure class="item-image-container">
                     <a href="../../../index.php">
-                        <img src="{{ assets("images/products/item2.jpg") }}" alt="item1" class="item-image">
-                        <img src="{{ assets("images/products/item2-hover.jpg") }}" alt="item1  Hover" class="item-image-hover">
+                        <img src="{{ assets("images/") }}/{{ tovar.img}}" alt="item1" class="item-image">
+                        <img src="{{ assets("images/") }}/{{ tovar.img}}" alt="item1  Hover" class="item-image-hover">
                     </a>
                 </figure>
                 <div class="item-price-container">
-                    <span class="item-price">$160<span class="sub-price">.99</span></span>
+                    <span class="item-price">{{ tovar.price }}<span class="sub-price">.99</span></span>
                 </div><!-- End .item-price-container -->
                 <span class="new-rect">New</span>
             </div><!-- End .item-image-wrapper -->
@@ -39,7 +39,7 @@
                 </div><!-- End .rating-container -->
                 <h3 class="item-name"><a href="../../../index.php">Phasellus consequat</a></h3>
                 <div class="item-action">
-                    <a href="#" class="item-add-btn">
+                    <a href="#" data-id="{{ tovar.lid }}" data-count="1" class="item-add-btn addToCart">
                         <span class="icon-cart-text">Add to Cart</span>
                     </a>
                     <div class="item-action-inner">

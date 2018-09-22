@@ -1,0 +1,49 @@
+<header id="header">
+    {% include "site/layouts/header_menu.html.twig" %}
+
+    <div id="inner-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5 col-sm-5 col-xs-12 logo-container">
+                    <h1 class="logo clearfix">
+                        <span>Responsive eCommerce Template</span>
+                        <a href="../../../index.php" title="Venedor eCommerce Template"><img src="{{ assets("images/logo.png") }}" alt="Venedor Commerce Template" width="238" height="76"></a>
+                    </h1>
+                </div><!-- End .col-md-5 -->
+                <div class="col-md-7 col-sm-7 col-xs-12 header-inner-right">
+
+                    <div class="header-box contact-infos pull-right">
+                        <ul>
+                            <li><span class="header-box-icon header-box-icon-skype"></span>venedor_support</li>
+                            <li><span class="header-box-icon header-box-icon-email"></span><a href="../../../index.php">venedor@gmail.com</a></li>
+                        </ul>
+                    </div><!-- End .contact-infos -->
+
+                    <div class="header-box contact-phones pull-right clearfix">
+                        <span class="header-box-icon header-box-icon-earphones"></span>
+                        <ul class="pull-left">
+                            <li>+(404) 158 14 25 78</li>
+                            <li>+(404) 851 21 48 15</li>
+                        </ul>
+                    </div><!-- End .contact-phones -->
+
+                </div><!-- End .col-md-7 -->
+            </div><!-- End .row -->
+        </div><!-- End .container -->
+
+        <div id="main-nav-container">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 clearfix">
+
+                        {% include "site/layouts/menu.html.twig" %}
+
+                        {% include "site/layouts/mini_cart.html.twig" %}
+
+                    </div><!-- End .col-md-12 -->
+                </div><!-- End .row -->
+            </div><!-- End .container -->
+
+        </div><!-- End #nav -->
+    </div><!-- End #inner-header -->
+</header><!-- End #header -->
