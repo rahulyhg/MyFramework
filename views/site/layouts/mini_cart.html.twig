@@ -1,44 +1,13 @@
 <div id="quick-access">
     <div class="dropdown-cart-menu-container pull-right">
         <div class="btn-group dropdown-cart">
-            <button type="button" class="btn btn-custom dropdown-toggle" data-toggle="dropdown">
+            <button type="button" class="btn btn-custom dropdown-toggle" id="button_miniCart" data-toggle="dropdown">
                 <span class="cart-menu-icon"></span>
-                {{ cart.count() }} item(s) <span class="drop-price"> <span>- $</span>{{ cart.total() }}</span>
+               <span id="countMiniCart"> {{ cart.count() }}</span> item(s) <span class="drop-price"> - $<span id="totalMiniCart">{{ cart.total }}</span></span>
             </button>
-
-            <div class="dropdown-menu dropdown-cart-menu pull-right clearfix" role="menu">
-                <p class="dropdown-cart-description">Recently added item(s).</p>
-                <ul class="dropdown-cart-product-list">
-                    {% for tovar in cart.tovars %}
-                    <li class="item clearfix">
-                        <a href="#" title="Delete item" class="delete-item"><i class="fa fa-times"></i></a>
-                        <a href="#" title="Edit item" class="edit-item"><i class="fa fa-pencil"></i></a>
-                        <figure>
-                            <a href="../../../index.php"><img src="{{ assets("images/") }}/{{ tovar.img}}" alt="phone 4"></a>
-                        </figure>
-                        <div class="dropdown-cart-details">
-                            <p class="item-name">
-                                <a href="../../../index.php">{{ tovar.name }}</a>
-                            </p>
-                            <p>
-                                1x
-                                <span class="item-price">{{ tovar.price }}</span>
-                            </p>
-                        </div><!-- End .dropdown-cart-details -->
-                    </li>
-                    {% endfor %}
-                </ul>
-
-                <ul class="dropdown-cart-total">
-                    {#<li><span class="dropdown-cart-total-title">Shipping:</span>$7</li>#}
-                    <li><span class="dropdown-cart-total-title">Total:</span>{{ cart.total() }}<span class="sub-price">.99</span></li>
-                </ul><!-- .dropdown-cart-total -->
-                <div class="dropdown-cart-action">
-                    <p><a href="../../../index.php" class="btn btn-custom-2 btn-block">Cart</a></p>
-                    <p><a href="../../../index.php" class="btn btn-custom btn-block">Checkout</a></p>
-                </div><!-- End .dropdown-cart-action -->
-
-            </div><!-- End .dropdown-cart -->
+            <div id="ajaxMiniCart">
+                {% include "site/layouts/ajaxMiniCart.html.twig" %}
+            </div>
         </div><!-- End .btn-group -->
     </div><!-- End .dropdown-cart-menu-container -->
 

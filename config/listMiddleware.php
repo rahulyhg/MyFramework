@@ -1,6 +1,6 @@
 <?php
 // namsespace => link
 return[
-    'app\middleware\postMiddleware' => 'global',
+    'app\middleware\currencyMiddleware' => 'global',
 ];
 

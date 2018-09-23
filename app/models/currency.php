@@ -12,13 +12,18 @@ use Components\extension\models\models;
 class currency extends models
 {
 
+    private static $currency;
+
     /**
      * @return array
      */
 
     public static function getCurrency(): array
     {
-        return self::select(['symbol','id'])->where('visible',1)->get();
+        if(empty(self::$currency)){
+            self::$currency = self::select(['symbol','id'])->where('visible',1)->get();
+        }
+        return self::$currency;
     }
 
 
@@ -41,9 +46,10 @@ class currency extends models
     private static function getCurrencyDefault(): string
     {
         if(!session('currency')){
-            $default_currency = session('lang.domen') == 'en' ? '$' : '₴';
+            $default_currency = session('lang.domen') == 'uk' ? '₴': '$';
             session()->add('currency',$default_currency);
         }
+
         return session('currency');
     }
 
@@ -54,18 +60,13 @@ class currency extends models
 
     public static function changeCurrency(int $id_currency): void
     {
-        $currencys = currency::getCurrency();
+        $currency = currency::getCurrency();
 
-        foreach ($currencys as $key=>$value){
+        foreach ($currency as $key=>$value){
             if($value['id'] == $id_currency){
                 session()->add('currency',$value['symbol']);
                 break;
             }
         }
-
     }
-
-
-
-
 }

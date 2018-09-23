@@ -13,12 +13,17 @@ use Components\extension\models\models;
 class lang extends models
 {
 
+    private static $langs;
+
     /**
      * @return array
      */
     public static function getLang(): array
     {
-        return self::where('visible',1)->get();
+        if(empty(self::$langs)){
+            self::$langs = self::where('visible', 1)->get();
+        }
+        return self::$langs;
     }
 
     /**

@@ -7,7 +7,7 @@
     <ul class="menu clearfix">
 
         <li><a class="active" href="../../../index.php">Главная</a></li>
-        <li class="mega-menu-container"><a href="#">Каталог</a>
+        <li class="mega-menu-container"><a href="/cat">Каталог</a>
             <div class="mega-menu clearfix">
                 {% for key in catalog_menu %}
                     {% if key.parent == 0 %}
@@ -26,10 +26,10 @@
 
             </div><!-- End .mega-menu -->
         </li>
-        <li><a href="../../../index.php">Блог</a></li>
-        <li><a href="../../../index.php">Оплата и доставка</a></li>
+        <li><a href="/blog">Блог</a></li>
+        <li><a href="/info">Оплата и доставка</a></li>
 
-        <li><a href="../../../index.php">Контакты</a></li>
+        <li><a href="/contacts">Контакты</a></li>
 
 
     </ul>

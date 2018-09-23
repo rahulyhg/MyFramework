@@ -47,10 +47,8 @@ class main extends models
 
     public static function getAllMainSettings(string $key = '')
     {
-        if (empty($main_settings)) {
-
+        if (empty(self::$main_settings)) {
             self::$main_settings = self::changeKeyArr(self::all(),'data');
-
         }
 
         return $key == '' ? self::$main_settings : self::$main_settings[$key]['data'];

@@ -22,6 +22,13 @@ if (!function_exists('lang')) {
         return $_SESSION['lang']['id'];
     }
 }
+if (!function_exists('lang_domen')) {
+
+function lang_domen()
+{
+    return $_SESSION['lang']['domen'];
+}
+}
 
 if (!function_exists('session')) {
 

@@ -1,5 +1,5 @@
 <?php
 //name => namespace
 return[
-    'kek'   =>  '\app\middleware\kek'
+    'currency'   =>  '\app\middleware\currency'
 ];

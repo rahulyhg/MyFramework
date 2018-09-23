@@ -43,7 +43,7 @@ class twig_extension_func extends \Twig_Extension
             'session'       => $_SESSION,
             'site_name'     => Get::site(),
             'alert'         => new validate(),
-            'cart'          => new \app\controllers\site\service\basketController()
+            'cart'          => new \app\controllers\site\basketController()
         ];
     }
 

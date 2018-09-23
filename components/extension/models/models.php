@@ -191,7 +191,7 @@ class models
             $row->execute($arr);
             return $row->fetchall(\PDO::FETCH_ASSOC);
         } Catch (\Error $e) {
-            error_page::showPageError('Sql not correct', $sql . "<br><br><br>" . $e->getMessage() . ' ' . $e->getFile() . $e->getLine(), 'code: #23qwqw54235');
+            error_page::showPageError('Sql not correct', $sql . "<br><br><br>" . $e->getMessage() . ' ' . $e->getFile() . $e->getLine());
         }
     }
 
@@ -202,7 +202,7 @@ class models
         try {
             $row = self::db()->prepare(self::$sql);
         } Catch (\PDOException $e) {
-            error_page::showPageError('Method pdo:prepare not found in models 83str', self::$sql . "<br><br><br>" . $e->getMessage() . ' ' . $e->getFile() . $e->getLine(), 'code: #124rengcv');
+            error_page::showPageError('Method pdo:prepare not found in models 83str', self::$sql . "<br><br><br>" . $e->getMessage() . ' ' . $e->getFile() . $e->getLine());
         }
         self::$sql = '';
         $row->execute(array_values(self::$request));
