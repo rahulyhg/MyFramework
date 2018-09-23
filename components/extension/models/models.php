@@ -106,9 +106,12 @@ class models
 
     public function count(): models
     {
-        self::$sql = str_replace('SELECT', "SELECT COUNT(*), ", self::$sql);
+        self::$sql = str_replace('SELECT *', "SELECT COUNT(*) as `count`", self::$sql);
+
         return $this;
     }
+
+
 
 
     public function order(string $data = 'DESC', string $column = 'id'): models
@@ -176,6 +179,11 @@ class models
         return $this;
     }
 
+    private function sql(string $sql)
+    {
+        self::$sql = $sql;
+        return $this;
+    }
 
 
     public function param(array $arr)
@@ -297,7 +305,6 @@ class models
     }
 
 
-
     public function orWhere($column, $where = '', $sign = '='): models
     {
         self::$sql .= is_string($column) ? self::isStringOnOrWhere($column, $where, $sign) : self::isArrayOnOrWhere($column);
@@ -390,7 +397,7 @@ class models
      * @return \PDO
      */
 
-    private static function db(): \PDO
+    public static function db(): \PDO
     {
         return empty(self::$connect) ?  self::$connect = database::getConnection() : self::$connect;
     }

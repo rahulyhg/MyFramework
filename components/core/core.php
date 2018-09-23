@@ -180,7 +180,7 @@ class core
 
     private function createObjectController(): void
     {
-        call_user_func_array(array($this->class, $this->route['action']), $this->arguments);
+        call_user_func_array(array(new $this->class(), $this->route['action']), $this->arguments);
     }
 
 

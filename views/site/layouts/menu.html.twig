@@ -6,8 +6,8 @@
     </div>
     <ul class="menu clearfix">
 
-        <li><a class="active" href="../../../index.php">Главная</a></li>
-        <li class="mega-menu-container"><a href="/cat">Каталог</a>
+        <li><a class="active" href="/">Главная</a></li>
+        <li class="mega-menu-container"><a href="{{ route('site.cat.index') }}">Каталог</a>
             <div class="mega-menu clearfix">
                 {% for key in catalog_menu %}
                     {% if key.parent == 0 %}

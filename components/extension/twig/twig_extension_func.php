@@ -3,6 +3,8 @@
 
 namespace Components\extension\twig;
 
+use app\controllers\site\basketController;
+use app\controllers\site\service\tovar;
 use app\models\currency;
 use app\models\lang;
 use Components\core\treits\globalFunction;
@@ -43,7 +45,8 @@ class twig_extension_func extends \Twig_Extension
             'session'       => $_SESSION,
             'site_name'     => Get::site(),
             'alert'         => new validate(),
-            'cart'          => new \app\controllers\site\basketController()
+            'cart'          => new basketController(),
+            'prod'         => new tovar()
         ];
     }
 

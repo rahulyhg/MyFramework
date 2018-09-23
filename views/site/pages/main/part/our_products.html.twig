@@ -3,49 +3,7 @@
     <div class="tab-pane active" id="all">
         {% for tovar in tovars %}
             {% if search_str(tovar.lid,list_tovars_categ.all_prod) %}
-                <div class="col-md-4 col-sm-6 col-xs-12">
-                    <div class="item item-hover">
-                        <div class="item-image-wrapper">
-                            <figure class="item-image-container">
-                                <a href="/catalog/tovars/{{ tovar.lid }}">
-                                    <img src="{{ assets("images/") }}/{{ tovar.img}}" alt="{{ tovar.name }}" class="item-image">
-                                    <img src="{{ assets("images/") }}/{{ tovar.img}}" alt="item1  Hover" class="item-image-hover">
-                                </a>
-                            </figure>
-                            <div class="item-price-container">
-                                {% if tovar.old_price %}
-                                    <span class="old-price">{{ tovar.old_price }}<span class="sub-price">.99</span></span>
-                                {% endif %}
-                                <span class="item-price">{{ currency }}{{ tovar.price }}<span class="sub-price">.99</span></span>
-                            </div><!-- End .item-price-container -->
-                            <span class="new-rect">New</span>
-                            {% if  tovar.action  %}
-                                <span class="discount-rect">-{{ tovar.action }}%</span>
-                            {% endif %}
-                        </div><!-- End .item-image-wrapper -->
-                        <div class="item-meta-container">
-                            <div class="ratings-container">
-                                <div class="ratings">
-                                    <div class="ratings-result" data-result="100"></div>
-                                </div><!-- End .ratings -->
-                                <span class="ratings-amount">
-                                                        5 Reviews
-                                                    </span>
-                            </div><!-- End .rating-container -->
-                            <h3 class="item-name"><a href="/catalog/tovars/{{ tovar.lid }}">{{ tovar.name }}</a></h3>
-                            <div class="item-action">
-
-                                <a href="#" data-id="{{ tovar.lid }}" data-price="{{ tovar.price }}" data-count="1" class="item-add-btn addToCart">
-                                    <span class="icon-cart-text">Add to Cart</span>
-                                </a>
-                                <div class="item-action-inner">
-                                    <a href="#" class="icon-button icon-like">Favourite</a>
-                                    <a href="#" class="icon-button icon-compare">Checkout</a>
-                                </div><!-- End .item-action-inner -->
-                            </div><!-- End .item-action -->
-                        </div><!-- End .item-meta-container -->
-                    </div><!-- End .item -->
-                </div><!-- End .col-md-4 -->
+                {% include "site/layouts/tovar.html.twig" %}
             {% endif %}
         {% endfor %}
     </div><!-- End .tab-pane -->
@@ -54,48 +12,7 @@
     {% if tovar_latest is defined %}
     <div class="tab-pane" id="latest">
         {% for tovar in tovar_latest %}
-            <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class="item item-hover">
-                    <div class="item-image-wrapper">
-                        <figure class="item-image-container">
-                            <a href="/catalog/tovars/{{ tovar.lid }}">
-                                <img src="{{ assets("images/") }}/{{ tovar.img}}" alt="{{ tovar.name }}" class="item-image">
-                                <img src="{{ assets("images/") }}/{{ tovar.img}}" alt="item1  Hover" class="item-image-hover">
-                            </a>
-                        </figure>
-                        <div class="item-price-container">
-                            {% if tovar.old_price %}
-                                <span class="old-price">{{ tovar.old_price }}<span class="sub-price">.99</span></span>
-                            {% endif %}
-                            <span class="item-price">{{ tovar.price }}<span class="sub-price">.99</span></span>
-                        </div><!-- End .item-price-container -->
-                        <span class="new-rect">New</span>
-                        {% if  tovar.action  %}
-                            <span class="discount-rect">-{{ tovar.action }}%</span>
-                        {% endif %}
-                    </div><!-- End .item-image-wrapper -->
-                    <div class="item-meta-container">
-                        <div class="ratings-container">
-                            <div class="ratings">
-                                <div class="ratings-result" data-result="100"></div>
-                            </div><!-- End .ratings -->
-                            <span class="ratings-amount">
-                                                        5 Reviews
-                                                    </span>
-                        </div><!-- End .rating-container -->
-                        <h3 class="item-name"><a href="/catalog/tovars/{{ tovar.lid }}">{{ tovar.name }}</a></h3>
-                        <div class="item-action">
-                            <a href="#" data-id="{{ tovar.lid }}" data-price="{{ tovar.price }}" data-count="1" class="item-add-btn addToCart">
-                                <span class="icon-cart-text">Add to Cart</span>
-                            </a>
-                            <div class="item-action-inner">
-                                <a href="#" class="icon-button icon-like">Favourite</a>
-                                <a href="#" class="icon-button icon-compare">Checkout</a>
-                            </div><!-- End .item-action-inner -->
-                        </div><!-- End .item-action -->
-                    </div><!-- End .item-meta-container -->
-                </div><!-- End .item -->
-            </div><!-- End .col-md-4 -->
+            {% include "site/layouts/tovar.html.twig" %}
         {% endfor %}
     </div><!-- End .tab-pane -->
     {% endif %}
@@ -104,48 +21,7 @@
     <div class="tab-pane" id="featured">
         {% for tovar in tovars %}
         {% if search_str(tovar.lid,list_tovars_categ.featured) %}
-            <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class="item item-hover">
-                    <div class="item-image-wrapper">
-                        <figure class="item-image-container">
-                            <a href="/catalog/tovars/{{ tovar.lid }}">
-                                <img src="{{ assets("images/") }}/{{ tovar.img}}" alt="{{ tovar.name }}" class="item-image">
-                                <img src="{{ assets("images/") }}/{{ tovar.img}}" alt="item1  Hover" class="item-image-hover">
-                            </a>
-                        </figure>
-                        <div class="item-price-container">
-                            {% if tovar.old_price %}
-                                <span class="old-price">{{ tovar.old_price }}<span class="sub-price">.99</span></span>
-                            {% endif %}
-                            <span class="item-price">{{ tovar.price }}<span class="sub-price">.99</span></span>
-                        </div><!-- End .item-price-container -->
-                        <span class="new-rect">New</span>
-                        {% if  tovar.action  %}
-                            <span class="discount-rect">-{{ tovar.action }}%</span>
-                        {% endif %}
-                    </div><!-- End .item-image-wrapper -->
-                    <div class="item-meta-container">
-                        <div class="ratings-container">
-                            <div class="ratings">
-                                <div class="ratings-result" data-result="100"></div>
-                            </div><!-- End .ratings -->
-                            <span class="ratings-amount">
-                                                        5 Reviews
-                                                    </span>
-                        </div><!-- End .rating-container -->
-                        <h3 class="item-name"><a href="/catalog/tovars/{{ tovar.lid }}">{{ tovar.name }}</a></h3>
-                        <div class="item-action">
-                            <a href="#" data-id="{{ tovar.lid }}" data-price="{{ tovar.price }}" data-count="1" class="item-add-btn addToCart">
-                                <span class="icon-cart-text">Add to Cart</span>
-                            </a>
-                            <div class="item-action-inner">
-                                <a href="#" class="icon-button icon-like">Favourite</a>
-                                <a href="#" class="icon-button icon-compare">Checkout</a>
-                            </div><!-- End .item-action-inner -->
-                        </div><!-- End .item-action -->
-                    </div><!-- End .item-meta-container -->
-                </div><!-- End .item -->
-            </div><!-- End .col-md-4 -->
+            {% include "site/layouts/tovar.html.twig" %}
         {% endif %}
         {% endfor %}
     </div><!-- End .tab-pane -->
@@ -155,48 +31,7 @@
     <div class="tab-pane" id="bestsellers">
         {% for tovar in tovars %}
         {% if search_str(tovar.lid,list_tovars_categ.bestsellers) %}
-            <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class="item item-hover">
-                    <div class="item-image-wrapper">
-                        <figure class="item-image-container">
-                            <a href="/catalog/tovars/{{ tovar.lid }}">
-                                <img src="{{ assets("images/") }}/{{ tovar.img}}" alt="{{ tovar.name }}" class="item-image">
-                                <img src="{{ assets("images/") }}/{{ tovar.img}}" alt="item1  Hover" class="item-image-hover">
-                            </a>
-                        </figure>
-                        <div class="item-price-container">
-                            {% if tovar.old_price %}
-                                <span class="old-price">{{ tovar.old_price }}<span class="sub-price">.99</span></span>
-                            {% endif %}
-                            <span class="item-price">{{ tovar.price }}<span class="sub-price">.99</span></span>
-                        </div><!-- End .item-price-container -->
-                        <span class="new-rect">New</span>
-                        {% if  tovar.action  %}
-                            <span class="discount-rect">-{{ tovar.action }}%</span>
-                        {% endif %}
-                    </div><!-- End .item-image-wrapper -->
-                    <div class="item-meta-container">
-                        <div class="ratings-container">
-                            <div class="ratings">
-                                <div class="ratings-result" data-result="100"></div>
-                            </div><!-- End .ratings -->
-                            <span class="ratings-amount">
-                                                        5 Reviews
-                                                    </span>
-                        </div><!-- End .rating-container -->
-                        <h3 class="item-name"><a href="/catalog/tovars/{{ tovar.lid }}">{{ tovar.name }}</a></h3>
-                        <div class="item-action">
-                            <a href="#" data-id="{{ tovar.lid }}" data-price="{{ tovar.price }}" data-count="1" class="item-add-btn addToCart">
-                                <span class="icon-cart-text">Add to Cart</span>
-                            </a>
-                            <div class="item-action-inner">
-                                <a href="#" class="icon-button icon-like">Favourite</a>
-                                <a href="#" class="icon-button icon-compare">Checkout</a>
-                            </div><!-- End .item-action-inner -->
-                        </div><!-- End .item-action -->
-                    </div><!-- End .item-meta-container -->
-                </div><!-- End .item -->
-            </div><!-- End .col-md-4 -->
+            {% include "site/layouts/tovar.html.twig" %}
         {% endif %}
         {% endfor %}
     </div><!-- End .tab-pane -->
@@ -206,48 +41,7 @@
     <div class="tab-pane" id="special">
         {% for tovar in tovars %}
             {% if search_str(tovar.lid,list_tovars_categ.special) %}
-                <div class="col-md-4 col-sm-6 col-xs-12">
-                    <div class="item item-hover">
-                        <div class="item-image-wrapper">
-                            <figure class="item-image-container">
-                                <a href="/catalog/tovars/{{ tovar.lid }}">
-                                    <img src="{{ assets("images/") }}/{{ tovar.img}}" alt="{{ tovar.name }}" class="item-image">
-                                    <img src="{{ assets("images/") }}/{{ tovar.img}}" alt="item1  Hover" class="item-image-hover">
-                                </a>
-                            </figure>
-                            <div class="item-price-container">
-                                {% if tovar.old_price %}
-                                    <span class="old-price">{{ tovar.old_price }}<span class="sub-price">.99</span></span>
-                                {% endif %}
-                                <span class="item-price">{{ tovar.price }}<span class="sub-price">.99 </span></span>
-                            </div><!-- End .item-price-container -->
-                            <span class="new-rect">New</span>
-                            {% if  tovar.action  %}
-                                <span class="discount-rect">-{{ tovar.action }}%</span>
-                            {% endif %}
-                        </div><!-- End .item-image-wrapper -->
-                        <div class="item-meta-container">
-                            <div class="ratings-container">
-                                <div class="ratings">
-                                    <div class="ratings-result" data-result="100"></div>
-                                </div><!-- End .ratings -->
-                                <span class="ratings-amount">
-                                                        5 Reviews
-                                                    </span>
-                            </div><!-- End .rating-container -->
-                            <h3 class="item-name"><a href="/catalog/tovars/{{ tovar.lid }}">{{ tovar.name }}</a></h3>
-                            <div class="item-action">
-                                <a href="#" data-id="{{ tovar.lid }}" data-price="{{ tovar.price }}" data-count="1" class="item-add-btn addToCart">
-                                    <span class="icon-cart-text">Add to Cart</span>
-                                </a>
-                                <div class="item-action-inner">
-                                    <a href="#" class="icon-button icon-like">Favourite</a>
-                                    <a href="#" class="icon-button icon-compare">Checkout</a>
-                                </div><!-- End .item-action-inner -->
-                            </div><!-- End .item-action -->
-                        </div><!-- End .item-meta-container -->
-                    </div><!-- End .item -->
-                </div><!-- End .col-md-4 -->
+                {% include "site/layouts/tovar.html.twig" %}
         {% endif %}
         {% endfor %}
     </div><!-- End .tab-pane -->

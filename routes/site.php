@@ -25,8 +25,7 @@ Route::group(['path' => 'site','as' => 'site'],function (){
 
     Route::group(['as' => 'cat','url' => 'cat'],function (){
 
-        Route::get('','catalogController@show');
-        Route::get('/3','catalogController@show');
+        Route::get('','catalogController@show')->name('index');
 
     });
 });

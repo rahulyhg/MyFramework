@@ -15,40 +15,7 @@
     <div class="hot-items-slider owl-carousel">
 
         {% for tovar in on_sale %}
-            <div class="item item-hover">
-            <div class="item-image-wrapper">
-                <figure class="item-image-container">
-                    <a href="../../../index.php">
-                        <img src="{{ assets("images/") }}/{{ tovar.img}}" alt="item1" class="item-image">
-                        <img src="{{ assets("images/") }}/{{ tovar.img}}" alt="item1  Hover" class="item-image-hover">
-                    </a>
-                </figure>
-                <div class="item-price-container">
-                    <span class="item-price">{{ tovar.price }}<span class="sub-price">.99</span></span>
-                </div><!-- End .item-price-container -->
-                <span class="new-rect">New</span>
-            </div><!-- End .item-image-wrapper -->
-            <div class="item-meta-container">
-                <div class="ratings-container">
-                    <div class="ratings">
-                        <div class="ratings-result" data-result="80"></div>
-                    </div><!-- End .ratings -->
-                    <span class="ratings-amount">
-                                                    5 Reviews
-                                                </span>
-                </div><!-- End .rating-container -->
-                <h3 class="item-name"><a href="../../../index.php">Phasellus consequat</a></h3>
-                <div class="item-action">
-                    <a href="#" data-id="{{ tovar.lid }}" data-price="{{ tovar.price }}" data-count="1" class="item-add-btn addToCart">
-                        <span class="icon-cart-text">Add to Cart</span>
-                    </a>
-                    <div class="item-action-inner">
-                        <a href="#" class="icon-button icon-like">Favourite</a>
-                        <a href="#" class="icon-button icon-compare">Checkout</a>
-                    </div><!-- End .item-action-inner -->
-                </div><!-- End .item-action -->
-            </div><!-- End .item-meta-container -->
-        </div><!-- End .item -->
+            {% include "site/layouts/tovar.html.twig" %}
         {% endfor %}
 
     </div><!--hot-items-slider -->
