@@ -5,17 +5,11 @@ use Components\core\routes\Route;
 
 Route::group(['path' => 'site','as' => 'site'],function (){
 
-
-
     Route::get('/', 'indexController@showMainPage')->name('index');
 
     Route::post('/','indexController@subscriptionMailing')->name('subscriptionMailing');
 
-    Route::group(['path' => 'service'],function (){
-
-        Route::get('change_currency/[0-9]','currencyController@changeCurrency/$2')->name('change_currency');
-
-    });
+    Route::get('change_currency/[0-9]','currencyController@changeCurrency')->name('change_currency');
 
     Route::group(['as' => 'basket','url' => 'basket'],function () {
 
@@ -23,9 +17,14 @@ Route::group(['path' => 'site','as' => 'site'],function (){
 
     });
 
-    Route::group(['as' => 'cat','url' => 'cat'],function (){
+    Route::group(['as' => 'cat','url' => 'cat','path' => 'catalog'],function (){
 
         Route::get('','catalogController@show')->name('index');
+
+        Route::get('(/[0-9]+)*/sort=[a-z]+','catalogController@filter')->name('filter');
+
+        Route::get('/changeShowList/[a-z]+','changeShowListController@changeShowList')->name('changeList');
+        Route::get('/changeView/[0-9]+','changeShowListController@changeView')->name('changeView');
 
     });
 });

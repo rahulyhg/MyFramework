@@ -29,11 +29,11 @@ class tovars extends models
          return self::currency()->in('lid', 'WHERE',$id)->andWhere('id_lang',lang())->get();
     }
 
-    public static function getAllTovars()
+    public static function getAllTovars(string $data, string $column)
     {
         $count = self::select()->count()->get();
 
-        return self::currency()->where('id_lang',lang())->order()->pagination(self::COUNT_PAGE,$count[0]['count'])->get();
+        return self::currency()->where('id_lang',lang())->order($data,$column)->pagination(self::COUNT_PAGE,$count[0]['count'])->get();
     }
 
     private static function currency()

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace app\controllers\site\service;
+namespace app\twigHelpers;
 
 
 class tovar
@@ -18,5 +18,7 @@ class tovar
     {
         return ceil(($old_price - $price)/($old_price/100));
     }
+
+
 
 }

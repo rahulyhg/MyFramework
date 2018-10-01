@@ -148,7 +148,9 @@ class core
 
             $namespace = $value->getType()->getName();
 
-            $this->arguments[] = new $namespace();
+            if(class_exists($namespace)){
+                $this->arguments[] = new $namespace();
+            }
         }
     }
 

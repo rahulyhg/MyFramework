@@ -49,7 +49,7 @@ $(document).on('click','.deleteWithBasket',function () {
 
     showMiniCart();
 
-    return false;
+    return false;ну
 });
 
 
