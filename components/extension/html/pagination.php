@@ -21,7 +21,7 @@ class pagination
 
         if (self::$count_page > 0) {
 
-            self::$html = '<ul>';
+            self::$html = '<ul class="pagination">';
 
             self::prev();
 
@@ -40,9 +40,9 @@ class pagination
     {
         if (get('page') > 1) {
             $prev = get('page') - 1;
-            self::$html .= "<li><a href='?page={$prev}'><<</a></li>";
+            self::$html .= "<li><a href='?page={$prev}'><i class='fa fa-angle-right'></i></a></li>";
         } else {
-            self::$html .= "<li><<</li>";
+            self::$html .= "<li><a><i class='fa fa-angle-left'></i></a></li>";
         }
     }
 
@@ -79,9 +79,9 @@ class pagination
     {
         if (get('page') < self::$count_page) {
             $next = get('page') + 1;
-            self::$html .= "<li><a href='?page={$next}'>>></a></li>";
+            self::$html .= "<li><a href='?page={$next}'><i class='fa fa-angle-right'></i></a></li>";
         } else {
-            self::$html .= "<li>>></li>";
+            self::$html .= "<li><a><i class='fa fa-angle-right'></i></a></li>";
         }
     }
 

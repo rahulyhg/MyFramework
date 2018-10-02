@@ -10,7 +10,7 @@ use Components\extension\models\models;
 class tovars extends models
 {
 
-    protected const COUNT_PAGE = 10;
+    protected const COUNT_PAGE = 15;
 
 
     public static function getAllTovarsWithMailSettings(array $id)
@@ -31,9 +31,13 @@ class tovars extends models
 
     public static function getAllTovars(string $data, string $column)
     {
-        $count = self::select()->count()->get();
+        $count = self::where(['id_lang' => lang()])->count()->get()[0]['count'];
+        return self::currency()->where('id_lang',lang())->order($data,$column)->pagination(self::countPage(),$count)->get();
+    }
 
-        return self::currency()->where('id_lang',lang())->order($data,$column)->pagination(self::COUNT_PAGE,$count[0]['count'])->get();
+    private static function countPage()
+    {
+        return $_SESSION['catalog']['view'] ?? self::COUNT_PAGE;
     }
 
     private static function currency()

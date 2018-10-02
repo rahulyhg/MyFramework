@@ -41,22 +41,17 @@
                                     </div>
 
                                     <div class="view-box">
-                                        <a href="{{ route('site.cat.index') }}/changeShowList/all" class="{% if session.catalog.list is defined and session.catalog.list == 'all'%}active{% endif %} icon-button icon-grid"><i
+                                        <a href="{{ route('site.cat.index') }}/changeShowList/all" class="{% if session.catalog.list is defined %}{% if session.catalog.list == 'all'%} active {% endif %}{% else %} active {% endif %} icon-button icon-grid"><i
                                                     class="fa fa-th-large"></i></a>
-                                        <a href="{{ route('site.cat.index') }}/changeShowList/block" class="{% if session.catalog.list is defined and session.catalog.list == 'block'%}active{% endif %} icon-button icon-list"><i
+                                        <a href="{{ route('site.cat.index') }}/changeShowList/block" class="{% if session.catalog.list is defined and session.catalog.list == 'block'%} active {% endif %} icon-button icon-list"><i
                                                     class="fa fa-th-list"></i></a>
                                     </div><!-- End .view-box -->
 
                                 </div><!-- End .toolbox-filter -->
                                 <div class="toolbox-pagination clearfix">
-                                    <ul class="pagination">
-                                        <li class="active"><a href="#">1</a></li>
-                                        <li><a href="#">2</a></li>
-                                        <li><a href="#">3</a></li>
-                                        <li><a href="#">4</a></li>
-                                        <li><a href="#">5</a></li>
-                                        <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
-                                    </ul>
+
+                                        {{ showPagination()|raw }}
+
                                     <div class="view-count-box">
                                         <span class="separator">view:</span>
                                         <div class="btn-group select-dropdown">
@@ -71,8 +66,8 @@
                                                 <i class="fa fa-angle-down"></i>
                                             </button>
                                             <ul class="dropdown-menu" role="menu">
-                                                <li><a href="{{ route('site.cat.index') }}/changeView/10">10</a></li>
                                                 <li><a href="{{ route('site.cat.index') }}/changeView/15">15</a></li>
+                                                <li><a href="{{ route('site.cat.index') }}/changeView/20">20</a></li>
                                                 <li><a href="{{ route('site.cat.index') }}/changeView/30">30</a></li>
                                             </ul>
                                         </div>
@@ -93,14 +88,7 @@
 
                             <div class="pagination-container clearfix">
                                 <div class="pull-right">
-                                    <ul class="pagination">
-                                        <li class="active"><a href="#">1</a></li>
-                                        <li><a href="#">2</a></li>
-                                        <li><a href="#">3</a></li>
-                                        <li><a href="#">4</a></li>
-                                        <li><a href="#">5</a></li>
-                                        <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
-                                    </ul>
+                                    {{ showPagination()|raw }}
                                 </div><!-- End .pull-right -->
 
                                 <div class="pull-right view-count-box hidden-xs">
@@ -111,8 +99,9 @@
                                             <i class="fa fa-angle-down"></i>
                                         </button>
                                         <ul class="dropdown-menu" role="menu">
-                                            <li><a href="#">15</a></li>
-                                            <li><a href="#">30</a></li>
+                                            <li><a href="{{ route('site.cat.index') }}/changeView/15">15</a></li>
+                                            <li><a href="{{ route('site.cat.index') }}/changeView/20">20</a></li>
+                                            <li><a href="{{ route('site.cat.index') }}/changeView/30">30</a></li>
                                         </ul>
                                     </div>
                                 </div>
