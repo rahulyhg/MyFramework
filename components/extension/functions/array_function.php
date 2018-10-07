@@ -24,10 +24,10 @@ if (!function_exists('lang')) {
 }
 if (!function_exists('lang_domen')) {
 
-function lang_domen()
-{
-    return $_SESSION['lang']['domen'];
-}
+    function lang_domen()
+    {
+        return $_SESSION['lang']['domen'];
+    }
 }
 
 if (!function_exists('session')) {

@@ -59,7 +59,7 @@
                                                 {% if session.catalog.view is defined %}
                                                     {{ session.catalog.view }}
                                                 {% else %}
-                                                    10
+                                                    15
                                                 {% endif %}
                                             </button>
                                             <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
@@ -80,9 +80,17 @@
                             <div class="md-margin"></div><!-- .space -->
                             <div class="category-item-container">
                                 <div class="row">
-                                    {% for tovar in tovars %}
-                                        {% include "site/layouts/tovar.html.twig" %}
-                                    {% endfor %}
+                                    {% if show_tovars is defined and show_tovars == 'block' %}
+                                    <div class="category-item-container category-list-container">
+                                        {% for tovar in tovars %}
+                                            {% include "site/layouts/tovar.html.twig" %}
+                                        {% endfor %}
+                                    </div>
+                                    {% else %}
+                                        {% for tovar in tovars %}
+                                            {% include "site/layouts/tovar.html.twig" %}
+                                        {% endfor %}
+                                    {% endif %}
                                 </div><!-- End .row -->
                             </div><!-- End .category-item-container -->
 
@@ -94,7 +102,13 @@
                                 <div class="pull-right view-count-box hidden-xs">
                                     <span class="separator">view:</span>
                                     <div class="btn-group select-dropdown">
-                                        <button type="button" class="btn select-btn">10</button>
+                                        <button type="button" class="btn select-btn">
+                                            {% if session.catalog.view is defined %}
+                                                {{ session.catalog.view }}
+                                            {% else %}
+                                                15
+                                            {% endif %}
+                                        </button>
                                         <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
                                             <i class="fa fa-angle-down"></i>
                                         </button>
@@ -158,17 +172,18 @@
                                                 <div id="price-range">
 
                                                 </div><!-- End #price-range -->
+                                                <form action=" {{ route('site.cat.filterPrice') }}" method="post">
                                                 <div id="price-range-details">
                                                     <span class="sm-separator">from</span>
-                                                    <input type="text" id="price-range-low" class="separator">
+                                                    <input name="from" required type="text" id="price-range-low" class="separator">
                                                     <span class="sm-separator">to</span>
-                                                    <input type="text" id="price-range-high">
+                                                    <input name="end" required type="text" id="price-range-high">
                                                 </div>
                                                 <div id="price-range-btns">
-                                                    <a href="#" class="btn btn-custom-2 btn-sm">Ok</a>
-                                                    <a href="#" class="btn btn-custom-2 btn-sm">Clear</a>
+                                                    <input type="submit" class="btn btn-custom-2 btn-sm" value="Ok">
+                                                    <a href="#" id="clear_in_filter_price" class="btn btn-custom-2 btn-sm">Clear</a>
                                                 </div>
-
+                                                </form>
                                             </div><!-- End .panel-body -->
                                         </div><!-- #collapse -->
                                     </div><!-- End .panel -->

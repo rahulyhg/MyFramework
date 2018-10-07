@@ -64,7 +64,7 @@ class core
     {
         foreach($this->routes as $key=>$value){
             if(!empty($value['name'])){
-                self::$names[$value['name']] = $_SERVER['REQUEST_SCHEME'] .'://'. $_SERVER['SERVER_NAME'] .'/'. preg_replace('/\|get|\|post/','',$key);
+                self::$names[$value['name']] = $_SERVER['REQUEST_SCHEME'] .'://'. $_SERVER['SERVER_NAME'] .'/'. $_SESSION['lang']['domen'] .'/'. preg_replace('/\|get|\|post/','',$key);
             }
         }
     }

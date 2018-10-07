@@ -16,6 +16,8 @@ class catalogController extends Controller
 
     private $column = 'id';
 
+    private $price = [];
+
     /**
      * @param bool $categ
      * @throws \Twig_Error_Loader
@@ -26,8 +28,9 @@ class catalogController extends Controller
     public function show(bool $categ = false)
     {
         echo self::$twig->render('site/pages/cat/index.html.twig', [
-            'tovars' => $categ ? [] : tovars::getAllTovars($this->data,$this->column),
+            'tovars' => $categ ? [] : tovars::getAllTovars($this->data,$this->column,$this->price),
             'featured' => featuredTovar::get(),
+            'show_tovars' => $_SESSION['catalog']['list'] ?? 'all'
         ]);
     }
 
@@ -53,6 +56,9 @@ class catalogController extends Controller
             case 'action':
                 $this->dataAndColumn('old_price','DESC');
                 break;
+            case 'price' :
+                $this->priceFromToEnd();
+                break;
         }
 
         $this->show(preg_match('~cat/([0-9]+)/~',$_SERVER['REQUEST_URI']));
@@ -66,7 +72,12 @@ class catalogController extends Controller
 
     private function getFilter(Get $get)
     {
-        return str_replace('sort=','',$get->last());
+        return strrchr('from',$get->last()) ? 'price' : str_replace('sort=','',$get->last());
+    }
+
+    private function priceFromToEnd()
+    {
+        $this->price = ['from' => 0,'to' => 100];
     }
 
 }

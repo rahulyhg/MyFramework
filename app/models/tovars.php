@@ -29,10 +29,18 @@ class tovars extends models
          return self::currency()->in('lid', 'WHERE',$id)->andWhere('id_lang',lang())->get();
     }
 
-    public static function getAllTovars(string $data, string $column)
+    public static function getAllTovars(string $data, string $column,array $price = [])
     {
-        $count = self::where(['id_lang' => lang()])->count()->get()[0]['count'];
-        return self::currency()->where('id_lang',lang())->order($data,$column)->pagination(self::countPage(),$count)->get();
+        if($price){
+            $count = self::where(['id_lang' => lang()])->count()->get()[0]['count'];
+            return self::currency()->where('id_lang',lang())
+                ->andWhere('price',$price['from'],'>')
+                ->andWhere('price',$price['to']+1,'<')
+                ->order($data,$column)->pagination(self::countPage(),$count)->get();
+        }else{
+            $count = self::where(['id_lang' => lang()])->count()->get()[0]['count'];
+            return self::currency()->where('id_lang',lang())->order($data,$column)->pagination(self::countPage(),$count)->get();
+        }
     }
 
     private static function countPage()

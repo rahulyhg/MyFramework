@@ -58,7 +58,7 @@ trait globalFunction
 
 
 
-    public static function  route(string $name): string
+    public static function route(string $name): string
     {
         return core::$names[$name] ?? error_page::showPageError(" not find name route {$name}",', code #361');
     }

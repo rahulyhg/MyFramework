@@ -8,11 +8,14 @@ class all
 {
     public function getFilterUrl(string $filter)
     {
-        $url = parse_url($_SERVER['REQUEST_URI'],PHP_URL_PATH);
+
+        $url = preg_replace("~/from=([0-9]+)end=([0-9]+)~",'',parse_url($_SERVER['REQUEST_URI'],PHP_URL_PATH));
+
         if(strrchr($url,'sort')){
             return  preg_replace('/sort=([a-z]+)/','', $url) . "sort=$filter";
         }
-        return $url . "/sort=$filter";
+
+        return $_SERVER['REQUEST_SCHEME'] .'://'. $_SERVER['SERVER_NAME']. $url . "/sort=$filter";
     }
 
     public function getSelectFilter()
@@ -35,6 +38,8 @@ class all
                 default:
                     return 'З нових';
             }
+        }else{
+            return 'З нових';
         }
     }
 

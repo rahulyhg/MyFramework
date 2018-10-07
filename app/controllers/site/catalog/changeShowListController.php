@@ -4,6 +4,7 @@ namespace app\controllers\site\catalog;
 
 use Components\Controller;
 use Components\extension\arr\Get;
+use Components\extension\arr\Request;
 use Components\extension\http\location;
 
 class changeShowListController extends Controller
@@ -19,6 +20,12 @@ class changeShowListController extends Controller
     {
         $_SESSION['catalog']['list'] = $get->last() == 'block' ? 'block' : 'all';
         location::back();
+    }
+
+    public function filterPrice(Request $request)
+    {
+       $request = $request->all();
+       location::href(self::route('site.cat.index')."/from={$request['from']}end={$request['end']}");
     }
 
 }

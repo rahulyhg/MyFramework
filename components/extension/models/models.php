@@ -63,6 +63,7 @@ class models
     {
         $sql = self::$sql;
         $row = self::db()->query($sql);
+//        echo self::$sql,"<br>";
         self::$sql = '';
         self::$name_table = '';
         try {
