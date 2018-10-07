@@ -29,6 +29,7 @@
                     <td><input type="text" name="alt"></td>
                 </tr>
             </table>
+            {{ crsf()|raw }}
             <input type="submit">
         </form>
 
@@ -52,6 +53,7 @@
     <div id="top_slider" style="display: none">
         <form action="" method="post" enctype="multipart/form-data">
             <input type="hidden" name="slider" value="slider_top">
+            {{ crsf()|raw }}
             <input type="hidden" name="page_slider" value="one">
 <h1>Сторінка слайдера 1</h1>
 <table>

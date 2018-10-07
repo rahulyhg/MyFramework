@@ -180,6 +180,7 @@
                                                     <input name="end" required type="text" id="price-range-high">
                                                 </div>
                                                 <div id="price-range-btns">
+                                                    {{ crsf()|raw }}
                                                     <input type="submit" class="btn btn-custom-2 btn-sm" value="Ok">
                                                     <a href="#" id="clear_in_filter_price" class="btn btn-custom-2 btn-sm">Clear</a>
                                                 </div>

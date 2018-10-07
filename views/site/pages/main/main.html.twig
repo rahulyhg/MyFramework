@@ -58,6 +58,7 @@
                                     <div class="form-group">
                                         <input type="email" required name="email" class="form-control" id="subscribe-email" placeholder="Enter your email address">
                                     </div>
+                                    {{ crsf()|raw }}
                                     <input type="submit" value="SUBMIT" class="btn btn-custom">
                                 </form>
 

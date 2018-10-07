@@ -22,6 +22,7 @@
             <label>link<input type="text" name="link" value="{% if aboutSite['link'] is defined %}{{ aboutSite.link }}{% endif %}"></label>
             <label>Label<input type="text" name="label" value="{% if aboutSite['label'] is defined %}{{ aboutSite.label }}{% endif %}"></label>
             <input type="hidden" name="old_img" id="img" value="{% if aboutSite['img'] is defined %}{{ aboutSite.img }}{% endif %}"><br>
+            {{ crsf()|raw }}
             <input type="submit" value="Змінити">
         </div>
     </form>

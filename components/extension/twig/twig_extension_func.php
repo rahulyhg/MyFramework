@@ -5,10 +5,12 @@ namespace Components\extension\twig;
 use app\models\currency;
 use app\models\lang;
 use Components\core\treits\globalFunction;
+use Components\extension\crsf\crsf;
 use Components\extension\validate\validate;
 use Components\extension\arr\Get;
 use Components\extension\lang\multiLang;
 use Components\extension\html\pagination;
+
 
 
 class twig_extension_func extends \Twig_Extension
@@ -24,6 +26,7 @@ class twig_extension_func extends \Twig_Extension
             new \Twig_SimpleFunction('search_str', [twig_funct::class,'search_str']),
             new \Twig_SimpleFunction('route', [globalFunction::class,'route']),
             new \Twig_SimpleFunction('isset',[twig_funct::class,'isset']),
+            new \Twig_SimpleFunction('crsf',[crsf::class,'getCrsf']),
         ];
 
         return $funct + config('twig_function');

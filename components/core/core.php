@@ -3,6 +3,7 @@
 namespace Components\core;
 
 use Components\Controller;
+use Components\extension\crsf\crsf;
 use Components\extension\infoPages\{error_page,page_404};
 use Components\extension\middleware\handlerMiddleware;
 use Components\extension\localization\siteLang;
@@ -44,6 +45,8 @@ class core
         $this->getUrl();
 
         $this->getArrNames();
+
+        crsf::createCrsf();
     }
 
     private function getUrl(): void
@@ -91,12 +94,16 @@ class core
     }
 
 
+
+
     /**
      * @throws \ReflectionException
      */
 
     private function facadeGetRout(): void
     {
+        $this->checkCrsf();
+
         $this->changeRouteRequestMethod();
 
         $this->writeCheckedRoute();
@@ -108,6 +115,13 @@ class core
         $this->getArguments($this->getParamWithReflection());
 
         $this->createObjectController();
+    }
+
+    private function checkCrsf(): void
+    {
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            crsf::checkCrsf();
+        }
     }
 
 
