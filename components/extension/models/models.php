@@ -63,7 +63,7 @@ class models
     {
         $sql = self::$sql;
         $row = self::db()->query($sql);
-//        echo self::$sql,"<br>";
+
         self::$sql = '';
         self::$name_table = '';
         try {
@@ -314,9 +314,13 @@ class models
 
 
 
-    public function andWhere($column, $where = '', $sign = '='): models
+    public function andWhere($column, $where = '', $sign = '=',$ecran = true): models
     {
-        self::$sql .= is_string($column) ? " AND `{$column}` {$sign} '{$where}'" : self::isArrayAndWhere($column, 'AND');
+        if($ecran){
+            self::$sql .= is_string($column) ? " AND `{$column}` {$sign} '{$where}'" : self::isArrayAndWhere($column, 'AND');
+        }else{
+            self::$sql .= is_string($column) ? " AND `{$column}` {$sign} {$where}" : self::isArrayAndWhere($column, 'AND');
+        }
         return $this;
     }
 

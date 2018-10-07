@@ -57,7 +57,7 @@ class catalogController extends Controller
                 $this->dataAndColumn('old_price','DESC');
                 break;
             case 'price' :
-                $this->priceFromToEnd();
+                $this->priceFromToEnd($get->last());
                 break;
         }
 
@@ -75,9 +75,12 @@ class catalogController extends Controller
         return strrchr('from',$get->last()) ? 'price' : str_replace('sort=','',$get->last());
     }
 
-    private function priceFromToEnd()
+    private function priceFromToEnd(string $get)
     {
-        $this->price = ['from' => 0,'to' => 100];
+        $end =  str_replace('end=','',preg_replace('/from=[0-9]+/','',$get));
+        $from =  str_replace('from=','',preg_replace('/end=[0-9]+/','',$get));
+
+        $this->price = ['from' => $from,'to' => $end];
     }
 
 }

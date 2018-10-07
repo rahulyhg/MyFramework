@@ -34,8 +34,8 @@ class tovars extends models
         if($price){
             $count = self::where(['id_lang' => lang()])->count()->get()[0]['count'];
             return self::currency()->where('id_lang',lang())
-                ->andWhere('price',$price['from'],'>')
-                ->andWhere('price',$price['to']+1,'<')
+                ->andWhere('price',$price['from'],'>',false)
+                ->andWhere('price',$price['to']+1,'<',false)
                 ->order($data,$column)->pagination(self::countPage(),$count)->get();
         }else{
             $count = self::where(['id_lang' => lang()])->count()->get()[0]['count'];

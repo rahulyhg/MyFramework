@@ -4,17 +4,8 @@
     <list default="true" id="f20e48be-af7f-4530-ac1c-0c55d46b2de4" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/site/catalog/catalogController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/site/catalog/catalogController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/site/catalog/changeShowListController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/site/catalog/changeShowListController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/tovars.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/tovars.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/twigHelpers/all.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/twigHelpers/all.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/core/core.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/core/core.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/core/treits/globalFunction.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/core/treits/globalFunction.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/extension/functions/array_function.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/extension/functions/array_function.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/extension/http/location.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/extension/http/location.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/extension/models/models.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/extension/models/models.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/site.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/site.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/site/layouts/tovar.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/views/site/layouts/tovar.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/site/pages/cat/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/views/site/pages/cat/index.html.twig" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/httpRequests/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -43,47 +34,38 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/site/pages/cat/index.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="281">
-              <caret line="34" column="77" lean-forward="true" selection-start-line="34" selection-start-column="77" selection-end-line="34" selection-end-column="77" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="all.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/twigHelpers/all.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="63" selection-start-line="10" selection-start-column="63" selection-end-line="10" selection-end-column="63" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Get.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/components/extension/arr/Get.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="34" column="74" lean-forward="true" selection-start-line="34" selection-start-column="16" selection-end-line="34" selection-end-column="75" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="tovar.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/twigHelpers/tovar.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" selection-start-line="21" selection-end-line="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="catalogController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/site/catalog/catalogController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="30" column="5" lean-forward="true" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
+            <state relative-caret-position="389">
+              <caret line="30" column="52" lean-forward="true" selection-start-line="30" selection-start-column="52" selection-end-line="30" selection-end-column="52" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tovars.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/models/tovars.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="465">
+              <caret line="31" column="87" lean-forward="true" selection-start-line="31" selection-start-column="87" selection-end-line="31" selection-end-column="87" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="core.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/components/core/core.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="465">
+              <caret line="42" selection-start-line="42" selection-end-line="42" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="models.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/components/extension/models/models.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="484">
+              <caret line="329" column="5" lean-forward="true" selection-start-line="329" selection-start-column="5" selection-end-line="329" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -219,15 +201,15 @@
         <option value="$PROJECT_DIR$/components/extension/functions/array_function.php" />
         <option value="$PROJECT_DIR$/views/site/layouts/tovar.html.twig" />
         <option value="$PROJECT_DIR$/components/core/treits/globalFunction.php" />
-        <option value="$PROJECT_DIR$/components/core/core.php" />
         <option value="$PROJECT_DIR$/components/extension/http/location.php" />
-        <option value="$PROJECT_DIR$/app/controllers/site/catalog/catalogController.php" />
-        <option value="$PROJECT_DIR$/components/extension/models/models.php" />
         <option value="$PROJECT_DIR$/app/controllers/site/catalog/changeShowListController.php" />
-        <option value="$PROJECT_DIR$/app/models/tovars.php" />
         <option value="$PROJECT_DIR$/views/site/pages/cat/index.html.twig" />
         <option value="$PROJECT_DIR$/routes/site.php" />
         <option value="$PROJECT_DIR$/app/twigHelpers/all.php" />
+        <option value="$PROJECT_DIR$/app/controllers/site/catalog/catalogController.php" />
+        <option value="$PROJECT_DIR$/components/core/core.php" />
+        <option value="$PROJECT_DIR$/components/extension/models/models.php" />
+        <option value="$PROJECT_DIR$/app/models/tovars.php" />
       </list>
     </option>
   </component>
@@ -333,6 +315,12 @@
               <item name="Root" type="cbb8eebc:String" user="Root" />
               <item name="framework" type="cbb8eebc:String" user="framework" />
               <item name="app" type="cbb8eebc:String" user="app" />
+              <item name="controllers" type="cbb8eebc:String" user="controllers" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="framework" type="cbb8eebc:String" user="framework" />
+              <item name="app" type="cbb8eebc:String" user="app" />
               <item name="twigHelpers" type="cbb8eebc:String" user="twigHelpers" />
             </path>
             <path>
@@ -351,7 +339,7 @@
               <item name="framework" type="cbb8eebc:String" user="framework" />
               <item name="components" type="cbb8eebc:String" user="components" />
               <item name="extension" type="cbb8eebc:String" user="extension" />
-              <item name="arr" type="cbb8eebc:String" user="arr" />
+              <item name="models" type="cbb8eebc:String" user="models" />
             </path>
             <path>
               <item name="Root" type="cbb8eebc:String" user="Root" />
@@ -683,12 +671,12 @@
       <workItem from="1538504080462" duration="2471000" />
       <workItem from="1538564963698" duration="607000" />
       <workItem from="1538576948538" duration="477000" />
-      <workItem from="1538934773821" duration="5354000" />
+      <workItem from="1538934773821" duration="6476000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="431648000" />
+    <option name="totallyTimeSpent" value="432770000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-1" width="1920" height="1046" extended-state="6" />
@@ -703,7 +691,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.3297062" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3297062" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4994664" weight="0.27065217" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4994664" weight="0.26985854" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39934713" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -970,31 +958,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/components/core/core.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="73" column="7" lean-forward="true" selection-start-line="73" selection-start-column="7" selection-end-line="73" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/components/extension/http/location.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="16" column="33" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/tovars.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="37" column="49" selection-start-line="37" selection-start-column="49" selection-end-line="37" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/extension/models/models.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="65" selection-start-line="65" selection-start-column="2" selection-end-line="65" selection-end-column="33" />
         </state>
       </provider>
     </entry>
@@ -1005,24 +972,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/site.php">
+    <entry file="file://$PROJECT_DIR$/app/twigHelpers/all.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="40" lean-forward="true" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/twigHelpers/tovar.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/site/catalog/catalogController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="30" column="5" lean-forward="true" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
+        <state relative-caret-position="300">
+          <caret line="20" column="37" lean-forward="true" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
         </state>
       </provider>
     </entry>
@@ -1033,6 +986,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/twigHelpers/tovar.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/views/site/pages/cat/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="281">
@@ -1040,10 +1000,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/twigHelpers/all.php">
+    <entry file="file://$PROJECT_DIR$/routes/site.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="63" selection-start-line="10" selection-start-column="63" selection-end-line="10" selection-end-column="63" />
+        <state relative-caret-position="405">
+          <caret line="27" column="40" lean-forward="true" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/site/catalog/catalogController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="389">
+          <caret line="30" column="52" lean-forward="true" selection-start-line="30" selection-start-column="52" selection-end-line="30" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/extension/models/models.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="484">
+          <caret line="329" column="5" lean-forward="true" selection-start-line="329" selection-start-column="5" selection-end-line="329" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/core/core.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="42" selection-start-line="42" selection-end-line="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/tovars.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="31" column="87" lean-forward="true" selection-start-line="31" selection-start-column="87" selection-end-line="31" selection-end-column="87" />
         </state>
       </provider>
     </entry>
