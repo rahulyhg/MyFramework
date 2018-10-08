@@ -17,9 +17,10 @@ Route::group(['path' => 'admin','as' => 'admin','url' => 'admin'],function (){
         Route::get('/sliders', 'adminSLiderController@sliderPage')->name('slider');
         Route::post('/sliders', 'adminSLiderController@saveSettignsSlider')->name('sliderPost');
         Route::get('/sliders-delete/[0-9]+', 'adminSLiderController@deleteSettignsSlider')->name('deleteSlider');
+    });
 
-
-
+    Route::group(['as' => 'cat','url' =>'/cat','path' => 'cat'],function (){
+       Route::get('','adminCatController@index')->name('index');
     });
 
 

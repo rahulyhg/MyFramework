@@ -17,5 +17,9 @@ class Request extends super_array
         self::$name_array = $_POST;
     }
 
+    public function __get(string $name)
+    {
+        return self::$name_array[$name] ?? null;
+    }
 
 }

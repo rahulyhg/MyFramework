@@ -51,19 +51,12 @@ class core
 
     private function getUrl(): void
     {
-        $url = parse_url($_SERVER['REQUEST_URI'],PHP_URL_PATH);
-
-        $url = preg_replace("~".implode('|',siteLang::$langsInSite)."~",'',$url);
-
-        if($url !== '/'){
-            $url = trim($url,'/');
-        }
-
-        self::$url = $url;
+        $url = preg_replace("~".implode('|',siteLang::$langsInSite)."~",'',parse_url($_SERVER['REQUEST_URI'],PHP_URL_PATH));
+        self::$url = $url !== '/' ? trim($url,'/') : $url;
     }
 
 
-    private  function getArrNames()
+    private  function getArrNames(): void
     {
         foreach($this->routes as $key=>$value){
             if(!empty($value['name'])){
@@ -128,9 +121,7 @@ class core
     private function changeRouteRequestMethod(): void
     {
         if (!preg_match('/\|get|\|post/', $this->key, $type)) {
-
             error_page::showPageError('Type route not find code: #157854', 'Type will be get/post');
-
         }
 
         $this->key = preg_replace('/\|get|\|post/','|'.mb_strtolower($_SERVER['REQUEST_METHOD']),$this->key);

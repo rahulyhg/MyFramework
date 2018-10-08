@@ -2,9 +2,7 @@
 
 namespace app\controllers\admin;
 
-
 use Components\Controller;
-
 
 class adminIndexController extends Controller
 {
@@ -15,7 +13,7 @@ class adminIndexController extends Controller
 
     public function lol()
     {
-     echo self::$twig->render('admin/pages/main.html.twig');
+        echo self::$twig->render('admin/pages/main.html.twig');
     }
 
 }

@@ -41,6 +41,8 @@ class siteLang
     {
         self::getUrl();
 
+        self::langUrl();
+
         self::createLangSession();
 
         self::refererIntoLocalization();
@@ -50,8 +52,12 @@ class siteLang
     {
         $url = trim($_SERVER['REQUEST_URI'], '/');
         self::$url = parse_url($url, PHP_URL_PATH);
-        $url = explode('/',self::$url);
-        self::$langUrl = $url[0].'/';
+
+    }
+
+    private static function langUrl(): void
+    {
+        self::$langUrl = explode('/',self::$url)[0].'/';
     }
 
 

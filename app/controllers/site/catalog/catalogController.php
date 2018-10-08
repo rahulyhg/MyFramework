@@ -84,3 +84,9 @@ class catalogController extends Controller
     }
 
 }
+/**
+ * 1) Create category list
+ * 2) Create banner bottom right (admin)
+ * 3) Create banner top catalog (admin)
+ * 4) Singe page tovar
+ */
