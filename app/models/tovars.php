@@ -29,17 +29,31 @@ class tovars extends models
          return self::currency()->in('lid', 'WHERE',$id)->andWhere('id_lang',lang())->get();
     }
 
-    public static function getAllTovars(string $data, string $column,array $price = [])
+    /**
+     * @param string $data
+     * @param string $column
+     * @param array $price
+     * @param int $cat
+     * @return array
+     * NEEEEEEEEEEEEEDDDDDDDDDDDD REFCODING!!!!!!!!!!!!!!!1
+     */
+    public static function getAllTovars(string $data, string $column,array $price = [],int $cat = 0)
     {
+        $where = ['id_lang' => lang()];
+
+        if($cat){
+            $where['category'] = $cat;
+        }
+
         if($price){
-            $count = self::where(['id_lang' => lang()])->count()->get()[0]['count'];
-            return self::currency()->where('id_lang',lang())
+            $count = self::where($where)->count()->get()[0]['count'];
+            return self::currency()->where($where)
                 ->andWhere('price',$price['from'],'>',false)
                 ->andWhere('price',$price['to']+1,'<',false)
                 ->order($data,$column)->pagination(self::countPage(),$count)->get();
         }else{
-            $count = self::where(['id_lang' => lang()])->count()->get()[0]['count'];
-            return self::currency()->where('id_lang',lang())->order($data,$column)->pagination(self::countPage(),$count)->get();
+            $count = self::where($where)->count()->get()[0]['count'];
+            return self::currency()->where($where)->order($data,$column)->pagination(self::countPage(),$count)->get();
         }
     }
 

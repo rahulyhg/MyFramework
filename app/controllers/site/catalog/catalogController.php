@@ -5,6 +5,7 @@ namespace app\controllers\site\catalog;
 
 use app\controllers\site\catalog\service\featuredTovar;
 use app\models\tovars;
+use app\twigHelpers\tovar;
 use Components\Controller;
 use Components\extension\arr\Get;
 
@@ -18,20 +19,33 @@ class catalogController extends Controller
 
     private $price = [];
 
+
     /**
-     * @param bool $categ
+     * @param int $categ
      * @throws \Twig_Error_Loader
      * @throws \Twig_Error_Runtime
      * @throws \Twig_Error_Syntax
      */
 
-    public function show(bool $categ = false)
+    public  function show()
     {
+        $categ = self::getIdCategory();
+
         echo self::$twig->render('site/pages/cat/index.html.twig', [
-            'tovars' => $categ ? [] : tovars::getAllTovars($this->data,$this->column,$this->price),
+            'tovars' => $categ ? tovars::getAllTovars($this->data,$this->column,$this->price,$categ) : tovars::getAllTovars($this->data,$this->column,$this->price),
             'featured' => featuredTovar::get(),
-            'show_tovars' => $_SESSION['catalog']['list'] ?? 'all'
+            'show_tovars' => $_SESSION['catalog']['list'] ?? 'all',
+            'urlPost'  => $this->urlPost()
         ]);
+    }
+
+
+
+    public static function urlPost()
+    {
+        $cat = self::getIdCategory();
+        return $cat ? trim(self::route('site.cat.index'),'/') . "={$cat}/filterPrice" : self::route('site.cat.index') .'/filterPrice';
+
     }
 
     /**
@@ -60,8 +74,18 @@ class catalogController extends Controller
                 $this->priceFromToEnd($get->last());
                 break;
         }
+        $this->show();
+    }
 
-        $this->show(preg_match('~cat/([0-9]+)/~',$_SERVER['REQUEST_URI']));
+    private static function getIdCategory()
+    {
+        preg_match('~cat=[0-9]+~',$_SERVER['REQUEST_URI'],$matches);
+
+        if(isset($matches[0])){
+            return str_replace('cat=','',$matches[0]);
+        }
+
+        return false;
     }
 
     private function dataAndColumn(string $column,string $data)
@@ -85,7 +109,6 @@ class catalogController extends Controller
 
 }
 /**
- * 1) Create category list
  * 2) Create banner bottom right (admin)
  * 3) Create banner top catalog (admin)
  * 4) Singe page tovar

@@ -20,14 +20,15 @@ Route::group(['path' => 'site','as' => 'site'],function (){
     Route::group(['as' => 'cat','url' => 'cat','path' => 'catalog'],function (){
 
         Route::get('','catalogController@show')->name('index');
+        Route::get('=[0-9]+','catalogController@show');
 
-        Route::get('(/[0-9]+)*/sort=[a-z]+','catalogController@filter')->name('filter');
-        Route::get('(/[0-9]+)*/from=([0-9]+)end=[0-9]+','catalogController@filter');
+        Route::get('(=[0-9]+)*/sort=[a-z]+','catalogController@filter')->name('filter');
+        Route::get('(=[0-9]+)*/from=([0-9]+)end=[0-9]+','catalogController@filter');
 
         Route::get('/changeShowList/[a-z]+','changeShowListController@changeShowList')->name('changeList');
         Route::get('/changeView/[0-9]+','changeShowListController@changeView')->name('changeView');
 
-        Route::post('/filterPrice','changeShowListController@filterPrice')->name('filterPrice');
+        Route::post('(=[0-9]+)*/filterPrice','changeShowListController@filterPrice')->name('filterPrice');
 
     });
 });

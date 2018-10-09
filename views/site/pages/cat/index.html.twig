@@ -140,14 +140,14 @@
                                                 <ul class="category-filter-list jscrollpane">
                                                     {% for key in catalog_menu %}
                                                         {% if key.parent == 0 %}
-                                                            <a href="{{ route('site.cat.index') }}/{{ key.id }}"
+                                                            <a href="{{ route('site.cat.index') }}={{ key.lid }}"
                                                                class="mega-menu-title">{{ key.name|title }}</a><!-- End .mega-menu-title -->
                                                             <ul style="margin-left:10px;"
                                                                 class="mega-menu-list clearfix">
                                                                 {% for sub in catalog_menu %}
                                                                     {% if key.lid == sub.parent %}
                                                                         <li>
-                                                                            <a href="{{ route('site.cat.index') }}/{{ sub.id }}">{{ sub.name|title }}</a>
+                                                                            <a href="{{ route('site.cat.index') }}={{ sub.lid }}">{{ sub.name|title }}</a>
                                                                         </li>
                                                                     {% endif %}
                                                                 {% endfor %}
@@ -172,7 +172,7 @@
                                                 <div id="price-range">
 
                                                 </div><!-- End #price-range -->
-                                                <form action=" {{ route('site.cat.filterPrice') }}" method="post">
+                                                <form action="{{ urlPost }}" method="post">
                                                 <div id="price-range-details">
                                                     <span class="sm-separator">from</span>
                                                     <input name="from" required type="text" id="price-range-low" class="separator">
