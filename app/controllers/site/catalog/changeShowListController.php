@@ -25,7 +25,12 @@ class changeShowListController extends Controller
     public function filterPrice(Request $request)
     {
        $request = $request->all();
-       location::href(self::route('site.cat.index')."/from={$request['from']}end={$request['end']}");
+       location::href(self::route('site.cat.index').$this->categoryNumber()."/from={$request['from']}end={$request['end']}");
     }
 
+    private function categoryNumber()
+    {
+        preg_match('~/cat=[0-9]+~',server('REQUEST_URI'),$matches);
+        return isset($matches[0]) ? str_replace('/cat','',$matches[0]) : '';
+    }
 }

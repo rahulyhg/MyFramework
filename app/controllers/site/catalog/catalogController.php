@@ -4,8 +4,8 @@ namespace app\controllers\site\catalog;
 
 
 use app\controllers\site\catalog\service\featuredTovar;
+use app\models\category;
 use app\models\tovars;
-use app\twigHelpers\tovar;
 use Components\Controller;
 use Components\extension\arr\Get;
 
@@ -21,7 +21,6 @@ class catalogController extends Controller
 
 
     /**
-     * @param int $categ
      * @throws \Twig_Error_Loader
      * @throws \Twig_Error_Runtime
      * @throws \Twig_Error_Syntax
@@ -30,9 +29,8 @@ class catalogController extends Controller
     public  function show()
     {
         $categ = self::getIdCategory();
-
         echo self::$twig->render('site/pages/cat/index.html.twig', [
-            'tovars' => $categ ? tovars::getAllTovars($this->data,$this->column,$this->price,$categ) : tovars::getAllTovars($this->data,$this->column,$this->price),
+            'tovars' => $this->price ? tovars::tovarsWithFilterPrice($this->data, $this->column, $this->price, $categ) : tovars::getAllTovars($this->data, $this->column, $categ),
             'featured' => featuredTovar::get(),
             'show_tovars' => $_SESSION['catalog']['list'] ?? 'all',
             'urlPost'  => $this->urlPost()
@@ -43,7 +41,7 @@ class catalogController extends Controller
 
     public static function urlPost()
     {
-        $cat = self::getIdCategory();
+        $cat = self::getIdCategory(false);
         return $cat ? trim(self::route('site.cat.index'),'/') . "={$cat}/filterPrice" : self::route('site.cat.index') .'/filterPrice';
 
     }
@@ -77,12 +75,12 @@ class catalogController extends Controller
         $this->show();
     }
 
-    private static function getIdCategory()
+    private static function getIdCategory($child = true)
     {
         preg_match('~cat=[0-9]+~',$_SERVER['REQUEST_URI'],$matches);
 
         if(isset($matches[0])){
-            return str_replace('cat=','',$matches[0]);
+            return $child ? category::childCategory(str_replace('cat=','',$matches[0])) : str_replace('cat=','',$matches[0]);
         }
 
         return false;

@@ -12,11 +12,11 @@
                 {% for key in catalog_menu %}
                     {% if key.parent == 0 %}
                 <div class="col-5">
-                    <a href="{{ key.link }}" class="mega-menu-title">{{ key.name }}</a><!-- End .mega-menu-title -->
+                    <a href="/cat={{ key.lid }}" class="mega-menu-title">{{ key.name }}</a><!-- End .mega-menu-title -->
                     <ul class="mega-menu-list clearfix">
                         {% for sub in catalog_menu %}
                         {% if key.lid == sub.parent %}
-                        <li><a href="{{ sub.link }}">{{ sub.name }}</a></li>
+                        <li><a href="/cat={{ sub.lid }}">{{ sub.name }}</a></li>
                         {% endif %}
                         {% endfor %}
                     </ul>

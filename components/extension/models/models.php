@@ -328,8 +328,10 @@ class models
 
     public function in($column, $sql = ' where', $arr): models
     {
-        $search = "'" . implode("','", $arr) . "'";
-        self::$sql .= " {$sql} `{$column}` IN({$search}) ";
+        if($arr){
+            $search = "'" . implode("','", $arr) . "'";
+            self::$sql .= " {$sql} `{$column}` IN({$search}) ";
+        }
         return $this;
     }
 
