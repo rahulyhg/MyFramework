@@ -1,7 +1,9 @@
 {% extends "site/pages/index.html.twig" %}
 {% block content %}
     <section id="content">
+        {% if not hideSlider %}
         {% include "site/pages/cat/part/slider.html.twig" %}
+        {% endif %}
         <div id="category-breadcrumb">
             <div class="container">
                 <ul class="breadcrumb">

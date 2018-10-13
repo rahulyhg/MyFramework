@@ -33,7 +33,8 @@ class catalogController extends Controller
             'tovars' => $this->price ? tovars::tovarsWithFilterPrice($this->data, $this->column, $this->price, $categ) : tovars::getAllTovars($this->data, $this->column, $categ),
             'featured' => featuredTovar::get(),
             'show_tovars' => $_SESSION['catalog']['list'] ?? 'all',
-            'urlPost'  => $this->urlPost()
+            'urlPost'  => $this->urlPost(),
+            'hideSlider' => $categ
         ]);
     }
 
@@ -106,8 +107,3 @@ class catalogController extends Controller
     }
 
 }
-/**
- * 2) Create banner bottom right (admin)
- * 3) Create banner top catalog (admin)
- * 4) Singe page tovar
- */

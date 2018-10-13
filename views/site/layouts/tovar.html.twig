@@ -2,7 +2,7 @@
         <div class="item item-list clearfix">
             <div class="item-image-container">
                 <figure>
-                    <a href="product.html">
+                    <a href="/tovar/{{ tovar.lid }}">
                         <img src="{{ assets("images/") }}/{{ tovar.img}}" alt="item1" class="item-image">
                         <img src="{{ assets("images/") }}/{{ tovar.img}}" alt="item1  Hover" class="item-image-hover">
                     </a>
@@ -17,7 +17,7 @@
                 {% if tovar.old_price  %}<span class="discount-rect">-{{ prod.action(tovar.old_price,tovar.price) }}%</span>{% endif %}
             </div><!-- End .item-image -->
             <div class="item-meta-container">
-                <h3 class="item-name"><a href="product.html">{{ tovar.name }}</a></h3>
+                <h3 class="item-name"><a href="/tovar/{{ tovar.lid }}">{{ tovar.name }}</a></h3>
                 <div class="ratings-container">
                     <div class="ratings">
                         <div class="ratings-result" data-result="70"></div>
@@ -43,7 +43,7 @@
     <div class="item item-hover">
         <div class="item-image-wrapper">
             <figure class="item-image-container">
-                <a href="product.html">
+                <a href="/tovar/{{ tovar.lid }}">
                     <img src="{{ assets("images/") }}/{{ tovar.img}}" alt="item1" class="item-image">
                     <img src="{{ assets("images/") }}/{{ tovar.img}}" alt="item1  Hover" class="item-image-hover">
                 </a>
@@ -66,7 +66,7 @@
                                                         5 Reviews
                                                     </span>
             </div><!-- End .rating-container -->
-            <h3 class="item-name"><a href="product.html">{{ tovar.name }}</a>
+            <h3 class="item-name"><a href="/tovar/{{ tovar.lid }}">{{ tovar.name }}</a>
             </h3>
             <div class="item-action">
                 <a href="#" data-id="{{ tovar.lid }}" data-price="{{ tovar.price }}" data-count="1" class="item-add-btn addToCart">

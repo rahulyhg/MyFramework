@@ -31,6 +31,12 @@ Route::group(['path' => 'site','as' => 'site'],function (){
         Route::post('(=[0-9]+)*/filterPrice','changeShowListController@filterPrice')->name('filterPrice');
 
     });
+
+    Route::group(['as' => 'tovar','url' => 'tovar','path' => 'singleTovar'],function () {
+
+        Route::get('/[0-9]+', 'singleTovarController@show')->name('single');
+
+    });
 });
 
 
