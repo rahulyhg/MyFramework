@@ -14,18 +14,22 @@
 <link rel="stylesheet" href="{{ assets("css/style.css") }}">
 <link rel="stylesheet" href="{{ assets("css/responsive.css") }}">
 
+
+
+
 <!-- Favicon and Apple Icons -->
 <link rel="icon" type="image/png" href="{{ assets("images/icons/icon.png") }}">
 <link rel="apple-touch-icon" sizes="57x57" href="{{ assets("images/icons/apple-icon-57x57.png") }}">
 <link rel="apple-touch-icon" sizes="72x72" href="{{ assets("images/icons/apple-icon-72x72.png") }}">
 
 <!--- jQuery -->
-<script src="{{ assets('js/jquery.min3.1.js') }}"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="public/js/jquery-1.11.1.min.js"><\/script>')</script>
-
+<!--- Modernizr -->
+<script src="{{ assets('js/modernizr.custom.js') }}"></script>
 <!--[if lt IE 9]>
-<script src="{{ assets("js/html5shiv.js") }}"></script>
-<script src="{{ assets("js/respond.min.js") }}"></script>
+<script src='{{ assets("js/html5shiv.js") }}'></script>
+<script src='{{ assets("js/respond.min.js") }}'></script>
 <![endif]-->
 
 <style id="custom-style"></style>

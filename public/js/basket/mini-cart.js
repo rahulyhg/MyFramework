@@ -49,13 +49,13 @@ $(document).on('click','.deleteWithBasket',function () {
 
     showMiniCart();
 
-    return false;ну
+    return false;
 });
 
 
 
 $('.addToCart').click(function () {
-    mainMiniCart(true);
+
     var id = 'cart_' + $(this).attr('data-id');
     var count = Number($(this).attr('data-count'));
     var price = Number($(this).attr('data-price'));
@@ -71,7 +71,24 @@ $('.addToCart').click(function () {
     return false;
 });
 
-function mainMiniCart(action)
-{
 
+$('.quantity-input-up').click(function () {
+    changeNumber(1)
+});
+$('.quantity-input-down').click(function () {
+    changeNumber(-1);
+});
+
+function changeNumber(num) {
+    number = $('.custom-quantity-input input[name=quantity]');
+    if((number.val() >= 1 && num > 0) || number.val() > 1){
+        number.val(Number(number.val()) + Number(num));
+        $('.addToCart').attr('data-count',number.val());
+    }
 }
+
+$('.custom-quantity-input input[name=quantity]').change(function () {
+   if($(this).val() <= 0){
+       $(this).val(1);
+   }
+});

@@ -4,8 +4,13 @@
 namespace app\twigHelpers;
 
 
+use Components\core\treits\globalFunction;
+
 class tovar
 {
+
+    use globalFunction;
+
 
     public function newTovar(string $date): bool
     {
@@ -19,6 +24,8 @@ class tovar
         return ceil(($old_price - $price)/($old_price/100));
     }
 
-
-
+    public function exitsImg(string $img)
+    {
+        return file_exists(self::assets("images/products/{$img}")) ? self::assets("images/products/{$img}") : self::assets("images/404.jpg");
+    }
 }

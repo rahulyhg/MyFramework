@@ -1,0 +1,98 @@
+{% extends "site/pages/index.html.twig" %}
+{% block content %}
+<section id="content">
+        <div id="breadcrumb-container">
+            <div class="container">
+                <ul class="breadcrumb">
+                    <li><a href="index.html">Home</a></li>
+                    <li class="active">Product</li>
+                </ul>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-12 col-xs-12 product-viewer clearfix">
+                            <div id="product-image-carousel-container">
+                                <ul id="product-carousel" class="celastislide-list">
+                                    {% for photo in gallery %}
+                                        <li>
+                                            <a data-rel='prettyPhoto[product]' href="/public/images/gallery/{{ photo.img }}" data-image="/public/images/gallery/{{ photo.img }}" data-zoom-image="/public/images/gallery/{{ photo.img }}" class="product-gallery-item">
+                                                <img src="/public/images/gallery/{{ photo.img }}" alt="Phone photo 1">
+                                            </a>
+                                        </li>
+                                    {% endfor %}
+                                </ul><!-- End product-carousel -->
+                            </div>
+
+                            <div id="product-image-container">
+                                <figure>
+                                    {% if tovar.img is defined %}
+                                    <img src="{{ prod.exitsImg(tovar.img) }}" data-zoom-image="{{ prod.exitsImg(tovar.img) }}" alt="Product Big image" id="product-image">
+                                    {%  endif %}
+                                    <figcaption class="item-price-container">
+                                        {% if tovar.old_price is defined and tovar.old_price > 0 %}<span class="old-price">{{ currency }}{{ tovar.old_price }}</span>{% endif %}
+                                        {% if tovar.price is defined %}<span class="item-price">{{ currency }}{{ tovar.price }}</span>{% endif %}
+                                    </figcaption>
+                                </figure>
+                            </div><!-- product-image-container -->
+                        </div><!-- End .col-md-6 -->
+
+                        <div class="col-md-6 col-sm-12 col-xs-12 product">
+                            <div class="lg-margin visible-sm visible-xs"></div><!-- Space -->
+                            <h1 class="product-name">{{ tovar.name|default('') }}</h1>
+                            <div class="ratings-container">
+                                <div class="ratings separator">
+                                    <div class="ratings-result" data-result="70"></div>
+                                </div><!-- End .ratings -->
+                                <span class="ratings-amount separator">
+									3 Review(s)
+								</span>
+                                <span class="separator">|</span>
+                                <a href="#review" class="rate-this">Add Your Review</a>
+                            </div><!-- End .rating-container -->
+                            <ul class="product-list">
+                                <li><span>Availability:</span>{% if tovar.stock == 0 %}На заказ{% else %}В наявності{% endif %}</li>
+                                <li><span>Product Code:</span>#{{ tovar.lid }}</li>
+                            </ul>
+                            <hr>
+                            <div class="product-add clearfix">
+                                <div class="custom-quantity-input">
+                                    <input type="text" name="quantity" value="1">
+                                    <a href="#" onclick="return false;" class="quantity-btn quantity-input-up"><i class="fa fa-angle-up"></i></a>
+                                    <a href="#" onclick="return false;" class="quantity-btn quantity-input-down"><i class="fa fa-angle-down"></i></a>
+                                </div>
+                                <a href="#" data-id="{{ tovar.lid }}" data-price="{{ tovar.price }}" data-count="1" class="btn btn-custom-2 addToCart">
+                                   ADD TO CART
+                                </a>
+                            </div><!-- .product-add -->
+                            <div class="md-margin"></div><!-- Space -->
+                            {% include "site/pages/singleTovar/parts/socShare.html.twig" %}
+                        </div><!-- End .col-md-6 -->
+
+
+                    </div><!-- End .row -->
+
+                    <div class="lg-margin2x"></div><!-- End .space -->
+
+                    <div class="row">
+                        <div class="col-md-9 col-sm-12 col-xs-12">
+
+                            {% include "site/pages/singleTovar/parts/aboutTovarBottom.html.twig" %}
+
+                            <div class="lg-margin visible-xs"></div>
+                        </div><!-- End .col-md-9 -->
+                        <div class="lg-margin2x visible-sm visible-xs"></div><!-- Space -->
+                        {% include "site/pages/singleTovar/parts/sliderRight.html.twig" %}
+                        <!-- End .col-md-4 -->
+                    </div><!-- End .row -->
+                    <div class="lg-margin2x"></div><!-- Space -->
+                    {% include "site/pages/singleTovar/parts/sliderBottom.html.twig" %}
+
+                </div><!-- End .col-md-12 -->
+            </div><!-- End .row -->
+        </div><!-- End .container -->
+
+    </section>
+{% endblock %}

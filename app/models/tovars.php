@@ -4,7 +4,12 @@ namespace app\models;
 
 use Components\extension\models\models;
 
-
+/**
+ * Class tovars
+ * @package app\models
+ * !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ * currency() - ТАМ ЯКЩО ДОЛАРИ нЕ ВСЕ SELECT
+ */
 class tovars extends models
 {
 
@@ -22,16 +27,18 @@ class tovars extends models
         return self::currency()->where('id_lang', lang())->order()->limit(6)->get();
     }
 
-    public static function getTovars($id)
+    public static function getTovars(array $id)
     {
         return self::currency()->in('lid', 'WHERE', $id)->andWhere('id_lang', lang())->get();
     }
 
-
-    public static function kek(string $data, string $column, array $filterPrice = [], $cat = [])
+    public static function getTovar($id)
     {
-        return $filterPrice ? self::tovarsWithFilterPrice($data, $column, $filterPrice, $cat) : self::getAllTovars($data, $column, $cat);
+        return self::currency()->where('lid', $id)->andWhere('id_lang', lang())->get();
     }
+
+
+
 
     public static function tovarsWithFilterPrice(string $data, string $column, array $filterPrice, $cat)
     {
