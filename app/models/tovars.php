@@ -73,6 +73,15 @@ class tovars extends models
             ->order($data, $column)->pagination(self::countPage(),$count)->get();
     }
 
+    public static function getRandomTovarsInCategory(int $id): array
+    {
+        return self::currency()->where(['category' => $id,'id_lang' => lang()])->random()->limit(9)->get();
+    }
+
+    public static function randomTovars(): array
+    {
+        return self::currency()->where('id_lang',lang())->random()->limit(15)->get();
+    }
 
     private static function countTovars($cat)
     {
@@ -97,5 +106,7 @@ class tovars extends models
                 ->as('old_price_doll', 'old_price')->as('price_doll', 'price');
         }
     }
+
+
 
 }

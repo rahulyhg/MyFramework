@@ -1,3 +1,4 @@
+{% if randomsTovar is defined %}
 <div class="purchased-items-container carousel-wrapper">
     <header class="content-title">
         <div class="title-bg">
@@ -5,209 +6,52 @@
         </div><!-- End .title-bg -->
         <p class="title-desc">Note the similar products - after buying for more than $500 you can get a discount.</p>
     </header>
-
     <div class="carousel-controls">
         <div id="purchased-items-slider-prev" class="carousel-btn carousel-btn-prev"></div><!-- End .carousel-prev -->
         <div id="purchased-items-slider-next" class="carousel-btn carousel-btn-next carousel-space"></div><!-- End .carousel-next -->
     </div><!-- End .carousel-controllers -->
     <div class="purchased-items-slider owl-carousel">
-        <div class="item item-hover">
-            <div class="item-image-wrapper">
-                <figure class="item-image-container">
-                    <a href="product.html">
-                        <img src="images/products/item7.jpg" alt="item1" class="item-image">
-                        <img src="images/products/item7-hover.jpg" alt="item1  Hover" class="item-image-hover">
-                    </a>
-                </figure>
-                <div class="item-price-container">
-                    <span class="item-price">$160<span class="sub-price">.99</span></span>
-                </div><!-- End .item-price-container -->
-                <span class="new-rect">New</span>
-            </div><!-- End .item-image-wrapper -->
-            <div class="item-meta-container">
-                <div class="ratings-container">
-                    <div class="ratings">
-                        <div class="ratings-result" data-result="80"></div>
-                    </div><!-- End .ratings -->
-                    <span class="ratings-amount">
-                                                    5 Reviews
-                                                </span>
-                </div><!-- End .rating-container -->
-                <h3 class="item-name"><a href="product.html">Phasellus consequat</a></h3>
-                <div class="item-action">
-                    <a href="#" class="item-add-btn">
-                        <span class="icon-cart-text">Add to Cart</span>
-                    </a>
-                    <div class="item-action-inner">
-                        <a href="#" class="icon-button icon-like">Favourite</a>
-                        <a href="#" class="icon-button icon-compare">Checkout</a>
-                    </div><!-- End .item-action-inner -->
-                </div><!-- End .item-action -->
-            </div><!-- End .item-meta-container -->
-        </div><!-- End .item -->
-
-        <div class="item item-hover">
-            <div class="item-image-wrapper">
-                <figure class="item-image-container">
-                    <a href="product.html">
-                        <img src="images/products/item8.jpg" alt="item1" class="item-image">
-                        <img src="images/products/item8-hover.jpg" alt="item1  Hover" class="item-image-hover">
-                    </a>
-                </figure>
-                <div class="item-price-container">
-                    <span class="item-price">$100</span>
-                </div><!-- End .item-price-container -->
-                <span class="new-rect">New</span>
-            </div><!-- End .item-image-wrapper -->
-            <div class="item-meta-container">
-                <div class="ratings-container">
-                    <div class="ratings">
-                        <div class="ratings-result" data-result="99"></div>
-                    </div><!-- End .ratings -->
-                    <span class="ratings-amount">
-                                                    4 Reviews
-                                                </span>
-                </div><!-- End .rating-container -->
-                <h3 class="item-name"><a href="product.html">Phasellus consequat</a></h3>
-                <div class="item-action">
-                    <a href="#" class="item-add-btn">
-                        <span class="icon-cart-text">Add to Cart</span>
-                    </a>
-                    <div class="item-action-inner">
-                        <a href="#" class="icon-button icon-like">Favourite</a>
-                        <a href="#" class="icon-button icon-compare">Checkout</a>
-                    </div><!-- End .item-action-inner -->
-                </div><!-- End .item-action -->
-            </div><!-- End .item-meta-container -->
-        </div><!-- End .item -->
-
-        <div class="item item-hover">
-            <div class="item-image-wrapper">
-                <figure class="item-image-container">
-                    <a href="product.html">
-                        <img src="images/products/item9.jpg" alt="item1" class="item-image">
-                        <img src="images/products/item9-hover.jpg" alt="item1  Hover" class="item-image-hover">
-                    </a>
-                </figure>
-                <div class="item-price-container">
-                    <span class="old-price">$100</span>
-                    <span class="item-price">$80</span>
-                </div><!-- End .item-price-container -->
-                <span class="discount-rect">-20%</span>
-            </div><!-- End .item-image-wrapper -->
-            <div class="item-meta-container">
-                <div class="ratings-container">
-                    <div class="ratings">
-                        <div class="ratings-result" data-result="75"></div>
-                    </div><!-- End .ratings -->
-                    <span class="ratings-amount">
-                                                    2 Reviews
-                                                </span>
-                </div><!-- End .rating-container -->
-                <h3 class="item-name"><a href="product.html">Phasellus consequat</a></h3>
-                <div class="item-action">
-                    <a href="#" class="item-add-btn">
-                        <span class="icon-cart-text">Add to Cart</span>
-                    </a>
-                    <div class="item-action-inner">
-                        <a href="#" class="icon-button icon-like">Favourite</a>
-                        <a href="#" class="icon-button icon-compare">Checkout</a>
-                    </div><!-- End .item-action-inner -->
-                </div><!-- End .item-action -->
-            </div><!-- End .item-meta-container -->
-        </div><!-- End .item -->
-
-        <div class="item item-hover">
-            <div class="item-image-wrapper">
-                <figure class="item-image-container">
-                    <a href="product.html">
-                        <img src="images/products/item6.jpg" alt="item1" class="item-image">
-                        <img src="images/products/item6-hover.jpg" alt="item1  Hover" class="item-image-hover">
-                    </a>
-                </figure>
-                <div class="item-price-container">
-                    <span class="item-price">$99</span>
-                </div><!-- End .item-price-container -->
-                <span class="new-rect">New</span>
-            </div><!-- End .item-image-wrapper -->
-            <div class="item-meta-container">
-                <div class="ratings-container">
-                    <div class="ratings">
-                        <div class="ratings-result" data-result="40"></div>
-                    </div><!-- End .ratings -->
-                    <span class="ratings-amount">
-                                                    3 Reviews
-                                                </span>
-                </div><!-- End .rating-container -->
-                <h3 class="item-name"><a href="product.html">Phasellus consequat</a></h3>
-                <div class="item-action">
-                    <a href="#" class="item-add-btn">
-                        <span class="icon-cart-text">Add to Cart</span>
-                    </a>
-                    <div class="item-action-inner">
-                        <a href="#" class="icon-button icon-like">Favourite</a>
-                        <a href="#" class="icon-button icon-compare">Checkout</a>
-                    </div><!-- End .item-action-inner -->
-                </div><!-- End .item-action -->
-            </div><!-- End .item-meta-container -->
-        </div><!-- End .item -->
-
-        <div class="item item-hover">
-            <div class="item-image-wrapper">
-                <figure class="item-image-container">
-                    <a href="product.html">
-                        <img src="images/products/item7.jpg" alt="item1" class="item-image">
-                        <img src="images/products/item7-hover.jpg" alt="item1  Hover" class="item-image-hover">
-                    </a>
-                </figure>
-                <div class="item-price-container">
-                    <span class="item-price">$280</span>
-                </div><!-- End .item-price-container -->
-            </div><!-- End .item-image-wrapper -->
-            <div class="item-meta-container">
-                <div class="ratings-container">
-                </div><!-- End .rating-container -->
-                <h3 class="item-name"><a href="product.html">Phasellus consequat</a></h3>
-                <div class="item-action">
-                    <a href="#" class="item-add-btn">
-                        <span class="icon-cart-text">Add to Cart</span>
-                    </a>
-                    <div class="item-action-inner">
-                        <a href="#" class="icon-button icon-like">Favourite</a>
-                        <a href="#" class="icon-button icon-compare">Checkout</a>
-                    </div><!-- End .item-action-inner -->
-                </div><!-- End .item-action -->
-            </div><!-- End .item-meta-container -->
-        </div><!-- End .item -->
-
-        <div class="item item-hover">
-            <div class="item-image-wrapper">
-                <figure class="item-image-container">
-                    <a href="product.html">
-                        <img src="images/products/item10.jpg" alt="item1" class="item-image">
-                        <img src="images/products/item10-hover.jpg" alt="item1  Hover" class="item-image-hover">
-                    </a>
-                </figure>
-                <div class="item-price-container">
-                    <span class="old-price">$150</span>
-                    <span class="item-price">$120</span>
-                </div><!-- End .item-price-container -->
-            </div><!-- End .item-image-wrapper -->
-            <div class="item-meta-container">
-                <div class="ratings-container">
-                </div><!-- End .rating-container -->
-                <h3 class="item-name"><a href="product.html">Phasellus consequat</a></h3>
-                <div class="item-action">
-                    <a href="#" class="item-add-btn">
-                        <span class="icon-cart-text">Add to Cart</span>
-                    </a>
-                    <div class="item-action-inner">
-                        <a href="#" class="icon-button icon-like">Favourite</a>
-                        <a href="#" class="icon-button icon-compare">Checkout</a>
-                    </div><!-- End .item-action-inner -->
-                </div><!-- End .item-action -->
-            </div><!-- End .item-meta-container -->
-        </div><!-- End .item -->
-
+        {% for tovar in randomsTovar %}
+            <div class="item item-hover">
+                <div class="item-image-wrapper">
+                    <figure class="item-image-container">
+                        <a href="/tovar/{{ tovar.lid }}">
+                            <img src="{{ assets("images/") }}/{{ tovar.img}}" alt="item1" class="item-image">
+                            <img src="{{ assets("images/") }}/{{ tovar.img}}" alt="item1  Hover" class="item-image-hover">
+                        </a>
+                    </figure>
+                    <div class="item-price-container">
+                        {% if tovar.old_price %} <span class="old-price">{{ currency }}{{ tovar.old_price -1 }}<span
+                                class="sub-price">.99</span></span>{% endif %}
+                        <span class="item-price">{{ currency }}{{ tovar.price -1 }} <span
+                                    class="sub-price">.99</span></span>
+                    </div><!-- End .item-price-container -->
+                    {% if prod.newTovar(tovar.created) %}<span class="new-rect">New</span>{% endif %}
+                    {% if tovar.old_price  %}<span class="discount-rect">-{{ prod.action(tovar.old_price,tovar.price) }}%</span>{% endif %}
+                </div><!-- End .item-image-wrapper -->
+                <div class="item-meta-container">
+                    <div class="ratings-container">
+                        <div class="ratings">
+                            <div class="ratings-result" data-result="80"></div>
+                        </div><!-- End .ratings -->
+                        <span class="ratings-amount">
+                                                        5 Reviews
+                                                    </span>
+                    </div><!-- End .rating-container -->
+                    <h3 class="item-name"><a href="/tovar/{{ tovar.lid }}">{{ tovar.name }}</a>
+                    </h3>
+                    <div class="item-action">
+                        <a href="#" data-id="{{ tovar.lid }}" data-price="{{ tovar.price }}" data-count="1" class="item-add-btn addToCart">
+                            <span class="icon-cart-text">Add to Cart</span>
+                        </a>
+                        <div class="item-action-inner">
+                            <a href="#" class="icon-button icon-like">Favourite</a>
+                            <a href="#" class="icon-button icon-compare">Checkout</a>
+                        </div><!-- End .item-action-inner -->
+                    </div><!-- End .item-action -->
+                </div><!-- End .item-meta-container -->
+            </div><!-- End .item -->
+        {% endfor %}
     </div><!--purchased-items-slider -->
 </div><!-- End .purchased-items-container -->
+{% endif %}

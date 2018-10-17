@@ -113,6 +113,11 @@ class models
     }
 
 
+    public function random(): models
+    {
+        self::$sql .= " ORDER BY RAND() ";
+        return $this;
+    }
 
 
     public function order(string $data = 'DESC', string $column = 'id'): models

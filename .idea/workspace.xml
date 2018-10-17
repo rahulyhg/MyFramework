@@ -2,20 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f20e48be-af7f-4530-ac1c-0c55d46b2de4" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/app/models/gallery.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/site/pages/singleTovar/parts/aboutTovarBottom.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/site/pages/singleTovar/parts/sliderBottom.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/site/pages/singleTovar/parts/sliderRight.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/site/pages/singleTovar/parts/socShare.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/site/singleTovar/singleTovarController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/site/singleTovar/singleTovarController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/tovars.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/tovars.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/twigHelpers/tovar.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/twigHelpers/tovar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/basket/mini-cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/basket/mini-cart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/site/layouts/head.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/views/site/layouts/head.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/site/layouts/js.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/views/site/layouts/js.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/site/pages/cat/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/views/site/pages/cat/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/site/pages/singleTovar/single.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/views/site/pages/singleTovar/single.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/extension/models/models.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/extension/models/models.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/site/pages/singleTovar/parts/sliderBottom.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/views/site/pages/singleTovar/parts/sliderBottom.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/site/pages/singleTovar/parts/sliderRight.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/views/site/pages/singleTovar/parts/sliderRight.html.twig" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/httpRequests/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -44,64 +36,47 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="single.html.twig" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/views/site/pages/singleTovar/single.html.twig">
+      <file leaf-file-name="singleTovarController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/site/singleTovar/singleTovarController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="648">
-              <caret line="115" column="73" selection-start-line="115" selection-start-column="73" selection-end-line="115" selection-end-column="73" />
+            <state relative-caret-position="375">
+              <caret line="28" column="1" lean-forward="true" selection-start-line="28" selection-start-column="1" selection-end-line="28" selection-end-column="1" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sliderBottom.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/site/pages/singleTovar/parts/sliderBottom.html.twig">
+      <file leaf-file-name="tovars.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/tovars.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret line="212" column="45" selection-start-line="212" selection-start-column="45" selection-end-line="212" selection-end-column="45" />
-              <folding>
-                <element signature="n#div#0;n#!!top" />
-                <element signature="n#div#0;n#header#0;n#div#0;n#!!top" />
-              </folding>
+            <state relative-caret-position="337">
+              <caret line="77" column="98" selection-start-line="77" selection-start-column="98" selection-end-line="77" selection-end-column="98" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sliderRight.html.twig" pinned="false" current-in-tab="false">
+      <file leaf-file-name="sliderRight.html.twig" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/site/pages/singleTovar/parts/sliderRight.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret line="118" column="6" selection-start-line="118" selection-start-column="6" selection-end-line="118" selection-end-column="6" />
-              <folding>
-                <element signature="n#div#0;n#!!top" />
-                <element signature="n#div#0;n#div#0;n#!!top" />
-              </folding>
+            <state relative-caret-position="420">
+              <caret line="28" column="30" lean-forward="true" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="aboutTovarBottom.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/site/pages/singleTovar/parts/aboutTovarBottom.html.twig">
+      <file leaf-file-name="tovar.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/site/layouts/tovar.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="990">
-              <caret line="66" column="33" selection-start-line="66" selection-start-column="33" selection-end-line="66" selection-end-column="33" />
+            <state relative-caret-position="675">
+              <caret line="45" column="45" lean-forward="true" selection-start-line="45" selection-start-column="25" selection-end-line="45" selection-end-column="47" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="socShare.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/site/pages/singleTovar/parts/socShare.html.twig">
+      <file leaf-file-name="slider-featured.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/site/pages/cat/part/slider-featured.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" column="6" selection-start-line="21" selection-start-column="6" selection-end-line="21" selection-end-column="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="mini-cart.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/js/basket/mini-cart.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="513">
-              <caret line="70" column="17" lean-forward="true" selection-start-line="70" selection-start-column="17" selection-end-line="70" selection-end-column="17" />
+            <state relative-caret-position="195">
+              <caret line="13" column="62" selection-start-line="13" selection-start-column="48" selection-end-line="13" selection-end-column="64" />
             </state>
           </provider>
         </entry>
@@ -119,10 +94,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>з де</find>
-      <find>andW</find>
-      <find>submit</find>
-      <find>subscriptionMailing</find>
       <find>post</find>
       <find>category</find>
       <find>tovar_categories</find>
@@ -148,7 +119,11 @@
       <find>Select Color:</find>
       <find>Overview</find>
       <find>RELATED</find>
+      <find>getRandomTovarsInCategory</find>
       <find>Also Purchased</find>
+      <find>featured</find>
+      <find>featuredTovar</find>
+      <find>FEATURED</find>
     </findStrings>
     <replaceStrings>
       <replace>src=&quot;{{ assets(&quot;i</replace>
@@ -219,26 +194,26 @@
         <option value="$PROJECT_DIR$/components/core/treits/globalFunction.php" />
         <option value="$PROJECT_DIR$/views/site/layouts/menu.html.twig" />
         <option value="$PROJECT_DIR$/app/models/category.php" />
-        <option value="$PROJECT_DIR$/components/extension/models/models.php" />
         <option value="$PROJECT_DIR$/app/controllers/site/catalog/changeShowListController.php" />
         <option value="$PROJECT_DIR$/routes/site.php" />
         <option value="$PROJECT_DIR$/views/site/layouts/tovar.html.twig" />
         <option value="$PROJECT_DIR$/app/controllers/site/catalog/catalogController.php" />
         <option value="$PROJECT_DIR$/markup/compare-products.html" />
         <option value="$PROJECT_DIR$/views/site/pages/cat/index.html.twig" />
-        <option value="$PROJECT_DIR$/app/models/tovars.php" />
         <option value="$PROJECT_DIR$/views/site/layouts/js.html.twig" />
         <option value="$PROJECT_DIR$/markup/product.html" />
         <option value="$PROJECT_DIR$/views/site/layouts/head.html.twig" />
         <option value="$PROJECT_DIR$/app/models/gallery.php" />
-        <option value="$PROJECT_DIR$/app/controllers/site/singleTovar/singleTovarController.php" />
         <option value="$PROJECT_DIR$/app/twigHelpers/tovar.php" />
-        <option value="$PROJECT_DIR$/public/js/basket/mini-cart.js" />
         <option value="$PROJECT_DIR$/views/site/pages/singleTovar/parts/socShare.html.twig" />
         <option value="$PROJECT_DIR$/views/site/pages/singleTovar/parts/aboutTovarBottom.html.twig" />
-        <option value="$PROJECT_DIR$/views/site/pages/singleTovar/parts/sliderRight.html.twig" />
-        <option value="$PROJECT_DIR$/views/site/pages/singleTovar/parts/sliderBottom.html.twig" />
         <option value="$PROJECT_DIR$/views/site/pages/singleTovar/single.html.twig" />
+        <option value="$PROJECT_DIR$/public/js/basket/mini-cart.js" />
+        <option value="$PROJECT_DIR$/components/extension/models/models.php" />
+        <option value="$PROJECT_DIR$/views/site/pages/singleTovar/parts/sliderBottom.html.twig" />
+        <option value="$PROJECT_DIR$/app/controllers/site/singleTovar/singleTovarController.php" />
+        <option value="$PROJECT_DIR$/app/models/tovars.php" />
+        <option value="$PROJECT_DIR$/views/site/pages/singleTovar/parts/sliderRight.html.twig" />
       </list>
     </option>
   </component>
@@ -278,6 +253,46 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <expand>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="framework" type="cbb8eebc:String" user="framework" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="framework" type="cbb8eebc:String" user="framework" />
+              <item name="app" type="cbb8eebc:String" user="app" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="framework" type="cbb8eebc:String" user="framework" />
+              <item name="app" type="cbb8eebc:String" user="app" />
+              <item name="controllers" type="cbb8eebc:String" user="controllers" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="framework" type="cbb8eebc:String" user="framework" />
+              <item name="views" type="cbb8eebc:String" user="views" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="framework" type="cbb8eebc:String" user="framework" />
+              <item name="views" type="cbb8eebc:String" user="views" />
+              <item name="site" type="cbb8eebc:String" user="site" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="framework" type="cbb8eebc:String" user="framework" />
+              <item name="views" type="cbb8eebc:String" user="views" />
+              <item name="site" type="cbb8eebc:String" user="site" />
+              <item name="layouts" type="cbb8eebc:String" user="layouts" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -323,73 +338,6 @@
               <item name="framework" type="b2602c69:ProjectViewProjectNode" />
               <item name="framework" type="462c0819:PsiDirectoryNode" />
               <item name="routes" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope">
-        <subPane subId="Project Files">
-          <expand>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="framework" type="cbb8eebc:String" user="framework" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="framework" type="cbb8eebc:String" user="framework" />
-              <item name="app" type="cbb8eebc:String" user="app" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="framework" type="cbb8eebc:String" user="framework" />
-              <item name="app" type="cbb8eebc:String" user="app" />
-              <item name="twigHelpers" type="cbb8eebc:String" user="twigHelpers" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="framework" type="cbb8eebc:String" user="framework" />
-              <item name="config" type="cbb8eebc:String" user="config" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="framework" type="cbb8eebc:String" user="framework" />
-              <item name="public" type="cbb8eebc:String" user="public" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="framework" type="cbb8eebc:String" user="framework" />
-              <item name="views" type="cbb8eebc:String" user="views" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="framework" type="cbb8eebc:String" user="framework" />
-              <item name="views" type="cbb8eebc:String" user="views" />
-              <item name="site" type="cbb8eebc:String" user="site" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="framework" type="cbb8eebc:String" user="framework" />
-              <item name="views" type="cbb8eebc:String" user="views" />
-              <item name="site" type="cbb8eebc:String" user="site" />
-              <item name="pages" type="cbb8eebc:String" user="pages" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="framework" type="cbb8eebc:String" user="framework" />
-              <item name="views" type="cbb8eebc:String" user="views" />
-              <item name="site" type="cbb8eebc:String" user="site" />
-              <item name="pages" type="cbb8eebc:String" user="pages" />
-              <item name="singleTovar" type="cbb8eebc:String" user="singleTovar" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="framework" type="cbb8eebc:String" user="framework" />
-              <item name="views" type="cbb8eebc:String" user="views" />
-              <item name="site" type="cbb8eebc:String" user="site" />
-              <item name="pages" type="cbb8eebc:String" user="pages" />
-              <item name="singleTovar" type="cbb8eebc:String" user="singleTovar" />
-              <item name="parts" type="cbb8eebc:String" user="parts" />
             </path>
           </expand>
           <select />
@@ -699,30 +647,31 @@
       <workItem from="1539349757965" duration="46000" />
       <workItem from="1539441648970" duration="9282000" />
       <workItem from="1539497442185" duration="599000" />
-      <workItem from="1539623352907" duration="6323000" />
+      <workItem from="1539623352907" duration="6571000" />
+      <workItem from="1539669424138" duration="1190000" />
+      <workItem from="1539803010881" duration="1694000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="459429000" />
+    <option name="totallyTimeSpent" value="462561000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-1" width="1920" height="1046" extended-state="6" />
     <editor active="true" />
     <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.35805762" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50053364" side_tool="true" weight="0.39281827" />
-      <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.3297062" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3297062" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4994664" weight="0.26847827" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.34951973" />
       <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50053364" side_tool="true" weight="0.39281827" />
       <window_info anchor="right" id="Database" order="4" weight="0.32977587" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32861805" />
+      <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3297062" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.3297062" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4994664" weight="0.2673913" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39934713" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Remote Host" order="3" weight="0.32924226" />
@@ -732,6 +681,7 @@
       <window_info anchor="bottom" id="Command Line Tools Console" order="11" weight="0.3297062" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32861805" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -746,16 +696,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/config/twig_function.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/extension/functions/other.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="19" lean-forward="true" selection-start-line="22" selection-start-column="15" selection-end-line="22" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/components/extension/crsf/crsf.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -777,13 +717,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/components/core/core.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="153" column="51" selection-start-line="153" selection-start-column="44" selection-end-line="153" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/site/layouts/menu.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="480">
@@ -795,13 +728,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="21" column="4" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/extension/models/models.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="947">
-          <caret line="117" column="20" selection-start-line="117" selection-start-column="20" selection-end-line="117" selection-end-column="20" />
         </state>
       </provider>
     </entry>
@@ -823,16 +749,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="540">
           <caret line="36" selection-start-line="36" selection-end-line="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/site/catalog/catalogController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-218">
-          <caret line="40" selection-start-line="40" selection-end-line="40" />
-          <folding>
-            <element signature="e#49#104#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -871,41 +787,10 @@
     <entry file="file://$PROJECT_DIR$/views/site/layouts/header.html.twig">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/site/pages/cat/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="18" lean-forward="true" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/markup/product.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
           <caret line="25" column="11" lean-forward="true" selection-start-line="26" selection-start-column="7" selection-end-line="26" selection-end-column="91" />
-          <folding>
-            <element signature="e#3369#3375#1" expanded="true" />
-            <element signature="e#3486#3493#1" expanded="true" />
-            <element signature="e#4953#4959#0" expanded="true" />
-            <element signature="e#4961#4967#0" expanded="true" />
-            <element signature="e#8334#8339#0" expanded="true" />
-            <element signature="e#8397#8402#0" expanded="true" />
-            <element signature="e#8455#8460#0" expanded="true" />
-            <element signature="e#8518#8523#0" expanded="true" />
-            <element signature="e#9414#9419#0" expanded="true" />
-            <element signature="e#9974#9979#0" expanded="true" />
-            <element signature="e#10493#10498#0" expanded="true" />
-            <element signature="e#10603#10608#0" expanded="true" />
-            <element signature="e#10713#10718#0" expanded="true" />
-            <element signature="e#61601#61607#0" expanded="true" />
-            <element signature="e#61631#61638#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/tovars.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="3" lean-forward="true" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
         </state>
       </provider>
     </entry>
@@ -914,13 +799,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/images/gallery/kek.jpg">
       <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/gallery.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="1" lean-forward="true" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/images/products/big-item2.jpg">
       <provider selected="true" editor-type-id="images" />
@@ -935,16 +813,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="9" column="2" lean-forward="true" selection-start-line="9" selection-start-column="2" selection-end-line="9" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/site/singleTovar/singleTovarController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="18" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="20" />
-          <folding>
-            <element signature="e#53#76#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -992,20 +860,20 @@
     <entry file="file://$PROJECT_DIR$/views/site/pages/main/part/on_sale.html.twig">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/site/layouts/tovar.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="614">
-          <caret line="71" column="21" selection-start-line="71" selection-start-column="12" selection-end-line="73" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/js/project/settings_slider.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/views/site/pages/singleTovar/parts/aboutTovarBottom.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="990">
+          <caret line="66" column="33" selection-start-line="66" selection-start-column="33" selection-end-line="66" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/js/basket/mini-cart.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="70" column="17" lean-forward="true" selection-start-line="70" selection-start-column="17" selection-end-line="70" selection-end-column="17" />
+        <state relative-caret-position="629">
+          <caret line="83" column="59" selection-start-line="83" selection-start-column="59" selection-end-line="83" selection-end-column="59" />
         </state>
       </provider>
     </entry>
@@ -1016,39 +884,94 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/site/pages/singleTovar/parts/aboutTovarBottom.html.twig">
+    <entry file="file://$PROJECT_DIR$/app/models/gallery.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="990">
-          <caret line="66" column="33" selection-start-line="66" selection-start-column="33" selection-end-line="66" selection-end-column="33" />
+        <state relative-caret-position="90">
+          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/site/pages/singleTovar/parts/sliderRight.html.twig">
+    <entry file="file://$PROJECT_DIR$/components/extension/models/models.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="118" column="6" selection-start-line="118" selection-start-column="6" selection-end-line="118" selection-end-column="6" />
-          <folding>
-            <element signature="n#div#0;n#!!top" />
-            <element signature="n#div#0;n#div#0;n#!!top" />
-          </folding>
+        <state relative-caret-position="683">
+          <caret line="126" column="5" lean-forward="true" selection-start-line="126" selection-start-column="5" selection-end-line="126" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/site/pages/singleTovar/parts/sliderBottom.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="212" column="45" selection-start-line="212" selection-start-column="45" selection-end-line="212" selection-end-column="45" />
-          <folding>
-            <element signature="n#div#0;n#!!top" />
-            <element signature="n#div#0;n#header#0;n#div#0;n#!!top" />
-          </folding>
+        <state relative-caret-position="105">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/site/pages/singleTovar/single.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="648">
-          <caret line="115" column="73" selection-start-line="115" selection-start-column="73" selection-end-line="115" selection-end-column="73" />
+        <state relative-caret-position="678">
+          <caret line="92" column="28" selection-start-line="92" selection-start-column="28" selection-end-line="92" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/core/core.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="153" column="51" selection-start-line="153" selection-start-column="44" selection-end-line="153" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/site/catalog/catalogController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="54" selection-start-line="5" selection-start-column="41" selection-end-line="5" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/site/catalog/service/featuredTovar.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="14" column="21" selection-start-line="14" selection-start-column="15" selection-end-line="14" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/site/singleTovar/singleTovarController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="28" column="1" lean-forward="true" selection-start-line="28" selection-start-column="1" selection-end-line="28" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/tovars.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="337">
+          <caret line="77" column="98" selection-start-line="77" selection-start-column="98" selection-end-line="77" selection-end-column="98" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/site/pages/cat/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="438">
+          <caret line="199" column="75" selection-start-line="199" selection-start-column="67" selection-end-line="199" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/site/pages/cat/part/slider-featured.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="62" selection-start-line="13" selection-start-column="48" selection-end-line="13" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/site/layouts/tovar.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="675">
+          <caret line="45" column="45" lean-forward="true" selection-start-line="45" selection-start-column="25" selection-end-line="45" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/site/pages/singleTovar/parts/sliderRight.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="28" column="30" lean-forward="true" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
         </state>
       </provider>
     </entry>
