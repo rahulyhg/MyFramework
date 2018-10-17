@@ -202,9 +202,11 @@
                             <div class="widget banner-slider-container">
                                 <div class="banner-slider flexslider">
                                     <ul class="banner-slider-list clearfix">
-                                        <li><a href="#"><img src="images/banner1.jpg" alt="Banner 1"></a></li>
-                                        <li><a href="#"><img src="images/banner2.jpg" alt="Banner 2"></a></li>
-                                        <li><a href="#"><img src="images/banner3.jpg" alt="Banner 3"></a></li>
+                                        {% for tovar in randomsTovar %}
+                                            {% if tovar.img|default(false) %}
+                                                <li><a href="/tovar/{{ tovar.lid }}"><img src="{{ assets("images/") }}/{{ tovar.img }}" alt="{{ tovar.name }}"></a></li>
+                                            {% endif %}
+                                        {% endfor %}
                                     </ul>
                                 </div>
                             </div><!-- End .widget -->

@@ -4,15 +4,19 @@
             <div class="col-md-6 col-sm-6 col-xs-12">
                 <div class="category-image-slider-container">
                     <div class="category-image-slider-shadow"></div>
-                    <div class="discount-rect">-35%</div>
+                    <div class="discount-rect">-{{ prod.action(randomActionTovar.old_price,randomActionTovar.price) }}%</div>
                     <div class="category-image-slider flexslider">
                         <ul class="slides">
-                            <li><a href="#"><img src="public/images/products/category-banner-item1.jpg"
-                                                 alt="Product image 1"></a></li>
-                            <li><a href="#"><img src="public/images/products/category-banner-item2.jpg"
-                                                 alt="Product image 2"></a></li>
-                            <li><a href="#"><img src="/images/products/category-banner-item3.jpg"
-                                                 alt="Product image 3"></a></li>
+                            <li><a href="/tovar/{{ randomActionTovar.lid }}"><img
+                                            src="{{ assets("images/") }}/{{ randomActionTovar.img }}"
+                                            alt="{{ randomActionTovar.name }}"></a></li>
+                            {% if randomActionTovar is defined %}
+                                {% for image in galleryRandomActionTOovar %}
+                                    <li><a href="/tovar/{{ randomActionTovar.lid }}"><img
+                                                    src="{{ assets("images/") }}/{{ image.img }}"
+                                                    alt="{{ randomActionTovar.name }}"></a></li>
+                                {% endfor %}
+                            {% endif %}
                         </ul>
                     </div><!-- End .category-image -->
                 </div><!-- End .category-image-slider-container -->
@@ -20,12 +24,14 @@
 
             <div class="col-md-6 col-sm-6 col-xs-12 slider-banner-description">
                 <div class="category-title">
-                    <h2>HTC One</h2>
-                    <div class="category-title-price">$580</div><!-- End .category-title-price -->
-                    <p>Aenean dictum libero vitae magna sagittis, eu convallis dolor blandit. Fusce consectetur
-                        tincidunt pretium. Etiam non tellus massa. Aenean tincidunt in augue nec tempus. Nulla
-                        porta libero sit amet lorem pellentesque posuere...</p>
-                    <a href="#" class="btn btn-custom-2">ADD TO CART</a>
+                    <h2>{{ randomActionTovar.name }}</h2>
+                    <div class="category-title-price">{{ currency }}{{ randomActionTovar.price }}</div>
+                    <!-- End .category-title-price -->
+                    <p>{{ randomActionTovar.name }}</p>
+                    <a href="#" data-id="{{ randomActionTovar.lid }}" data-price="{{ randomActionTovar.price }}"
+                       data-count="1" class="btn btn-custom-2 addToCart">
+                        ADD TO CART
+                    </a>
                 </div><!-- End .category-title -->
             </div><!-- End .col-md-6 -->
         </div><!-- End .container -->

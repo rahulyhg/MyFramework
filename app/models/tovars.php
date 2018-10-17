@@ -78,9 +78,9 @@ class tovars extends models
         return self::currency()->where(['category' => $id,'id_lang' => lang()])->random()->limit(9)->get();
     }
 
-    public static function randomTovars(): array
+    public static function randomTovars(int $limit = 15): array
     {
-        return self::currency()->where('id_lang',lang())->random()->limit(15)->get();
+        return self::currency()->where('id_lang',lang())->random()->limit($limit)->get();
     }
 
     private static function countTovars($cat)
@@ -105,6 +105,11 @@ class tovars extends models
             return self::select(['id', 'lid', 'name', 'created', 'id_lang', 'img', 'old_price_doll', 'price_doll', 'action'])
                 ->as('old_price_doll', 'old_price')->as('price_doll', 'price');
         }
+    }
+
+    public static function randomActionTovar(): array
+    {
+        return self::currency()->where('id_lang',lang())->andWhere('old_price','1','>')->random()->limit(1)->get();
     }
 
 

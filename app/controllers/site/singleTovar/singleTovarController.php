@@ -1,6 +1,6 @@
 <?php
 
-namespace  app\controllers\site\singleTovar;
+namespace app\controllers\site\singleTovar;
 
 use app\models\gallery;
 use app\models\tovars;
@@ -19,11 +19,11 @@ class singleTovarController extends Controller
     public function show(Get $get)
     {
         $tovar = tovars::getTovar($get->last())[0];
-        echo self::$twig->render('site/pages/singleTovar/single.html.twig',[
+        echo self::$twig->render('site/pages/singleTovar/single.html.twig', [
             'tovar' => $tovar,
             'gallery' => gallery::getPhoto($get->last()),
-            'analogTovar' =>  tovars::getRandomTovarsInCategory($tovar['category']),
-            'randomsTovar' =>tovars::randomTovars(),
+            'analogTovar' => tovars::getRandomTovarsInCategory($tovar['category']),
+            'randomsTovar' => tovars::randomTovars(),
         ]);
     }
 }
