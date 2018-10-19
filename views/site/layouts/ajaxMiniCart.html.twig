@@ -8,12 +8,12 @@
                        data-price="{{ tovar.price }}"><i class="fa fa-times"></i></a>
                     <a href="/cart" title="Edit item" class="edit-item"><i class="fa fa-pencil"></i></a>
                     <figure>
-                        <a href="/"><img src="{{ assets("images/") }}/{{ tovar.img }}"
-                                         alt="phone 4"></a>
+                        <a href="/tovar/{{ tovar.lid }}"><img src="{{ assets("images/") }}/{{ tovar.img }}"
+                                         alt="{{ tovar.name }}"></a>
                     </figure>
                     <div class="dropdown-cart-details">
                         <p class="item-name">
-                            <a href="/">{{ tovar.name }}</a>
+                            <a href="/tovar/{{ tovar.lid }}">{{ tovar.name }}</a>
                         </p>
                         <p>
                             {{ tovar.count }}x
@@ -25,7 +25,6 @@
         </ul>
 
         <ul class="dropdown-cart-total">
-            {#<li><span class="dropdown-cart-total-title">Shipping:</span>$7</li>#}
             <li><span class="dropdown-cart-total-title">Total:</span>{{ cart.total }}<span
                         class="sub-price">.99</span></li>
         </ul><!-- .dropdown-cart-total -->

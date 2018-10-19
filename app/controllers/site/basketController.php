@@ -18,6 +18,8 @@ class basketController extends Controller
         $this->getTovarWithCookies();
 
         $this->getTovarBasket();
+
+        $this->deleteServiceCookie();
     }
 
     private function getTovarWithCookies(): void
@@ -27,6 +29,11 @@ class basketController extends Controller
                 $this->id_count[str_replace('cart_', '', $key)] = $value;
             }
         }
+    }
+
+    private function deleteServiceCookie()
+    {
+        unset($this->id_count['__atuvc'], $this->id_count['__atuvs']);
     }
 
 

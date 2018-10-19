@@ -3,7 +3,7 @@
         <div class="btn-group dropdown-cart">
             <button type="button" class="btn btn-custom dropdown-toggle" id="button_miniCart" data-toggle="dropdown">
                 <span class="cart-menu-icon"></span>
-               <span id="countMiniCart"> {{ cart.count() }}</span> item(s) <span class="drop-price"> - $<span id="totalMiniCart">{{ cart.total }}</span></span>
+               <span id="countMiniCart"> {{ cart.count() }}</span> item(s) <span class="drop-price"> - {{ currency }}<span id="totalMiniCart">{{ cart.total }}</span></span>
             </button>
             <div id="ajaxMiniCart">
                 {% include "site/layouts/ajaxMiniCart.html.twig" %}
