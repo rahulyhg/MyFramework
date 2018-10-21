@@ -30,7 +30,7 @@ class catalogController extends Controller
     public function show()
     {
         $categ = self::getIdCategory();
-        $randomActionTovar =  tovars::randomActionTovar()[0];
+        $randomActionTovar =  tovars::randomActionTovar();
 
         echo self::$twig->render('site/pages/cat/index.html.twig', [
             'tovars' => $this->price ? tovars::tovarsWithFilterPrice($this->data, $this->column, $this->price, $categ) : tovars::getAllTovars($this->data, $this->column, $categ),
@@ -39,8 +39,8 @@ class catalogController extends Controller
             'urlPost' => $this->urlPost(),
             'hideSlider' => $categ,
             'randomsTovar' => tovars::randomTovars(3),
-            'randomActionTovar' => $randomActionTovar,
-            'galleryRandomActionTOovar' => gallery::getPhoto($randomActionTovar['lid'])
+            'randomActionTovar' => $randomActionTovar[0] ?? [],
+            'galleryRandomActionTOovar' => gallery::getPhoto($randomActionTovar[0]['lid'] ?? 0)
         ]);
     }
 

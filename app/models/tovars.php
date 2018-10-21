@@ -37,9 +37,7 @@ class tovars extends models
         return self::currency()->where('lid', $id)->andWhere('id_lang', lang())->get();
     }
 
-
-
-
+    
     public static function tovarsWithFilterPrice(string $data, string $column, array $filterPrice, $cat)
     {
 

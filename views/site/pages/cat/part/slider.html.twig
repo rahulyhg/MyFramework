@@ -1,6 +1,7 @@
 <div id="category-header" class="category-header-slider">
     <div class="row">
         <div class="container">
+            {% if randomActionTovar %}
             <div class="col-md-6 col-sm-6 col-xs-12">
                 <div class="category-image-slider-container">
                     <div class="category-image-slider-shadow"></div>
@@ -21,7 +22,6 @@
                     </div><!-- End .category-image -->
                 </div><!-- End .category-image-slider-container -->
             </div><!-- End .col-md-6 -->
-
             <div class="col-md-6 col-sm-6 col-xs-12 slider-banner-description">
                 <div class="category-title">
                     <h2>{{ randomActionTovar.name }}</h2>
@@ -34,6 +34,7 @@
                     </a>
                 </div><!-- End .category-title -->
             </div><!-- End .col-md-6 -->
+            {% endif %}
         </div><!-- End .container -->
     </div><!-- End .row -->
 </div><!-- End #category-header -->
