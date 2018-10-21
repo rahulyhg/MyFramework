@@ -5,24 +5,21 @@
                 <div class="header-top-left">
                     <ul id="top-links" class="clearfix">
                         <li><a href="#" title="My Wishlist"><span class="top-icon top-icon-pencil"></span><span class="hide-for-xs">My Wishlist</span></a></li>
-                        <li><a href="#" title="My Account"><span class="top-icon top-icon-user"></span><span class="hide-for-xs">My Account</span></a></li>
+                        {#<li><a href="#" title="My Account"><span class="top-icon top-icon-user"></span><span class="hide-for-xs">My Account</span></a></li>#}
                         <li><a href="../../../index.php" title="My Cart"><span class="top-icon top-icon-cart"></span><span class="hide-for-xs">My Cart</span></a></li>
                         <li><a href="../../../index.php" title="Checkout"><span class="top-icon top-icon-check"></span><span class="hide-for-xs">Checkout</span></a></li>
                     </ul>
                 </div><!-- End .header-top-left -->
                 <div class="header-top-right">
-
                     <div class="header-top-dropdowns pull-right">
                         <div class="btn-group dropdown-money">
                             <button type="button" class="btn btn-custom dropdown-toggle" data-toggle="dropdown">
                                 <span class="hide-for-xs">{{ currency }}</span><span class="hide-for-lg">$</span>
                             </button>
                             <ul class="dropdown-menu pull-right" role="menu">
-
                                {% for currenc in arr_currency %}
                                 <li><a href="/change_currency/{{ currenc.id }}"><span class="hide-for-xs">{{ currenc.symbol }}</span></a></li>
                                 {% endfor %}
-
                             </ul>
                         </div><!-- End .btn-group -->
                         <div class="btn-group dropdown-language">
@@ -40,7 +37,7 @@
 
                     <div class="header-text-container pull-right">
                         <p class="header-text">{{ prefs('pg_welcome','Welcome to') }} {{ site_name }}!</p>
-                        <p class="header-link"><a href="#">login</a>&nbsp;or&nbsp;<a href="#">create an account</a></p>
+                        {#<p class="header-link"><a href="#">login</a>&nbsp;or&nbsp;<a href="#">create an account</a></p>#}
                     </div><!-- End .pull-right -->
                 </div><!-- End .header-top-right -->
             </div><!-- End .col-md-12 -->
