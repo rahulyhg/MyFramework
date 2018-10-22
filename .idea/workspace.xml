@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f20e48be-af7f-4530-ac1c-0c55d46b2de4" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/app/controllers/site/basket/basketController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/site/basket/basketController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/basket/mini-cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/basket/mini-cart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/site/pages/basket/basket.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/views/site/pages/basket/basket.html.twig" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/httpRequests/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -32,12 +31,12 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="basketController.php" pinned="false" current-in-tab="true">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="basketController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/site/basket/basketController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" column="10" selection-start-line="21" selection-start-column="10" selection-end-line="21" selection-end-column="10" />
+            <state relative-caret-position="330">
+              <caret line="22" column="14" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -45,21 +44,20 @@
       <file leaf-file-name="basket.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/site/pages/basket/basket.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="664">
-              <caret line="58" column="36" lean-forward="true" selection-start-line="58" selection-start-column="36" selection-end-line="58" selection-end-column="36" />
+            <state relative-caret-position="604">
+              <caret line="54" column="128" selection-start-line="54" selection-start-column="115" selection-end-line="54" selection-end-column="132" />
               <folding>
-                <element signature="e#3369#9628#0#HTML" />
-                <element signature="e#9717#23960#0#HTML" />
+                <element signature="e#3689#3694#0#HTML" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mini-cart.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="mini-cart.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/js/basket/mini-cart.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="809">
-              <caret line="95" lean-forward="true" selection-start-line="95" selection-end-line="95" />
+            <state relative-caret-position="779">
+              <caret line="99" column="60" lean-forward="true" selection-start-line="99" selection-start-column="60" selection-end-line="99" selection-end-column="60" />
             </state>
           </provider>
         </entry>
@@ -196,9 +194,9 @@
         <option value="$PROJECT_DIR$/markup/cart.html" />
         <option value="$PROJECT_DIR$/views/site/layouts/tovar.html.twig" />
         <option value="$PROJECT_DIR$/app/controllers/site/basket/miniBasketController.php" />
+        <option value="$PROJECT_DIR$/app/controllers/site/basket/basketController.php" />
         <option value="$PROJECT_DIR$/views/site/pages/basket/basket.html.twig" />
         <option value="$PROJECT_DIR$/public/js/basket/mini-cart.js" />
-        <option value="$PROJECT_DIR$/app/controllers/site/basket/basketController.php" />
       </list>
     </option>
   </component>
@@ -238,6 +236,48 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <expand>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="framework" type="cbb8eebc:String" user="framework" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="framework" type="cbb8eebc:String" user="framework" />
+              <item name="public" type="cbb8eebc:String" user="public" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="framework" type="cbb8eebc:String" user="framework" />
+              <item name="views" type="cbb8eebc:String" user="views" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="framework" type="cbb8eebc:String" user="framework" />
+              <item name="views" type="cbb8eebc:String" user="views" />
+              <item name="site" type="cbb8eebc:String" user="site" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="framework" type="cbb8eebc:String" user="framework" />
+              <item name="views" type="cbb8eebc:String" user="views" />
+              <item name="site" type="cbb8eebc:String" user="site" />
+              <item name="pages" type="cbb8eebc:String" user="pages" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="framework" type="cbb8eebc:String" user="framework" />
+              <item name="views" type="cbb8eebc:String" user="views" />
+              <item name="site" type="cbb8eebc:String" user="site" />
+              <item name="pages" type="cbb8eebc:String" user="pages" />
+              <item name="basket" type="cbb8eebc:String" user="basket" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -283,48 +323,6 @@
               <item name="framework" type="b2602c69:ProjectViewProjectNode" />
               <item name="framework" type="462c0819:PsiDirectoryNode" />
               <item name="routes" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope">
-        <subPane subId="Project Files">
-          <expand>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="framework" type="cbb8eebc:String" user="framework" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="framework" type="cbb8eebc:String" user="framework" />
-              <item name="public" type="cbb8eebc:String" user="public" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="framework" type="cbb8eebc:String" user="framework" />
-              <item name="views" type="cbb8eebc:String" user="views" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="framework" type="cbb8eebc:String" user="framework" />
-              <item name="views" type="cbb8eebc:String" user="views" />
-              <item name="site" type="cbb8eebc:String" user="site" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="framework" type="cbb8eebc:String" user="framework" />
-              <item name="views" type="cbb8eebc:String" user="views" />
-              <item name="site" type="cbb8eebc:String" user="site" />
-              <item name="pages" type="cbb8eebc:String" user="pages" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="framework" type="cbb8eebc:String" user="framework" />
-              <item name="views" type="cbb8eebc:String" user="views" />
-              <item name="site" type="cbb8eebc:String" user="site" />
-              <item name="pages" type="cbb8eebc:String" user="pages" />
-              <item name="basket" type="cbb8eebc:String" user="basket" />
             </path>
           </expand>
           <select />
@@ -639,30 +637,30 @@
       <workItem from="1539803010881" duration="4185000" />
       <workItem from="1540149536967" duration="1472000" />
       <workItem from="1540188342428" duration="610000" />
-      <workItem from="1540233310477" duration="3652000" />
+      <workItem from="1540233310477" duration="3823000" />
+      <workItem from="1540237528972" duration="836000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="471441000" />
+    <option name="totallyTimeSpent" value="472448000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-1" width="1920" height="1046" extended-state="6" />
     <editor active="true" />
     <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3751334" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50053364" side_tool="true" weight="0.39281827" />
-      <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3297062" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.3297062" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4994664" weight="0.265506" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.37086445" />
       <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50053364" side_tool="true" weight="0.39281827" />
       <window_info anchor="right" id="Database" order="4" weight="0.32977587" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32861805" />
+      <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.3297062" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3297062" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39934713" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4994664" weight="0.2652174" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39934713" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Remote Host" order="3" weight="0.32924226" />
@@ -672,6 +670,7 @@
       <window_info anchor="bottom" id="Command Line Tools Console" order="11" weight="0.3297062" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32861805" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -901,10 +900,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="645">
           <caret line="373" column="27" lean-forward="true" selection-start-line="373" selection-start-column="7" selection-end-line="373" selection-end-column="30" />
-          <folding>
-            <element signature="n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#1;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -946,28 +941,27 @@
     <entry file="file://$PROJECT_DIR$/public/js/project/settings_slider.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/basket/mini-cart.js">
+    <entry file="file://$PROJECT_DIR$/app/controllers/site/basket/basketController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="809">
-          <caret line="95" lean-forward="true" selection-start-line="95" selection-end-line="95" />
+        <state relative-caret-position="330">
+          <caret line="22" column="14" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/site/pages/basket/basket.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="664">
-          <caret line="58" column="36" lean-forward="true" selection-start-line="58" selection-start-column="36" selection-end-line="58" selection-end-column="36" />
+        <state relative-caret-position="604">
+          <caret line="54" column="128" selection-start-line="54" selection-start-column="115" selection-end-line="54" selection-end-column="132" />
           <folding>
-            <element signature="e#3369#9628#0#HTML" />
-            <element signature="e#9717#23960#0#HTML" />
+            <element signature="e#3689#3694#0#HTML" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/site/basket/basketController.php">
+    <entry file="file://$PROJECT_DIR$/public/js/basket/mini-cart.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="10" selection-start-line="21" selection-start-column="10" selection-end-line="21" selection-end-column="10" />
+        <state relative-caret-position="779">
+          <caret line="99" column="60" lean-forward="true" selection-start-line="99" selection-start-column="60" selection-end-line="99" selection-end-column="60" />
         </state>
       </provider>
     </entry>

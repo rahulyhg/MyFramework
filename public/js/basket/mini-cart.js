@@ -73,18 +73,19 @@ $('.addToCart').click(function () {
 
 
 $('.quantity-input-up').click(function () {
-    changeNumber(1);
+    changeNumber(1,$(this));
 });
 $('.quantity-input-down').click(function () {
-    changeNumber(-1);
+    changeNumber(-1,$(this));
 });
 
-function changeNumber(num) {
-    number = $('.custom-quantity-input input[name=quantity]');
+function changeNumber(num,elem) {
+    number = elem.parents('.custom-quantity-input').find('input[name=quantity]');
     if((number.val() >= 1 && num > 0) || number.val() > 1){
         number.val(Number(number.val()) + Number(num));
         $('.addToCart').attr('data-count',number.val());
     }
+    calc();
 }
 
 $('.custom-quantity-input input[name=quantity]').change(function () {
@@ -92,4 +93,11 @@ $('.custom-quantity-input input[name=quantity]').change(function () {
        $(this).val(1);
    }
 });
-
+calc();
+function calc() {
+    $('.cart-table tbody tr').each(function (){
+        number = Number($(this).find('.price').text());
+        qnt = Number($(this).find('input[name="quantity"]').val());
+        $(this).find('.total_price_tovar').text(number*qnt);
+    });
+}
