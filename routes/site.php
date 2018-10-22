@@ -11,10 +11,11 @@ Route::group(['path' => 'site','as' => 'site'],function (){
 
     Route::get('change_currency/[0-9]','currencyController@changeCurrency')->name('change_currency');
 
-    Route::group(['as' => 'basket','url' => 'basket'],function () {
+    Route::group(['as' => 'basket','url' => 'basket','path' => 'basket'],function () {
 
-        Route::get('/mini','basketController@showMiniCart');
+        Route::get('/mini','miniBasketController@showMiniCart');
 
+        Route::get('','basketController@show')->name('index');
     });
 
     Route::group(['as' => 'cat','url' => 'cat','path' => 'catalog'],function (){

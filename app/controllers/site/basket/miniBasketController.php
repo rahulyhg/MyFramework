@@ -1,10 +1,10 @@
 <?php
-namespace app\controllers\site;
+namespace app\controllers\site\basket;
 
 use app\models\tovars;
 use Components\Controller;
 
-class basketController extends Controller
+class miniBasketController extends Controller
 {
 
     private $id_count = [];
@@ -15,6 +15,8 @@ class basketController extends Controller
 
     public function __construct()
     {
+        parent::__construct();
+
         $this->getTovarWithCookies();
 
         $this->getTovarBasket();
@@ -67,6 +69,11 @@ class basketController extends Controller
         echo self::$twig->render('site/layouts/ajaxMiniCart.html.twig',[]);
     }
 
+
+    public function getCart(): array
+    {
+        return $this->tovars;
+    }
 
 
 }
