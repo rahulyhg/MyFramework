@@ -44,15 +44,15 @@
                                 </ul>
                             </td>
                             <td class="item-code">#{{ tovar.id }}</td>
-                            <td class="item-price-col"><span class="item-price-special">{{ currency }}{{ tovar.price }} </span></td>
+                            <td class="item-price-col"><span class="item-price-special">{{ currency }}<span class="price">{{ tovar.price }}</span> </span></td>
                             <td>
                                 <div class="custom-quantity-input">
-                                    <input type="text" name="quantity" value="{{ tovar.count }}">
-                                    <a href="#" onclick="return false;" class="quantity-btn quantity-input-up"><i class="fa fa-angle-up"></i></a>
-                                    <a href="#" onclick="return false;" class="quantity-btn quantity-input-down"><i class="fa fa-angle-down"></i></a>
+                                    <input type="text" name="quantity"  value="{{ tovar.count }}">
+                                    <span  class="quantity-btn quantity-input-up"><i class="fa fa-angle-up"></i></span>
+                                    <span class="quantity-btn quantity-input-down"><i class="fa fa-angle-down"></i></span>
                                 </div>
                             </td>
-                            <td class="item-total-col"><span class="item-price-special">{{ currency }}{{ tovar.price }}</span>
+                            <td class="item-total-col"><span class="item-price-special">{{ currency }}<span class="total_price_tovar">{{ tovar.price }}</span></span>
                                 <a href="#" class="close-button"></a>
                             </td>
                         </tr>

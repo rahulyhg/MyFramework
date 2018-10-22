@@ -73,7 +73,7 @@ $('.addToCart').click(function () {
 
 
 $('.quantity-input-up').click(function () {
-    changeNumber(1)
+    changeNumber(1);
 });
 $('.quantity-input-down').click(function () {
     changeNumber(-1);
@@ -92,3 +92,4 @@ $('.custom-quantity-input input[name=quantity]').change(function () {
        $(this).val(1);
    }
 });
+

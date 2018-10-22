@@ -2,15 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f20e48be-af7f-4530-ac1c-0c55d46b2de4" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/app/controllers/site/basket/basketController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/site/pages/basket/basket.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/site/basketController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/site/basket/miniBasketController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/twig_extension.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/twig_extension.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/site.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/site.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/site/layouts/ajaxMiniCart.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/views/site/layouts/ajaxMiniCart.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/site/layouts/header_menu.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/views/site/layouts/header_menu.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/site/layouts/tovar.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/views/site/layouts/tovar.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/site/basket/basketController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/site/basket/basketController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/basket/mini-cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/basket/mini-cart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/site/pages/basket/basket.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/views/site/pages/basket/basket.html.twig" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/httpRequests/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -39,24 +33,33 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="basketController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="basketController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/site/basket/basketController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" column="7" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
+            <state relative-caret-position="315">
+              <caret line="21" column="10" selection-start-line="21" selection-start-column="10" selection-end-line="21" selection-end-column="10" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="basket.html.twig" pinned="false" current-in-tab="true">
+      <file leaf-file-name="basket.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/site/pages/basket/basket.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="615">
-              <caret line="53" column="33" lean-forward="true" selection-start-line="53" selection-start-column="33" selection-end-line="53" selection-end-column="33" />
+            <state relative-caret-position="664">
+              <caret line="58" column="36" lean-forward="true" selection-start-line="58" selection-start-column="36" selection-end-line="58" selection-end-column="36" />
               <folding>
                 <element signature="e#3369#9628#0#HTML" />
                 <element signature="e#9717#23960#0#HTML" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mini-cart.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/js/basket/mini-cart.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="809">
+              <caret line="95" lean-forward="true" selection-start-line="95" selection-end-line="95" />
             </state>
           </provider>
         </entry>
@@ -74,7 +77,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>::getTovars</find>
       <find>::getTovar</find>
       <find>href</find>
       <find>/tovar{{ tovar.lid }}</find>
@@ -104,6 +106,7 @@
       <find>My Cart</find>
       <find>Color: White</find>
       <find>getTovarBasket</find>
+      <find>custom-quantity-input</find>
     </findStrings>
     <replaceStrings>
       <replace>src=&quot;{{ assets(&quot;i</replace>
@@ -172,7 +175,6 @@
         <option value="$PROJECT_DIR$/views/site/layouts/head.html.twig" />
         <option value="$PROJECT_DIR$/views/site/pages/singleTovar/parts/socShare.html.twig" />
         <option value="$PROJECT_DIR$/views/site/pages/singleTovar/single.html.twig" />
-        <option value="$PROJECT_DIR$/public/js/basket/mini-cart.js" />
         <option value="$PROJECT_DIR$/views/site/pages/singleTovar/parts/sliderBottom.html.twig" />
         <option value="$PROJECT_DIR$/views/site/pages/singleTovar/parts/sliderRight.html.twig" />
         <option value="$PROJECT_DIR$/views/site/pages/cat/part/slider-featured.html.twig" />
@@ -194,8 +196,9 @@
         <option value="$PROJECT_DIR$/markup/cart.html" />
         <option value="$PROJECT_DIR$/views/site/layouts/tovar.html.twig" />
         <option value="$PROJECT_DIR$/app/controllers/site/basket/miniBasketController.php" />
-        <option value="$PROJECT_DIR$/app/controllers/site/basket/basketController.php" />
         <option value="$PROJECT_DIR$/views/site/pages/basket/basket.html.twig" />
+        <option value="$PROJECT_DIR$/public/js/basket/mini-cart.js" />
+        <option value="$PROJECT_DIR$/app/controllers/site/basket/basketController.php" />
       </list>
     </option>
   </component>
@@ -295,33 +298,7 @@
             <path>
               <item name="Root" type="cbb8eebc:String" user="Root" />
               <item name="framework" type="cbb8eebc:String" user="framework" />
-              <item name="app" type="cbb8eebc:String" user="app" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="framework" type="cbb8eebc:String" user="framework" />
-              <item name="app" type="cbb8eebc:String" user="app" />
-              <item name="controllers" type="cbb8eebc:String" user="controllers" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="framework" type="cbb8eebc:String" user="framework" />
-              <item name="app" type="cbb8eebc:String" user="app" />
-              <item name="controllers" type="cbb8eebc:String" user="controllers" />
-              <item name="site" type="cbb8eebc:String" user="site" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="framework" type="cbb8eebc:String" user="framework" />
-              <item name="app" type="cbb8eebc:String" user="app" />
-              <item name="controllers" type="cbb8eebc:String" user="controllers" />
-              <item name="site" type="cbb8eebc:String" user="site" />
-              <item name="basket" type="cbb8eebc:String" user="basket" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="framework" type="cbb8eebc:String" user="framework" />
-              <item name="config" type="cbb8eebc:String" user="config" />
+              <item name="public" type="cbb8eebc:String" user="public" />
             </path>
             <path>
               <item name="Root" type="cbb8eebc:String" user="Root" />
@@ -662,12 +639,12 @@
       <workItem from="1539803010881" duration="4185000" />
       <workItem from="1540149536967" duration="1472000" />
       <workItem from="1540188342428" duration="610000" />
-      <workItem from="1540233310477" duration="2368000" />
+      <workItem from="1540233310477" duration="3652000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="470157000" />
+    <option name="totallyTimeSpent" value="471441000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-1" width="1920" height="1046" extended-state="6" />
@@ -739,16 +716,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/images/404-comment.png">
       <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/project/settings_slider.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/basket/mini-cart.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="83" column="59" selection-start-line="83" selection-start-column="59" selection-end-line="83" selection-end-column="59" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/site/pages/singleTovar/parts/socShare.html.twig">
       <provider selected="true" editor-type-id="text-editor">
@@ -976,21 +943,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/site/basket/basketController.php">
+    <entry file="file://$PROJECT_DIR$/public/js/project/settings_slider.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/basket/mini-cart.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="7" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
+        <state relative-caret-position="809">
+          <caret line="95" lean-forward="true" selection-start-line="95" selection-end-line="95" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/site/pages/basket/basket.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="53" column="33" lean-forward="true" selection-start-line="53" selection-start-column="33" selection-end-line="53" selection-end-column="33" />
+        <state relative-caret-position="664">
+          <caret line="58" column="36" lean-forward="true" selection-start-line="58" selection-start-column="36" selection-end-line="58" selection-end-column="36" />
           <folding>
             <element signature="e#3369#9628#0#HTML" />
             <element signature="e#9717#23960#0#HTML" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/site/basket/basketController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="10" selection-start-line="21" selection-start-column="10" selection-end-line="21" selection-end-column="10" />
         </state>
       </provider>
     </entry>
