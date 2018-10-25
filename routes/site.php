@@ -16,6 +16,7 @@ Route::group(['path' => 'site','as' => 'site'],function (){
         Route::get('/mini','miniBasketController@showMiniCart');
 
         Route::get('','basketController@show')->name('index');
+        Route::post('','proceedOrderController@toOrder')->name('checkout');
     });
 
     Route::group(['as' => 'cat','url' => 'cat','path' => 'catalog'],function (){
