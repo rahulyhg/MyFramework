@@ -2,10 +2,10 @@
 
 namespace app\controllers\site\basket;
 
-use app\models\currency;
 use app\models\orders;
 use Components\Controller;
 use Components\extension\arr\Request;
+use Components\extension\mail\mail;
 
 class proceedOrderController extends Controller
 {
@@ -46,7 +46,7 @@ class proceedOrderController extends Controller
 
         $this->setUser();
 
-        unset($this->request['crsf']);
+        $this->deleteServiseKey();
 
         return orders::insert($this->request);
     }
@@ -75,12 +75,12 @@ class proceedOrderController extends Controller
 
     private function setLang(): void
     {
-        $this->request['lang'] = lang();
+        $this->request['lang'] = lang_domen();
     }
 
     private function setCurrency(): void
     {
-        $this->request['currency'] = session('currency');
+        $this->request['currency'] = currency();
     }
 
     private function setUser(): void
@@ -88,10 +88,15 @@ class proceedOrderController extends Controller
         $this->request['user'] = null;
     }
 
+    private function deleteServiseKey(): void
+    {
+        unset($this->request['crsf']);
+    }
 
     protected function sendMailClient(int $id)
     {
-
+        $mail = new mail();
+        $mail->sendMail();
     }
 
     protected function sendMailAdmin(int $id)

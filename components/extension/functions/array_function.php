@@ -14,6 +14,14 @@ if (!function_exists('dump')) {
     }
 }
 
+if(!function_exists('currency')){
+
+    function currency()
+    {
+        return $_SESSION['currency'];
+    }
+}
+
 
 if (!function_exists('lang')) {
 
