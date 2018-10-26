@@ -75,5 +75,10 @@ class miniBasketController extends Controller
         return $this->tovars;
     }
 
+    public function getTotal(): float
+    {
+        return $this->total;
+    }
+
 
 }

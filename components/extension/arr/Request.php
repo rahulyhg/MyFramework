@@ -22,4 +22,6 @@ class Request extends super_array
         return self::$name_array[$name] ?? null;
     }
 
+
+
 }

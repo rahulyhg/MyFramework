@@ -4,69 +4,58 @@
 
         <div class="tab-container left clearfix">
             <ul class="nav-tabs">
-                <li class="active"><a href="#shipping" data-toggle="tab">Доставка</a></li>
-                <li><a href="#discount" data-toggle="tab">Оплата</a></li>
+                <li class="active"><a href="#discount" data-toggle="tab">Дані</a></li>
+                <li><a href="#shipping" data-toggle="tab">Доставка</a></li>
                 <li><a href="#gift" data-toggle="tab">Побажання</a></li>
 
             </ul>
             <div class="tab-content clearfix">
-                <div class="tab-pane active" id="shipping">
+                <div class="tab-pane active" id="discount">
+                    <p>Enter your discount coupon code here.</p>
+                    <form action="#">
+                        <label for="checkout_name" class="control-label">Імя&#42;</label>
+                        <div class="input-group">
+                            <input id="checkout_name" placeholder="Крушевська Оксана" type="text" name="name">
+                        </div><!-- End .input-group -->
+                        <label for="checkout_email" class="control-label">Email&#42;</label>
+                        <div class="input-group">
+                            <input id="checkout_email" required placeholder="xena-5@ukr.net" type="email" name="email">
+                        </div><!-- End .input-group -->
+                        <label for="checkout_tel" class="control-label">Телефон&#42;</label>
+                        <div class="input-group">
+                            <input id="checkout_tel" required type="text" name="tel" placeholder="063-147-92-64">
+                        </div><!-- End .input-group -->
+                    </form>
+                </div><!-- End .tab-pane -->
 
-                    <form action="#" id="shipping-form">
+
+                <div class="tab-pane " id="shipping">
+
+                    <div id="shipping-form">
                         <p class="shipping-desc">Enter your destination to get a shipping estimate.</p>
                         <div class="form-group">
-                            <label for="select-country" class="control-label">Country&#42;</label>
+                            <label for="select-country" class="control-label">Місто&#42;</label>
                             <div class="input-container normal-selectbox">
-                                <select id="select-country" name="select-country" class="selectbox">
-                                    <option  value="Japan">Japan</option>
-                                    <option  value="Brazil">Brazil</option>
-                                    <option  value="France">France</option>
-                                    <option  value="Italy">Italy</option>
-                                    <option  value="Spain">Spain</option>
-                                </select>
+                                <input name="town" required>
                             </div><!-- End .select-container -->
                         </div><!-- End .form-group -->
                         <div class="xss-margin"></div>
                         <div class="form-group">
-                            <label for="select-state" class="control-label">Regison/State&#42;</label>
+                            <label for="select-state" class="control-label">Склад&#42;</label>
                             <div class="input-container normal-selectbox">
-                                <select id="select-state" name="select-state" class="selectbox">
-                                    <option  value="California">California</option>
-                                    <option  value="Texas">Texas</option>
-                                    <option  value="NewYork">NewYork</option>
-                                    <option  value="Narnia">Narnia</option>
-                                    <option  value="Jumanji">Jumanji</option>
-                                </select>
-                            </div><!-- End .select-container -->
-                        </div><!-- End .form-group -->
-                        <div class="xss-margin"></div>
-                        <div class="form-group">
-                            <label for="select-country" class="control-label"  >Post Code&#42;</label>
-                            <div class="input-container">
-                                <input type="text" required class="form-control" placeholder="Your fax">
+                                <input type="text" required name="number_storage">
                             </div>
                         </div><!-- End .form-group -->
                         <div class="xss-margin"></div>
-                        <p class="text-right">
-                            <input type="submit" class="btn btn-custom-2" value="GET QUOTES">
-                        </p>
-                    </form>
+                        {#<p class="text-right">#}
+                        {#<input type="submit" class="btn btn-custom-2" value="GET QUOTES">#}
+                        {#</p>#}
+                    </div>
 
-                </div><!-- End .tab-pane -->
-
-                <div class="tab-pane" id="discount">
-                    <p>Enter your discount coupon code here.</p>
-                    <form action="#">
-                        <div class="input-group">
-                            <input type="text" required class="form-control" placeholder="Coupon code">
-
-                        </div><!-- End .input-group -->
-                        <input type="submit" class="btn btn-custom-2" value="APPLY COUPON">
-                    </form>
-                </div><!-- End .tab-pane -->
+                </div>
 
                 <div class="tab-pane" id="gift">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi dignissimos nostrum debitis optio molestiae in quam dicta labore obcaecati ullam necessitatibus animi deleniti minima dolor suscipit nobis est excepturi inventore.</p>
+                    <textarea placeholder="Треба срочно, до першого вересня" name="message"></textarea>
                 </div><!-- End .tab-pane -->
 
             </div><!-- End .tab-content -->
@@ -97,6 +86,7 @@
         <div class="md-margin"></div><!-- End .space -->
         <a href="{{ route('site.cat.index') }}" class="btn btn-custom-2">CONTINUE SHOPPING</a>
         {{ crsf()|raw }}
+        <input type="hidden" name="shipping" value="40">
         <button type="submit" class="btn btn-custom-2">Заказати</button>
     </div><!-- End .col-md-4 -->
 </div><!-- End .row -->
