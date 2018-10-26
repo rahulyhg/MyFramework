@@ -16,11 +16,11 @@ class proceedOrderController extends Controller
     {
         $this->setRequest($request);
 
-        $this->saveOrder();
+        $id = $this->saveOrder();
 
-        $this->sendMailClient();
+        $this->sendMailClient($id);
 
-        $this->sendMailAdmin();
+        $this->sendMailAdmin($id);
 
         $this->clearCart();
     }
@@ -30,7 +30,7 @@ class proceedOrderController extends Controller
         $this->request = $request->all();
     }
 
-    protected function saveOrder(): void
+    protected function saveOrder(): int
     {
         $basket = new miniBasketController();
 
@@ -48,8 +48,7 @@ class proceedOrderController extends Controller
 
         unset($this->request['crsf']);
 
-        orders::insert($this->request);
-
+        return orders::insert($this->request);
     }
 
     private function setProducts(miniBasketController $basket): void
@@ -81,7 +80,7 @@ class proceedOrderController extends Controller
 
     private function setCurrency(): void
     {
-        $this->request['currency'] = session('currency.symbol');
+        $this->request['currency'] = session('currency');
     }
 
     private function setUser(): void
@@ -90,12 +89,12 @@ class proceedOrderController extends Controller
     }
 
 
-    protected function sendMailClient()
+    protected function sendMailClient(int $id)
     {
 
     }
 
-    protected function sendMailAdmin()
+    protected function sendMailAdmin(int $id)
     {
 
     }

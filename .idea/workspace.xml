@@ -65,7 +65,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>zoom-image</find>
       <find>data</find>
       <find>js</find>
       <find>assets</find>
@@ -95,6 +94,7 @@
       <find>slide</find>
       <find>totalMiniCart</find>
       <find>crsf</find>
+      <find>currency</find>
     </findStrings>
     <replaceStrings>
       <replace>src=&quot;{{ assets(&quot;i</replace>
@@ -122,9 +122,9 @@
       <dir>$PROJECT_DIR$/app/controllers/site</dir>
       <dir>$PROJECT_DIR$/views</dir>
       <dir>$PROJECT_DIR$/app</dir>
-      <dir>$PROJECT_DIR$</dir>
       <dir>$PROJECT_DIR$/views/site/layouts</dir>
       <dir>$PROJECT_DIR$/views/site</dir>
+      <dir>$PROJECT_DIR$</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">

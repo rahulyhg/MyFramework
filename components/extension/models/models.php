@@ -349,7 +349,7 @@ class models
 
 
 
-    public static function insert(array $arr): string
+    public static function insert(array $arr): int
     {
         self::$request = $arr;
         self::$sql = self::into();
