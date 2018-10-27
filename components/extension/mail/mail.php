@@ -1,63 +1,90 @@
 <?php
 
-namespace  Components\extension\mail;
+namespace Components\extension\mail;
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 class mail
 {
+    /**
+     * @var PHPMailer
+     */
+    public $mail;
 
-    private $mail;
+    private $config;
 
     function __construct()
     {
-        $this->mail = new PHPMailer(true);
+        $this->setConfig();
+
+        $this->setMail();
 
         $this->allSettings();
     }
 
-    private function allSettings(): void
+
+    private function setMail(): void
     {
-        $this->mail->SMTPDebug = 2;                                 // Enable verbose debug output
-        $this->mail->isSMTP();                                      // Set mailer to use SMTP
-        $this->mail->Host = 'smtp.gmail.com';                       // Specify main and backup SMTP servers
-        $this->mail->SMTPAuth = true;                               // Enable SMTP authentication
-        $this->mail->Username = 'egorkrushevskuy@gmail.com';        // SMTP username
-        $this->mail->Password = 'samsung13130900';                  // SMTP password
-        $this->mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
-        $this->mail->Port = 587;                                    // TCP port to connect to
+        $this->mail = new PHPMailer(true);
     }
 
-    public function sendMail()
+    private function setConfig(): void
     {
-        try {
-            //Server settings
+        $this->config = config('mailer');
+    }
 
+    private function allSettings(): void
+    {
+        $this->mail->CharSet = 'utf-8';
+        $this->mail->SMTPDebug = 0; //2
+        $this->mail->isSMTP();
+        $this->mail->Host = $this->config['host'];
+        $this->mail->SMTPAuth = true;
+        $this->mail->Username = $this->config['user'];
+        $this->mail->Password = $this->config['password'];
+        $this->mail->SMTPSecure = $this->config['SMTPSecure'];
+        $this->mail->Port = $this->config['port'];
+    }
 
-            //Recipients
-            $this->mail->setFrom('egorkrushevskuy@gmail.com', 'Mailer');
-            $this->mail->addAddress('rain139@ukr.net', 'Joe User');     // Add a recipient
-            $this->mail->addAddress('rain139@ukr.net');               // Name is optional
-            $this->mail->addReplyTo('info@example.com', 'Information');
-            $this->mail->addCC('rain139@ukr.net');
-            $this->mail->addBCC('rain139@ukr.net');
+    /**
+     * @return mail
+     * @throws Exception
+     * @var string $email
+     * @var string $name
+     */
 
-//            //Attachments
-//            $this->mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
-//            $this->mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
+    public function sendMail(string $email = '',string $name = ''): mail
+    {
+        $this->mail->setFrom($this->config['adminEmail'], $this->config['nameCompany']);
+        $this->mail->addAddress($email, $name);
+        $this->mail->isHTML(true);
+        return $this;
+    }
 
-            //Content
-            $this->mail->isHTML(true);                                  // Set email format to HTML
-            $this->mail->Subject = 'Here is the subject';
-            $this->mail->Body    = 'This is the HTML message body <b>in bold!</b>';
-            $this->mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+    public function subject(string $subject): mail
+    {
+        $this->mail->Subject = $subject;
+        return $this;
+    }
 
-            $this->mail->send();
-            echo 'Message has been sent';
-        } catch (Exception $e) {
-            echo 'Message could not be sent. Mailer Error: ', $this->mail->ErrorInfo;
-        }
+    public function body(string $body): mail
+    {
+        $this->mail->Body = $body;
+        return $this;
+    }
+
+    /**
+     * @throws Exception
+     */
+    public function send(): string
+    {
+        return $this->mail->send();
+    }
+
+    public function getSettings($key = '')
+    {
+        return $key && isset($this->config[$key]) ? $this->config[$key] : $this->config;
     }
 }
 

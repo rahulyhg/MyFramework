@@ -5,6 +5,8 @@ namespace app\controllers\site\basket;
 use app\models\orders;
 use Components\Controller;
 use Components\extension\arr\Request;
+use Components\extension\http\location;
+use Components\extension\infoPages\error_page;
 use Components\extension\mail\mail;
 
 class proceedOrderController extends Controller
@@ -23,6 +25,8 @@ class proceedOrderController extends Controller
         $this->sendMailAdmin($id);
 
         $this->clearCart();
+
+        location::href(self::route('site.page.success'));
     }
 
     protected function setRequest(Request $request): void
@@ -95,18 +99,37 @@ class proceedOrderController extends Controller
 
     protected function sendMailClient(int $id)
     {
-        $mail = new mail();
-        $mail->sendMail();
+        try{
+            $mail = new mail();
+            $mail->sendMail($this->request['email'],$this->request['checkout_name'] ?? '')
+                ->subject('аіаа')
+                ->body('цуацу')->
+                send();
+        }Catch(\Exception $e){
+            error_page::showPageError('Mail not send!');
+        }
     }
 
     protected function sendMailAdmin(int $id)
     {
-
+        try{
+            $mail = new mail();
+            $mail->sendMail($mail->getSettings('adminEmail'))
+                ->subject('аіаа')
+                ->body('цуацу')->
+                send();
+        }Catch(\Exception $e){
+            error_page::showPageError('Mail not send!');
+        }
     }
 
     protected function clearCart()
     {
-
+        foreach ($_COOKIE as $key => $value) {
+            if (strrchr('cart_', $key)) {
+                setcookie($key, null, -1, '/');
+            }
+        }
     }
 
 }

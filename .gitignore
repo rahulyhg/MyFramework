@@ -5,3 +5,5 @@ log/*.txt
 markup
 public/images
 config/db_params.php
+config/mailer.php
+config/db_params.php
