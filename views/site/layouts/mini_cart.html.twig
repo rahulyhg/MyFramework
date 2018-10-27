@@ -1,7 +1,7 @@
 <div id="quick-access">
     <div class="dropdown-cart-menu-container pull-right">
         <div class="btn-group dropdown-cart">
-            <button type="button" class="btn btn-custom dropdown-toggle" id="button_miniCart" data-toggle="dropdown">
+            <button type="button" class="btn btn-custom dropdown-toggle" id="button_miniCart" data-toggle="dropdown" data-href="{{ route('site.basket.index') }}">
                 <span class="cart-menu-icon"></span>
                <span id="countMiniCart"> {{ cart.count() }}</span> item(s) <span class="drop-price"> - {{ currency }}<span id="totalMiniCart">{{ cart.total }}</span></span>
             </button>

@@ -20,10 +20,10 @@ class singleTovarController extends Controller
     {
         $tovar = tovars::getTovar($get->last())[0];
         echo self::$twig->render('site/pages/singleTovar/single.html.twig', [
-            'tovar' => $tovar,
-            'gallery' => gallery::getPhoto($get->last()),
-            'analogTovar' => tovars::getRandomTovarsInCategory($tovar['category']),
-            'randomsTovar' => tovars::randomTovars(),
+            'tovar'         => $tovar,
+            'gallery'       => gallery::getPhoto($get->last()),
+            'analogTovar'   => tovars::getRandomTovarsInCategory($tovar['category']),
+            'randomsTovar'  => tovars::randomTovars(),
         ]);
     }
 }

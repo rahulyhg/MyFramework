@@ -97,6 +97,8 @@ class proceedOrderController extends Controller
         unset($this->request['crsf']);
     }
 
+
+    // ЗРОБИТИ ВІДПРАВКУ НА ФОНІ
     protected function sendMailClient(int $id)
     {
         try{

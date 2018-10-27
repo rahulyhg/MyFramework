@@ -36,6 +36,11 @@ $('#button_miniCart').mouseenter(function () {
     showMiniCart();
 });
 
+$('#button_miniCart').click(function () {
+    if(Number($('#countMiniCart ').text()) > 0){
+        location.href = $(this).attr('data-href');
+    }
+});
 
 $(document).on('click', '.deleteWithBasket', function () {
 
