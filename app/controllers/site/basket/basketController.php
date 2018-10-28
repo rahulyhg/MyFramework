@@ -26,6 +26,3 @@ class basketController extends Controller
     }
 }
 
-//Зробити  js quality
-// калькуляцію
-// видаллення товару

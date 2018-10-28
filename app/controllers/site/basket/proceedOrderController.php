@@ -6,8 +6,7 @@ use app\models\orders;
 use Components\Controller;
 use Components\extension\arr\Request;
 use Components\extension\http\location;
-use Components\extension\infoPages\error_page;
-use Components\extension\mail\mail;
+
 
 class proceedOrderController extends Controller
 {
@@ -20,9 +19,7 @@ class proceedOrderController extends Controller
 
         $id = $this->saveOrder();
 
-        $this->sendMailClient($id);
-
-        $this->sendMailAdmin($id);
+        $this->sendMail();
 
         $this->clearCart();
 
@@ -97,32 +94,9 @@ class proceedOrderController extends Controller
         unset($this->request['crsf']);
     }
 
-
-    // ЗРОБИТИ ВІДПРАВКУ НА ФОНІ
-    protected function sendMailClient(int $id)
+    private function sendMail()
     {
-        try{
-            $mail = new mail();
-            $mail->sendMail($this->request['email'],$this->request['checkout_name'] ?? '')
-                ->subject('аіаа')
-                ->body('цуацу')->
-                send();
-        }Catch(\Exception $e){
-            error_page::showPageError('Mail not send!');
-        }
-    }
-
-    protected function sendMailAdmin(int $id)
-    {
-        try{
-            $mail = new mail();
-            $mail->sendMail($mail->getSettings('adminEmail'))
-                ->subject('аіаа')
-                ->body('цуацу')->
-                send();
-        }Catch(\Exception $e){
-            error_page::showPageError('Mail not send!');
-        }
+        shell_exec("/usr/local/bin/wget http://myframework/uk/basket/sendMail?json=".urlencode(json_encode($this->request)));
     }
 
     protected function clearCart()

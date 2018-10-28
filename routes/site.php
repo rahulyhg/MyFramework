@@ -17,6 +17,8 @@ Route::group(['path' => 'site','as' => 'site'],function () {
 
         Route::get('', 'basketController@show')->name('index');
         Route::post('', 'proceedOrderController@toOrder')->name('checkout');
+
+        Route::get('/sendMail','sendMailController@run');
     });
 
     Route::group(['as' => 'cat', 'url' => 'cat', 'path' => 'catalog'], function () {

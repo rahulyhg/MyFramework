@@ -91,6 +91,12 @@ $('.quantity-input-down').click(function () {
 
 function changeNumber(num, elem) {
     number = elem.parents('.custom-quantity-input').find('input[name=quantity]');
+
+    if(number.attr('data-cookie')){
+        count = Number($.cookie('cart_' + number.attr('data-id')));
+        $.cookie('cart_' + number.attr('data-id'),count+num,{path: '/', expires: 7});
+    }
+    
     if ((number.val() >= 1 && num > 0) || number.val() > 1) {
         number.val(Number(number.val()) + Number(num));
         $('.addToCart').attr('data-count', number.val());

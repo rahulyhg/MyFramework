@@ -47,7 +47,7 @@
                             <td class="item-price-col"><span class="item-price-special">{{ currency }}<span class="price">{{ tovar.price }}</span> </span></td>
                             <td>
                                 <div class="custom-quantity-input">
-                                    <input type="text" name="quantity"  value="{{ tovar.count }}">
+                                    <input type="text" name="quantity"  value="{{ tovar.count }}" data-cookie="true" data-id="{{ tovar.lid }}">
                                     <span  class="quantity-btn quantity-input-up"><i class="fa fa-angle-up"></i></span>
                                     <span class="quantity-btn quantity-input-down"><i class="fa fa-angle-down"></i></span>
                                 </div>
