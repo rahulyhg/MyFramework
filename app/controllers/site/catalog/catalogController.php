@@ -6,6 +6,7 @@ namespace app\controllers\site\catalog;
 use app\controllers\site\catalog\service\featuredTovar;
 use app\models\category;
 use app\models\gallery;
+use app\models\starRating;
 use app\models\tovars;
 use Components\Controller;
 use Components\extension\arr\Get;
@@ -29,6 +30,9 @@ class catalogController extends Controller
 
     public function show()
     {
+
+dd(tovars::kek());
+
         $categ = self::getIdCategory();
         $randomActionTovar =  tovars::randomActionTovar();
 

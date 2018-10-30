@@ -37,7 +37,7 @@ class tovars extends models
         return self::currency()->where('lid', $id)->andWhere('id_lang', lang())->get();
     }
 
-    
+
     public static function tovarsWithFilterPrice(string $data, string $column, array $filterPrice, $cat)
     {
 
@@ -62,23 +62,22 @@ class tovars extends models
     }
 
 
-
     public static function getAllTovars(string $data, string $column, $cat = [])
     {
         $count = self::countTovars($cat);
         return self::currency()->where(['id_lang' => lang()])
             ->in('category', ' and ', $cat)
-            ->order($data, $column)->pagination(self::countPage(),$count)->get();
+            ->order($data, $column)->pagination(self::countPage(), $count)->get();
     }
 
     public static function getRandomTovarsInCategory(int $id): array
     {
-        return self::currency()->where(['category' => $id,'id_lang' => lang()])->random()->limit(9)->get();
+        return self::currency()->where(['category' => $id, 'id_lang' => lang()])->random()->limit(9)->get();
     }
 
     public static function randomTovars(int $limit = 15): array
     {
-        return self::currency()->where('id_lang',lang())->random()->limit($limit)->get();
+        return self::currency()->where('id_lang', lang())->random()->limit($limit)->get();
     }
 
     private static function countTovars($cat)
@@ -87,7 +86,6 @@ class tovars extends models
             ->in('category', ' and ', $cat)
             ->count()->get()[0]['count'];
     }
-
 
 
     private static function countPage()
@@ -107,9 +105,8 @@ class tovars extends models
 
     public static function randomActionTovar(): array
     {
-        return self::currency()->where('id_lang',lang())->andWhere('old_price','1','>')->random()->limit(1)->get();
+        return self::currency()->where('id_lang', lang())->andWhere('old_price', '1', '>')->random()->limit(1)->get();
     }
-
 
 
 }

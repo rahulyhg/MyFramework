@@ -123,3 +123,4 @@ function calc() {
 function totalAllBasket() {
     $('#total_all').text(Number($('#total_basket').text())+Number($('#shipping_total').text()));
 }
+

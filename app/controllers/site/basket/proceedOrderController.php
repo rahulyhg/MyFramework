@@ -93,7 +93,7 @@ class proceedOrderController extends Controller
     {
         unset($this->request['crsf']);
     }
-
+//checked in servers
     private function sendMail()
     {
         shell_exec("/usr/local/bin/wget http://myframework/uk/basket/sendMail?json=".urlencode(json_encode($this->request)));

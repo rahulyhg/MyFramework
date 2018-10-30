@@ -15,7 +15,6 @@ use Components\extension\infoPages\error_page;
  * @package Components\db
  * @method static models method($arument)
  */
-
 class models
 {
 
@@ -43,13 +42,10 @@ class models
     public static $column_id = 'id';
 
 
-
     private static $request;
 
 
-
     private static $connect;
-
 
 
     private static $joinTable;
@@ -97,10 +93,10 @@ class models
     }
 
 
-
     public function avg(string $column): models
     {
-        self::$sql = str_replace('SELECT', "SELECT AVG(`{$column}`), ", self::$sql);
+        $symbol = strrchr(self::$sql,'*') ? '*' : '';
+        self::$sql = str_replace("SELECT $symbol", "SELECT AVG(`{$column}`) `avg` ", self::$sql);
         return $this;
     }
 
@@ -210,7 +206,6 @@ class models
     }
 
 
-
     public static function save(): void
     {
         try {
@@ -223,7 +218,6 @@ class models
     }
 
 
-
     public static function all(): array
     {
         self::$sql = "SELECT * FROM " . self::nameClass();
@@ -232,13 +226,11 @@ class models
     }
 
 
-
     private function first(): array
     {
         $arr = $this->select()->limit(1)->get();
         return $arr[0];
     }
-
 
 
     private function select($select = '*'): models
@@ -252,7 +244,6 @@ class models
     }
 
 
-
     public function selectSub($select = '*'): models
     {
         if ($select !== '*') {
@@ -263,7 +254,6 @@ class models
     }
 
 
-
     public function endSub(string $as): models
     {
         self::$sql .= " ) `{$as}` ";
@@ -271,13 +261,11 @@ class models
     }
 
 
-
     public function from(string $table): models
     {
         self::$sql .= " FROM `{$table}` ";
         return $this;
     }
-
 
 
     public function as(string $column, string $as): models
@@ -318,21 +306,19 @@ class models
     }
 
 
-
-    public function andWhere($column, $where = '', $sign = '=',$ecran = true): models
+    public function andWhere($column, $where = '', $sign = '=', $ecran = true): models
     {
-        if($ecran){
-            $where = "'".$where."'";
+        if ($ecran) {
+            $where = "'" . $where . "'";
         }
-            self::$sql .= is_string($column) ? " AND `{$column}` {$sign} {$where}" : self::isArrayAndWhere($column, 'AND');
+        self::$sql .= is_string($column) ? " AND `{$column}` {$sign} {$where}" : self::isArrayAndWhere($column, 'AND');
         return $this;
     }
 
 
-
     public function in($column, $sql = ' where', $arr): models
     {
-        if($arr){
+        if ($arr) {
             $search = "'" . implode("','", $arr) . "'";
             self::$sql .= " {$sql} `{$column}` IN({$search}) ";
         }
@@ -340,13 +326,11 @@ class models
     }
 
 
-
     public function find(string $where): models
     {
         self::where(self::$column_id, $where);
         return $this;
     }
-
 
 
     public static function insert(array $arr): int
@@ -360,7 +344,6 @@ class models
     }
 
 
-
     private function update(array $arr): models
     {
         self::$request = $arr;
@@ -370,13 +353,11 @@ class models
     }
 
 
-
     public static function delete(): models
     {
         self::$sql = "DELETE FROM " . self::nameClass();
         return new self();
     }
-
 
 
     public static function drop(string $name): void
@@ -397,8 +378,8 @@ class models
             self::$name_table = arr_end(explode('\\', self::$name_table));
         }
 
-        if(empty(self::$name_table)){
-            self::$name_table =     arr_end(explode('\\', get_called_class()));
+        if (empty(self::$name_table)) {
+            self::$name_table = arr_end(explode('\\', get_called_class()));
         }
 
         return "`" . self::$name_table . "`";
@@ -410,7 +391,7 @@ class models
 
     public static function db(): \PDO
     {
-        return empty(self::$connect) ?  self::$connect = database::getConnection() : self::$connect;
+        return empty(self::$connect) ? self::$connect = database::getConnection() : self::$connect;
     }
 
 
@@ -418,10 +399,10 @@ class models
     {
         $object = new self();
 
-        if(method_exists(__CLASS__,$name)){
+        if (method_exists(__CLASS__, $name)) {
             self::$name_table = get_called_class();
             call_user_func_array([$object, $name], $arguments);
-        }else{
+        } else {
             self::$name_table = $name;
         }
 
@@ -430,10 +411,21 @@ class models
 
     public function __call($name, $arguments): models
     {
-        if(method_exists(__CLASS__,$name)){
+        if (method_exists(__CLASS__, $name)) {
             call_user_func_array([$this, $name], $arguments);
         }
         return $this;
+    }
+
+    public static function pdo_query(string $sql,array $arr = []): array
+    {
+        try{
+            $res = self::db()->prepare($sql);
+            $res->execute($arr);
+            return $res->fetchAll();
+        }Catch(\PDOException $x){
+            echo $sql ."<br>" . $x->getMessage();
+        }
     }
 
 }

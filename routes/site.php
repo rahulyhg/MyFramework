@@ -3,7 +3,7 @@
 
 use Components\core\routes\Route;
 
-Route::group(['path' => 'site','as' => 'site'],function () {
+Route::group(['path' => 'site', 'as' => 'site'], function () {
 
     Route::get('/', 'indexController@showMainPage')->name('index');
 
@@ -18,7 +18,7 @@ Route::group(['path' => 'site','as' => 'site'],function () {
         Route::get('', 'basketController@show')->name('index');
         Route::post('', 'proceedOrderController@toOrder')->name('checkout');
 
-        Route::get('/sendMail','sendMailController@run');
+        Route::get('/sendMail', 'sendMailController@run');
     });
 
     Route::group(['as' => 'cat', 'url' => 'cat', 'path' => 'catalog'], function () {
@@ -43,7 +43,11 @@ Route::group(['path' => 'site','as' => 'site'],function () {
     });
 
     Route::group(['as' => 'page', 'path' => 'pages'], function () {
-        Route::get('success','pageSuccessController@show')->name('success');
+        Route::get('success', 'pageSuccessController@show')->name('success');
+    });
+
+    Route::group(['url' => 'rating', 'as' => 'rating'], function () {
+        Route::get('/change', 'starRatingController@change')->name('change');
     });
 });
 

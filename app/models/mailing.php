@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Components\extension\models\models;
+use Components\extension\validate\validate;
 
 /**
  * Class mailing
