@@ -1,5 +1,5 @@
 $(".ratings").mousemove(function (e) {
-    if($('.ratings-result').attr('data-move') != 'false'){
+    if($(this).attr('data-move') != 'false'){
         var offset = $(this).offset();
         var relativeX = (e.pageX - offset.left);
         changePoint($(this),relativeX);
@@ -41,3 +41,7 @@ function changePoint(object,relativeX) {
     object.children('.ratings-result').attr('data-result',relativeX).css('width',relativeX);
     object.parents('.ratings-container').find('.ratings-amount b').text(calcSize(object,relativeX));
 }
+
+$('.ratings').mouseleave(function () {
+    changePoint($(this),Number(102/5*$(this).attr('data-avg')));
+});

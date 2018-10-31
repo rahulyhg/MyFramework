@@ -101,6 +101,7 @@ class tovars extends models
         if (session('currency') == '₴') {
             return self::select(['tovars' => ['*']])->avg('rating')->leftJoin('starRating')->On('lid','lid');
         } else {
+            //ADD left-join
             return self::select(['id', 'lid', 'name', 'created', 'id_lang', 'img', 'old_price_doll', 'price_doll', 'action'])
                 ->as('old_price_doll', 'old_price')->as('price_doll', 'price');
         }
