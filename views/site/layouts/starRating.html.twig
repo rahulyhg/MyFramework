@@ -1,6 +1,6 @@
 <div class="ratings-container">
     <div class="ratings" data-id="{{ id }}" data-move="true" data-href="{{ route('site.rating.change') }}">
-        <div class="ratings-result" data-result="100"></div>
+        <div class="ratings-result" data-result="{% if star > 0 %}{{ 102/5*star }}{% else %}0{% endif %}" style="width: {{ 102/5*star }}px"></div>
     </div><!-- End .ratings -->
     <span class="ratings-amount"><b style="color: black">{{ star }}</b> Reviews</span>
 </div><!-- End .rating-container -->

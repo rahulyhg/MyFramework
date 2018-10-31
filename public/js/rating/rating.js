@@ -1,5 +1,5 @@
 $(".ratings").mousemove(function (e) {
-    if($(this).attr('data-move') != 'false'){
+    if($('.ratings-result').attr('data-move') != 'false'){
         var offset = $(this).offset();
         var relativeX = (e.pageX - offset.left);
         changePoint($(this),relativeX);
