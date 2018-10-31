@@ -16,25 +16,26 @@ class tovars extends models
     protected const COUNT_PAGE = 15;
 
 
-    public static function getAllTovarsWithMailSettings(array $id)
+    public static function getAllTovarsWithMailSettings(array $id): array
     {
-        return self::currency()->where('id_lang', lang())->in('lid', 'and', $id)->get();
+        return self::currency()->where(['tovars'=>['id_lang' => lang()]])
+            ->in('lid', 'and', $id,'tovars')->group('lid')->get();
     }
 
 
     public static function getLastTenTovars()
     {
-        return self::currency()->where('id_lang', lang())->order()->limit(6)->get();
+        return self::currency()->where(['tovars'=>['id_lang' => lang()]])->group('lid')->order()->limit(6)->get();
     }
 
     public static function getTovars(array $id)
     {
-        return self::currency()->in('lid', 'WHERE', $id)->andWhere('id_lang', lang())->get();
+        return self::currency()->in('lid', 'WHERE', $id,'tovars')->andWhere(['tovars'=>['id_lang' => lang()]])->group('lid')->get();
     }
 
     public static function getTovar($id)
     {
-        return self::currency()->where('lid', $id)->andWhere('id_lang', lang())->get();
+        return self::currency()->where('lid', $id)->andWhere('id_lang', lang())->group('lid')->get();
     }
 
 
@@ -47,6 +48,7 @@ class tovars extends models
             ->in('category', ' and ', $cat)
             ->andWhere('price', $filterPrice['from'], '>', false)
             ->andWhere('price', $filterPrice['to'] + 1, '<', false)
+            ->group('lid')
             ->order($data, $column)
             ->pagination(self::countPage(), $count)->get();
     }
@@ -65,19 +67,20 @@ class tovars extends models
     public static function getAllTovars(string $data, string $column, $cat = [])
     {
         $count = self::countTovars($cat);
-        return self::currency()->where(['id_lang' => lang()])
+         return self::currency()->where(['id_lang' => lang()])
             ->in('category', ' and ', $cat)
-            ->order($data, $column)->pagination(self::countPage(), $count)->get();
+             ->group('lid')
+            ->order($data, $column,'tovars')->pagination(self::countPage(), $count)->get();
     }
 
     public static function getRandomTovarsInCategory(int $id): array
     {
-        return self::currency()->where(['category' => $id, 'id_lang' => lang()])->random()->limit(9)->get();
+        return self::currency()->where(['category' => $id, 'id_lang' => lang()])->group('lid')->random()->limit(9)->get();
     }
 
     public static function randomTovars(int $limit = 15): array
     {
-        return self::currency()->where('id_lang', lang())->random()->limit($limit)->get();
+        return self::currency()->where(['tovars'=>['id_lang' => lang()]])->group('lid')->random()->limit($limit)->get();
     }
 
     private static function countTovars($cat)
@@ -96,7 +99,7 @@ class tovars extends models
     private static function currency()
     {
         if (session('currency') == '₴') {
-            return self::select();
+            return self::select(['tovars' => ['*']])->avg('rating')->leftJoin('starRating')->On('lid','lid');
         } else {
             return self::select(['id', 'lid', 'name', 'created', 'id_lang', 'img', 'old_price_doll', 'price_doll', 'action'])
                 ->as('old_price_doll', 'old_price')->as('price_doll', 'price');
@@ -105,7 +108,7 @@ class tovars extends models
 
     public static function randomActionTovar(): array
     {
-        return self::currency()->where('id_lang', lang())->andWhere('old_price', '1', '>')->random()->limit(1)->get();
+        return self::currency()->where(['tovars'=>['id_lang' => lang()]])->andWhere('old_price', '1', '>')->group('lid')->random()->limit(1)->get();
     }
 
 

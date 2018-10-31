@@ -93,10 +93,9 @@ class models
     }
 
 
-    public function avg(string $column): models
+    public function avg(string $column,int $round = 1): models
     {
-        $symbol = strrchr(self::$sql,'*') ? '*' : '';
-        self::$sql = str_replace("SELECT $symbol", "SELECT AVG(`{$column}`) `avg` ", self::$sql);
+        self::$sql = str_replace("SELECT", "SELECT if(ROUND(AVG(`{$column}`),{$round}) is NULL,0,ROUND(AVG(`{$column}`),{$round})) `avg`,", self::$sql);
         return $this;
     }
 
@@ -116,16 +115,18 @@ class models
     }
 
 
-    public function order(string $data = 'DESC', string $column = 'id'): models
+    public function order(string $data = 'DESC', string $column = 'id',string $table = ''): models
     {
-        self::$sql .= " ORDER BY `{$column}` {$data}";
+        self::$sql .= " ORDER BY ";
+        self::$sql .= $table ? "`{$table}`.`{$column}` {$data}" : "`{$column}` {$data}";
         return $this;
     }
 
 
-    public function group(string $column): models
+    public function group(string $column, string $table = ''): models
     {
-        self::$sql .= " GROUP BY `{$column}` ";
+        self::$sql .= " GROUP BY ";
+        self::$sql .= $table ? "`{$table}`.`{$column}`" : "`{$column}` ";
         return $this;
     }
 
@@ -181,14 +182,14 @@ class models
         return $this;
     }
 
-    private function sql(string $sql)
+    public function sql(string $sql): models
     {
         self::$sql = $sql;
         return $this;
     }
 
 
-    public function param(array $arr)
+    public function param(array $arr): array
     {
         $sql = self::$sql;
         self::$sql = '';
@@ -316,11 +317,11 @@ class models
     }
 
 
-    public function in($column, $sql = ' where', $arr): models
+    public function in(string $column, $sql = ' where',$arr,string $table = ''): models
     {
         if ($arr) {
             $search = "'" . implode("','", $arr) . "'";
-            self::$sql .= " {$sql} `{$column}` IN({$search}) ";
+            self::$sql .= $table ? " {$sql} `{$table}`.`{$column}` IN({$search}) " :  " {$sql} `{$column}` IN({$search}) ";
         }
         return $this;
     }
@@ -417,14 +418,14 @@ class models
         return $this;
     }
 
-    public static function pdo_query(string $sql,array $arr = []): array
+    public static function pdo_query(string $sql, array $arr = []): array
     {
-        try{
+        try {
             $res = self::db()->prepare($sql);
             $res->execute($arr);
             return $res->fetchAll();
-        }Catch(\PDOException $x){
-            echo $sql ."<br>" . $x->getMessage();
+        } Catch (\PDOException $x) {
+            echo $sql . "<br>" . $x->getMessage();
         }
     }
 

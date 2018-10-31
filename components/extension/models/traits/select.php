@@ -9,7 +9,6 @@ trait select
 {
     private static function ecranSelectColumn(array $select): string
     {
-
         $arr = [];
 
         foreach ($select as $key => $value) {

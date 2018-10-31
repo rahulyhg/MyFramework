@@ -44,7 +44,7 @@ trait globalFunction
      */
 
 
-    public  static function extens(string $file): string
+    public static function extens(string $file): string
     {
         $info = new \SplFileInfo($file);
         return $info->getExtension();
@@ -57,12 +57,10 @@ trait globalFunction
      */
 
 
-
     public static function route(string $name): string
     {
-        return core::$names[$name] ?? error_page::showPageError(" not find name route {$name}",', code #361');
+        return core::$names[$name] ?? error_page::showPageError(" not find name route {$name}", ', code #361');
     }
-
 
 
     /**
@@ -72,12 +70,11 @@ trait globalFunction
      */
 
 
-    public static function assets(string $url,$admin = false): string
+    public static function assets(string $url, $admin = false): string
     {
-        $url = trim($url,'/');
-        return $admin ?  Get::domen().'components/Admin/public/'.$url : Get::domen().'public/'.$url;
+        $url = trim($url, '/');
+        return $admin ? Get::domen() . 'components/Admin/public/' . $url : Get::domen() . 'public/' . $url;
     }
-
 
 
     /**
@@ -112,7 +109,7 @@ trait globalFunction
      * @return array
      */
 
-    public static function changeKeyArr(array $arr,string $column,array $result = [])
+    public static function changeKeyArr(array $arr, string $column, array $result = [])
     {
         foreach ($arr as $key => $value) {
 
@@ -132,13 +129,12 @@ trait globalFunction
      * @return bool
      */
 
-    public function saveFile(string $name,string $path)
+    public function saveFile(string $name, string $path)
     {
         move_uploaded_file($_FILES[$name]['tmp_name'], $path . $_FILES[$name]['name']);
 
-        return file_exists($path.$_FILES[$name]['name']) ? $path.$_FILES[$name]['name'] : false;
+        return file_exists($path . $_FILES[$name]['name']) ? $path . $_FILES[$name]['name'] : false;
     }
-
 
 
 }

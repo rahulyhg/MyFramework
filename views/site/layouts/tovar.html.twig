@@ -18,7 +18,7 @@
             </div><!-- End .item-image -->
             <div class="item-meta-container">
                 <h3 class="item-name"><a href="/tovar/{{ tovar.lid }}">{{ tovar.name }}</a></h3>
-               {% include 'site/layouts/starRating.html.twig' %}
+                {% include 'site/layouts/starRating.html.twig' with {'id': tovar.lid,'star': '3'} %}
                 <p>{{ tovar.description }}</p>
                 <div class="item-action">
                     <a href="#" data-id="{{ tovar.lid }}" data-price="{{ tovar.price }}" data-count="1" class="item-add-btn addToCart">
@@ -51,7 +51,7 @@
             {% if tovar.old_price  %}<span class="discount-rect">-{{ prod.action(tovar.old_price,tovar.price) }}%</span>{% endif %}
         </div><!-- End .item-image-wrapper -->
         <div class="item-meta-container">
-            {% include 'site/layouts/starRating.html.twig' with {'id': tovar.lid} %}
+            {% include 'site/layouts/starRating.html.twig' with {'id': tovar.lid,'star': '3'} %}
             <h3 class="item-name"><a href="/tovar/{{ tovar.lid }}">{{ tovar.name }}</a>
             </h3>
             <div class="item-action">

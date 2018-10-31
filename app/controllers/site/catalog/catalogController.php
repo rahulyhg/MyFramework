@@ -30,9 +30,6 @@ class catalogController extends Controller
 
     public function show()
     {
-
-dd(tovars::kek());
-
         $categ = self::getIdCategory();
         $randomActionTovar =  tovars::randomActionTovar();
 
