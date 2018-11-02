@@ -52,7 +52,7 @@
         </div><!-- End .item-image-wrapper -->
         <div class="item-meta-container">
 
-            {% include 'site/layouts/starRating.html.twig' with {'id': tovar.lid,'star': tovar.avg} %}
+            {% include 'site/layouts/starRating.html.twig' with {'id': tovar.lid,'star': tovar.avg|default("0")} %}
             <h3 class="item-name"><a href="/tovar/{{ tovar.lid }}">{{ tovar.name }}</a>
             </h3>
             <div class="item-action">

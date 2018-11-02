@@ -43,7 +43,7 @@ class currency extends models
      * @return string
      */
 
-    private static function getCurrencyDefault(): string
+    public static function getCurrencyDefault(): string
     {
         if(!session('currency')){
             $default_currency = session('lang.domen') == 'uk' ? '₴': '$';

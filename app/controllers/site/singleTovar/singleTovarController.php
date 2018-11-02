@@ -18,11 +18,12 @@ class singleTovarController extends Controller
 
     public function show(Get $get)
     {
-        $tovar = tovars::getTovar($get->last())[0];
+        $tovar = tovars::getTovar($get->last());
+
         echo self::$twig->render('site/pages/singleTovar/single.html.twig', [
             'tovar'         => $tovar,
             'gallery'       => gallery::getPhoto($get->last()),
-            'analogTovar'   => tovars::getRandomTovarsInCategory($tovar['category']),
+            'analogTovar'   => tovars::getRandomTovarsInCategory($tovar[0]['category'] ?? 1),
             'randomsTovar'  => tovars::randomTovars(),
         ]);
     }

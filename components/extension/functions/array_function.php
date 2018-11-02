@@ -27,7 +27,7 @@ if (!function_exists('lang')) {
 
     function lang()
     {
-        return $_SESSION['lang']['id'];
+        return $_SESSION['lang']['id'] ?? 3;
     }
 }
 if (!function_exists('lang_domen')) {
