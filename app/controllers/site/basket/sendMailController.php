@@ -22,8 +22,7 @@ class sendMailController
     protected function sendMailClient()
     {
         try {
-            $mail = new mail();
-            $mail->sendMail('rain139@ukr.net', 'lol')
+            (new mail())->sendMail('rain139@ukr.net', 'lol')
                 ->subject('аіаа')
                 ->body('wfe')->
                 send();

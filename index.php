@@ -23,8 +23,7 @@ require_once 'vendor/autoload.php';
 \Components\extension\localization\siteLang::lang();
 
 
-$core = new  Components\core\core();
-$core->run();
+(new  Components\core\core())->run();
 
 
 

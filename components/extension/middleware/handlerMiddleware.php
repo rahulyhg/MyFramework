@@ -34,8 +34,7 @@ class handlerMiddleware
 
     private function createMiddlewareObject(string $name): void
     {
-        $middl = new $name();
-        $middl->run();
+        (new $name())->run();
     }
 
     public function runGroupMiddleware(array $middlewares): void

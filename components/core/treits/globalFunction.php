@@ -46,8 +46,7 @@ trait globalFunction
 
     public static function extens(string $file): string
     {
-        $info = new \SplFileInfo($file);
-        return $info->getExtension();
+        return (new \SplFileInfo($file))->getExtension();
     }
 
 

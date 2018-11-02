@@ -167,8 +167,8 @@ class core
 
     private function getParamWithReflection(): array
     {
-        $reflection = new \ReflectionMethod($this->class, $this->route['action']);
-        return $reflection->getParameters();
+        return (new \ReflectionMethod($this->class, $this->route['action']))
+         ->getParameters();
     }
 
 

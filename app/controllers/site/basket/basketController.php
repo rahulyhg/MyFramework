@@ -16,10 +16,8 @@ class basketController extends Controller
      */
     public function show()
     {
-       $helpersFunc = new miniBasketController();
-
         echo self::$twig->render('site/pages/basket/basket.html.twig',[
-            'basket'        => $helpersFunc->getCart(),
+            'basket'        => (new miniBasketController())->getCart(),
             'randomsTovar'  => tovars::randomTovars(),
             'shipping'      => 40
         ]);

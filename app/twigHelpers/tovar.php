@@ -14,8 +14,7 @@ class tovar
 
     public function newTovar(string $date): bool
     {
-        $date = new \DateTime($date);
-        return $date->diff(new \DateTime())->d < 7 ? true : false;
+        return (new \DateTime($date))->diff(new \DateTime())->d < 7 ? true : false;
     }
 
 
