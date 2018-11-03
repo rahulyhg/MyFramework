@@ -10,15 +10,15 @@ use Components\extension\http\location;
 class changeShowListController extends Controller
 {
 
-    public function changeView(Get $get): void
+    public function changeView(): void
     {
-        $_SESSION['catalog']['view'] = $get->last();
+        $_SESSION['catalog']['view'] = Get::last();
         location::back();
     }
 
-    public function changeShowList(Get $get): void
+    public function changeShowList(): void
     {
-        $_SESSION['catalog']['list'] = $get->last() == 'block' ? 'block' : 'all';
+        $_SESSION['catalog']['list'] = Get::last() == 'block' ? 'block' : 'all';
         location::back();
     }
 

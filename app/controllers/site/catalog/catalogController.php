@@ -60,9 +60,9 @@ class catalogController extends Controller
      * @throws \Twig_Error_Syntax
      */
 
-    public function filter(Get $get)
+    public function filter()
     {
-        switch ($this->getFilter($get)) {
+        switch ($this->getFilter(Get::last())) {
             case 'cheap':
                 $this->dataAndColumn('price', 'ASC');
                 break;
@@ -76,7 +76,7 @@ class catalogController extends Controller
                 $this->dataAndColumn('old_price', 'DESC');
                 break;
             case 'price' :
-                $this->priceFromToEnd($get->last());
+                $this->priceFromToEnd(Get::last());
                 break;
         }
         $this->show();
@@ -99,9 +99,9 @@ class catalogController extends Controller
         $this->data = $data;
     }
 
-    private function getFilter(Get $get)
+    private function getFilter($last)
     {
-        return strrchr('from', $get->last()) ? 'price' : str_replace('sort=', '', $get->last());
+        return strrchr('from', $last) ? 'price' : str_replace('sort=', '', $last);
     }
 
     private function priceFromToEnd(string $get)

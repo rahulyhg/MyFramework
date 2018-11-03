@@ -4,12 +4,7 @@ namespace app\models;
 
 use Components\extension\models\models;
 
-/**
- * Class tovars
- * @package app\models
- * !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
- * currency() - ТАМ ЯКЩО ДОЛАРИ нЕ ВСЕ SELECT
- */
+
 class tovars extends models
 {
 
@@ -68,12 +63,19 @@ class tovars extends models
 
     public static function getAllTovars(string $data, string $column, $cat = [])
     {
-        return self::rating()->where(['id_lang' => lang()])
-            ->in('category', ' and ', $cat)
-            ->group('lid')
-            ->order($data, $column, 'tovars')
-            ->pagination(self::countPage(), self::countTovars($cat))
-            ->get();
+        $on = '';
+        if ($cat) {
+            $cat = implode("','", $cat);
+            $on = "and `category` IN('{$cat}')";
+        }
+        return self::pdo_query("SELECT if(ROUND(AVG(`rating`),1) is NULL,
+                            0,ROUND(AVG(`rating`),1)) `avg`, `tovars`.* 
+                            FROM `tovars` 
+                            LEFT  JOIN `starRating`  ON   `tovars`.`lid` = `starRating`.`lid` 
+                            WHERE `id_lang` = ? {$on} GROUP BY `lid`  
+                            ORDER BY `tovars`.`{$column}` {$data}" .
+                            self::sqlPagination(self::COUNT_PAGE, self::countTovars($on)), [lang()]);
+
     }
 
     public static function getRandomTovarsInCategory(int $id): array
@@ -86,11 +88,9 @@ class tovars extends models
         return self::rating()->where(['tovars' => ['id_lang' => lang()]])->group('lid')->random()->limit($limit)->get();
     }
 
-    private static function countTovars($cat)
+    private static function countTovars($on)
     {
-        return self::where(['id_lang' => lang()])
-            ->in('category', ' and ', $cat)
-            ->count()->get()[0]['count'];
+        return self::pdo_query("SELECT COUNT(`lid`) `count` FROM `tovars` WHERE `id_lang` = ? {$on} ", [lang()])[0]['count'];
     }
 
 

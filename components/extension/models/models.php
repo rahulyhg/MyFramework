@@ -85,6 +85,13 @@ class models
         return $this;
     }
 
+    public static function sqlPagination(int $count_in_one_page, int $countRows): string
+    {
+        $offset = pagination::calc_offset_for_pagination($count_in_one_page);
+        pagination::$count_page = ceil($countRows / $count_in_one_page);
+        return " LIMIT {$count_in_one_page} OFFSET {$offset} " ;
+    }
+
 
     public function sum(string $column): models
     {
