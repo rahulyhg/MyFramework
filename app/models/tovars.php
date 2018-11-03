@@ -37,7 +37,6 @@ class tovars extends models
                                  WHERE `t`.`lid` = ? AND `id_lang` = ?",[$id,lang()]);
     }
 
-
     public static function tovarsWithFilterPrice(string $data, string $column, array $filterPrice, $cat)
     {
 
