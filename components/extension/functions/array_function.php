@@ -18,7 +18,7 @@ if(!function_exists('currency')){
 
     function currency()
     {
-        return $_SESSION['currency'];
+        return $_SESSION['currency'] ?? '₴';
     }
 }
 

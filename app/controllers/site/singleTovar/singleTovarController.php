@@ -15,14 +15,12 @@ class singleTovarController extends Controller
      * @throws \Twig_Error_Runtime
      * @throws \Twig_Error_Syntax
      */
-//ЧОМУСЬ БАГ ЗА GET $get
+
     public function show()
     {
-        $tovar = tovars::getTovar(4);
-
         echo self::$twig->render('site/pages/singleTovar/single.html.twig', [
-            'tovar'         => $tovar,
-            'gallery'       => gallery::getPhoto(4),
+            'tovar'         => tovars::getTovar(Get::last())[0],
+            'gallery'       => gallery::getPhoto(Get::last()),
             'analogTovar'   => tovars::getRandomTovarsInCategory($tovar[0]['category'] ?? 1),
             'randomsTovar'  => tovars::randomTovars(),
         ]);

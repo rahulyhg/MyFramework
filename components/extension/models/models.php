@@ -272,11 +272,9 @@ class models
     public function as(string $column, string $as): models
     {
         $column = self::editColumnNameToEcranSymbol($column);
-        if (preg_match("~$column~", self::$sql)) {
-            self::$sql = str_replace($column, $column . " as `{$as}` ", self::$sql);
-        } else {
-            error_page::showPageError("Column {$column} Not find! to as", 'code: #wet346');
-        }
+
+        self::$sql = str_replace("SELECT ", "SELECT $column  `{$as}`, ", self::$sql);
+
         return $this;
     }
 
