@@ -36,7 +36,7 @@ require_once 'vendor/autoload.php';
 //
 // join (SELECT `c`.`name`,`cat_t`.`lid_tovar`,`cat_t`.`Id_categor` as `id_cat` FROM `category` `c`   join `tovar_categories` `cat_t` On `c`.`lid` = `cat_t`.`Id_categor` WHERE `lang_id` = 2 and `visible` = 1) as `n` ON  `t`.`lid` = `n`.`lid_tovar`
 //
-//WHERE `id_lang` = 2 GROUP BY `lid`
+//WHERE `id_lang` = 2 GROUP BY `lid`8
 
 
 //nl2br
