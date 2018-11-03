@@ -39,25 +39,26 @@ class tovars extends models
     public static function tovarsWithFilterPrice(string $data, string $column, array $filterPrice, $cat)
     {
 
-        $count = self::countTovarsWithFilterPrice($filterPrice, $cat);
+        $in = '';
+        if ($cat) {
+            $cat = implode("','", $cat);
+            $in = "and `category` IN('{$cat}')";
+        }
 
-        return self::rating()->where(['id_lang' => lang()])
-            ->in('category', ' and ', $cat)
-            ->andWhere('price', $filterPrice['from'], '>', false)
-            ->andWhere('price', $filterPrice['to'] + 1, '<', false)
-            ->group('lid')
-            ->order($data, $column)
-            ->pagination(self::countPage(), $count)->get();
+       return self::pdo_query("SELECT if(ROUND(AVG(`rating`),1) is NULL,0,ROUND(AVG(`rating`),1)) `avg`,
+                                     `tovars`.* 
+                                    FROM `tovars` LEFT JOIN `starRating` ON `tovars`.`lid` = `starRating`.`lid` 
+                                    WHERE `id_lang` = ? AND `price` > ? AND `price` < ? {$in}
+                                    GROUP BY `lid` ORDER BY `tovars`.`{$column}` {$data}" .
+                            self::sqlPagination(self::COUNT_PAGE, self::countTovarsWithFilterPrice($filterPrice, $in)),
+             [lang(),$filterPrice['from'],$filterPrice['to'] + 1]);
     }
 
 
     private static function countTovarsWithFilterPrice(array $filterPrice, $cat)
     {
-        return self::where(['id_lang' => lang()])
-            ->in('category', ' and ', $cat)
-            ->andWhere('price', $filterPrice['from'], '>', false)
-            ->andWhere('price', $filterPrice['to'] + 1, '<', false)
-            ->count()->get()[0]['count'];
+        return self::pdo_query("SELECT COUNT(`lid`) as `count` FROM `tovars` WHERE `id_lang` = ? 
+                        AND `price` > ? AND `price` < ?",[lang(),$filterPrice['from'],$filterPrice['to'] + 1])[0]['count'];
     }
 
 
@@ -78,6 +79,11 @@ class tovars extends models
 
     }
 
+    private static function countTovars($on)
+    {
+        return self::pdo_query("SELECT COUNT(`lid`) `count` FROM `tovars` WHERE `id_lang` = ? {$on} ", [lang()])[0]['count'];
+    }
+
     public static function getRandomTovarsInCategory(int $id): array
     {
         return self::rating()->where(['category' => $id, 'id_lang' => lang()])->group('lid')->random()->limit(9)->get();
@@ -88,10 +94,7 @@ class tovars extends models
         return self::rating()->where(['tovars' => ['id_lang' => lang()]])->group('lid')->random()->limit($limit)->get();
     }
 
-    private static function countTovars($on)
-    {
-        return self::pdo_query("SELECT COUNT(`lid`) `count` FROM `tovars` WHERE `id_lang` = ? {$on} ", [lang()])[0]['count'];
-    }
+
 
 
     private static function countPage()
