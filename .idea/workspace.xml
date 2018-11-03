@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f20e48be-af7f-4530-ac1c-0c55d46b2de4" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/app/models/tovars.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/tovars.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/extension/models/models.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/extension/models/models.php" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/httpRequests/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -34,35 +35,15 @@
       <file leaf-file-name="tovars.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/models/tovars.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="54" column="12" selection-start-line="54" selection-start-column="12" selection-end-line="54" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="catalogController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/site/catalog/catalogController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="36" column="129" selection-start-line="36" selection-start-column="129" selection-end-line="36" selection-end-column="129" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="models.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/components/extension/models/models.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="647">
-              <caret line="87" column="33" lean-forward="true" selection-start-line="87" selection-start-column="27" selection-end-line="87" selection-end-column="40" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="miniBasketController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/site/basket/miniBasketController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
+            <state relative-caret-position="476">
+              <caret line="36" column="12" selection-start-line="36" selection-start-column="12" selection-end-line="36" selection-end-column="12" />
+              <folding>
+                <element signature="e#930#1881#0#PHP" />
+                <element signature="e#1686#2020#0#PHP" />
+                <element signature="e#2146#2190#0#PHP" />
+                <element signature="e#2196#2950#0#PHP" />
+                <element signature="e#2956#3134#0#PHP" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -304,44 +285,6 @@
               <item name="Root" type="cbb8eebc:String" user="Root" />
               <item name="framework" type="cbb8eebc:String" user="framework" />
               <item name="app" type="cbb8eebc:String" user="app" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="framework" type="cbb8eebc:String" user="framework" />
-              <item name="app" type="cbb8eebc:String" user="app" />
-              <item name="controllers" type="cbb8eebc:String" user="controllers" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="framework" type="cbb8eebc:String" user="framework" />
-              <item name="app" type="cbb8eebc:String" user="app" />
-              <item name="controllers" type="cbb8eebc:String" user="controllers" />
-              <item name="site" type="cbb8eebc:String" user="site" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="framework" type="cbb8eebc:String" user="framework" />
-              <item name="app" type="cbb8eebc:String" user="app" />
-              <item name="controllers" type="cbb8eebc:String" user="controllers" />
-              <item name="site" type="cbb8eebc:String" user="site" />
-              <item name="catalog" type="cbb8eebc:String" user="catalog" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="framework" type="cbb8eebc:String" user="framework" />
-              <item name="app" type="cbb8eebc:String" user="app" />
-              <item name="controllers" type="cbb8eebc:String" user="controllers" />
-              <item name="site" type="cbb8eebc:String" user="site" />
-              <item name="catalog" type="cbb8eebc:String" user="catalog" />
-              <item name="service" type="cbb8eebc:String" user="service" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="framework" type="cbb8eebc:String" user="framework" />
-              <item name="app" type="cbb8eebc:String" user="app" />
-              <item name="controllers" type="cbb8eebc:String" user="controllers" />
-              <item name="site" type="cbb8eebc:String" user="site" />
-              <item name="singleTovar" type="cbb8eebc:String" user="singleTovar" />
             </path>
             <path>
               <item name="Root" type="cbb8eebc:String" user="Root" />
@@ -740,12 +683,12 @@
       <workItem from="1541021264807" duration="6505000" />
       <workItem from="1541172682454" duration="48000" />
       <workItem from="1541191204578" duration="2762000" />
-      <workItem from="1541238449564" duration="7502000" />
+      <workItem from="1541238449564" duration="8868000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="525181000" />
+    <option name="totallyTimeSpent" value="526547000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-1" width="1920" height="1046" extended-state="6" />
@@ -756,8 +699,8 @@
       <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.3297062" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3297062" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4994664" weight="0.25897714" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.35058698" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4994664" visible="true" weight="0.25897714" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.35058698" />
       <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="4" weight="0.32977587" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32861805" />
@@ -783,7 +726,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="30" />
+      <option name="time" value="33" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -851,13 +794,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="663">
           <caret line="119" column="9" lean-forward="true" selection-start-line="119" selection-start-column="9" selection-end-line="119" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/main.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="49" column="42" selection-start-line="49" selection-start-column="42" selection-end-line="49" selection-end-column="42" />
         </state>
       </provider>
     </entry>
@@ -1074,17 +1010,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/site/basket/miniBasketController.php">
+    <entry file="file://$PROJECT_DIR$/components/extension/models/models.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
+        <state relative-caret-position="528">
+          <caret line="101" column="47" lean-forward="true" selection-start-line="101" selection-start-column="47" selection-end-line="101" selection-end-column="47" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/components/extension/models/models.php">
+    <entry file="file://$PROJECT_DIR$/app/models/main.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="647">
-          <caret line="87" column="33" lean-forward="true" selection-start-line="87" selection-start-column="27" selection-end-line="87" selection-end-column="40" />
+        <state relative-caret-position="-862">
+          <caret line="49" column="42" selection-start-line="49" selection-start-column="42" selection-end-line="49" selection-end-column="42" />
         </state>
       </provider>
     </entry>
@@ -1095,10 +1031,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/site/basket/miniBasketController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/tovars.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="54" column="12" selection-start-line="54" selection-start-column="12" selection-end-line="54" selection-end-column="12" />
+        <state relative-caret-position="476">
+          <caret line="36" column="12" selection-start-line="36" selection-start-column="12" selection-end-line="36" selection-end-column="12" />
+          <folding>
+            <element signature="e#930#1881#0#PHP" />
+            <element signature="e#1686#2020#0#PHP" />
+            <element signature="e#2146#2190#0#PHP" />
+            <element signature="e#2196#2950#0#PHP" />
+            <element signature="e#2956#3134#0#PHP" />
+          </folding>
         </state>
       </provider>
     </entry>

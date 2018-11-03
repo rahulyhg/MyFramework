@@ -89,7 +89,13 @@ class models
     {
         $offset = pagination::calc_offset_for_pagination($count_in_one_page);
         pagination::$count_page = ceil($countRows / $count_in_one_page);
-        return " LIMIT {$count_in_one_page} OFFSET {$offset} " ;
+        return " LIMIT {$count_in_one_page} OFFSET {$offset} ";
+    }
+
+    public static function ecranForIn(array $cat): string
+    {
+        $cat = implode("','", $cat);
+        return "'{$cat}'";
     }
 
 
@@ -100,7 +106,7 @@ class models
     }
 
 
-    public function avg(string $column,int $round = 1): models
+    public function avg(string $column, int $round = 1): models
     {
         self::$sql = str_replace("SELECT", "SELECT if(ROUND(AVG(`{$column}`),{$round}) is NULL,0,ROUND(AVG(`{$column}`),{$round})) `avg`,", self::$sql);
         return $this;
@@ -122,7 +128,7 @@ class models
     }
 
 
-    public function order(string $data = 'DESC', string $column = 'id',string $table = ''): models
+    public function order(string $data = 'DESC', string $column = 'id', string $table = ''): models
     {
         self::$sql .= " ORDER BY ";
         self::$sql .= $table ? "`{$table}`.`{$column}` {$data}" : "`{$column}` {$data}";
@@ -322,11 +328,11 @@ class models
     }
 
 
-    public function in(string $column, $sql = ' where',$arr,string $table = ''): models
+    public function in(string $column, $sql = ' where', $arr, string $table = ''): models
     {
         if ($arr) {
             $search = "'" . implode("','", $arr) . "'";
-            self::$sql .= $table ? " {$sql} `{$table}`.`{$column}` IN({$search}) " :  " {$sql} `{$column}` IN({$search}) ";
+            self::$sql .= $table ? " {$sql} `{$table}`.`{$column}` IN({$search}) " : " {$sql} `{$column}` IN({$search}) ";
         }
         return $this;
     }

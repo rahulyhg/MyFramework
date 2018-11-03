@@ -32,50 +32,53 @@ class tovars extends models
 
     public static function getTovar($id)
     {
-        return self::rating()->where(['tovars' => ['lid' => $id]])->andWhere('id_lang', lang())->get();
+        return self::pdo_query("SELECT if(ROUND(AVG(`rating`),1) is NULL,0,ROUND(AVG(`rating`),1)) `avg`, `t`.* FROM `tovars` `t`
+                                 LEFT JOIN `starRating` `s` ON `t`.`lid` = `s`.`lid` 
+                                 WHERE `t`.`lid` = ? AND `id_lang` = ?",[$id,lang()]);
     }
 
 
     public static function tovarsWithFilterPrice(string $data, string $column, array $filterPrice, $cat)
     {
 
-        $in = '';
-        if ($cat) {
-            $cat = implode("','", $cat);
-            $in = "and `category` IN('{$cat}')";
-        }
+        $in = self::sqlOn($cat);
 
        return self::pdo_query("SELECT if(ROUND(AVG(`rating`),1) is NULL,0,ROUND(AVG(`rating`),1)) `avg`,
                                      `tovars`.* 
                                     FROM `tovars` LEFT JOIN `starRating` ON `tovars`.`lid` = `starRating`.`lid` 
                                     WHERE `id_lang` = ? AND `price` > ? AND `price` < ? {$in}
                                     GROUP BY `lid` ORDER BY `tovars`.`{$column}` {$data}" .
-                            self::sqlPagination(self::COUNT_PAGE, self::countTovarsWithFilterPrice($filterPrice, $in)),
+                            self::sqlPagination(self::countPage(), self::countTovarsWithFilterPrice($filterPrice, $in)),
              [lang(),$filterPrice['from'],$filterPrice['to'] + 1]);
     }
 
-
     private static function countTovarsWithFilterPrice(array $filterPrice, $cat)
     {
+        $in = self::sqlOn($cat);
         return self::pdo_query("SELECT COUNT(`lid`) as `count` FROM `tovars` WHERE `id_lang` = ? 
-                        AND `price` > ? AND `price` < ?",[lang(),$filterPrice['from'],$filterPrice['to'] + 1])[0]['count'];
+                        AND `price` > ? AND `price` < ? {$in} ",[lang(),$filterPrice['from'],$filterPrice['to'] + 1])[0]['count'];
     }
 
+    private static function sqlOn($cat)
+    {
+        if ($cat) {
+            $cat = implode("','", $cat);
+            return "and `category` IN('{$cat}')";
+        }
+        return '';
+    }
 
     public static function getAllTovars(string $data, string $column, $cat = [])
     {
-        $on = '';
-        if ($cat) {
-            $cat = implode("','", $cat);
-            $on = "and `category` IN('{$cat}')";
-        }
+       $on = self::sqlOn($cat);
+
         return self::pdo_query("SELECT if(ROUND(AVG(`rating`),1) is NULL,
                             0,ROUND(AVG(`rating`),1)) `avg`, `tovars`.* 
                             FROM `tovars` 
                             LEFT  JOIN `starRating`  ON   `tovars`.`lid` = `starRating`.`lid` 
                             WHERE `id_lang` = ? {$on} GROUP BY `lid`  
                             ORDER BY `tovars`.`{$column}` {$data}" .
-                            self::sqlPagination(self::COUNT_PAGE, self::countTovars($on)), [lang()]);
+                            self::sqlPagination(self::countPage(), self::countTovars($on)), [lang()]);
 
     }
 
@@ -93,9 +96,6 @@ class tovars extends models
     {
         return self::rating()->where(['tovars' => ['id_lang' => lang()]])->group('lid')->random()->limit($limit)->get();
     }
-
-
-
 
     private static function countPage()
     {
