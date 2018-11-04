@@ -6,6 +6,7 @@ use app\models\orders;
 use Components\Controller;
 use Components\extension\arr\Request;
 use Components\extension\http\location;
+use Components\extension\messengers\telegram\telegarm;
 
 
 class proceedOrderController extends Controller
@@ -20,6 +21,8 @@ class proceedOrderController extends Controller
         $id = $this->saveOrder();
 
         $this->sendMail();
+
+        $this->sendTelegram();
 
         $this->clearCart();
 
@@ -92,6 +95,11 @@ class proceedOrderController extends Controller
     private function deleteServiseKey(): void
     {
         unset($this->request['crsf']);
+    }
+
+    private function sendTelegram(): void
+    {
+        (new telegarm())->message('NEW ORDER')->send();
     }
 //checked in servers
     private function sendMail()
